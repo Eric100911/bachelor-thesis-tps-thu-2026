@@ -1,0 +1,39 @@
+# macOS / editor files
+.DS_Store
+.vscode/
+*~
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Generated PDFs and temporary outputs
+*.pdf
+!figures/**/*.pdf
+!thu-fig-logo.pdf
+!thu-text-logo.pdf
+*.dvi
+*.ps
+*.nav
+*.snm
+*.vrb
+missfont.log
+_markdown_thuthesis*
+thuthesis.markdown.*
+main-survey.*
+main-translation.*
