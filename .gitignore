@@ -3,6 +3,15 @@
 .vscode/
 *~
 
+# Structure reference
+
+struct-ref/
+
+# Python helper artifacts
+__pycache__/
+*.pyc
+*.pyo
+
 # LaTeX build artifacts
 *.aux
 *.bbl

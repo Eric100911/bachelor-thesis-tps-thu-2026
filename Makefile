@@ -1,7 +1,8 @@
-# Makefile for ThuThesis
+# Makefile for ThuThesis-based thesis workspace
 
 PACKAGE = thuthesis
 THESIS  = thuthesis-chiwang-bachelor-tps
+EXAMPLE = thuthesis-example
 SPINE   = spine
 
 SOURCES = $(PACKAGE).ins $(PACKAGE).dtx
@@ -17,13 +18,15 @@ else
 	RM = rm -f
 endif
 
-.PHONY: all all-dev clean distclean dist thesis viewthesis doc viewdoc cls check save test FORCE_MAKE
+.PHONY: all all-dev clean cleanall distclean dist thesis example viewthesis viewexample doc viewdoc cls check save test FORCE_MAKE
 
 thesis: $(THESIS).pdf
 
 all: thesis
 
 all-dev: doc all
+
+example: $(EXAMPLE).pdf
 
 cls: $(CLSFILE)
 
@@ -38,11 +41,17 @@ $(PACKAGE).pdf: cls FORCE_MAKE
 $(THESIS).pdf: cls FORCE_MAKE
 	$(LATEXMK) $(THESIS)
 
+$(EXAMPLE).pdf: FORCE_MAKE
+	$(LATEXMK) $(EXAMPLE)
+
 viewdoc: doc
 	$(LATEXMK) -pv $(PACKAGE).dtx
 
 viewthesis: thesis
 	$(LATEXMK) -pv $(THESIS)
+
+viewexample: example
+	$(LATEXMK) -pv $(EXAMPLE)
 
 save:
 ifeq ($(target),)
@@ -59,11 +68,11 @@ else
 endif
 
 clean:
-	$(LATEXMK) -c $(PACKAGE).dtx $(THESIS)
-	-@$(RM) -rf *~ main-survey.* main-translation.* _markdown_thuthesis* thuthesis.markdown.*
+	$(LATEXMK) -c $(PACKAGE).dtx $(THESIS) $(EXAMPLE)
+	-@$(RM) -rf *~ missfont.log main-survey.* main-translation.* _markdown_thuthesis* thuthesis.markdown.*
 
 cleanall: clean
-	-@$(RM) $(PACKAGE).pdf $(THESIS).pdf
+	-@$(RM) $(PACKAGE).pdf $(THESIS).pdf $(EXAMPLE).pdf
 
 distclean: cleanall
 	-@$(RM) $(CLSFILE)
@@ -77,7 +86,5 @@ else
 endif
 
 dist: check all-dev
-	# use l3build for CTAN release (zip with .tds.zip)
 	l3build ctan --config utils/build-ctan
-	# use gulp for GitHub release (zip with generated file)
 	python3 utils/create_release.py --version="v$(version)"
