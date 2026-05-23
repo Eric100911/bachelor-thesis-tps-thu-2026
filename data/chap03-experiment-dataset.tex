@@ -1,29 +1,65 @@
-\chapter{CMS 实验装置、数据样本与模拟样本}
+\chapter{实验装置与数据样本}
 
-\section{CMS 实验装置中与本分析相关的部分}
+\section{大型强子对撞机与 CMS 探测器}
 
-本分析主要依赖 CMS 探测器中的硅径迹系统、缪子系统以及触发系统。
-对 \(J/\psi \to \mu^+\mu^-\) 候选的重建而言，径迹和缪子探测性能直接决定质量分辨率、顶点质量和选择效率；
-对 \(\phi\) 候选的重建而言，还需要明确带电径迹重建、顶点拟合和质量窗口定义。
+\subsection{大型强子对撞机}
 
-本章应只保留与本分析直接相关的实验装置介绍，避免把通用 CMS 探测器综述写得过长。
+欧洲核子研究中心（CERN）的大型强子对撞机（Large Hadron Collider, LHC）是目前世界上能量最高的粒子加速器。LHC 位于日内瓦附近横跨瑞士-法国边境的地下约 100 米处，主储存环周长约 27 公里。在 LHC Run~3 期间（2022--2025 年），LHC 将质子束加速至每束 6.8~TeV 的能量，对应的质心系对撞能量为 $\sqrt{s}=13.6~\mathrm{TeV}$。LHC 可同时加速超过 2800 个质子束团，每个束团包含约 $10^{11}$ 个质子，束团以 25~ns 的时间间隔在四个对撞点交叉，产生的瞬时亮度最高可达 $2.5 \times 10^{34}~\mathrm{cm}^{-2}\cdot\mathrm{s}^{-1}$~\cite{CMS_JINST_2008}。
+
+LHC 上建有四个大型粒子探测器——CMS、ATLAS、ALICE 和 LHCb——分别位于四个对撞点，各具独特的探测器设计和物理目标。高瞬时亮度带来的一个重要后果是"pileup"效应，即每次束团交叉中平均发生多次质子-质子硬散射。在 LHC Run~3 中，平均 pileup 达到约 60，这对粒子重建、顶点分辨和本底抑制提出了严峻挑战。
+
+\subsection{CMS 探测器}
+
+紧凑缪子螺线管（Compact Muon Solenoid, CMS）探测器是 LHC 上的两个通用型探测器之一。探测器全长 21 米，直径 15 米，总重约 14,000 吨。CMS 探测器采用多层同心结构，从内到外依次为硅径迹探测器、电磁量能器、强子量能器、超导螺线管磁铁和缪子谱仪。
+
+CMS 的一个核心特征是强大的超导螺线管磁铁，其内径 5.9 米、长 12.9 米，可在线圈内部产生沿束流方向的 3.8~T 磁场。硅径迹探测器和量能器均安装于磁铁内腔中。这一强磁场设计使得 CMS 在相对紧凑的谱仪体积内实现了优异的动量分辨率~\cite{CMS_JINST_2008}。
+
+本分析主要依赖 CMS 探测器的以下子探测器系统：
+
+\textbf{硅径迹探测器}：位于 CMS 的最内层，由像素探测器和硅微条探测器组成，覆盖赝快度 $|\eta| < 2.5$ 的范围。像素探测器提供高精度的三维击中信息，用于重建初级顶点和鉴别重味强子的次级衰变顶点；硅微条探测器提供大面积的径迹击中覆盖，是带电粒子径迹重建和动量测量的基础。硅径迹探测器的高空间分辨率和多层击中能力为径迹重建提供了约 $1\%$--$2\%$ 的相对横动量分辨率（对于 $p_{\mathrm{T}} \sim 100~\mathrm{GeV}$ 的带电粒子）以及对初级顶点位置的精确测定。
+
+\textbf{缪子谱仪}：CMS 的另一标志性特征是其卓越的缪子探测能力。CMS 的四个缪子"站"被嵌入超导磁铁的铁制返回轭中，利用约 2~T 的返回磁场进行缪子动量的独立测量。在桶部区域（$|\eta| < 1.2$），缪子站由铝漂移管（Drift Tube, DT）组成；在端盖区域（$0.9 < |\eta| < 2.4$），则由阴极条室（Cathode Strip Chamber, CSC）覆盖。阻性板室（Resistive Plate Chamber, RPC）分布于桶部和端盖，提供快速的时间响应信息，用于触发和束团交叉指派。缪子谱仪与硅径迹探测器协同工作，可实现总重建和鉴别效率 $> 96\%$，对典型缪子的相对动量分辨率约为 $2\%$，对 TeV 级缪子亦可达 $10\%$~\cite{CMS_MUON_PERF_13TEV}。
+
+\textbf{触发系统}：LHC 的对撞频率为 40~MHz，对应的数据产生速率约为 40~TB/s，无法将所有事例全部存储。CMS 采用两级触发系统进行在线事例筛选。第一级（Level-1 Trigger, L1T）为基于 FPGA 和 ASIC 的硬件触发，将事例率降至约 100~kHz。第二级（High-Level Trigger, HLT）为基于计算机集群的软件触发，进一步将平均输出事例率降至约 1.5~kHz。CMS 的数据集通常存储满足某一组触发条件的事例。
 
 \section{数据样本}
 
-这里应补充本分析所使用的数据时期、触发路径、数据质量要求以及积分亮度信息。
-建议在最终版本中至少明确以下内容：
+\subsection{数据获取时期与积分亮度}
+
+本分析基于 LHC Run~3 期间（2022--2025 年）CMS 实验采集的全部质子-质子对撞数据，质心系能量为 $\sqrt{s}=13.6~\mathrm{TeV}$。分析使用的数据样本来自 \texttt{ParkingDoubleMuonLowMass} 数据流，该数据流专门为低质量双缪子触发路径设计，适合采集包含 $J/\psi \to \mu^+\mu^-$ 衰变的事例。各年的数据样本与对应的 JSON 认证文件如下：
 
 \begin{itemize}
-  \item \textbf{[待填：数据年份与 run era]}
-  \item \textbf{[待填：主触发路径与备选触发路径]}
-  \item \textbf{[待填：积分亮度和对应认证条件]}
-  \item \textbf{[待填：预选 skims 或 ntuple 的版本信息]}
+  \item \textbf{2022 年}：Cert\_Collisions2022\_355100\_362760\_Muon.json，数据重建版本为 Run2022C--F / PromptReco-v1 或 v2；
+  \item \textbf{2023 年}：Cert\_Collisions2023\_366442\_370790\_Muon.json，数据重建版本为 Run2023C / PromptReco-v1 至 v4 及 Run2023D / PromptReco-v1 至 v2；
+  \item \textbf{2024 年}：Cert\_Collisions2024\_378981\_386951\_Muon.json，数据重建版本为 Run2024C--I / PromptReco-v1 或 v2；
+  \item \textbf{2025 年}：\textbf{[待填：2025 年 JSON 认证文件及数据重建版本]}。
 \end{itemize}
 
-\section{模拟样本与辅助输入}
+所有数据均要求通过 CMS 数据质量认证（Data Quality Monitoring, DQM），被标记为"Muon"物理数据集的黄金 JSON（Golden JSON）认证。各年的积分亮度信息如下：\textbf{[待填：2022--2025 年各年积分亮度及总和]}。
 
-若后续效率、接受度或拟合模型需要依赖 MC，本章还应记录所使用的模拟样本配置，
-包括生成器、衰变链、触发模拟、重建版本和后处理步骤。
+\subsection{触发条件}
 
-考虑到图表和分析脚本可能保存在其他工作区，本仓库应至少保存文字级来源说明，
-并在 \texttt{notes/provenance.md} 中记录对应输入的版本和生成日期。
+本分析的候选事例须通过 \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v} 触发路径。该触发路径为低质量双缪子末态优化，其主要选择条件为：
+
+\begin{itemize}
+  \item 事例中至少存在三个缪子，每个缪子须满足 $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$、$|\eta| < 2.5$；
+  \item 至少存在一对电荷相反的缪子，满足 $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$，其不变质量 $m_{\mu\mu}$ 满足 $2.95 < m_{\mu\mu} < 3.25~\mathrm{GeV}$，且两条缪子径迹拟合到共同顶点的概率大于 $0.5\%$。
+\end{itemize}
+
+该触发路径的双缪子质量窗口与 $J/\psi$ 共振峰的位置和宽度相匹配，能够高效选择包含 $J/\psi \to \mu^+\mu^-$ 衰变的事例，同时保持合理的触发速率。
+
+此外，对于包含 $\Upsilon(nS)$ 的末态，本分析同时使用 \texttt{HLT\_Trimuon5\_3p5\_2\_Upsilon\_Muon\_v} 触发路径作为补充。该触发路径与上述路径类似，但要求双缪子不变质量满足 $8.5 < m_{\mu\mu} < 11.4~\mathrm{GeV}$（匹配 $\Upsilon$ 质量区域），且至少一个缪子的 $p_{\mathrm{T}} > 5.0~\mathrm{GeV}$。
+
+\section{蒙特卡罗模拟样本}
+
+为评估探测器的接收度、重建效率以及分析选择策略的性能，本分析使用蒙特卡罗（Monte Carlo, MC）模拟样本。模拟样本的主要产生流程如下：
+
+\begin{itemize}
+  \item \textbf{事例产生}：使用 \textsc{HELAC-Onia 2.7.6}~\cite{HS_SHAO_HO,HS_SHAO_HO_2} 产生 $pp \to J/\psi + J/\psi + \Upsilon(1S) + X$ 过程的硬散射事例，包括 SPS、DPS 和 TPS 三种产生机制。DPS 样本通过随机混合方法从 SPS 样本中构建：分别产生单 $J/\psi$、单 $\Upsilon$、$J/\psi + J/\psi$（SPS）和 $J/\psi + \Upsilon$（SPS）样本后，将对应的子散射事例进行随机叠加。事例信息以 Les Houches Event（LHE）格式存储。
+  \item \textbf{部分子簇射与强子化}：使用 \textsc{Pythia 8}~\cite{PYTHIA_8_2} 对 LHE 文件中的部分子级事例进行部分子簇射、强子化以及 $J/\psi$ 和 $\Upsilon$ 的衰变模拟，输出 GEN 格式数据。
+  \item \textbf{探测器模拟}：使用 \textsc{Geant 4}~\cite{GEANT4} 模拟粒子在 CMS 探测器中的传播和相互作用，包括磁场效应和探测器几何结构，输出 GENSIM 格式数据。
+  \item \textbf{数字化与 pileup 混合}：将探测器响应转换为数字信号（digitization），并与来自最小偏差（MinBias）预混合数据集的 pileup 事例进行叠加，以模拟 Run~3 的 pileup 环境，输出 RAWSIM 格式数据。
+  \item \textbf{触发模拟与重建}：模拟 L1T 和 HLT 触发过程，随后进行完整的离线重建（径迹重建、顶点重建、粒子流重建等），输出 AODSIM 格式数据。经进一步简化后形成 MINIAODSIM 格式数据，供分析框架使用。
+\end{itemize}
+
+全链模拟和重建流程基于 \textsc{CMSSW} 框架~\cite{CMS_PHYS_TDR}，利用 CMS 协作组的 CRAB 计算资源和数据管理系统将计算任务提交至 CERN 的计算网格执行。\textbf{[待填：$pp \to J/\psi + J/\psi + \phi + X$ 和 $pp \to J/\psi + \Upsilon + \phi + X$ 过程的 MC 样本产生现状]}。
