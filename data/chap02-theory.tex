@@ -1,161 +1,195 @@
-\chapter{物理动机与相关理论背景}
+\chapter{Multi-Parton Scattering (MPS)}
+% \chapter{多重部分子散射（MPS）}
 
-\section{重夸克偶素与实验末态}
+\section{From Single- to Multiple-Parton Scattering}
+% \section{从单部分子散射到多重部分子散射}
 
-重夸克偶素是由一对重味正反夸克（$c\bar{c}$ 或 $b\bar{b}$）组成的束缚态介子。
-由于重夸克质量明显大于 QCD 的非微扰标度 \(\Lambda_{\mathrm{QCD}}\)，重夸克对的产生可在硬散射层面用微扰 QCD 计算；
-但该重夸克对进一步演化为实验可观测的束缚态，则依赖非微扰强子化过程。
-这一“短程产生 + 长程束缚”的双重属性，使重夸克偶素成为连接微扰与非微扰 QCD 的典型研究对象~\cite{LANSBERG_QUARKONIUM_REVIEW,NRQCD_BBL1995}。
+% TO_APPROVE
 
-本分析涉及的核心共振态为 \(J/\psi\) 和 \(\phi(1020)\)。
-\(J/\psi\) 是最低矢量粲偶素态之一，质量约为 \(3096.9~\mathrm{MeV}\)，可通过 \(J/\psi\to\mu^+\mu^-\) 衰变道在 CMS 缪子系统中干净重建。
-\(\phi(1020)\) 主要由 \(s\bar{s}\) 组成，严格意义上不属于重夸克偶素；但其宽度窄、\(\phi\to K^+K^-\) 分支比较大，
-在带电径迹系统中可通过窄的不变质量峰进行识别~\cite{PDG2024}。
-因此，\(J/\psi+J/\psi+\phi\) 末态同时包含清晰的双缪子对象和强子径迹共振，
-适合作为多重夸克偶素联合产生研究中兼顾统计量与实验复杂度的通道。
+In the usual leading picture of a hard proton--proton collision, one parton from each incoming proton participates in a short-distance partonic subprocess, while the remaining constituents form the beam remnants and the underlying event.
+This mechanism is called single-parton scattering (SPS).
+It is the default language for perturbative calculations of high-scale final states and for many measurements of parton distribution functions.
+At the LHC, however, the large parton luminosity, especially in gluon-rich low-\(x\) regions, makes it possible for two or more parton pairs to undergo separate hard scatterings in the same proton--proton collision.
+Such events are collectively referred to as multiple-parton scattering (MPS), with double-parton scattering (DPS) and triple-parton scattering (TPS) as the most commonly discussed cases~\cite{Z48W3VLV,denterriaDoubleTripleNparton2017}.
+% 在通常的硬质子--质子碰撞图像中，每个质子各有一个部分子参与短程散射，其余部分子形成束流余迹和底事件。
+% 在 LHC 的高部分子亮度下，同一次质子--质子碰撞中可能发生两个或更多独立硬散射，统称为 MPS。
 
-\section{重夸克偶素产生机制}
+% TO_APPROVE
 
-\subsection{单个夸克偶素产生}
+MPS is not only a correction to event activity.
+It probes information about the proton that is not contained in ordinary one-body parton distribution functions.
+SPS measurements mainly constrain longitudinal momentum densities, whereas MPS observables are sensitive to the transverse spatial distribution of partons and to correlations in momentum, flavor, color, and spin.
+These correlations are nonperturbative QCD inputs and are therefore difficult to predict from first principles.
+For this reason, measurements in several final states and at different scattering multiplicities are needed to test whether the simplified factorized picture is sufficient~\cite{Z48W3VLV,denterriaDoubleTripleNparton2017}.
 
-在强子对撞中，单个 \(J/\psi\) 的产生通常可分为 prompt 与 nonprompt 两类。
-prompt \(J/\psi\) 包括直接产生以及较高粲偶素态的衰变馈入；nonprompt \(J/\psi\) 则主要来自含 \(b\) 强子的弱衰变。
-两者在实验上常通过 \(J/\psi\) 顶点相对主顶点的位移进行区分。
-对于本分析而言，末态中多个 \(J/\psi\) 的顶点一致性、共同顶点拟合以及可能的非 prompt 成分均会影响信号定义和效率修正。
+\begin{figure}[htbp]
+  \centering
+  \fbox{%
+    \begin{minipage}[c][0.24\textheight][c]{0.86\textwidth}
+      \centering
+      Placeholder for a schematic comparing SPS, DPS, and TPS topologies in a single \(pp\) collision.
+      The final version should show one, two, and three independent parton--parton hard scatterings, with common beam remnants.
+    \end{minipage}%
+  }
+  \caption{Conceptual topology of single- and multiple-parton scattering in proton--proton collisions.
+  The figure is a placeholder; no numerical input is implied.}
+  \label{fig:mps-sps-dps-tps-topology}
+\end{figure}
 
-理论上，色单态模型要求硬散射中产生的 \(Q\bar{Q}\) 对已经具有最终夸克偶素的颜色、电荷共轭和角动量量子数；
-NRQCD 因子化则允许短程过程中产生色八重态 \(Q\bar{Q}\) 对，随后通过软胶子辐射演化为物理夸克偶素~\cite{NRQCD_BBL1995}。
-这两类图像对截面归一化、横动量谱和极化预言不同。
-在单 \(J/\psi\) 产生中，较高阶 QCD 修正、长程矩阵元和极化假设已经形成较丰富的文献；
-而在双重或三重夸克偶素产生中，还需要同时处理多个硬散射过程的叠加，因此理论和实验不确定度进一步增大。
+\section{Double, Triple, and General \texorpdfstring{\(n\)}{n}-Parton Scattering}
+% \section{双重、三重和一般 \(n\) 重部分子散射}
 
-\subsection{联合产生中的 SPS 与 MPS}
+% TO_APPROVE
 
-多个夸克偶素的联合产生可以来自单部分子散射（Single Parton Scattering, SPS），也可以来自同一次质子--质子对撞中的多个硬散射过程。
-对于双 \(J/\psi\) 产生，SPS 与 DPS 均可能贡献可观测截面；
-二者在不变质量、方位角差、快度差等运动学变量中呈现不同相关性，因此实验上常借助这些变量分离或约束 DPS 成分~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,BORSCHENSKY_KULESZA_2017}。
-对于三重夸克偶素末态，SPS 贡献通常受到更高阶耦合和相空间的抑制，
-而 DPS/TPS 的相对重要性增强，使其成为多部分子相互作用的敏感探针~\cite{XREDRBCJ,CMS_TRI_JPSI}。
+For two hard final states \(A\) and \(B\), DPS corresponds to the simultaneous occurrence of two partonic subprocesses in one hadronic collision.
+If \(A\) and \(B\) are produced independently, their joint rate is enhanced when the two colliding protons overlap strongly in the transverse plane.
+For three hard final states \(A\), \(B\), and \(C\), TPS extends the same idea to three parton--parton interactions.
+The formal generalization to \(n\)-parton scattering is useful because it makes the combinatorial and geometric structure explicit, even when only DPS and TPS are experimentally accessible~\cite{denterriaDoubleTripleNparton2017}.
 
-\section{多重部分子散射过程}
+% TO_APPROVE
 
-\subsection{多重部分子散射的物理图像}
+The important point for this thesis is that a multi-resonance final state can be partitioned in more than one way.
+For \(J/\psi+J/\psi+\phi\), SPS would place the complete final state in a single hard scattering.
+DPS could produce a pair in one scattering and the remaining resonance in another, for example \((J/\psi+J/\psi)+\phi\) or \((J/\psi+\phi)+J/\psi\).
+TPS would instead assign each resonance to a separate hard scattering.
+Because the two \(J/\psi\) mesons are identical, the topology classification must avoid double counting while still allowing the experimentally reconstructed candidates to be treated symmetrically.
+% 对 \(J/\psi+J/\psi+\phi\) 末态，SPS、DPS 和 TPS 的拓扑划分不同；两个 \(J/\psi\) 全同粒子要求组合计数时避免重复。
 
-质子由三个价夸克、胶子以及虚夸克--反夸克对组成的海夸克构成，这些组分统称为部分子。
-在质子--质子对撞的标准图像中，最简单的硬过程只包含每个质子中的一个部分子参与散射，其余部分子作为伴随系统进入底事件。
-然而，随着对撞能量提高，低 \(x\) 区域的胶子和海夸克密度增大，在一次质子--质子对撞中同时发生多对部分子硬散射的概率也随之升高~\cite{Z48W3VLV}。
-这类过程统称为多重部分子散射（Multiple Parton Scattering, MPS）。
+\begin{figure}[htbp]
+  \centering
+  \fbox{%
+    \begin{minipage}[c][0.26\textheight][c]{0.88\textwidth}
+      \centering
+      Placeholder for \(J/\psi+J/\psi+\phi\) topology partitions:
+      SPS \([J/\psi J/\psi\phi]\), DPS \([J/\psi J/\psi]+\phi\), DPS \([J/\psi\phi]+J/\psi\), and TPS \(J/\psi+J/\psi+\phi\).
+    \end{minipage}%
+  }
+  \caption{Possible scattering partitions for the \(J/\psi+J/\psi+\phi\) final state.
+  The diagram should distinguish topology classes rather than imply measured fractions.}
+  \label{fig:jpsijpsiphi-topology-partitions}
+\end{figure}
 
-MPS 过程为研究质子内部结构提供了超出一维部分子分布函数的信息。
-普通单硬散射主要探测部分子纵向动量分布，而 DPS/TPS w
-这些关联属于非微扰 QCD 问题，难以完全从第一性原理计算，需要通过多种末态和不同散射重数的实验测量逐步约束~\cite{Z48W3VLV,WHQAFHD5}。
+\section{Pocket Formulae and Effective Cross Sections}
+% \section{口袋公式与有效截面}
 
-\subsection{口袋公式与有效截面}
+% TO_APPROVE
 
-在最简单的独立散射近似下，若 \(n\) 个硬过程之间不存在显著的动量、味道、颜色或自旋关联，
-则同时产生多个硬末态的截面可近似写成各个单硬散射截面的乘积，并除以刻画横向重叠几率的有效截面。
-这一关系常写作所谓的“口袋公式”（pocket formula）~\cite{6WUW5N9B}：
+The common phenomenological starting point for MPS is the independent-scattering approximation.
+In this approximation, correlations among the separate hard scatterings are neglected and the complicated transverse overlap of partons is summarized by an effective cross section.
+For \(n\) hard final states \(A_1,\ldots,A_n\), the corresponding pocket formula may be written as~\cite{denterriaDoubleTripleNparton2017}:
+% 在独立散射近似下，多个硬过程之间的关联被忽略，横向重叠几率由有效截面参数吸收。
 
 \begin{equation}
   \label{eq:nps-pocket}
-  \sigma^{pp\to\psi_1+\psi_2+\cdots+\psi_n+X}_{\mathrm{MPS}}
+  \sigma_{\mathrm{NPS}}^{A_1+\cdots+A_n}
   =
-  \left( \frac{\mathfrak{m}}{n!} \right)
-  \frac{
-    \sigma_{\mathrm{SPS}}^{pp\to\psi_1+X}\,
-    \sigma_{\mathrm{SPS}}^{pp\to\psi_2+X}\,
-    \cdots\,
-    \sigma_{\mathrm{SPS}}^{pp\to\psi_n+X}
-  }{
-    (\sigma_{\mathrm{eff},\,\mathrm{MPS}})^{\,n-1}
-  } .
+  \frac{\mathfrak{m}}{n!}
+  \frac{\prod_{i=1}^{n}\sigma_{\mathrm{SPS}}^{A_i}}
+       {\left(\sigma_{\mathrm{eff},\,\mathrm{NPS}}\right)^{n-1}} .
 \end{equation}
 
-其中 \(\mathfrak{m}\) 为组合学因子，用于消除全同末态粒子的重复计数；
-\(\sigma_{\mathrm{eff},\,\mathrm{MPS}}\) 称为有效截面，量纲为面积。
-在独立散射和普适横向分布的近似下，有效截面可理解为质子横向部分子密度重叠的倒数；
-较小的 \(\sigma_{\mathrm{eff}}\) 对应较大的多重散射概率。
-口袋公式本质上是一个经验化表达，它将复杂的多部分子分布函数、横向关联和高阶修正压缩到少数有效参数中，并非从第一性原理导出的严格定理。
-因此，不同末态提取出的 \(\sigma_{\mathrm{eff}}\) 是否一致，本身就是检验模型假设的重要问题。
+% TO_APPROVE
 
-对于双重部分子散射（DPS）过程（$n=2$），口袋公式简化为：
+Here \(\mathfrak{m}\) is a combinatorial factor that accounts for identical final states and removes duplicate assignments, and \(\sigma_{\mathrm{eff},\,\mathrm{NPS}}\) has dimensions of area.
+In the simplified geometric interpretation, a smaller effective cross section corresponds to a larger probability for several parton pairs to scatter in the same \(pp\) collision.
+The parameter should not be read as a fundamental constant.
+It absorbs transverse parton profiles, correlations, fiducial definitions, and residual model assumptions into a compact phenomenological quantity.
 
+% TO_APPROVE
+
+For DPS, Eq.~\eqref{eq:nps-pocket} reduces to
 \begin{equation}
   \label{eq:dps-pocket}
-  \sigma^{pp\to\psi_1+\psi_2+X}_{\mathrm{DPS}}
+  \sigma_{\mathrm{DPS}}^{A+B}
   =
-  \left( \frac{\mathfrak{m}}{2} \right)
-  \frac{
-    \sigma_{\mathrm{SPS}}^{pp\to\psi_1+X}\,
-    \sigma_{\mathrm{SPS}}^{pp\to\psi_2+X}
-  }{
-    \sigma_{\mathrm{eff},\,\mathrm{DPS}}
-  } .
+  \frac{\mathfrak{m}}{2}
+  \frac{\sigma_{\mathrm{SPS}}^{A}\sigma_{\mathrm{SPS}}^{B}}
+       {\sigma_{\mathrm{eff},\,\mathrm{DPS}}} .
 \end{equation}
+% TO_APPROVE
 
-若两个末态相同，组合学因子取值需要相应修正，避免把同一个物理事例重复计数。
-在实际实验分析中，\(\sigma_{\mathrm{SPS}}\) 通常还需要限制在给定 fiducial 相空间内，并乘以相应衰变分支比、探测器接受度和重建效率。
-因此，公式中的物理截面与实验观测到的候选产额之间，还需要通过效率修正和拟合模型建立联系。
+For TPS, it becomes
+\begin{equation}
+  \label{eq:tps-pocket}
+  \sigma_{\mathrm{TPS}}^{A+B+C}
+  =
+  \frac{\mathfrak{m}}{3!}
+  \frac{\sigma_{\mathrm{SPS}}^{A}\sigma_{\mathrm{SPS}}^{B}\sigma_{\mathrm{SPS}}^{C}}
+       {\left(\sigma_{\mathrm{eff},\,\mathrm{TPS}}\right)^2} .
+\end{equation}
+% TO_APPROVE
 
-\subsection{\texorpdfstring{$\sigma_{\mathrm{eff}}$}{σeff} 的实验测量现状}
-
-实验上，通过不同末态提取得到的 \(\sigma_{\mathrm{eff},\,\mathrm{DPS}}\) 并不总是呈现完全一致的数值。
-含喷注和电弱玻色子的末态通常给出约 \(10\)--\(20~\mathrm{mb}\) 的结果；
-而双重夸克偶素末态，特别是双 \(J/\psi\) 或双 \(\Upsilon\) 相关测量，常得到更低的有效截面~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,Z48W3VLV}。
-例如 CMS 在 \(7~\mathrm{TeV}\) 质子--质子对撞中测量了 prompt \(J/\psi\) 对产生截面，
-ATLAS 在 \(8~\mathrm{TeV}\) 数据中通过双 \(J/\psi\) 运动学相关性约束 DPS 成分；
-CMS 对 \(\Upsilon(1S)\) 对产生的观测则提供了底偶素末态的互补信息~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV}。
-
-这种末态依赖可有多种解释。
-一方面，不同过程对初态部分子种类的敏感性不同：电弱玻色子加喷注过程可能同时涉及夸克和胶子，
-而夸克偶素联合产生在 LHC 能区通常以胶子诱导过程为主，因此更直接探测胶子在质子横向平面内的分布。
-另一方面，SPS 与 DPS 的分离依赖理论模型和运动学拟合；若 SPS 成分估计不足，也可能导致从数据中反推出的 \(\sigma_{\mathrm{eff}}\) 偏低。
-因此，需要通过更多独立通道检验双夸克偶素结果是否具有普遍性。
-
-\subsection{三重部分子散射与 DPS-TPS 关联}
-
-三重部分子散射（TPS）是 \(n=3\) 的 MPS 过程。
-在 d'Enterria 和 Snigirev 的理论工作中，TPS 截面可由三个相应的 SPS 截面和 \(\sigma_{\mathrm{eff},\,\mathrm{TPS}}\) 参数近似表示；
-在多种横向部分子密度模型下，\(\sigma_{\mathrm{eff},\,\mathrm{TPS}}\) 与 DPS 有效截面之间满足近似比例关系~\cite{WHQAFHD5,6WUW5N9B}：
-
+D'Enterria and Snigirev showed that, for several transverse parton-density profiles, the TPS and DPS effective cross sections are approximately related by~\cite{WHQAFHD5,denterriaDoubleTripleNparton2017}
 \begin{equation}
   \label{eq:dps-tps-relation}
-  \sigma_{\mathrm{eff},\,\mathrm{TPS}} = \kappa \cdot \sigma_{\mathrm{eff},\,\mathrm{DPS}},
-  \qquad \kappa = 0.82 \pm 0.11 .
+  \sigma_{\mathrm{eff},\,\mathrm{TPS}}
+  =
+  \kappa\,\sigma_{\mathrm{eff},\,\mathrm{DPS}},
+  \qquad
+  \kappa = 0.82 \pm 0.11 .
 \end{equation}
+% TO_APPROVE
 
-这一关系使 TPS 观测成为对 DPS 有效截面的独立交叉检验。
-Shao 和 Zhang 指出，三重 prompt \(J/\psi\) 强子产生中 SPS 贡献受到抑制，而 DPS/TPS 成分相对突出，
-因此该过程适合作为多部分子散射的硬探针~\cite{XREDRBCJ}。
-CMS 随后在 \(13~\mathrm{TeV}\) 质子--质子对撞数据中首次观测到三重 \(J/\psi\) 产生，
-并给出了与双夸克偶素末态相容的有效截面结果~\cite{CMS_TRI_JPSI}。
-该结果表明，多夸克偶素末态已经从“可行性论证”进入实验观测阶段，也为研究包含不同味道共振态的联合产生过程提供了直接参照。
+This relation provides a practical bridge between DPS and TPS interpretations, but it remains conditional on the assumed transverse profiles and on the same independence assumptions used in the pocket formulae.
 
-\section{\texorpdfstring{\(J/\psi + J/\psi + \phi\)}{J/psi + J/psi + phi} 末态的物理与实验特点}
+\section{Assumptions and Limitations}
+% \section{假设与局限}
 
-在三重 \(J/\psi\) 产生成功观测的基础上，\(J/\psi+J/\psi+\phi\) 末态可以被看作多夸克偶素联合产生研究的自然扩展。
-从理论角度看，该末态含有两个粲偶素和一个 \(s\bar{s}\) 矢量介子，既保留了双 \(J/\psi\) 过程对胶子诱导硬散射的敏感性，
-又通过 \(\phi\) 的引入改变了末态质量标度、分支比和组合背景结构。
-若该过程主要由多个硬散射贡献，则其截面可在口袋公式框架下与单 \(J/\psi\)、双 \(J/\psi\) 和 \(\phi\) 产生截面建立联系；
-若存在显著 SPS 或关联贡献，则运动学分布和候选顶点结构可能偏离简单独立散射预期。
+% TO_APPROVE
 
-从实验角度看，该末态具有以下特点。
-第一，两个 \(J/\psi\to\mu^+\mu^-\) 衰变提供四个缪子，可显著降低纯强子本底，并与 CMS 缪子触发体系直接衔接。
-第二，\(\phi\to K^+K^-\) 分支比较大，但 CMS 对低横动量 \(K/\pi\) 的逐粒子鉴别能力有限，
-因此 \(\phi\) 候选通常依赖两条非缪子带电径迹在 \(K^\pm\) 质量假设下形成窄质量峰。
-第三，最终态包含四个缪子和两条带电强子径迹，候选组合数、共同顶点质量约束和多重候选判别均比双 \(J/\psi\) 分析更复杂。
-因此，有效截面公式需要与触发、重建、选择、效率和拟合的具体步骤相结合，才能将候选事例转化为物理结果。
+The pocket formulae are useful because they provide a transparent normalization estimate and a common language for comparing measurements.
+Their simplicity also defines their limitations.
+They assume that the hard scatterings factorize, that the relevant transverse parton distribution can be represented by a process-independent effective area, and that correlations among partons can either be neglected or absorbed into \(\sigma_{\mathrm{eff}}\).
+They also assume that the single-process cross sections entering the formula are evaluated in compatible phase spaces and with consistent definitions of prompt, nonprompt, inclusive, or fiducial production.
 
-\section{本分析的物理目标}
+% TO_APPROVE
 
-本文聚焦 \(pp \to J/\psi + J/\psi + \phi + X\) 过程的论文写作和分析框架整理。
-在最终数值尚未填入前，本分析的物理目标可表述为：
+These assumptions are especially delicate for quarkonium final states.
+Associated quarkonium production at LHC energies is often dominated by gluon-initiated subprocesses, so it may probe a different partonic population than electroweak-boson-plus-jet or multijet final states.
+The SPS component can also be difficult to model, because heavy-quarkonium production involves both a perturbative heavy-quark pair and nonperturbative hadronization into the physical bound state.
+If the SPS template is incomplete, the inferred MPS fraction and the extracted \(\sigma_{\mathrm{eff}}\) can be biased.
+Consequently, this chapter uses the pocket formulae as an organizing framework, not as a claim that the final state must be described by independent scatterings alone.
+% 口袋公式在本文中作为组织语言，而不是独立散射占优的预设结论。
 
-\begin{itemize}
-  \item 建立 \(J/\psi+J/\psi+\phi\) 候选事例的选择、效率修正和信号提取框架；
-  \item 在公开双/三重夸克偶素结果的基础上，讨论该末态对 DPS/TPS 与 \(\sigma_{\mathrm{eff}}\) 普适性的检验价值；
-  \item 为后续填入最终信号产额、显著性、截面或上限结果保留清晰位置，避免将未经确认的数值写成定论；
-  \item 将理论动机与 CMS 实验实现相连接，使结果章节能够自然过渡到运动学分布、拟合投影、系统误差和物理讨论。
-\end{itemize}
+\section{MPS in Multi-Quarkonium Measurements}
+% \section{多夸克偶素测量中的 MPS}
 
-综上，选择多夸克偶素末态的原因可从物理动机和实验可行性两方面来理解：该末态对胶子诱导硬散射敏感，与 DPS/TPS 研究直接关联；有效截面刻画了质子横向部分子密度的重叠程度；相比纯三重 \(J/\psi\) 末态，引入 \(\phi\) 改变了末态质量标度和组合背景结构，在现有实验图景中提供了互补的检验通道。
+% TO_APPROVE
+
+Multi-quarkonium final states are particularly useful for MPS studies because they are heavy, experimentally distinctive, and often gluon dominated.
+Measurements of double-\(J/\psi\), double-\(\Upsilon\), and mixed quarkonium final states have shown that SPS and DPS can populate different regions of invariant mass, rapidity separation, and azimuthal separation.
+These variables therefore provide handles for separating correlated single-scattering production from less correlated multiple-scattering production~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,BORSCHENSKY_KULESZA_2017}.
+
+% TO_APPROVE
+
+Triple-quarkonium production sharpens this motivation.
+Shao and Zhang argued that triple prompt-\(J/\psi\) hadroproduction is a hard probe of MPS because the SPS contribution is suppressed relative to DPS and TPS contributions in the relevant LHC environment~\cite{XREDRBCJ}.
+CMS subsequently observed triple-\(J/\psi\) meson production in \(13~\mathrm{TeV}\) proton--proton collision data and compared the fiducial cross section with SPS, DPS, and TPS expectations~\cite{CMS_TRI_JPSI}.
+The CMS result provides a direct experimental reference point for using triple-heavy-resonance final states to test the factorized MPS picture.
+Ascioti's study further emphasizes the broader program of using charmed mesons and charmonia as probes of TPS following the CMS triple-\(J/\psi\) observation~\cite{ascioti_2022_6fw3g-xj153}.
+% Shao--Zhang 给出三重 prompt \(J/\psi\) 作为 MPS 探针的理论动机；CMS 三重 \(J/\psi\) 观测提供直接实验参照；Ascioti 讨论了 charm/charmonium TPS 探针的扩展方向。
+
+\section{Implications for \texorpdfstring{\(J/\psi+J/\psi+\phi\)}{J/psi+J/psi+phi}}
+% \section{\(J/\psi+J/\psi+\phi\) 的物理含义}
+
+% TO_APPROVE
+
+The process \(pp\to J/\psi+J/\psi+\phi+X\) is a natural extension of the multi-quarkonium MPS program.
+It contains two charmonia and one narrow \(s\bar{s}\) vector meson.
+The two \(J/\psi\to\mu^+\mu^-\) decays provide a clean multi-muon signature, while \(\phi\to K^+K^-\) adds a narrow hadronic resonance reconstructed from charged tracks.
+From the MPS point of view, the final state is interesting because it admits SPS, DPS, and TPS topology assignments, but it is not identical to triple-\(J/\psi\) production: the \(\phi\) changes the final-state mass scale, decay topology, combinatorial background, and possible production mechanisms.
+
+% TO_APPROVE
+
+Within the pocket-formula framework, a TPS interpretation would relate the final-state rate to the production of two \(J/\psi\) mesons and one \(\phi\) meson in three separate scatterings, with the identical \(J/\psi\) pair handled by the proper combinatorial factor.
+DPS interpretations would instead combine one associated pair with one single resonance.
+For example, one hard scattering may produce \(J/\psi+J/\psi\) while the other produces \(\phi\), or one scattering may produce \(J/\psi+\phi\) while the other produces the remaining \(J/\psi\).
+The analysis must therefore keep the topology language explicit when interpreting any observed yield.
+No numerical rate, significance, or MPS fraction is assumed at this stage.
+
+% TO_APPROVE
+
+Experimentally, the same final state also imposes constraints on how the theory language can be used.
+Trigger requirements, dimuon reconstruction, charged-track reconstruction, candidate arbitration, common-vertex fits, mass-window choices, and efficiency corrections all enter before a fitted signal yield can be translated into a fiducial cross section or an effective-cross-section statement.
+For this reason, the role of this chapter is to define the MPS interpretation framework and the relevant assumptions.
+The later analysis chapters must supply the selected phase space, efficiency model, signal extraction, and systematic uncertainties before any conclusion about \(\sigma_{\mathrm{eff}}\), DPS, or TPS can be drawn.

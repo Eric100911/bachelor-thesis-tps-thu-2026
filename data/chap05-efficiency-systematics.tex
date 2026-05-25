@@ -1,34 +1,62 @@
-\chapter{效率修正、信号提取与系统误差}
+% \chapter{效率修正、信号提取与系统误差}
+\chapter{Efficiency Corrections, Signal Extraction, and Systematic Uncertainties}
 
-\section{接受度与效率分解}
+% \section{接受度与效率分解}
+\section{Acceptance and Efficiency Factorization}
 
-参考公开 CMS quarkonium 分析的一般写法，本章建议把修正因子拆分为接受度、重建效率、鉴别效率、
-触发效率以及必要的事件级修正因子。
-若本分析最终不报告物理截面，也应至少明确这些修正因子在候选产额解释中的作用。
+% 参考公开 CMS quarkonium 分析的一般写法，本章建议把修正因子拆分为接受度、重建效率、鉴别效率、
+% 触发效率以及必要的事件级修正因子。
+% 若本分析最终不报告物理截面，也应至少明确这些修正因子在候选产额解释中的作用。
+% TO_APPROVE
 
-\section{信号提取策略}
+Following the general presentation used in public CMS quarkonium analyses, this chapter decomposes the correction factors into the acceptance, reconstruction efficiency, identification efficiency, trigger efficiency, and any necessary event-level correction factors.
+Even if this analysis does not ultimately report a physical cross section, the role of these correction factors in the interpretation of the candidate yield should still be stated explicitly.
 
-本节用于说明最终结果是如何从数据中提取的。
-根据后续分析实现，可在这里填入：
+% \section{信号提取策略}
+\section{Signal Extraction Strategy}
+
+% 本节用于说明最终结果是如何从数据中提取的。
+% 根据后续分析实现，可在这里填入：
+% TO_APPROVE
+
+This section describes how the final result is extracted from data.
+Depending on the subsequent analysis implementation, the following information can be specified here:
 
 \begin{itemize}
-  \item 质量分布或多维分布的拟合变量；
-  \item 信号模型与组合背景模型；
-  \item 参数固定项与自由项的来源；
-  \item 交叉检验方法，例如旁带检验、替代模型或 toy study。
+  % \item 质量分布或多维分布的拟合变量；
+  \item the fit variables used in mass distributions or multidimensional distributions;
+  % \item 信号模型与组合背景模型；
+  \item the signal model and the combinatorial-background model;
+  % \item 参数固定项与自由项的来源；
+  \item the sources of fixed and floating fit parameters;
+  % \item 交叉检验方法，例如旁带检验、替代模型或 toy study。
+  \item cross-check methods, such as sideband tests, alternative models, or toy studies.
 \end{itemize}
 
-\section{系统误差框架}
+% \section{系统误差框架}
+\section{Framework for Systematic Uncertainties}
 
-系统误差部分应围绕分析链条逐项组织，而不是简单堆叠来源名称。
-推荐的归类方式包括：
+% 系统误差部分应围绕分析链条逐项组织，而不是简单堆叠来源名称。
+% 推荐的归类方式包括：
+% TO_APPROVE
+
+The discussion of systematic uncertainties should be organized around the individual steps of the analysis chain, rather than as a simple list of source names.
+Recommended categories include:
 
 \begin{itemize}
-  \item 触发、重建和鉴别效率；
-  \item 质量模型和背景模型；
-  \item 候选选择和优选规则；
-  \item MC 建模与重加权；
-  \item 积分亮度或归一化相关误差。
+  % \item 触发、重建和鉴别效率；
+  \item trigger, reconstruction, and identification efficiencies;
+  % \item 质量模型和背景模型；
+  \item mass models and background models;
+  % \item 候选选择和优选规则；
+  \item candidate selection and candidate arbitration rules;
+  % \item MC 建模与重加权；
+  \item MC modeling and reweighting;
+  % \item 积分亮度或归一化相关误差。
+  \item uncertainties related to the integrated luminosity or normalization.
 \end{itemize}
 
-在最终数值尚未确定之前，这一章只保留方法框架和待填位置，不写假定百分比。
+% 在最终数值尚未确定之前，这一章只保留方法框架和待填位置，不写假定百分比。
+% TO_APPROVE
+
+Before the final numerical results are determined, this chapter retains only the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.

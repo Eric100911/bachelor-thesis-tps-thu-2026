@@ -1,55 +1,186 @@
-\chapter{绪论}
+\chapter{Introduction}
+% \chapter{绪论}
 
-\section{研究背景}
+\section{Physics Context}
+% \section{物理背景}
 
-高能质子--质子对撞中的重夸克偶素产生是检验量子色动力学（Quantum Chromodynamics, QCD）的重要场景。
-一方面，重夸克质量提供了可用微扰 QCD 描述的硬标度；另一方面，重夸克对演化为束缚态的过程包含非微扰强子化效应，
-需要借助色单态模型（Color-Singlet Model, CSM）、非相对论 QCD（Non-Relativistic QCD, NRQCD）因子化等理论框架加以描述~\cite{LANSBERG_QUARKONIUM_REVIEW,NRQCD_BBL1995}。
-因此，单个 \(J/\psi\)、成对 \(J/\psi\) 以及更多夸克偶素联合产生过程不仅可用于测量产生截面，
-也可用于区分不同产生机制和检验模型中的长程矩阵元、极化假设与运动学相关性。
+% TODO: rewrite the 
 
-多重夸克偶素末态还与多重部分子相互作用（Multiple Parton Interactions, MPI）直接相关。
-在 LHC 能区，单次强子对撞中可能发生多个彼此独立或相关的硬散射过程；其中双重部分子散射
-（Double Parton Scattering, DPS）和三重部分子散射（Triple Parton Scattering, TPS）为研究质子内部部分子的横向空间分布与关联结构提供了实验入口~\cite{Z48W3VLV,WHQAFHD5}。
-相比喷注或电弱玻色子末态，夸克偶素联合产生通常由胶子初态主导，对胶子空间分布和胶子关联更敏感。
-已有 \(J/\psi\) 对、\(\Upsilon(1S)\) 对以及三重 \(J/\psi\) 产生测量显示，重夸克偶素末态得到的 DPS 有效截面往往低于许多喷注和电弱末态的结果~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,CMS_TRI_JPSI}。
-这一现象提示仍需更多具有不同末态组成、不同质量标度和不同实验本底结构的过程进行交叉检验。
+In a typical hard proton--proton collision, one parton from each proton
+participates in the short-distance scattering. At high luminosity and high
+collision energy, however, more than one parton pair can undergo hard
+scattering in the same proton--proton interaction. Such multiple parton
+interactions (MPI), including double parton scattering (DPS) and triple parton
+scattering (TPS), probe the transverse spatial distribution and possible
+correlations of partons in the proton~\cite{Z48W3VLV,6WUW5N9B,WHQAFHD5}. The
+connection between heavy quarkonia and gluon-initiated reactions makes
+multi-quarkonium final states particularly valuable in this program. 
 
-本文关注的 \(pp \to J/\psi + J/\psi + \phi + X\) 联合产生过程处在理论动机与实验可行性的交汇处。
-两个 \(J/\psi\) 可通过双缪子衰变道重建，提供清晰的触发与鉴别特征；
-\(\phi(1020) \to K^+K^-\) 具有较大的分支比和窄质量峰，可在带电径迹中形成额外的共振约束~\cite{PDG2024}。
-因此，该末态既继承了多夸克偶素过程对 DPS/TPS 的敏感性，也对 CMS 实验的低横动量缪子触发、径迹重建、顶点拟合和组合本底控制提出了综合要求。
-从实验分析角度看，该过程既需要通过信号峰从本底中提取候选事例，也需要借助可复查的选择链、效率修正方案和统计解释框架将观测转化为物理结果。
+% APPROVED
 
-从 \texttt{struct-ref/} 中的公开 CMS 论文与分析资料可以看到，相关工作的论文组织通常沿着
-“物理动机、实验与数据、选择、效率、拟合、系统误差、结果”的顺序展开。
-本文据此构建适合本科综合论文训练的章节结构，并针对 \(J/\psi + J/\psi + \phi\) 末态做针对性展开。
+Heavy-quarkonium production in high-energy proton--proton collisions is a central testing ground for quantum chromodynamics (QCD). The heavy-quark mass provides a perturbative scale for the short-distance production of a heavy quark--antiquark pair, while the formation of a color-neutral bound state involves nonperturbative dynamics. This dual nature makes quarkonium measurements sensitive to both perturbative calculations and hadronization models.
+~\cite{LANSBERG_QUARKONIUM_REVIEW,NRQCD_BBL1995}.
+% 重夸克偶素产生同时涉及微扰短程过程和非微扰束缚态形成。
 
-\section{研究问题与目标}
+% TODO: rewrite the heavy flavour quarkonia paragraph to include both bottomonium and charmonium
+The \(J/\psi\) meson is especially useful in collider experiments due to its abundance, its narrow decay width, and its clean dimuon decay final states. At the LHC, single-\(J/\psi\), \(J/\psi\)-pair, and other associated-quarkonium measurements have therefore become standard probes of quarkonium production mechanisms. They also provide experimental access to correlations among partons inside the proton, given their dominant production mechanism of gluon-initiated hard scattering, or decay from B-hadron produced in hard scatterings.
 
-本文关注的核心问题是：
-在 CMS 实验数据中，如何围绕 \(J/\psi + J/\psi + \phi\) 候选事例建立一套兼顾物理动机、实验约束和结果可追溯性的分析与论文呈现框架。
-这里的“可复查”包括三个层面：
-首先，物理假设应能追溯到公开的理论或实验文献；
-其次，数据样本、触发、重建对象、选择变量和拟合模型应在论文中清楚定义；
-最后，在最终结果尚未定稿时，应以明确占位符标示待填内容，避免将未经确认的数值当作物理结论。
 
-围绕这一问题，本文的写作目标包括：
+
+\section{Multi-Quarkonium Final States as MPS Probes}
+% \section{作为多重部分子散射探针的多重夸克偶素末态}
+
+% TO_APPROVE
+
+Final states containing more than one quarkonium provide a direct way to test
+the interplay between single parton scattering (SPS) and multiple parton
+scattering (MPS). In \(J/\psi\)-pair production, SPS contributions can be
+studied through invariant-mass and angular-correlation observables, while DPS
+contributions become important in regions where the two quarkonia are weakly
+correlated. This has motivated both theoretical studies of \(J/\psi\)-pair
+production in DPS-sensitive phase space and experimental measurements by LHC
+experiments~\cite{BORSCHENSKY_KULESZA_2017,CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV}.
+
+% TO_APPROVE
+
+The sensitivity increases further for final states with three heavy quarkonia.
+Shao and Zhang showed that triple prompt-\(J/\psi\) hadroproduction is a hard
+probe of multiple-parton scatterings, because the SPS contribution is
+suppressed relative to DPS and TPS components in relevant LHC
+conditions~\cite{XREDRBCJ}. The CMS observation of triple-\(J/\psi\) production
+then demonstrated experimentally that a rare multi-quarkonium final state can
+be reconstructed through six muons and interpreted in terms of SPS, DPS, and
+TPS components~\cite{CMS_TRI_JPSI}. These results provide the immediate physics
+context for extending the multi-quarkonium program to related final states with
+different resonance content and background composition.
+
+% TO_APPROVE
+
+The effective cross section used in many DPS and TPS studies is not a
+fundamental constant. Rather, it summarizes, within a simplified factorized
+description, information about parton densities, transverse overlap, and
+parton--parton correlations. Comparisons across final states are therefore
+important: measurements involving jets, electroweak bosons, open heavy flavor,
+and quarkonia do not necessarily probe identical parton configurations. A
+channel with two \(J/\psi\) mesons and one \(\phi(1020)\) meson can test whether
+the qualitative picture established by double- and triple-quarkonium studies
+remains consistent when one hidden-charm quarkonium is replaced by a light
+strange vector meson.
+
+\section{The \texorpdfstring{\(J/\psi+J/\psi+\phi\)}{J/psi+J/psi+phi} Channel}
+% \section{\texorpdfstring{\(J/\psi+J/\psi+\phi\)}{J/psi+J/psi+phi} 道}
+
+% TO_APPROVE
+
+This thesis focuses on the associated production process
+\[
+  pp \to J/\psi + J/\psi + \phi + X,
+\]
+with the experimentally relevant decay topology
+\[
+  J/\psi \to \mu^+\mu^-,
+  \qquad
+  \phi(1020) \to K^+K^- .
+\]
+The two \(J/\psi\) candidates provide four charged muons that can be selected
+with CMS muon reconstruction and trigger information, while the \(\phi(1020)\)
+candidate supplies a narrow \(K^+K^-\) resonance reconstructed from charged
+tracks. The Particle Data Group values for the relevant resonance properties
+and branching fractions are used as external inputs where needed, without
+replacing analysis-specific efficiencies or yields~\cite{PDG2024}.
+
+% Figure placeholder, intentionally nonbreaking until the final figure exists:
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.78\textwidth]{figures/chap01-introduction/jpsijpsiphi_topology.pdf}
+%   \caption{Placeholder for a signal-topology overview of
+%   \(pp \to J/\psi+J/\psi+\phi+X\), with
+%   \(J/\psi\to\mu^+\mu^-\) and \(\phi\to K^+K^-\). The final figure should
+%   distinguish data-level reconstructed objects from the physics-level
+%   resonance topology and state whether it is schematic or simulation based.}
+%   \label{fig:intro-jpsijpsiphi-topology}
+% \end{figure}
+
+% TO_APPROVE
+
+The \(J/\psi+J/\psi+\phi\) final state is experimentally close to existing
+multi-muon quarkonium analyses but is not a simple copy of the triple-\(J/\psi\)
+case. Replacing one \(J/\psi\) by a \(\phi\) changes the final-state mass scale,
+the charged-track composition, and the combinatorial background. It also brings
+track-quality, kaon-assignment, and \(K^+K^-\) mass-window choices into the same
+analysis chain as the dimuon vertexing and \(J/\psi\)-candidate selection. The
+channel is therefore a useful case study for building a coherent CMS analysis
+workflow around a rare associated-production signature.
+
+% TO_APPROVE
+
+From the physics point of view, the channel can be interpreted as a
+multi-resonance final state sensitive to SPS and MPS mechanisms. From the
+experimental point of view, the main task is to define reproducible candidate
+reconstruction, event selection, efficiency correction, and signal-extraction
+procedures. No numerical result is assumed in this introduction; final yields,
+efficiencies, significances, cross sections, and systematic uncertainties must
+come from the analysis inputs documented in later chapters.
+
+\section{Thesis Goals and Scope}
+% \section{论文目标与范围}
+
+% TO_APPROVE
+
+The goal of this thesis is to organize the CMS \(J/\psi+J/\psi+\phi\) analysis
+into a traceable undergraduate thesis framework. The thesis is written around
+the analysis workflow rather than around unconfirmed final numbers. Its scope
+is therefore to establish the physics motivation, describe the detector and
+samples, document reconstruction and selection choices, and reserve a clear
+path for efficiency corrections, signal extraction, systematic uncertainties,
+and final interpretation.
+
+% TO_APPROVE
+
+The specific objectives are:
 
 \begin{itemize}
-  \item 说明该末态与重夸克偶素产生机制、DPS/TPS 以及质子内部部分子关联研究之间的关系；
-  \item 梳理 CMS 实验中与本分析直接相关的探测器、触发、数据样本和模拟样本信息；
-  \item 给出 \(J/\psi\) 与 \(\phi\) 候选的重建和选择流程，以及事件级组合策略；
-  \item 明确理论公式和实验观测之间的衔接方式，包括有效截面、分支比、接受度、效率和信号产额的角色；
-  \item 预留效率修正、信号提取、系统误差和结果汇总的位置，以便后续填入最终分析输出。
+  \item to motivate the \(J/\psi+J/\psi+\phi\) final state as a complementary
+  probe of multi-quarkonium and MPS physics;
+  \item to connect the channel to public studies of \(J/\psi\)-pair,
+  \(\Upsilon(1S)\)-pair, and triple-\(J/\psi\) production without importing
+  unpublished CMS conclusions;
+  \item to define the reconstructed objects, decay channels, candidate
+  combinations, and event-level selections needed for the analysis;
+  \item to separate fixed external inputs, such as resonance properties, from
+  analysis-dependent quantities, such as efficiencies, fitted signal yields,
+  and systematic uncertainties;
+  \item to preserve explicit placeholders wherever final analysis outputs are
+  still pending.
 \end{itemize}
 
-\section{本文结构}
+% TO_APPROVE
 
-本文余下各章按 CMS 实验分析的一般流程组织。
-第二章介绍重夸克偶素产生、多重部分子散射和相关公开实验结果；
-第三章介绍 CMS 实验装置以及本分析所需的数据与模拟样本；
-第四章说明候选粒子的重建和事件选择；
-第五章预留效率修正、信号提取与系统误差评估框架；
-第六章用于汇总结果、交叉检验和物理讨论；
-第七章给出结论与后续展望。
+The thesis does not attempt to provide a new theoretical calculation of the
+\(J/\psi+J/\psi+\phi\) production cross section. It also does not archive CMSSW
+% TO_APPROVE
+
+analysis code, ROOT ntuples, or private intermediate datasets. Instead, it
+records the physics reasoning, the analysis definitions, the final figures and
+tables selected for the thesis, and the provenance information needed to make
+the written result reviewable.
+
+\section{Thesis Organization}
+% \section{论文结构}
+
+% TO_APPROVE
+
+The remainder of the thesis follows the workflow of a CMS experimental
+analysis. Chapter~2 reviews the theoretical background for heavy-quarkonium
+production, multiple parton scattering, and the relevance of the
+\(J/\psi+J/\psi+\phi\) final state. Chapter~3 introduces the CMS detector, the
+% TO_APPROVE
+
+data-taking conditions, and the data and simulation samples used in the
+analysis. Chapter~4 describes the reconstruction of \(J/\psi\) and \(\phi\)
+candidates and the event-selection strategy. Chapter~5 presents the framework
+for efficiency corrections, signal extraction, and systematic-uncertainty
+evaluation. Chapter~6 is reserved for the final results, cross-checks, and
+physics discussion once the approved numerical inputs are available.
+Chapter~7 summarizes the analysis and gives the outlook for possible follow-up
+studies.

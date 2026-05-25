@@ -1,65 +1,197 @@
-\chapter{实验装置与数据样本}
+% \chapter{实验装置与数据样本}
+\chapter{Experimental Apparatus and Data Samples}
 
-\section{大型强子对撞机与 CMS 探测器}
+% \section{大型强子对撞机}
+\section{The Large Hadron Collider}
 
-\subsection{大型强子对撞机}
+% 大型强子对撞机（Large Hadron Collider, LHC）位于欧洲核子研究中心（CERN）日内瓦附近的地下隧道中，主环周长约为 27~km，是高能前沿的质子--质子对撞机。LHC 为 CMS、ATLAS、ALICE 和 LHCb 等实验提供高能强子束流。本文研究的 $pp \to J/\psi + J/\psi + \phi + X$ 过程在 CMS 对撞点采集的质子--质子对撞数据中寻找，其质心系能量、束流条件和数据采集年份应与最终数据集版本保持一致。
+% TO_APPROVE
 
-欧洲核子研究中心（CERN）的大型强子对撞机（Large Hadron Collider, LHC）是目前世界上能量最高的粒子加速器。LHC 位于日内瓦附近横跨瑞士-法国边境的地下约 100 米处，主储存环周长约 27 公里。在 LHC Run~3 期间（2022--2025 年），LHC 将质子束加速至每束 6.8~TeV 的能量，对应的质心系对撞能量为 $\sqrt{s}=13.6~\mathrm{TeV}$。LHC 可同时加速超过 2800 个质子束团，每个束团包含约 $10^{11}$ 个质子，束团以 25~ns 的时间间隔在四个对撞点交叉，产生的瞬时亮度最高可达 $2.5 \times 10^{34}~\mathrm{cm}^{-2}\cdot\mathrm{s}^{-1}$~\cite{CMS_JINST_2008}。
+The Large Hadron Collider (LHC), located in the underground tunnel near Geneva at the European Organization for Nuclear Research (CERN), has a main ring circumference of about 27~km and operates as a high-energy proton--proton collider~\cite{CMS_JINST_2008}. During LHC Run~3 (2022--2024), the collider delivers proton--proton collisions at a center-of-mass energy of $\sqrt{s}=13.6$~TeV. It provides high-energy hadron beams to the CMS, ATLAS, ALICE, and LHCb experiments. The $pp \to J/\psi + J/\psi + \phi + X$ process studied in this thesis is searched for in proton--proton collision data recorded at the CMS interaction point during this Run~3 data-taking period.
 
-LHC 上建有四个大型粒子探测器——CMS、ATLAS、ALICE 和 LHCb——分别位于四个对撞点，各具独特的探测器设计和物理目标。高瞬时亮度带来的一个重要后果是"pileup"效应，即每次束团交叉中平均发生多次质子-质子硬散射。在 LHC Run~3 中，平均 pileup 达到约 60，这对粒子重建、顶点分辨和本底抑制提出了严峻挑战。
+% LHC 的质子束被分为若干束团，标准束团间隔为 25~ns，对应约 40~MHz 的束团交叉频率。
+% TO_APPROVE
 
-\subsection{CMS 探测器}
+The proton beams in the LHC are grouped into bunches with a nominal bunch spacing of 25~ns, corresponding to a bunch-crossing rate of approximately 40~MHz.
 
-紧凑缪子螺线管（Compact Muon Solenoid, CMS）探测器是 LHC 上的两个通用型探测器之一。探测器全长 21 米，直径 15 米，总重约 14,000 吨。CMS 探测器采用多层同心结构，从内到外依次为硅径迹探测器、电磁量能器、强子量能器、超导螺线管磁铁和缪子谱仪。
+% LHC 的设计瞬时亮度约为 $2\times10^{34}~\text{cm}^{-2}\text{s}^{-1}$，在 Run~3 期间实际运行亮度超过设计值。高亮度使同一次束团交叉中可能包含多个独立的质子--质子相互作用，即 pileup。Run~3 期间的平均 pileup 约为 60，具体取决于运行条件。Pileup 会影响顶点分辨、带电径迹关联和低动量缪子的在线选择效率；因此，本分析在记录数据样本和模拟样本时需要同时给出数据采集条件、触发路径版本和 pileup 模拟配置。具体的重建对象定义和离线事例选择在第 4 章讨论。
+% TO_APPROVE
 
-CMS 的一个核心特征是强大的超导螺线管磁铁，其内径 5.9 米、长 12.9 米，可在线圈内部产生沿束流方向的 3.8~T 磁场。硅径迹探测器和量能器均安装于磁铁内腔中。这一强磁场设计使得 CMS 在相对紧凑的谱仪体积内实现了优异的动量分辨率~\cite{CMS_JINST_2008}。
+The design instantaneous luminosity of the LHC is approximately $2\times10^{34}~\text{cm}^{-2}\text{s}^{-1}$, and during Run~3 the machine has operated at instantaneous luminosities exceeding this design value. This high instantaneous luminosity implies that multiple independent proton--proton interactions can occur in the same bunch crossing, a condition referred to as pileup. The average pileup in Run~3 is about 60 interactions per bunch crossing, depending on the specific running conditions. Pileup affects vertex separation, charged-track association, and online selection of low-momentum muons. For this reason, the data-taking conditions, trigger-path versions, and pileup simulation configuration are treated as part of the sample definition. The definitions of reconstructed objects and the offline event selection are discussed in Chapter~4.
 
-本分析主要依赖 CMS 探测器的以下子探测器系统：
+% 本分析使用的数据采集自 Run~3 的 2022--2024 年运行期间。
+% TO_APPROVE
 
-\textbf{硅径迹探测器}：位于 CMS 的最内层，由像素探测器和硅微条探测器组成，覆盖赝快度 $|\eta| < 2.5$ 的范围。像素探测器提供高精度的三维击中信息，用于重建初级顶点和鉴别重味强子的次级衰变顶点；硅微条探测器提供大面积的径迹击中覆盖，是带电粒子径迹重建和动量测量的基础。硅径迹探测器的高空间分辨率和多层击中能力为径迹重建提供了约 $1\%$--$2\%$ 的相对横动量分辨率（对于 $p_{\mathrm{T}} \sim 100~\mathrm{GeV}$ 的带电粒子）以及对初级顶点位置的精确测定。
+The analysis presented in this thesis uses data from the 2022--2024 LHC Run~3 data-taking period, with the final dataset selection, luminosity certification, and integrated luminosity to be documented after the analysis is finalized.
 
-\textbf{缪子谱仪}：CMS 的另一标志性特征是其卓越的缪子探测能力。CMS 的四个缪子"站"被嵌入超导磁铁的铁制返回轭中，利用约 2~T 的返回磁场进行缪子动量的独立测量。在桶部区域（$|\eta| < 1.2$），缪子站由铝漂移管（Drift Tube, DT）组成；在端盖区域（$0.9 < |\eta| < 2.4$），则由阴极条室（Cathode Strip Chamber, CSC）覆盖。阻性板室（Resistive Plate Chamber, RPC）分布于桶部和端盖，提供快速的时间响应信息，用于触发和束团交叉指派。缪子谱仪与硅径迹探测器协同工作，可实现总重建和鉴别效率 $> 96\%$，对典型缪子的相对动量分辨率约为 $2\%$，对 TeV 级缪子亦可达 $10\%$~\cite{CMS_MUON_PERF_13TEV}。
+\begin{figure}
+  \centering
+  \fbox{\parbox{0.82\linewidth}{\centering
+    \vspace{1.8cm}
+    \textbf{[Placeholder: LHC ring and four main experiments]}\\
+    Suggested source: public CERN/CMS schematic with provenance recorded before use.
+    \vspace{1.8cm}
+  }}
+  \caption{Schematic layout of the LHC and its main experiments. The final figure should identify the CMS interaction point and cite the public image source.}
+  \label{fig:chap03-lhc-layout-placeholder}
+\end{figure}
 
-\textbf{触发系统}：LHC 的对撞频率为 40~MHz，对应的数据产生速率约为 40~TB/s，无法将所有事例全部存储。CMS 采用两级触发系统进行在线事例筛选。第一级（Level-1 Trigger, L1T）为基于 FPGA 和 ASIC 的硬件触发，将事例率降至约 100~kHz。第二级（High-Level Trigger, HLT）为基于计算机集群的软件触发，进一步将平均输出事例率降至约 1.5~kHz。CMS 的数据集通常存储满足某一组触发条件的事例。
+% \section{CMS 探测器}
+\section{The CMS Detector}
 
-\section{数据样本}
+% 紧凑缪子螺线管（Compact Muon Solenoid, CMS）探测器是 LHC 上的通用型探测器之一。CMS 探测器全长 21.6~m，直径 14.6~m，总重约 14\,000 吨，采用以束流轴为中心的近似圆柱对称结构。由内向外包括硅径迹探测器、电磁量能器、强子量能器、超导螺线管磁体以及嵌入铁返回轭中的缪子系统。超导螺线管是有史以来建造的最大的螺线管磁体，在内部探测器体积中提供 3.8~T 的轴向磁场，并在铁轭中产生约 2~T 的返回场，使带电粒子轨迹弯曲，从而实现动量测量~\cite{CMS_JINST_2008}。
+% TO_APPROVE
 
-\subsection{数据获取时期与积分亮度}
+The Compact Muon Solenoid (CMS) detector is one of the general-purpose detectors at the LHC. The detector has an overall length of 21.6~m, a diameter of 14.6~m, and a total weight of approximately 14\,000 tonnes. It has an approximately cylindrical structure centered on the beam axis and, from the inside outward, consists of the silicon tracking detector, the electromagnetic calorimeter, the hadron calorimeter, the superconducting solenoid magnet, and the muon system embedded in the iron return yoke. The superconducting solenoid, the largest ever built, provides an axial magnetic field of 3.8~T inside the inner detector volume and a return field of roughly 2~T in the iron yoke, bending charged-particle trajectories and enabling momentum measurements~\cite{CMS_JINST_2008}.
 
-本分析基于 LHC Run~3 期间（2022--2025 年）CMS 实验采集的全部质子-质子对撞数据，质心系能量为 $\sqrt{s}=13.6~\mathrm{TeV}$。分析使用的数据样本来自 \texttt{ParkingDoubleMuonLowMass} 数据流，该数据流专门为低质量双缪子触发路径设计，适合采集包含 $J/\psi \to \mu^+\mu^-$ 衰变的事例。各年的数据样本与对应的 JSON 认证文件如下：
+% 本分析的实验灵敏度主要依赖 CMS 对低动量缪子和带电强子径迹的重建能力。两个 $J/\psi$ 候选态通过缪子衰变道重建，$\phi$ 候选态通过带电强子衰变道重建，因此硅径迹探测器、缪子系统和触发系统是本章重点介绍的探测器组成部分。粒子流算法在 CMS 中综合使用各子探测器信息形成全局事例描述~\cite{CMS_PF_RECO_JINST_2017}；本章仅说明其与实验装置和模拟链的关系，具体重建对象选择保留在后续章节。
+% TO_APPROVE
+
+The experimental sensitivity of this analysis relies mainly on the CMS capability to reconstruct low-momentum muons and charged-hadron tracks. The two $J/\psi$ candidates are reconstructed through muon decay channels, while the $\phi$ candidate is reconstructed through charged-hadron decay channels. The silicon tracker, muon system, and trigger system are therefore the most relevant detector components for this analysis. The particle-flow algorithm combines information from the CMS subdetectors to provide a global event description~\cite{CMS_PF_RECO_JINST_2017}; in this chapter it is mentioned only as part of the detector and simulation context, while object-level selections are reserved for later chapters.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/chap03-experiment-dataset/CMS_disection_Run2.png}
+  \caption{Transverse and longitudinal cross-section view of the CMS detector, showing the major subdetector components: the silicon tracker, electromagnetic and hadronic calorimeters, superconducting solenoid magnet, and muon detectors embedded in the iron return yoke. Adapted from Ref.~\cite{CMS_JINST_2008}.}
+  \label{fig:chap03-cms-cutaway}
+\end{figure}
+
+% \subsection{坐标系与运动学变量}
+\subsection{Coordinate System and Kinematic Variables}
+
+% CMS 使用右手坐标系，原点位于探测器中心的名义相互作用点。$x$ 轴指向 LHC 环中心，$y$ 轴竖直向上，$z$ 轴沿逆时针束流方向。方位角 $\phi$ 在垂直于束流的平面内定义，极角 $\theta$ 从正 $z$ 轴量起。赝快度定义为 $\eta=-\ln[\tan(\theta/2)]$，横动量定义为 $p_{\mathrm{T}}=p\sin\theta$。两个对象之间的角距离通常写作 $\Delta R=\sqrt{(\Delta\eta)^2+(\Delta\phi)^2}$。
+% TO_APPROVE
+
+CMS uses a right-handed coordinate system with its origin at the nominal interaction point at the center of the detector. The $x$ axis points toward the center of the LHC ring, the $y$ axis points vertically upward, and the $z$ axis is directed along the counterclockwise beam direction. The azimuthal angle $\phi$ is measured in the plane transverse to the beam, and the polar angle $\theta$ is measured from the positive $z$ axis. The pseudorapidity is defined as $\eta=-\ln[\tan(\theta/2)]$, and the transverse momentum is $p_{\mathrm{T}}=p\sin\theta$. The angular distance between two objects is commonly expressed as $\Delta R=\sqrt{(\Delta\eta)^2+(\Delta\phi)^2}$.
+
+% 在 CMS 对撞点处，束流发光区域（束团截面）沿束流方向的典型 RMS 展宽约为数厘米，通过每轮运行中基于径迹的对齐算法进行监测。
+% TO_APPROVE
+
+The luminous region (beam spot) at the CMS interaction point has a typical RMS spread of a few centimeters along the beam direction and is monitored through track-based alignment in each fill.
+
+\begin{figure}
+  \centering
+  \fbox{\parbox{0.72\linewidth}{\centering
+    \vspace{1.4cm}
+    \textbf{[Placeholder: CMS coordinate system]}\\
+    Include $x$, $y$, $z$, $\theta$, $\phi$, $\eta$, and transverse plane.
+    \vspace{1.4cm}
+  }}
+  \caption{Coordinate system and basic kinematic variables used by CMS.}
+  \label{fig:chap03-coordinate-placeholder}
+\end{figure}
+
+% \subsection{硅径迹探测器}
+\subsection{Silicon Tracker}
+
+% 硅径迹探测器位于 CMS 最内层，覆盖 $|\eta|<2.5$ 的区域，由像素探测器和硅微条探测器组成~\cite{CMS_JINST_2008}。像素探测器靠近束流管，提供高精度三维击中信息；硅微条探测器提供更大半径范围内的多层击中信息。带电粒子在 3.8~T 磁场中的弯曲轨迹由这些击中点拟合得到，因此径迹探测器为带电粒子动量测量、相互作用顶点重建和二级顶点定位提供基础输入。
+% TO_APPROVE
+
+The silicon tracker is the innermost CMS subdetector and covers the region $|\eta|<2.5$. It consists of a pixel detector and a silicon strip detector~\cite{CMS_JINST_2008,CMS_TDR_CH6_TRACKING}. The pixel detector is located closest to the beam pipe and provides high-precision three-dimensional hit information, while the strip detector supplies multiple tracking layers at larger radii.
+
+% TO_APPROVE
+
+The pixel detector comprises three barrel layers at radii of 4, 7, and 11~cm, plus two endcap disks on each side, with a pixel size of $100 \times 150~\mu\mathrm{m}^2$ and a spatial resolution of about 10~$\mu$m in the $r$--$\phi$ bending plane and about 20~$\mu$m in the $z$ direction. The silicon strip detector consists of approximately 15\,400 silicon modules with a total active area of about 200~m$^2$, and is organized into four subsystems: the Tracker Inner Barrel (TIB, 4 layers), Tracker Outer Barrel (TOB, 6 layers), Tracker Inner Disks (TID, 3 small disks per side filling the gap between TIB and TEC), and Tracker Endcaps (TEC, 9 disks per side extending to $|z| \approx 280$~cm). Sensors in the inner region (TIB, TID, innermost TEC rings) are 320~$\mu$m thick, while those in the outer region (TOB, outer TEC rings) are 500~$\mu$m thick. A charged particle traversing the full tracker typically produces about 13--16 space points, of which 3 are provided by the pixel detector. Within the inner tracking acceptance, the track reconstruction efficiency is approximately 95\% for charged particles with $p_{\mathrm{T}} > 1$~GeV, and the fake rate is below a few percent~\cite{CMS_TDR_CH6_TRACKING}.
+
+% TO_APPROVE
+
+Charged-particle momenta are obtained by fitting the curved trajectories formed by these hits in the 3.8~T magnetic field. The tracker therefore provides the basic input for charged-particle momentum measurements, interaction-vertex reconstruction, and secondary-vertex localization.
+
+% 在本分析中，硅径迹探测器对 $\phi \to K^+K^-$ 候选态的带电径迹和 $J/\psi \to \mu^+\mu^-$ 衰变中的缪子内径迹均至关重要。径迹质量、顶点拟合和质量约束等分析层面的定义不在本节展开，而在事例重建与选择章节中统一给出。
+% TO_APPROVE
+
+In this analysis, the silicon tracker is essential both for the charged tracks entering the $\phi \to K^+K^-$ candidate and for the inner tracks associated with the muons from $J/\psi \to \mu^+\mu^-$. Analysis-level definitions such as track-quality requirements, vertex fits, and mass constraints are not specified here; they are collected in the event reconstruction and selection chapter.
+
+% \subsection{缪子系统}
+\subsection{Muon System}
+
+% 缪子系统位于超导磁体外侧的铁返回轭中，覆盖约 $|\eta|<2.4$ 的区域。桶部区域主要使用漂移管（Drift Tube, DT），端盖区域主要使用阴极条室（Cathode Strip Chamber, CSC），阻性板室（Resistive Plate Chamber, RPC）在桶部和端盖区域提供快速时间信息。Run~2 条件下的 CMS 缪子系统和缪子重建性能研究表明，系统在空间分辨、效率和时间测量方面满足设计要求，并能由模拟较好描述~\cite{CMS_MUON_PERF_13TEV}。
+% TO_APPROVE
+
+The muon system is located outside the superconducting solenoid in the iron return yoke and covers approximately $|\eta|<2.4$. It employs three complementary gaseous detector technologies~\cite{CMS_JINST_2008}.
+
+% TO_APPROVE
+
+The drift tube (DT) system covers the barrel region ($|\eta| < 1.2$) and consists of four stations (MB1--MB4) arranged in five concentric wheels along the beam axis. Each chamber in the inner stations (MB1 and MB2) contains four superlayers totaling 12 sensitive drift layers, while the outer stations (MB3 and MB4) contain three superlayers with 9 layers, providing a single-chamber spatial resolution of approximately 250~$\mu$m in the $r$--$\phi$ bending plane. The cathode strip chamber (CSC) system covers the endcap region ($0.9 < |\eta| < 2.4$) with four stations per endcap (ME1--ME4). Each trapezoidal CSC chamber has six anode wire planes and seven cathode strip planes, yielding a spatial resolution of about 150--200~$\mu$m and fast signal shaping suitable for the high-rate endcap environment. The resistive plate chamber (RPC) system, with six detection layers in the barrel and four in the endcaps, provides a time resolution of about 1~ns for unambiguous bunch-crossing identification. The three subsystems are complementary: DTs and CSCs provide precision position measurement for momentum determination, while RPCs deliver the fast timing needed for triggering. The overall muon reconstruction efficiency is 95--99\% over $|\eta| < 2.4$, with slight dips at the geometrical boundaries between detector wheels and in the barrel--endcap transition region~\cite{CMS_TDR_CH9_MUONS}. Studies of the CMS muon detector and muon reconstruction performance under Run~2 conditions show that the system meets the design requirements for spatial resolution, efficiency, and timing, and that the measured performance is well described by simulation~\cite{CMS_MUON_PERF_13TEV}.
+
+% 对本分析而言，缪子系统与硅径迹探测器的匹配信息共同决定低质量双缪子触发和离线 $J/\psi$ 候选态重建的性能。具体的缪子鉴别、触发匹配和多缪子候选组合策略在第 4 章中定义。
+% TO_APPROVE
+
+For this analysis, the matching between muon-system information and silicon-tracker tracks drives the performance of low-mass dimuon triggers and offline $J/\psi$ candidate reconstruction. The concrete muon identification, trigger matching, and multi-muon candidate-combination strategy are defined in Chapter~4.
+
+% \subsection{触发与数据获取}
+\subsection{Trigger and Data Acquisition}
+
+% LHC 束团交叉频率约为 40~MHz，对应于每秒约 $10^9$ 个事例，远超 CMS 数据获取系统的存储能力。因此使用两级触发系统进行在线筛选。第一级触发（Level-1 Trigger, L1T）基于专用硬件，对量能器和缪子系统的快速信息进行处理，将事例率从 40~MHz 降低至约 100~kHz；高级触发（High-Level Trigger, HLT）运行在约 30\,000 个 CPU 核心的计算集群上，使用接近离线重建的算法进一步将事例率降至约 1.5~kHz 以便永久存储~\cite{CMS_JINST_2008}。
+% TO_APPROVE
+
+The LHC bunch-crossing rate is about 40~MHz, corresponding to approximately $10^9$ events per second, far exceeding the storage capacity of the CMS data acquisition system. A two-level trigger system is therefore used for online event selection. The Level-1 Trigger (L1T) is implemented in dedicated hardware and processes fast information from the calorimeters and muon system, reducing the event rate from 40~MHz to about 100~kHz. The High-Level Trigger (HLT) runs on a computing cluster of approximately 30\,000 CPU cores and applies algorithms closer to the offline reconstruction to further reduce the event rate to about 1.5~kHz for permanent storage~\cite{CMS_JINST_2008}.
+
+% 本分析使用的候选事例来自 \texttt{ParkingDoubleMuonLowMass} 数据流，该数据流专用于适合粲夸克偶素研究的低质量双缪子和多缪子信号。主要触发路径为 \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v*}（针对 $J/\psi \to \mu^+\mu^-$ 候选）和 \texttt{HLT\_Trimuon5\_3p5\_2\_Upsilon\_Muon\_v*}（针对 $\Upsilon \to \mu^+\mu^-$ 候选）。触发版本范围、预缩放状态和最终使用策略仍需根据最终数据处理配置确认。\textbf{[待填：最终 HLT 版本与触发菜单来源]}。
+% TO_APPROVE
+
+Candidate events used in this analysis are taken from the \texttt{ParkingDoubleMuonLowMass} data stream, which is dedicated to low-mass dimuon and multi-muon signatures suitable for quarkonium studies. The primary trigger paths used in the analysis are \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v*} (targeting $J/\psi \to \mu^+\mu^-$ candidates) and \texttt{HLT\_Trimuon5\_3p5\_2\_Upsilon\_Muon\_v*} (targeting $\Upsilon \to \mu^+\mu^-$ candidates). The trigger version ranges, prescale status, and final usage strategy remain to be confirmed from the final data-processing configuration. \textbf{[To be filled: final HLT versions and trigger-menu source]}.
+
+% \section{数据样本}
+\section{Data Samples}
+
+% 本分析的数据样本由 CMS 在 2022 至 2025 年 LHC 质子--质子对撞运行期间采集，质心系能量 $\sqrt{s}=13.6$~TeV，覆盖四个数据采集年份。候选数据流使用 \texttt{ParkingDoubleMuonLowMass} 数据集~\cite{ascioti_2022_6fw3g-xj153}，该数据集专为低质量双缪子和多缪子触发设计，适用于包含 $J/\psi \to \mu^+\mu^-$ 衰变的末态。最终样本列表必须与 CMS 数据质量认证、Golden JSON、数据重建版本和分析 ntuple 版本保持一致。数据集的总积分亮度为 $289.21 \pm 5.97~\text{fb}^{-1}$~\cite{CMS:LUMI-PUB}。
+% TO_APPROVE
+
+The data samples used in this analysis are collected by CMS during LHC proton--proton collision running from 2022 to 2025 at $\sqrt{s}=13.6$~TeV, covering four data-taking years. The candidate data streams are centered on the \texttt{ParkingDoubleMuonLowMass} primary dataset~\cite{ascioti_2022_6fw3g-xj153}, which is designed for low-mass dimuon and multi-muon triggers and is suitable for final states containing $J/\psi \to \mu^+\mu^-$ decays. The final sample list must be consistent with CMS data-quality certification, the Golden JSON files, data reconstruction versions, and the analysis ntuple version. The total integrated luminosity of the dataset amounts to $289.21 \pm 5.97~\text{fb}^{-1}$~\cite{CMS:LUMI-PUB}.
 
 \begin{itemize}
-  \item \textbf{2022 年}：Cert\_Collisions2022\_355100\_362760\_Muon.json，数据重建版本为 Run2022C--F / PromptReco-v1 或 v2；
-  \item \textbf{2023 年}：Cert\_Collisions2023\_366442\_370790\_Muon.json，数据重建版本为 Run2023C / PromptReco-v1 至 v4 及 Run2023D / PromptReco-v1 至 v2；
-  \item \textbf{2024 年}：Cert\_Collisions2024\_378981\_386951\_Muon.json，数据重建版本为 Run2024C--I / PromptReco-v1 或 v2；
-  \item \textbf{2025 年}：\textbf{[待填：2025 年 JSON 认证文件及数据重建版本]}。
+  \item \textbf{Primary data stream}: \texttt{ParkingDoubleMuonLowMass} (2022--2025).
+  \item \textbf{Data-taking years and eras}: 2022--2025 at $\sqrt{s}=13.6$~TeV. \textbf{[To be filled: final eras and run ranges]}.
+  \item \textbf{Certification}: \textbf{[To be filled: final Golden JSON filenames per year and data-quality flags]}.
+  \item \textbf{Integrated luminosity}: $289.21 \pm 5.97~\text{fb}^{-1}$ total (2022--2025)~\cite{CMS:LUMI-PUB}. \textbf{[To be filled: final breakdown per year]}.
+  \item \textbf{Analysis input version}: \textbf{[To be filled: skim or ntuple production tag and provenance]}.
 \end{itemize}
 
-所有数据均要求通过 CMS 数据质量认证（Data Quality Monitoring, DQM），被标记为"Muon"物理数据集的黄金 JSON（Golden JSON）认证。各年的积分亮度信息如下：\textbf{[待填：2022--2025 年各年积分亮度及总和]}。
+\begin{figure}
+  \centering
+  \includegraphics[width=0.82\linewidth]{figures/chap03-experiment-dataset/CMS_int_lumi_Run3.png}
+  \caption{Cumulative integrated luminosity delivered to and recorded by CMS during LHC proton--proton collisions at $\sqrt{s}=13.6$~TeV. The delivered luminosity corresponds to the luminosity measured by the CMS forward hadronic calorimeters and pixel detectors before any data-quality selection, while the recorded luminosity requires all CMS subdetectors to be operational. Adapted from Ref.~\cite{CMS:LUMI-PUB}.}
+  \label{fig:chap03-luminosity-run3}
+\end{figure}
 
-\subsection{触发条件}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.82\linewidth]{figures/chap03-experiment-dataset/CMS_pileup_allYears_run3.png}
+  \caption{Distribution of the mean number of proton--proton interactions per bunch crossing (pileup) in CMS during data-taking periods certified as good for physics analysis. The distribution reflects the high-luminosity operating conditions of the LHC. Adapted from Ref.~\cite{CMS:LUMI-PUB}.}
+  \label{fig:chap03-pileup-run3}
+\end{figure}
 
-本分析的候选事例须通过 \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v} 触发路径。该触发路径为低质量双缪子末态优化，其主要选择条件为：
+% \section{模拟样本}
+\section{Simulation Samples}
+
+% 蒙特卡罗（Monte Carlo, MC）模拟样本用于估计几何接收度、触发和重建效率、选择效率以及相关系统误差。模拟链应与 CMS 标准工作流保持一致：硬散射事例产生、部分子簇射和强子化、探测器响应模拟、数字化与 pileup 混合、触发模拟，以及基于 CMSSW 的离线重建。粒子流重建在 CMS 事件描述中综合使用径迹、量能器和缪子系统信息~\cite{CMS_PF_RECO_JINST_2017}，但本分析对最终对象的使用方式在第 4 章中定义。
+% TO_APPROVE
+
+Monte Carlo (MC) simulation samples are used to estimate geometrical acceptance, trigger and reconstruction efficiencies, selection efficiencies, and related systematic uncertainties. The simulation chain should follow the standard CMS workflow: hard-scattering event generation, parton showering and hadronization, detector-response simulation, digitization and pileup mixing, trigger simulation, and offline reconstruction in CMSSW. Particle-flow reconstruction combines tracker, calorimeter, and muon-system information in the CMS event description~\cite{CMS_PF_RECO_JINST_2017}, while the way the final reconstructed objects are used in this analysis is defined in Chapter~4.
 
 \begin{itemize}
-  \item 事例中至少存在三个缪子，每个缪子须满足 $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$、$|\eta| < 2.5$；
-  \item 至少存在一对电荷相反的缪子，满足 $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$，其不变质量 $m_{\mu\mu}$ 满足 $2.95 < m_{\mu\mu} < 3.25~\mathrm{GeV}$，且两条缪子径迹拟合到共同顶点的概率大于 $0.5\%$。
+  \item \textbf{Signal process}: $pp \to J/\psi + J/\psi + \phi + X$, with production mechanism assumptions and generator settings to be documented from the final MC campaign.
+  \item \textbf{Event generation}: \textbf{[To be filled: generator name, version, matrix-element setup, decay handling, and production-mechanism configuration]}.
+  \item \textbf{Parton shower and hadronization}: \textbf{[To be filled: shower generator, tune, PDFs, and decay configuration]}.
+  \item \textbf{Detector simulation}: CMS detector simulation based on \textsc{Geant 4} and the relevant Run~3 detector geometry and conditions~\cite{GEANT4}.
+  \item \textbf{Pileup and conditions}: \textbf{[To be filled: pileup profile, premixing sample, global tags, and detector conditions]}.
+  \item \textbf{Reconstruction output}: \textbf{[To be filled: AODSIM/MINIAODSIM/NANOAODSIM or ntuple format, CMSSW release, and production tag]}.
 \end{itemize}
 
-该触发路径的双缪子质量窗口与 $J/\psi$ 共振峰的位置和宽度相匹配，能够高效选择包含 $J/\psi \to \mu^+\mu^-$ 衰变的事例，同时保持合理的触发速率。
+\begin{figure}
+  \centering
+  \fbox{\parbox{0.82\linewidth}{\centering
+    \vspace{1.6cm}
+    \textbf{[Placeholder: MC production flow]}\\
+    Generator $\to$ shower/hadronization $\to$ detector simulation $\to$ digitization/pileup $\to$ trigger/reconstruction $\to$ analysis ntuple.
+    \vspace{1.6cm}
+  }}
+  \caption{Planned simulation production flow for the signal and auxiliary MC samples. Generator versions, detector conditions, pileup profile, and production tags will be filled after the final MC campaign is fixed.}
+  \label{fig:chap03-mc-flow-placeholder}
+\end{figure}
 
-此外，对于包含 $\Upsilon(nS)$ 的末态，本分析同时使用 \texttt{HLT\_Trimuon5\_3p5\_2\_Upsilon\_Muon\_v} 触发路径作为补充。该触发路径与上述路径类似，但要求双缪子不变质量满足 $8.5 < m_{\mu\mu} < 11.4~\mathrm{GeV}$（匹配 $\Upsilon$ 质量区域），且至少一个缪子的 $p_{\mathrm{T}} > 5.0~\mathrm{GeV}$。
+% 当前尚未确认的模拟样本规模、过滤效率、产生截面和最终可用事件数不能作为定论写入正文。最终版本应在本节列出每个 MC 样本的 DSID 或 CMS 数据集路径、产生机制、事例数、过滤效率、归一化信息和输入版本来源。
+% TO_APPROVE
 
-\section{蒙特卡罗模拟样本}
-
-为评估探测器的接收度、重建效率以及分析选择策略的性能，本分析使用蒙特卡罗（Monte Carlo, MC）模拟样本。模拟样本的主要产生流程如下：
-
-\begin{itemize}
-  \item \textbf{事例产生}：使用 \textsc{HELAC-Onia 2.7.6}~\cite{HS_SHAO_HO,HS_SHAO_HO_2} 产生 $pp \to J/\psi + J/\psi + \Upsilon(1S) + X$ 过程的硬散射事例，包括 SPS、DPS 和 TPS 三种产生机制。DPS 样本通过随机混合方法从 SPS 样本中构建：分别产生单 $J/\psi$、单 $\Upsilon$、$J/\psi + J/\psi$（SPS）和 $J/\psi + \Upsilon$（SPS）样本后，将对应的子散射事例进行随机叠加。事例信息以 Les Houches Event（LHE）格式存储。
-  \item \textbf{部分子簇射与强子化}：使用 \textsc{Pythia 8}~\cite{PYTHIA_8_2} 对 LHE 文件中的部分子级事例进行部分子簇射、强子化以及 $J/\psi$ 和 $\Upsilon$ 的衰变模拟，输出 GEN 格式数据。
-  \item \textbf{探测器模拟}：使用 \textsc{Geant 4}~\cite{GEANT4} 模拟粒子在 CMS 探测器中的传播和相互作用，包括磁场效应和探测器几何结构，输出 GENSIM 格式数据。
-  \item \textbf{数字化与 pileup 混合}：将探测器响应转换为数字信号（digitization），并与来自最小偏差（MinBias）预混合数据集的 pileup 事例进行叠加，以模拟 Run~3 的 pileup 环境，输出 RAWSIM 格式数据。
-  \item \textbf{触发模拟与重建}：模拟 L1T 和 HLT 触发过程，随后进行完整的离线重建（径迹重建、顶点重建、粒子流重建等），输出 AODSIM 格式数据。经进一步简化后形成 MINIAODSIM 格式数据，供分析框架使用。
-\end{itemize}
-
-全链模拟和重建流程基于 \textsc{CMSSW} 框架~\cite{CMS_PHYS_TDR}，利用 CMS 协作组的 CRAB 计算资源和数据管理系统将计算任务提交至 CERN 的计算网格执行。\textbf{[待填：$pp \to J/\psi + J/\psi + \phi + X$ 和 $pp \to J/\psi + \Upsilon + \phi + X$ 过程的 MC 样本产生现状]}。
+The simulated-sample size, filter efficiency, generated cross section, and final number of usable events have not yet been confirmed and are therefore not stated as results. The final version of this section should list, for each MC sample, the dataset identifier or CMS dataset path, production mechanism, number of generated events, filter efficiency, normalization information, and source version.
