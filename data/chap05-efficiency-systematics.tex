@@ -3,17 +3,228 @@
 
 % \section{接受度与效率分解}
 \section{Acceptance and Efficiency Factorization}
+\label{sec:acc-eff}
 
-% 参考公开 CMS quarkonium 分析的一般写法，本章建议把修正因子拆分为接受度、重建效率、鉴别效率、
-% 触发效率以及必要的事件级修正因子。
-% 若本分析最终不报告物理截面，也应至少明确这些修正因子在候选产额解释中的作用。
-% TO_APPROVE
+In an ideal measurement, every $J/\psi J/\psi \phi$ event produced in a proton--proton collision would be recorded and reconstructed perfectly. In practice, the number of events that survive detection, reconstruction, and selection is only a fraction of those produced. The purpose of the acceptance and efficiency correction is to establish, for each selected event, how many events of its kinematic type were originally produced. This section defines the acceptance and efficiency factorisation used in this analysis, describes how each component is computed from simulated events, and presents the resulting two-dimensional correction maps.
 
-Following the general presentation used in public CMS quarkonium analyses, this chapter decomposes the correction factors into the acceptance, reconstruction efficiency, identification efficiency, trigger efficiency, and any necessary event-level correction factors.
-Even if this analysis does not ultimately report a physical cross section, the role of these correction factors in the interpretation of the candidate yield should still be stated explicitly.
+\subsection{Acceptance}
+\label{sec:acceptance}
+
+The acceptance quantifies the probability that the decay products of a meson reach the sensitive volume of the detector and leave reconstructable signals. For the muons from $J/\psi \to \mu^+\mu^-$, the single-muon fiducial requirements are
+\begin{equation}
+\label{eq:muon-fiducial}
+p_{\mathrm{T}}(\mu^{\pm}) > 3.5\;\mathrm{GeV},
+\qquad
+|\eta(\mu^{\pm})| < 2.4 .
+\end{equation}
+These thresholds are standard in CMS quarkonium analyses: the $p_{\mathrm{T}}$ cut ensures that muons traverse enough muon stations to be reconstructed with high efficiency, while the $\eta$ requirement restricts muons to the geometrical coverage of the muon system~\cite{CMS_MUON_PERF_13TEV}. For the kaons from $\phi \to K^+K^-$, the fiducial criteria follow the charged-track acceptance of the silicon tracker:
+\begin{equation}
+\label{eq:kaon-fiducial}
+p_{\mathrm{T}}(K^{\pm}) > 0.5\;\mathrm{GeV},
+\qquad
+|\eta(K^{\pm})| < 2.4 .
+\end{equation}
+
+The acceptance is computed per object --- separately for the leading $J/\psi$, the subleading $J/\psi$, and the $\phi$ meson --- as a function of the meson's transverse momentum $p_{\mathrm{T}}$ and absolute rapidity $|y|$. For a given $(p_{\mathrm{T}}, |y|)$ bin, the per-object acceptance is defined as the fraction of generated mesons in that bin for which both decay daughters satisfy the fiducial criteria of Eqs.~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial}. This is determined using a generator-level-only MC sample, since no detector simulation is needed.
+
+The total acceptance for a $J/\psi J/\psi \phi$ event is approximated by the product of the three per-object acceptances:
+\begin{equation}
+\label{eq:acceptance-product}
+A_{\mathrm{tot}}\bigl(\vec{x}_{J/\psi_1}, \vec{x}_{J/\psi_2}, \vec{x}_{\phi}\bigr)
+\;\approx\;
+A_{J/\psi}\bigl(\vec{x}_{J/\psi_1}\bigr)\;
+A_{J/\psi}\bigl(\vec{x}_{J/\psi_2}\bigr)\;
+A_{\phi}\bigl(\vec{x}_{\phi}\bigr),
+\end{equation}
+where $\vec{x} = (p_{\mathrm{T}}, |y|)$ denotes the kinematic coordinates of each meson. This factorisation assumes that the decay kinematics of each meson are independent of the others, which is valid for unpolarised $J/\psi$ production and is a standard treatment in CMS multiple-quarkonium measurements~\cite{CMS_TRI_JPSI}. The same per-object acceptance map is used for both $J/\psi$ mesons, justified by the fact that the acceptance depends on the decay properties of the meson rather than its rank ordering in $p_{\mathrm{T}}$.
+
+The per-object acceptance maps are shown in Figs.~\ref{fig:acc-jpsi-lead}--\ref{fig:acc-phi}. The acceptance is binned in
+\[
+p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
+\qquad
+|y| \in [0,\;0.6,\;1.2,\;1.8,\;2.4].
+\]
+At low $p_{\mathrm{T}}$ and high $|y|$, the acceptance drops because one or both decay muons fall outside the fiducial $\eta$ range. At high $p_{\mathrm{T}}$, the decay products are more collimated along the meson direction, and the acceptance approaches unity across all rapidity bins.
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_fiducial_acceptance.png}
+  \caption{Per-object fiducial acceptance for the leading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$. The left panel shows the acceptance value; the right panel shows the Clopper--Pearson binomial uncertainty.}
+  \label{fig:acc-jpsi-lead}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_sublead_fiducial_acceptance.png}
+  \caption{Per-object fiducial acceptance for the subleading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
+  \label{fig:acc-jpsi-sublead}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_fiducial_acceptance.png}
+  \caption{Per-object fiducial acceptance for the $\phi$ meson as a function of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
+  \label{fig:acc-phi}
+\end{figure}
+
+For later use in the event-by-event correction, the two $J/\psi$ acceptances are combined into a single stacked $J/\psi$ acceptance map, shown in Fig.~\ref{fig:acc-stacked-jpsi}. This stacked map pools the leading and subleading $J/\psi$ samples, providing better statistical precision per bin and a single reference for both $J/\psi$ mesons.
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_fiducial_acceptance.png}
+  \caption{Stacked $J/\psi$ fiducial acceptance obtained by combining the leading and subleading $J/\psi$ samples into a single map.}
+  \label{fig:acc-stacked-jpsi}
+\end{figure}
+
+\subsection{Reconstruction and Selection Efficiency}
+\label{sec:efficiency}
+
+Once the decay products are within the detector acceptance, they must be reconstructed by the CMS tracking and muon systems, identified as signal candidates, and selected by the trigger and event-level requirements. The efficiency of each step is defined as a conditional probability: the fraction of events that pass a given selection, given that they have passed all previous selections. Computing each efficiency step conditionally --- rather than cumulatively with respect to the generated sample --- isolates the effect of individual selection criteria and facilitates systematic studies.
+
+The efficiency is evaluated using fully simulated MC samples (generator, detector simulation, and reconstruction). Because the kinematic distributions in simulation may differ from those in data --- particularly due to the unknown SPS-to-DPS mixture --- the efficiency is computed in the same $(p_{\mathrm{T}}, |y|)$ bins used for the acceptance. In each bin, the conditional efficiency is
+\begin{equation}
+\epsilon_i(\vec{x}) = \frac{N(\text{pass step } i \;\cap\; \text{pass steps } 1,\dots,i-1;\;\vec{x})}
+                         {N(\text{pass steps } 1,\dots,i-1;\;\vec{x})},
+\end{equation}
+where $N$ denotes the number of events in the given kinematic bin. This bin-by-bin approach ensures that the correction factor does not depend on the assumed production kinematics of the MC generator.
+
+The efficiency chain for this analysis is summarised in Table~\ref{tab:efficiency-chain}. Steps 1--3 are applied per $J/\psi$ or per $\phi$ object and are binned in $(p_{\mathrm{T}}, |y|)$ of the respective meson. Steps 4--6 are event-level selections. For the HLT trigger efficiency (step~4), the denominator is the set of events in which both $J/\psi$ candidates and the $\phi$ candidate have been reconstructed and identified; a data-driven cross-check of the trigger efficiency is discussed in Section~\ref{sec:correction-closure}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied. Per-object steps are evaluated in $(p_{\mathrm{T}},|y|)$ bins of the parent meson; event-level steps are evaluated in two-dimensional or three-dimensional kinematic bins as indicated.}
+  \label{tab:efficiency-chain}
+  \small
+  \begin{tabular}{ccll}
+    \toprule
+    Step & Label & Definition & Binning \\
+    \midrule
+    \multicolumn{4}{c}{\textit{Per $J/\psi$ (applied to both leading and subleading)}} \\
+    1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+    1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+    1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+    \midrule
+    \multicolumn{4}{c}{\textit{Per $\phi$}} \\
+    2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+    2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+    2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+    \midrule
+    \multicolumn{4}{c}{\textit{Event-level}} \\
+    3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
+    4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
+    5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency (step~1a) is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency (step~1b) is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency (step~1c), which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_muonRECO.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_muonID.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_dimuon.png}
+  \caption{Per-object conditional efficiencies for the leading $J/\psi$: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection. All maps are shown as functions of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
+  \label{fig:eff-jpsi-lead}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_kaonRECO.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_kaonID.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_dikaon.png}
+  \caption{Per-object conditional efficiencies for the $\phi$ meson: (top) kaon reconstruction, (middle) kaon identification, (bottom) dikaon selection. All maps are shown as functions of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
+  \label{fig:eff-phi}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_muonRECO.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_muonID.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_dimuon.png}
+  \caption{Stacked $J/\psi$ conditional efficiencies combining the leading and subleading $J/\psi$ samples: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection.}
+  \label{fig:eff-stacked-jpsi}
+\end{figure}
+
+The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-trionia}. The HLT efficiency (step~3) is evaluated in the three-dimensional space of $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$, projected onto the $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ plane for each $\phi$ $p_{\mathrm{T}}$ interval. The four-muon vertex efficiency (step~4) is shown in Fig.~\ref{fig:eff-fourmu-vtx}. This step checks whether the four muons from the two $J/\psi$ decays can be fitted to a common vertex, and its efficiency is approximately 95\% across the fiducial region. The tri-onia vertex efficiency (step~5), which includes the common $J/\psi J/\psi \phi$ vertex fit and the remaining event-level quality requirements, is presented in Fig.~\ref{fig:eff-trionia}.
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_0.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_1.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_2.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_3.png}
+  \caption{HLT trigger efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, shown for four intervals of $p_{\mathrm{T}}(\phi)$: (top left) $[4,6]$, (top right) $[6,10]$, (bottom left) $[10,20]$, (bottom right) $[20,50]$~GeV.}
+  \label{fig:eff-hlt}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/pair2d_four_muon_vtx.png}
+  \caption{Four-muon vertex efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$.}
+  \label{fig:eff-fourmu-vtx}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin0.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin1.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin2.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin3.png}
+  \caption{Tri-onia vertex and remaining event-level selection efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, split by $p_{\mathrm{T}}(\phi)$ intervals as in Fig.~\ref{fig:eff-hlt}.}
+  \label{fig:eff-trionia}
+\end{figure}
+
+The total efficiency for an event is the product of all conditional efficiencies:
+\begin{equation}
+\label{eq:efficiency-product}
+\begin{aligned}
+\epsilon_{\mathrm{tot}} = &\;
+\prod_{i=1}^{2}
+\epsilon_{\mu\mathrm{RECO}}^{J/\psi_i}\;
+\epsilon_{\mu\mathrm{ID}}^{J/\psi_i}\;
+\epsilon_{\mu\mu}^{J/\psi_i}
+\;\times\;
+\epsilon_{K\mathrm{RECO}}^{\phi}\;
+\epsilon_{K\mathrm{ID}}^{\phi}\;
+\epsilon_{KK}^{\phi} \\
+&\times\;
+\epsilon_{\mathrm{HLT}}\;
+\epsilon_{4\mu\mathrm{vtx}}\;
+\epsilon_{\mathrm{triOnia}} .
+\end{aligned}
+\end{equation}
+
+\subsection{Correction to Data and Closure Test}
+\label{sec:correction-closure}
+
+Each selected event is assigned a total correction weight
+\begin{equation}
+\label{eq:correction-weight}
+w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
+\end{equation}
+where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for. In the subsequent fitting and cross-section extraction, the weighted event counts are used in place of raw counts, so that the corrected yield directly estimates the number of events produced in the fiducial phase space.
+
+The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known \textit{a priori}, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
+\begin{equation}
+N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
+\end{equation}
+The test is carried out on pure SPS and pure DPS samples, representing the two kinematic extremes of the physical data, using efficiency maps derived from SPS, DPS, and mixed samples. For the acceptance correction, all strategies give consistent results within statistical uncertainties, consistent with the expectation that acceptance is purely geometric and independent of the production mechanism. For the efficiency correction, a mild dependence on the SPS-to-DPS mixture is observed in the HLT and vertexing efficiency maps, which is taken as a systematic uncertainty (Section~\ref{sec:systematics}). The nominal correction uses efficiency maps derived from a sample with SPS:DPS~=~1:2, which is chosen based on the closure test performance and preliminary indications of the DPS-dominated nature of this final state.
+
+\subsection{Candidate Selection and Kinematic Migration}
+\label{sec:candidate-selection}
+
+In events with multiple $\phi$ mesons or multiple $K^+K^-$ combinations satisfying the selection criteria, more than one $J/\psi J/\psi \phi$ candidate can be formed. This analysis adopts a deterministic best-candidate rule: among all valid candidates in an event, the one that maximises
+\begin{equation}
+S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mathrm{T}}^2(\phi)\,}
+\end{equation}
+is retained. The same best-candidate rule is applied at both the generator level and the reconstruction level, so that the definition of the fiducial measurement is internally consistent: the event is characterised by the candidate that would be selected by this rule, rather than by a predetermined ``hardest'' $\phi$ meson.
+
+When the generator-level best candidate and the reconstruction-level best candidate involve different $\phi$ mesons or different $K^+K^-$ pairings --- a situation referred to as candidate mismatch --- the reconstructed kinematics may migrate from one bin to another with respect to the generator-level truth. The extent of this migration has been studied by constructing the generator-to-reconstruction response matrix for each differential variable. The response matrix is found to be approximately diagonal for the $(p_{\mathrm{T}}, |y|)$ variables of the individual mesons, with bin purities and stabilities above 90\% in most bins. A detailed discussion of the multi-candidate problem, the definition of the response matrix, and the validation of the bin-by-bin correction approach is given in Appendix~\ref{app:multicandidate}.
 
 % \section{信号提取策略}
 \section{Signal Extraction Strategy}
+\label{sec:signal-extraction}
 
 % 本节用于说明最终结果是如何从数据中提取的。
 % 根据后续分析实现，可在这里填入：
@@ -35,12 +246,13 @@ Depending on the subsequent analysis implementation, the following information c
 
 % \section{系统误差框架}
 \section{Framework for Systematic Uncertainties}
+\label{sec:systematics}
 
 % 系统误差部分应围绕分析链条逐项组织，而不是简单堆叠来源名称。
 % 推荐的归类方式包括：
 % TO_APPROVE
 
-The discussion of systematic uncertainties should be organized around the individual steps of the analysis chain, rather than as a simple list of source names.
+The discussion of systematic uncertainties should be organised around the individual steps of the analysis chain, rather than as a simple list of source names.
 Recommended categories include:
 
 \begin{itemize}
@@ -51,9 +263,9 @@ Recommended categories include:
   % \item 候选选择和优选规则；
   \item candidate selection and candidate arbitration rules;
   % \item MC 建模与重加权；
-  \item MC modeling and reweighting;
+  \item MC modelling and reweighting;
   % \item 积分亮度或归一化相关误差。
-  \item uncertainties related to the integrated luminosity or normalization.
+  \item uncertainties related to the integrated luminosity or normalisation.
 \end{itemize}
 
 % 在最终数值尚未确定之前，这一章只保留方法框架和待填位置，不写假定百分比。

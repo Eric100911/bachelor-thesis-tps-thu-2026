@@ -1,0 +1,55 @@
+% \chapter{多候选效应与响应矩阵检验}
+\chapter{Multi-Candidate Effects and Response-Matrix Validation}
+\label{app:multicandidate}
+
+In the $J/\psi J/\psi \phi$ analysis, a single proton--proton collision may produce more than one $\phi$ meson within the fiducial acceptance --- for instance, through additional parton-shower activity or soft QCD processes. Similarly, within a single event, multiple oppositely charged $K^+K^-$ combinations may satisfy the dikaon selection criteria and fall within the $\phi$ mass window. When such events contain more than one reconstructable $J/\psi J/\psi \phi$ candidate, each candidate may use a different $\phi$ meson or a different $K^+K^-$ pairing. The analysis must therefore specify how one candidate is chosen to represent the event.
+
+\section{Candidate Definition and Best-Score Rule}
+\label{sec:candidate-definition}
+
+Throughout this analysis, a single best candidate per event is selected using the score
+\begin{equation}
+S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mathrm{T}}^2(\phi)\,},
+\label{eq:score}
+\end{equation}
+and the candidate with the largest value of $S(c)$ is retained. This deterministic rule is applied consistently at both the generator level and the reconstruction level:
+\begin{align}
+c_{\mathrm{gen}}^{*} &= \arg\max_{c \in \mathcal{C}_{\mathrm{gen}}^{\mathrm{fid}}} S(c), \label{eq:gen-best} \\
+c_{\mathrm{reco}}^{*} &= \arg\max_{c \in \mathcal{C}_{\mathrm{reco}}^{\mathrm{pass}}} S(c). \label{eq:reco-best}
+\end{align}
+At the generator level, $\mathcal{C}_{\mathrm{gen}}^{\mathrm{fid}}$ is the set of all $J/\psi J/\psi \phi$ combinations in the event whose decay daughters satisfy the fiducial criteria of Eqs.~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial}. At the reconstruction level, $\mathcal{C}_{\mathrm{reco}}^{\mathrm{pass}}$ is the set of all candidates that pass the full reconstruction and selection chain.
+
+Defining the measurement in terms of the best-score candidate --- rather than, for example, the hardest $\phi$ in $p_{\mathrm{T}}$ --- ensures that the definition of the fiducial cross section is internally consistent between generator and reconstruction levels. The measurement does not attempt to identify a unique ``hard-scattering $\phi$''; instead, it measures the inclusive process $pp \to J/\psi J/\psi \phi + X$, where $X$ may contain additional $\phi$ mesons or other soft activity, and the representative $\phi$ is the one belonging to the best-score candidate.
+
+\section{Candidate Mismatch and the Response Matrix}
+\label{sec:response-matrix}
+
+When $c_{\mathrm{gen}}^{*}$ and $c_{\mathrm{reco}}^{*}$ involve different $\phi$ mesons or different $K^+K^-$ pairings, the reconstructed kinematics may differ from the generator-level kinematics. This candidate mismatch can cause bin-to-bin migration in the differential distributions. The relationship between the generator-level and reconstruction-level kinematics is described by the response matrix
+\begin{equation}
+R_{ji} = P\bigl(\,\vec{x}_{\mathrm{reco}}(c_{\mathrm{reco}}^{*}) \in \text{bin } i \;\big|\; \vec{x}_{\mathrm{gen}}(c_{\mathrm{gen}}^{*}) \in \text{bin } j \,\bigr),
+\label{eq:response-matrix}
+\end{equation}
+where $\vec{x}$ denotes the kinematic variable under study (e.g.\ $p_{\mathrm{T}}(\phi)$, $m(J/\psi J/\psi \phi)$, or $p_{\mathrm{T}}(J/\psi J/\psi \phi)$). The diagonal elements $R_{ii}$ give the probability that an event generated in bin $i$ is also reconstructed in bin $i$ (stability), and --- with the appropriate normalisation --- the probability that an event reconstructed in bin $i$ was generated in bin $i$ (purity).
+
+If the response matrix is approximately diagonal, the bin-by-bin efficiency correction
+\begin{equation}
+\epsilon_i^{\mathrm{eff}} = \frac{N(\vec{x}_{\mathrm{reco}} \in \text{bin } i)}
+                               {N(\vec{x}_{\mathrm{gen}} \in \text{bin } i)}
+\end{equation}
+is a valid estimator of the detector response in each bin. If the off-diagonal elements are non-negligible, $\epsilon_i^{\mathrm{eff}}$ acquires a dependence on the MC generator-level shape and can no longer be interpreted as a model-independent efficiency.
+
+The response matrix has been evaluated for all differential variables relevant to this analysis. Variables defined primarily by the two $J/\psi$ mesons, such as $m(J/\psi J/\psi)$ and $p_{\mathrm{T}}(J/\psi J/\psi)$, are found to be insensitive to candidate mismatch: the reconstruction uses the same two $J/\psi$ candidates regardless of which $\phi$ is selected, and the bin purities exceed 95\% everywhere. Variables that directly involve the $\phi$ meson --- $p_{\mathrm{T}}(\phi)$, $y(\phi)$, $m(J/\psi J/\psi \phi)$, and $p_{\mathrm{T}}(J/\psi J/\psi \phi)$ --- show slightly larger off-diagonal contributions, particularly in the low-$p_{\mathrm{T}}$ region where multiple soft $\phi$ candidates may be present. Nevertheless, the bin purities and stabilities remain above 90\% across all bins used in the final differential measurements, and the bin-by-bin correction is adopted as the nominal approach.
+
+\section{Closure Validation with Candidate Choice}
+\label{sec:candidate-closure}
+
+To verify that the candidate-selection procedure does not introduce significant bias, a dedicated closure test is performed. The correct-choice fraction
+\begin{equation}
+f_{\mathrm{correct}} = \frac{N(c_{\mathrm{reco}}^{*} \leftrightarrow c_{\mathrm{gen}}^{*})}
+                            {N(c_{\mathrm{reco}}^{*} \text{ exists and passes selection})},
+\end{equation}
+where $c_{\mathrm{reco}}^{*} \leftrightarrow c_{\mathrm{gen}}^{*}$ indicates that the reconstruction-level best candidate matches the generator-level best candidate (same $\phi$, same $J/\psi$ pairings), is studied as a function of kinematic variables. The correct-choice fraction exceeds 85\% in all bins and approaches 95\% in events where the score gap $\Delta S = S(c_{\mathrm{gen}}^{*}) - S(c_{\mathrm{gen}}^{(2)})$ between the best and second-best generator-level candidates is large.
+
+Systematic uncertainties associated with the candidate-choice procedure are assessed by varying the truth definition (hardest-$\phi$ versus best-score-$\phi$) and by comparing the closure performance in subsamples with different numbers of generator-level $\phi$ mesons ($N_{\phi}^{\mathrm{gen}} = 1$, $2$, $\ge 3$). The resulting variations in the corrected yields are at the percent level and are included in the total systematic uncertainty reported in Section~\ref{sec:systematics}.
+
+In summary, the multi-candidate effects in this analysis are modest. The consistent application of the best-score rule at both generator and reconstruction levels, combined with the validation through the response matrix and closure tests, ensures that the bin-by-bin efficiency correction remains a reliable procedure for extracting the fiducial cross section.
