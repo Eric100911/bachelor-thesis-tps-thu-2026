@@ -129,13 +129,21 @@ The factorised formulae are useful because they provide a transparent normalisat
 
 % TO_APPROVE
 
-The effective cross section $\sigma_\mathrm{eff}$ that appears in MPS phenomenology is not an independent parameter but emerges from the transverse overlap integral of the dPDFs. In the simplified geometric picture where longitudinal and transverse degrees of freedom factorise and parton correlations are neglected, $\sigma_\mathrm{eff}^{-1} = \int d^2b \, T^2(\mathbf{b})$, where $T(\mathbf{b})$ is the overlap function of the two protons in transverse space. Purely geometric models using electromagnetic form factors predict $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$, consistent with default profiles in Pythia~8 and Herwig++~\cite{Z48W3VLV}.
+The effective cross section $\sigma_\mathrm{eff}$ that appears in MPS phenomenology is not an independent parameter but emerges from the transverse overlap integral of the dPDFs. In the simplified geometric picture where longitudinal and transverse degrees of freedom factorise and parton correlations are neglected,
+
+\begin{equation}
+  \label{eqn:dps-eff-xsec-from-overlap}
+  \sigma_\mathrm{eff} = \left[ \int d^2b \, T^2(\mathbf{b}) \right]^{-1}
+\end{equation}
+
+
+where $T(\mathbf{b})$ is the overlap function of the two protons in transverse space. Purely geometric models using electromagnetic form factors predict $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$, consistent with default profiles in Pythia~8 and Herwig++~\cite{Z48W3VLV}.
 
 % 有效截面 $\sigma_\mathrm{eff}$ 源于 dPDF 的横向重叠积分。纯几何模型预期 $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$。
 
 % TO_APPROVE
 
-Experimentally, DPS measurements in final states involving high-$p_T$ jets and electroweak bosons yield $\sigma_\mathrm{eff} \approx 10\text{--}20~\mathrm{mb}$, already a factor of approximately two below the geometric expectation. Measurements based on quarkonium-pair production ($J/\psi J/\psi$, $J/\psi\Upsilon$, $\Upsilon\Upsilon$) give even smaller values, $\sigma_\mathrm{eff} \approx 3\text{--}10~\mathrm{mb}$~\cite{WHQAFHD5,zhaoExperimentalReviewQuarkonium2025}. For instance, ATLAS obtained $\sigma_\mathrm{eff} = 6.3 \pm 1.6~(\mathrm{stat.}) \pm 1.0~(\mathrm{syst.})~\mathrm{mb}$ from prompt $J/\psi J/\psi$ production at $8~\mathrm{TeV}$~\cite{ATLAS_JPSIJPSI_8TEV}, whereas ATLAS four-jet data at $7~\mathrm{TeV}$ gave $\sigma_\mathrm{eff} = 14.9\,^{+5.1}_{-3.8}~\mathrm{mb}$~\cite{ATLAS:2016:4jet-DPS}. This systematic difference has been interpreted as evidence that quarkonium production preferentially probes gluon-dominated parton configurations, and that gluons are concentrated in a smaller transverse area than quarks inside the proton~\cite{Blok:2017:MPI-correlations}. That $\sigma_\mathrm{eff}$ varies across final states demonstrates that it is not a universal constant: it is a process-dependent observable that encodes information about the partonic composition and the kinematic regime of each measurement.
+Experimentally, DPS measurements in final states involving high-$p_T$ jets and electroweak bosons yield $\sigma_\mathrm{eff} \approx 10\text{--}20~\mathrm{mb}$, already a factor of approximately two below the geometric expectation. Measurements based on double heavy quarkonium production ($J/\psi J/\psi$, $J/\psi\Upsilon$, $\Upsilon\Upsilon$) give even smaller values, $\sigma_\mathrm{eff} \approx 3\text{--}10~\mathrm{mb}$~\cite{WHQAFHD5,zhaoExperimentalReviewQuarkonium2025}. For instance, ATLAS obtained $\sigma_\mathrm{eff} = 6.3 \pm 1.6~(\mathrm{stat.}) \pm 1.0~(\mathrm{syst.})~\mathrm{mb}$ from prompt $J/\psi J/\psi$ production at $8~\mathrm{TeV}$~\cite{ATLAS_JPSIJPSI_8TEV}, whereas ATLAS four-jet data at $7~\mathrm{TeV}$ gave $\sigma_\mathrm{eff} = 14.9\,^{+5.1}_{-3.8}~\mathrm{mb}$~\cite{ATLAS:2016:4jet-DPS}. This systematic difference has been interpreted as evidence that quarkonium production preferentially probes gluon-dominated parton configurations, and that gluons are concentrated in a smaller transverse area than quarks inside the proton~\cite{Blok:2017:MPI-correlations}. That $\sigma_\mathrm{eff}$ varies across final states demonstrates that it is not a universal constant: it is a process-dependent observable that encodes information about the partonic composition and the kinematic regime of each measurement.
 
 % 实验 $\sigma_\mathrm{eff}$ 值随末态变化：喷注/电弱玻色子 $\sim 10\text{--}20~\mathrm{mb}$，夸克偶素对 $\sim 3\text{--}10~\mathrm{mb}$，表明胶子在质子中比夸克更紧密分布，$\sigma_\mathrm{eff}$ 是过程依赖的可观测量。
 

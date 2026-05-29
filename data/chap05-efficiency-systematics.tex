@@ -5,24 +5,24 @@
 \section{Acceptance and Efficiency Factorization}
 \label{sec:acc-eff}
 
-In an ideal measurement, every $J/\psi J/\psi \phi$ event produced in a proton--proton collision would be recorded and reconstructed perfectly. In practice, the number of events that survive detection, reconstruction, and selection is only a fraction of those produced. The purpose of the acceptance and efficiency correction is to establish, for each selected event, how many events of its kinematic type were originally produced. This section defines the acceptance and efficiency factorisation used in this analysis, describes how each component is computed from simulated events, and presents the resulting two-dimensional correction maps.
+In an ideal measurement, every $pp \to J/\psi + J/\psi + \phi$ event produced in a proton--proton collision would be recorded and reconstructed perfectly. In practice, the number of events that survive detection, reconstruction, and selection is only a fraction of those produced. The purpose of the acceptance and efficiency correction is to establish, for each selected event, how many events of its kinematic type were originally produced. This section defines the acceptance and efficiency factorisation used in this analysis, describes how each component is computed from simulated events, and presents the resulting two-dimensional correction maps.
 
 \subsection{Acceptance}
 \label{sec:acceptance}
 
 The acceptance quantifies the probability that the decay products of a meson reach the sensitive volume of the detector and leave reconstructable signals. For the muons from $J/\psi \to \mu^+\mu^-$, the single-muon fiducial requirements are
 \begin{equation}
-\label{eq:muon-fiducial}
-p_{\mathrm{T}}(\mu^{\pm}) > 3.5\;\mathrm{GeV},
-\qquad
-|\eta(\mu^{\pm})| < 2.4 .
+  \label{eq:muon-fiducial}
+    p_{\mathrm{T}}(\mu^{\pm}) > 3.5\;\mathrm{GeV},
+  \qquad
+    |\eta(\mu^{\pm})| < 2.4 .
 \end{equation}
 These thresholds are standard in CMS quarkonium analyses: the $p_{\mathrm{T}}$ cut ensures that muons traverse enough muon stations to be reconstructed with high efficiency, while the $\eta$ requirement restricts muons to the geometrical coverage of the muon system~\cite{CMS_MUON_PERF_13TEV}. For the kaons from $\phi \to K^+K^-$, the fiducial criteria follow the charged-track acceptance of the silicon tracker:
 \begin{equation}
-\label{eq:kaon-fiducial}
-p_{\mathrm{T}}(K^{\pm}) > 0.5\;\mathrm{GeV},
-\qquad
-|\eta(K^{\pm})| < 2.4 .
+  \label{eq:kaon-fiducial}
+    p_{\mathrm{T}}(K^{\pm}) > 0.5\;\mathrm{GeV},
+  \qquad
+    |\eta(K^{\pm})| < 2.4 .
 \end{equation}
 
 The acceptance is computed per object --- separately for the leading $J/\psi$, the subleading $J/\psi$, and the $\phi$ meson --- as a function of the meson's transverse momentum $p_{\mathrm{T}}$ and absolute rapidity $|y|$. For a given $(p_{\mathrm{T}}, |y|)$ bin, the per-object acceptance is defined as the fraction of generated mesons in that bin for which both decay daughters satisfy the fiducial criteria of Eqs.~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial}. This is determined using a generator-level-only MC sample, since no detector simulation is needed.
@@ -92,29 +92,35 @@ The efficiency chain for this analysis is summarised in Table~\ref{tab:efficienc
 
 \begin{table}[htbp]
   \centering
-  \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied. Per-object steps are evaluated in $(p_{\mathrm{T}},|y|)$ bins of the parent meson; event-level steps are evaluated in two-dimensional or three-dimensional kinematic bins as indicated.}
-  \label{tab:efficiency-chain}
-  \small
-  \begin{tabular}{ccll}
-    \toprule
-    Step & Label & Definition & Binning \\
-    \midrule
-    \multicolumn{4}{c}{\textit{Per $J/\psi$ (applied to both leading and subleading)}} \\
-    1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-    1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-    1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-    \midrule
-    \multicolumn{4}{c}{\textit{Per $\phi$}} \\
-    2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-    2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-    2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-    \midrule
-    \multicolumn{4}{c}{\textit{Event-level}} \\
-    3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
-    4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
-    5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
-    \bottomrule
-  \end{tabular}
+  \begin{threeparttable}[c]
+    \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied.}
+    \label{tab:efficiency-chain}
+    \small
+    \begin{tabular}{ccll}
+      \toprule
+      Step & Label & Definition & Binning \\
+      \midrule
+      \multicolumn{4}{c}{\textit{Per $J/\psi$ (applied to both leading and subleading)}} \\
+      1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      \midrule
+      \multicolumn{4}{c}{\textit{Per $\phi$}} \\
+      2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      \midrule
+      \multicolumn{4}{c}{\textit{Event-level}} \\
+      3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
+      4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
+      5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \item [a] The mass window is defined as $[2.95, 3.25]\;\mathrm{GeV}$ for $J/\psi$ and $[1.01, 1.03]\;\mathrm{GeV}$ for $\phi$.
+      \item [b] The HLT trigger efficiency is nominally an event-level quantity but is evaluated in three-dimensional kinematic bins to account for residual correlations between the trigger decision and the meson transverse momenta.
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 
 The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency (step~1a) is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency (step~1b) is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency (step~1c), which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
