@@ -1,0 +1,9 @@
+[project]
+name = "thesis-repo"
+version = "0.1.0"
+description = "Lightweight Python helpers for the thesis repository."
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[tool.uv]
+package = false

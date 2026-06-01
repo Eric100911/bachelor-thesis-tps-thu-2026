@@ -7,7 +7,7 @@
 \label{sec:syst-overview}
 
 % [PENDING]
-系统误差的讨论围绕分析链条的各个环节组织，而非简单罗列误差来源名称。本分析考虑以下类别的系统效应：
+在第5章信号提取与效率修正的基础上，本章评估各项系统误差来源。系统误差的讨论围绕分析链条的各个环节组织，而非简单罗列误差来源名称。本分析考虑以下类别的系统效应：
 
 \begin{itemize}
   \item 与信号提取程序相关的误差（信号和本底质量模型、固定拟合参数、拟合范围）；
@@ -16,7 +16,6 @@
   \item 样本建模相关的误差（信号 MC 建模、运动学重加权、效率修正的模型依赖性、堆叠建模）；
   \item 归一化误差（积分亮度、分支比）。
 \end{itemize}
-% The discussion of systematic uncertainties is organised around the individual steps of the analysis chain, rather than as a simple list of source names. The following categories of systematic effects are considered:
 % \begin{itemize}
 %   \item uncertainties related to the signal extraction procedure (signal and background mass models, fixed fit parameters, fit range);
 %   \item uncertainties in the acceptance and efficiency corrections (MC statistical uncertainty, binning effects, muon and kaon reconstruction and identification efficiencies, trigger efficiency, vertexing and event-level selection efficiencies);
@@ -27,7 +26,6 @@
 
 % [PENDING]
 每一项误差源均被传播至修正后信号产额和微分分布。在最终数值结果确定之前，本章仅保留方法框架和明确的占位符，不引入假定的百分比误差。
-% Each source is propagated to the corrected signal yield and to the differential distributions. Before the final numerical results are determined, this chapter retains the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.
 
 \section{信号提取相关的系统误差}
 % \section{Uncertainties from Signal Extraction}
@@ -35,7 +33,6 @@
 
 % [PENDING]
 信号提取的系统误差通过在一组合理的替代方案中改变拟合模型，记录提取的原始信号产额 $N_{sss}$ 的变化来评估。
-% The systematic uncertainty associated with the signal extraction is evaluated by varying the fit model within a set of reasonable alternatives and recording the change in the extracted raw signal yield $N_{sss}$.
 
 \subsection{信号质量模型}
 % \subsection{Signal Mass Model}
@@ -89,7 +86,6 @@
 
 % [PENDING]
 用于计算接受度和效率图的 MC 样本的有限规模在每个 $(p_{\mathrm{T}}, |y|)$ 分箱中引入了统计误差。该误差通过在 Clopper--Pearson 二项式误差范围内浮动逐分箱修正因子传播至修正后产额。
-% The limited size of the MC samples used to compute the acceptance and efficiency maps introduces a statistical uncertainty in each $(p_{\mathrm{T}}, |y|)$ bin. This uncertainty is propagated to the corrected yield by fluctuating the per-bin correction factors within their Clopper--Pearson binomial uncertainties.
 
 \subsection{接受度图分箱}
 % \subsection{Acceptance Map Binning}
@@ -172,8 +168,8 @@
 \subsection{信号蒙特卡罗建模}
 \label{subsec:syst-signal-mc-modeling}
 
-\textbf{[待填：比较从不同 MC 产生子（如 \textsc{Pythia8} 与 \textsc{Helac-Onia}）推导的效率图；差异作为建模误差计入。]}
-% \textbf{[To be filled: compare the efficiency maps derived from different MC generators (e.g., \textsc{Pythia8} vs.\ \textsc{Helac-Onia}); the difference is assigned as a modelling uncertainty.]}
+\textbf{[待填：比较从不同 MC 产生子（如 \textsc{Pythia8} 与 \texttt{Helac-Onia}）推导的效率图；差异作为建模误差计入。]}
+% \textbf{[To be filled: compare the efficiency maps derived from different MC generators (e.g., \textsc{Pythia8} vs.\ \texttt{Helac-Onia}); the difference is assigned as a modelling uncertainty.]}
 
 \subsection{运动学重加权}
 \label{subsec:syst-kinematic-reweighting}
@@ -184,8 +180,40 @@
 \subsection{效率修正的模型依赖性}
 \label{subsec:syst-model-dependence}
 
-\textbf{[待填：使用不同 SPS:DPS 混合比例的 MC 样本评估效率；变化范围的包络作为系统误差计入。]}
-% \textbf{[To be filled: evaluate efficiencies using MC samples with different SPS:DPS mixture fractions; the envelope of variations is assigned as a systematic uncertainty.]}
+效率修正的模型依赖性通过比较基于不同SPS:DPS混合比例的MC样本推导的效率图来评估。本分析考虑了五种效率变动情景：
+\begin{itemize}
+  \item \textbf{DPS1}（名义）：DPS为主的产生机制，MadGraph + \textsc{Pythia8}，含部分子簇射与强子化；
+  \item \textbf{DPS2\_CS}：DPS机制，色单态（CS）子过程，运动学分布与名义样本略有不同；
+  \item \textbf{DPS2\_G}：DPS机制，含胶子子过程，代表DPS内部的运动学极端情形；
+  \item \textbf{SPS\_CS}：SPS机制，色单态子过程；
+  \item \textbf{SPS\_G}：SPS机制，含胶子子过程。
+\end{itemize}
+每种情景均生成独立的接收度和效率图，并按照相同的程序计算效率修正后的信号产额，结果汇总于表~\ref{tab:eff-model-variations}。
+
+\begin{table}[htbp]
+  \centering
+  \caption{五种效率变动情景下的修正后信号产额。}
+  \label{tab:eff-model-variations}
+  \begin{tabular}{lcc}
+    \hline
+    效率情景 & $N_{sss}^{\mathrm{corr}}$ & 相对变化（\%） \\
+    \hline
+    DPS1（名义） & 103,972 & --- \\
+    DPS2\_CS & 81,786 & $-$21.3 \\
+    DPS2\_G & 64,464 & $-$38.0 \\
+    SPS\_CS & 501,398 & +382 \\
+    SPS\_G & 87,980 & $-$15.4 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+SPS\_CS情景给出的修正产额（501,398）远大于其他四种情景的结果，这是因为SPS机制产生的三重夸克偶素事例主要集中在低横动量区域，此区域的缪子重建效率极低，导致较大的逐事例修正权重。然而，基于微扰QCD的理论估计，SPS产生三重夸克偶素的截面远小于DPS贡献~\cite{Lansberg:2014swa}，因此该情景不代表物理数据的实际成分。在系统误差评估中，排除SPS\_CS情景，以其余四种变动情景（DPS2\_CS、DPS2\_G、SPS\_G与名义DPS1）相对于名义值的包络半宽作为模型依赖性系统误差：
+
+\begin{equation}
+\Delta_{N}^{\mathrm{model}} = \frac{103{,}972 - 64{,}464}{2} = 19{,}754 \quad (\text{相对误差 } 19.0\%).
+\end{equation}
+
+该值将被传播至修正后的信号产额和截面计算中。效率模型依赖性在所有运动学分箱中视为完全相关的误差。
 
 \subsection{堆叠建模}
 \label{subsec:syst-pileup}
@@ -202,14 +230,12 @@
 
 % [PENDING]
 数据样本的积分亮度为 $289.21 \pm 5.97~\text{fb}^{-1}$，对应的相对误差为 2.1\%~\cite{CMS:LUMI-PUB}。该误差在所有分箱中完全相关，并作为全局归一化误差处理。
-% The integrated luminosity of the data sample is $289.21 \pm 5.97~\text{fb}^{-1}$, corresponding to a relative uncertainty of 2.1\%~\cite{CMS:LUMI-PUB}. This uncertainty is fully correlated across all bins and is applied as a global normalisation uncertainty.
 
 \subsection{分支比}
 \label{subsec:syst-branching-fractions}
 
 % [PENDING]
 世界平均分支比 $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ 和 $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} 参与截面计算。其误差作为完全相关的归一化误差传播。
-% The world-average branching fractions $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ and $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} enter the cross-section calculation. Their uncertainties are propagated as fully correlated normalisation uncertainties.
 
 \section{系统误差的综合}
 % \section{Combination of Systematic Uncertainties}
@@ -218,18 +244,53 @@
 \subsection{相关性假设}
 \label{subsec:syst-correlations}
 
-\textbf{[待填：明确哪些误差在各分箱之间视为完全相关（如亮度、分支比），哪些视为不相关（如逐分箱拟合变化）。]}
-% \textbf{[To be filled: specify which uncertainties are treated as fully correlated across bins (e.g., luminosity, branching fractions) and which are treated as uncorrelated (e.g., bin-by-bin fit variations).]}
+以下系统误差源在所有运动学分箱之间视为完全相关，因为它们代表全局归一化效应：积分亮度、分支比、以及效率修正的模型依赖性。信号提取相关的系统误差（信号和本底模型变动、拟合范围等）原则上可能随运动学分箱变化，但在此阶段先保守地视为分箱间完全相关。MC统计误差和分箱效应视为分箱间不相关。
 
 \subsection{综合方法}
 \label{subsec:syst-combination-procedure}
 
-% [PENDING]
 总系统误差由所有独立误差源平方求和开方得到，假定它们互不相关。对于同时包含相关和不相关分量的误差源，两部分先分别求和再合并。
-% The total systematic uncertainty is obtained by adding all individual sources in quadrature, assuming they are uncorrelated. For sources with both correlated and uncorrelated components, the two components are summed separately and then combined.
 
 \subsection{系统误差汇总表}
 \label{subsec:syst-summary-table}
 
-\textbf{[待填：汇总表列出每个系统误差源、其对修正后产额的相对贡献、以及在各运动学分箱之间视为相关还是不相关。]}
-% \textbf{[To be filled: a summary table listing each source of systematic uncertainty, its relative contribution to the corrected yield, and whether it is treated as correlated or uncorrelated across kinematic bins.]}
+表~\ref{tab:syst-summary}汇总了当前已评估的所有系统误差源及其对修正后信号产额$N_{sss}^{\mathrm{corr}}$的相对贡献。标记为「待评估」的误差源尚未完成定量研究，将在后续工作中补充。
+
+\begin{table}[htbp]
+  \centering
+  \caption{各系统误差源对$N_{sss}^{\mathrm{corr}}$的相对贡献汇总。星号（*）表示尚未完成定量评估的误差源。}
+  \label{tab:syst-summary}
+  \begin{tabular}{lcc}
+    \hline
+    误差源 & 相对贡献（\%） & 相关性 \\
+    \hline
+    \multicolumn{3}{l}{\textbf{已评估}} \\
+    \quad 积分亮度~\cite{CMS:LUMI-PUB} & 2.1 & 完全相关 \\
+    \quad $\mathcal{B}(J/\psi \to \mu^+\mu^-)$~\cite{PDG2024} & 0.55 & 完全相关 \\
+    \quad $\mathcal{B}(\phi \to K^+K^-)$~\cite{PDG2024} & 1.0 & 完全相关 \\
+    \quad 效率修正的模型依赖性（不含SPS\_CS） & 19.0 & 完全相关 \\
+    \hline
+    \multicolumn{3}{l}{\textbf{待评估（*）}} \\
+    \quad 信号质量模型 & * & 待定 \\
+    \quad 本底质量模型 & * & 待定 \\
+    \quad 固定拟合参数 & * & 待定 \\
+    \quad 拟合范围 & * & 待定 \\
+    \quad 拟合稳定性 & * & 待定 \\
+    \quad sPlot相关误差 & * & 待定 \\
+    \quad MC统计误差 & * & 不相关 \\
+    \quad 接受度图分箱 & * & 待定 \\
+    \quad 效率图分箱 & * & 待定 \\
+    \quad 缪子重建与鉴别效率 & * & 待定 \\
+    \quad 带电强子重建与鉴别效率 & * & 待定 \\
+    \quad 触发效率 & * & 待定 \\
+    \quad 顶点拟合与事例级选择效率 & * & 待定 \\
+    \quad 多重候选体处理 & * & 待定 \\
+    \quad 最佳候选体选择 & * & 待定 \\
+    \quad 候选体匹配与迁移效应 & * & 待定 \\
+    \quad 闭合检验残余偏差 & * & 待定 \\
+    \quad 信号MC建模 & * & 待定 \\
+    \quad 运动学重加权 & * & 待定 \\
+    \quad 堆叠建模 & * & 待定 \\
+    \hline
+  \end{tabular}
+\end{table}

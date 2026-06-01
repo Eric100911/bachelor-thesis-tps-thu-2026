@@ -4,7 +4,6 @@
 
 % [PENDING]
 在 $J/\psi J/\psi \phi$ 分析中，单次质子--质子对撞可能在基准接受度内产生多于一个 $\phi$ 介子——例如通过额外的部分子簇射或软 QCD 过程。类似地，在单个事例中，多重电荷相反的 $K^+K^-$ 组合可能满足双带电强子选择判据并落入 $\phi$ 质量窗口。当此类事例包含多于一个可重建的 $J/\psi J/\psi \phi$ 候选体时，每个候选体可能使用不同的 $\phi$ 介子或不同的 $K^+K^-$ 配对。因此，分析必须明确如何选择一个候选体来代表该事例。
-% In the $J/\psi J/\psi \phi$ analysis, a single proton--proton collision may produce more than one $\phi$ meson within the fiducial acceptance --- for instance, through additional parton-shower activity or soft QCD processes. Similarly, within a single event, multiple oppositely charged $K^+K^-$ combinations may satisfy the dikaon selection criteria and fall within the $\phi$ mass window. When such events contain more than one reconstructable $J/\psi J/\psi \phi$ candidate, each candidate may use a different $\phi$ meson or a different $K^+K^-$ pairing. The analysis must therefore specify how one candidate is chosen to represent the event.
 
 \section{候选体定义与最佳评分规则}
 % \section{Candidate Definition and Best-Score Rule}
@@ -22,11 +21,9 @@ c_{\mathrm{gen}}^{*} &= \arg\max_{c \in \mathcal{C}_{\mathrm{gen}}^{\mathrm{fid}
 c_{\mathrm{reco}}^{*} &= \arg\max_{c \in \mathcal{C}_{\mathrm{reco}}^{\mathrm{pass}}} S(c). \label{eq:reco-best}
 \end{align}
 在产生子层面，$\mathcal{C}_{\mathrm{gen}}^{\mathrm{fid}}$ 是事例中所有满足式~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial} 中基准判据的 $J/\psi J/\psi \phi$ 组合的集合。在重建层面，$\mathcal{C}_{\mathrm{reco}}^{\mathrm{pass}}$ 是所有通过完整重建和选择链的候选体集合。
-% Throughout this analysis, a single best candidate per event is selected using the score... [English kept as commented]
 
 % [PENDING]
 以最佳评分候选体定义测量量——而非例如以 $p_{\mathrm{T}}$ 最大的 $\phi$ 定义——确保了基准截面的定义在产生子层面和重建层面之间保持内部一致。该测量并不试图识别唯一的"硬散射 $\phi$"；相反，它测量的是单举过程 $pp \to J/\psi J/\psi \phi + X$，其中 $X$ 可能包含额外的 $\phi$ 介子或其他软活动，代表性 $\phi$ 是属于最佳评分候选体的那一个。
-% Defining the measurement in terms of the best-score candidate... [English kept as commented]
 
 \section{候选体错配与响应矩阵}
 % \section{Candidate Mismatch and the Response Matrix}
@@ -39,7 +36,6 @@ R_{ji} = P\bigl(\,\vec{x}_{\mathrm{reco}}(c_{\mathrm{reco}}^{*}) \in \text{bin }
 \label{eq:response-matrix}
 \end{equation}
 其中 $\vec{x}$ 表示所研究的运动学变量（如 $p_{\mathrm{T}}(\phi)$、$m(J/\psi J/\psi \phi)$ 或 $p_{\mathrm{T}}(J/\psi J/\psi \phi)$）。对角元 $R_{ii}$ 给出在分箱 $i$ 中产生的事例也在分箱 $i$ 中被重建的概率（稳定性），以及——在适当归一化下——在分箱 $i$ 中重建的事例在分箱 $i$ 中产生的概率（纯度）。
-% When c*_gen and c*_reco involve different φ mesons... [English kept as commented]
 
 % [PENDING]
 如果响应矩阵近似对角，则逐分箱效率修正
@@ -48,11 +44,9 @@ R_{ji} = P\bigl(\,\vec{x}_{\mathrm{reco}}(c_{\mathrm{reco}}^{*}) \in \text{bin }
                                {N(\vec{x}_{\mathrm{gen}} \in \text{bin } i)}
 \end{equation}
 是每个分箱中探测器响应的有效估计量。若非对角元不可忽略，则 $\epsilon_i^{\mathrm{eff}}$ 将依赖于 MC 产生子层面的形状，不能再解释为与模型无关的效率。
-% If the response matrix is approximately diagonal... [English kept as commented]
 
 % [PENDING]
 本分析已对所有相关微分变量计算了响应矩阵。主要由两个 $J/\psi$ 介子定义的变量，如 $m(J/\psi J/\psi)$ 和 $p_{\mathrm{T}}(J/\psi J/\psi)$，对候选体错配不敏感：无论选择哪个 $\phi$，重建均使用相同的两个 $J/\psi$ 候选体，且分箱纯度在所有区域均超过 95\%。直接涉及 $\phi$ 介子的变量——$p_{\mathrm{T}}(\phi)$、$y(\phi)$、$m(J/\psi J/\psi \phi)$ 和 $p_{\mathrm{T}}(J/\psi J/\psi \phi)$——显示出稍大的非对角贡献，特别是在低 $p_{\mathrm{T}}$ 区域，该区域可能存在多个软 $\phi$ 候选体。然而，在所有用于最终微分测量的分箱中，分箱纯度和稳定性均保持在 90\% 以上，逐分箱修正被采纳为标称方法。
-% The response matrix has been evaluated... [English kept as commented]
 
 \section{候选体选择的闭合验证}
 % \section{Closure Validation with Candidate Choice}
@@ -65,12 +59,9 @@ f_{\mathrm{correct}} = \frac{N(c_{\mathrm{reco}}^{*} \leftrightarrow c_{\mathrm{
                             {N(c_{\mathrm{reco}}^{*} \text{ exists and passes selection})},
 \end{equation}
 其中 $c_{\mathrm{reco}}^{*} \leftrightarrow c_{\mathrm{gen}}^{*}$ 表示重建层面的最佳候选体与产生子层面的最佳候选体匹配（相同 $\phi$、相同 $J/\psi$ 配对），作为运动学变量的函数进行了研究。正确选择率在所有分箱中超过 85\%，在产生子层面最佳候选体与次佳候选体之间的评分差 $\Delta S = S(c_{\mathrm{gen}}^{*}) - S(c_{\mathrm{gen}}^{(2)})$ 较大的事例中接近 95\%。
-% To verify that the candidate-selection procedure... [English kept as commented]
 
 % [PENDING]
 与候选体选择程序相关的系统误差通过改变真实值定义（最硬 $\phi$ 与最佳评分 $\phi$）以及比较具有不同产生子层面 $\phi$ 介子数（$N_{\phi}^{\mathrm{gen}} = 1$, $2$, $\ge 3$）的子样本中的闭合性能来评估。修正后产额中的相应变化在百分量级，并计入第~\ref{chap:systematics}~章报告的总系统误差中。
-% Systematic uncertainties associated with the candidate-choice procedure... [English kept as commented]
 
 % [PENDING]
 总之，本分析中的多重候选体效应是适度的。最佳评分规则在产生子层面和重建层面的一致应用，结合通过响应矩阵和闭合检验的验证，确保逐分箱效率修正是提取基准截面的可靠方法。
-% In summary, the multi-candidate effects in this analysis are modest... [English kept as commented]

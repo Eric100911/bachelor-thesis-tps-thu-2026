@@ -1,45 +1,118 @@
 \chapter{结果与讨论}
 % \chapter{Results and Discussion}
+\label{chap:results}
+
+本章在前文信号提取（第\ref{chap:signal-efficiency}章）、效率修正（第\ref{chap:signal-efficiency}章）和系统误差评估（第\ref{chap:systematics}章）的基础上，汇总$pp \to J/\psi + J/\psi + \phi + X$过程的最终物理结果。第\ref{sec:final-candidates-fit}节报告候选事例统计量与拟合结果，第\ref{sec:corrected-results-interp}节给出效率修正后的信号产额与截面测量值，第\ref{sec:comparison-related}节讨论与相关理论和实验工作的联系。
+
+% This chapter aggregates the final physics results for the $pp \to J/\psi + J/\psi + \phi + X$ process, building on the signal extraction (Chapter~\ref{chap:signal-efficiency}), efficiency correction (Chapter~\ref{chap:signal-efficiency}), and systematic uncertainty evaluation (Chapter~\ref{chap:systematics}). Sec.~\ref{sec:final-candidates-fit} reports candidate event counts and fit results, Sec.~\ref{sec:corrected-results-interp} presents the efficiency-corrected signal yield and cross-section measurement, and Sec.~\ref{sec:comparison-related} discusses connections to related theoretical and experimental work.
 
 \section{候选事例与拟合结果}
 % \section{Candidate Events and Fit Results}
+\label{sec:final-candidates-fit}
 
-% [PENDING]
-本节用于汇总最终信号候选数、背景估计、拟合结果和显著性。
-若后续分析给出的是观测结果，则应明确统计显著性和对应检验方法；
-若给出的是上限结果，则应明确置信区间构造方式及其输入假设。
-% This section summarizes the final number of signal candidates, the background estimate, the fit results, and the statistical significance.
-% If the subsequent analysis reports an observation, the statistical significance and the corresponding test procedure should be stated explicitly.
-% If an upper limit is reported instead, the construction of the confidence interval and its input assumptions should be specified.
+从CMS 2022--2023年$\sqrt{s} = 13.6$~TeV的质子--质子碰撞数据中，通过第\ref{chap:reconstruction-selection}章描述的重建与选择流程，在$\mu^+\mu^- K^+K^- \mu^+\mu^-$终态中共筛选出48,829个$J/\psi J/\psi \phi$候选事例，初始事例总数为561,830。每个候选事例包含两个$J/\psi \to \mu^+\mu^-$候选体和一个$\phi \to K^+K^-$候选体。当同一事例中存在多个候选体时，基于$p_T$之和最大的判据选定最佳候选体。
 
-% [PENDING]
-当前应保留的结果占位包括：
-% The result placeholders that should be retained at this stage are:
+% From the CMS 2022--2023 $pp$ collision data at $\sqrt{s} = 13.6$~TeV, a total of 48,829 $J/\psi J/\psi \phi$ candidate events are selected in the $\mu^+\mu^- K^+K^- \mu^+\mu^-$ final state, out of 561,830 initial events, following the reconstruction and selection procedure described in Chapter~\ref{chap:reconstruction-selection}. Each candidate event contains two $J/\psi \to \mu^+\mu^-$ candidates and one $\phi \to K^+K^-$ candidate. When multiple candidates exist in the same event, the best candidate is chosen based on the largest $p_T$ sum.
 
-\begin{itemize}
-  \item \textbf{[待填：最终候选事例数]}
-  % \item \textbf{[To be filled: final number of candidate events]}
-  \item \textbf{[待填：拟合信号产额]}
-  % \item \textbf{[To be filled: fitted signal yield]}
-  \item \textbf{[待填：统计显著性或上限结果]}
-  % \item \textbf{[To be filled: statistical significance or upper-limit result]}
-\end{itemize}
+利用第\ref{chap:signal-efficiency}章描述的三维无分箱扩展最大似然拟合方法，对候选事例的$(m_{J/\psi_1}, m_{J/\psi_2}, m_{\phi})$质量谱进行拟合。信号模型采用双面Crystal Ball函数描述$J/\psi$共振峰、Voigtian函数描述$\phi$共振峰，本底模型采用指数函数与阈值幂律函数。8个产额分量（$N_{sss}$至$N_{bbb}$）覆盖信号与本底粒子来源的所有组合。拟合结果汇总于表~\ref{tab:result-yields-summary}。
+
+% Using the three-dimensional unbinned extended maximum-likelihood fit described in Chapter~\ref{chap:signal-efficiency}, the $(m_{J/\psi_1}, m_{J/\psi_2}, m_{\phi})$ mass spectrum of the candidate events is fitted. The signal model uses double-sided Crystal Ball functions for the $J/\psi$ resonances and a Voigtian function for the $\phi$ resonance; the background model uses exponential functions and a threshold power-law function. Eight yield components ($N_{sss}$ through $N_{bbb}$) cover all combinations of signal and background particle origins. The fit results are summarized in Table~\ref{tab:result-yields-summary}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{三维拟合的产额分量结果。$N_{sss}$为三个粒子均为真实信号的事例产额。}
+  % \caption{Yield components from the 3D fit. $N_{sss}$ is the yield of events where all three particles are genuine signal.}
+  \label{tab:result-yields-summary}
+  \begin{tabular}{lrl}
+    \hline
+    分量 & 产额 & 统计误差 \\
+    \hline
+    $N_{sss}$（信号） & 1,563 & $\pm$ 143 \\
+    $N_{ssb}$ & 22,919 & $\pm$ 323 \\
+    $N_{sbs}$ & 801 & $\pm$ 117 \\
+    $N_{bss}$ & 422 & $\pm$ 90 \\
+    $N_{sbb}$ & 11,947 & $\pm$ 242 \\
+    $N_{bsb}$ & 4,163 & $\pm$ 184 \\
+    $N_{bbs}$ & 362 & $\pm$ 91 \\
+    $N_{bbb}$ & 6,651 & $\pm$ 190 \\
+    \hline
+    总计 & 48,829 & --- \\
+    \hline
+  \end{tabular}
+\end{table}
+
+提取的原始$J/\psi J/\psi \phi$信号产额为
+\begin{equation}
+\boxed{N_{sss} = 1563 \pm 143\,(\mathrm{stat}).}
+\end{equation}
+信号分数$S/(S+B) = 3.20\%$，信噪比$S/B = 3.31\%$。
+
+% The extracted raw $J/\psi J/\psi \phi$ signal yield is [...]. The signal fraction is $S/(S+B) = 3.20\%$ and the signal-to-background ratio is $S/B = 3.31\%$.
+
+信号的统计显著性通过似然比检验进行评估。零假设（$N_{sss} = 0$）下的零拟合给出NLL = $-732{,}524$，而名义拟合的NLL = $-732{,}596$。检验统计量$q_0 = 2(\ln L_{\mathrm{nom}} - \ln L_0) = 144.2$，对应显著性为
+\begin{equation}
+\boxed{Z = \sqrt{q_0} = 12.0\,\sigma .}
+\end{equation}
+这远远超过了粒子物理中公认的$5\sigma$观测阈值，因此本分析明确观测到了$J/\psi J/\psi \phi$的产生。
+
+% The statistical significance is evaluated using a likelihood ratio test. [...] This far exceeds the established $5\sigma$ observation threshold in particle physics, so this analysis constitutes a clear observation of $J/\psi J/\psi \phi$ production.
 
 \section{修正后结果与物理解释}
 % \section{Corrected Results and Physical Interpretation}
+\label{sec:corrected-results-interp}
 
-% [PENDING]
-如果后续输出包含截面、比值或微分分布，本节应说明其定义、误差组成和适用相空间。
-如果当前阶段只完成候选观测或方法学验证，本节则应聚焦于结果含义、限制条件和下一步工作。
-% If the subsequent output includes a cross section, a ratio, or differential distributions, this section should define the measured quantity, describe the uncertainty components, and state the applicable phase space.
-% If the current stage only establishes a candidate observation or a methodological validation, this section should instead focus on the implications of the result, its limitations, and the next steps.
+\subsection{效率修正后的信号产额}
+
+利用第\ref{chap:signal-efficiency}章描述的接受度与效率修正框架，基于DPS1名义效率图，对每个选定事例赋予修正权重$w = 1/(A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}})$并乘以sWeight信号权重，得到效率修正后的总信号产额：
+\begin{equation}
+\boxed{N_{sss}^{\mathrm{corr}} = 103{,}972 \pm 20{,}558\,(\mathrm{stat}) \pm 19{,}754\,(\mathrm{syst,\,model}) .}
+\end{equation}
+其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差（19.0\%）来自四种效率变动情景相对于名义DPS1效率图的包络半宽（详见第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）。图~\ref{fig:yield-comparison}比较了五种效率情景下的修正后信号产额。排除SPS\_CS情景后，其余四种情景给出的产额范围为$[6.4 \times 10^4, 1.04 \times 10^5]$，彼此之间的一致性在模型依赖性误差范围内。
+
+% Using the acceptance and efficiency correction framework described in Chapter~\ref{chap:signal-efficiency}, based on the nominal DPS1 efficiency maps, [...] Fig.~\ref{fig:yield-comparison} compares the corrected signal yields under the five efficiency scenarios. Excluding the SPS_CS scenario, the remaining four scenarios give yields in the range $[6.4 \times 10^4, 1.04 \times 10^5]$, consistent with each other within the model-dependence uncertainty.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{figures/chap07-results/yield_comparison.png}
+  \caption{五种效率变动情景下的修正后$J/\psi J/\psi \phi$信号产额比较。名义结果为DPS1（红色圆点），误差棒表示统计误差。SPS\_CS情景（灰色）给出的产额远大于其余四种情景，因其SPS主导的运动学导致极低的缪子重建效率，从而放大修正权重。该情景的SPS截面理论预期极低，故在系统误差评估中予以排除。}
+  % \caption{Comparison of the corrected $J/\psi J/\psi \phi$ signal yields across the five efficiency variation scenarios. The nominal result is DPS1 (red filled circle), with error bars indicating statistical uncertainties. The SPS_CS scenario (grey) gives a yield far larger than the other four, because its SPS-dominated kinematics lead to very low muon reconstruction efficiency, amplifying the correction weights. The SPS cross-section for this process is theoretically expected to be very small, so this scenario is excluded from the systematic uncertainty evaluation.}
+  \label{fig:yield-comparison}
+\end{figure}
+
+\subsection{截面测量}
+
+效率修正后的信号产额与产生截面之间的关系为
+\begin{equation}
+\sigma(pp \to J/\psi + J/\psi + \phi + X) \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = \frac{N_{sss}^{\mathrm{corr}}}{\mathcal{L}_{\mathrm{int}}},
+\end{equation}
+其中$\mathcal{L}_{\mathrm{int}} = 289.21 \pm 5.97~\text{fb}^{-1}$为积分亮度（第\ref{chap:reconstruction-selection}章）。代入数值得到
+\begin{equation}
+\boxed{\sigma \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = 359 \pm 71\,(\mathrm{stat}) \pm 68\,(\mathrm{syst,\,model})~\text{fb} .}
+\end{equation}
+
+利用世界平均分支比$\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$和$\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024}，进一步得到绝对产生截面：
+\begin{equation}
+\boxed{\sigma(pp \to J/\psi + J/\psi + \phi + X) = 206 \pm 41\,(\mathrm{stat}) \pm 39\,(\mathrm{syst,\,model})~\text{pb} .}
+\end{equation}
+
+以上截面测量对应于CMS探测器在$\sqrt{s} = 13.6$~TeV下的质子--质子碰撞，且受限于第\ref{chap:reconstruction-selection}章定义的单缪子与单kaon运动学接受范围（$p_T(\mu) > 3.5$~GeV，$|\eta(\mu)| < 2.4$；$p_T(K) > 0.5$~GeV，$|\eta(K)| < 2.4$）。目前仅包含效率修正的模型依赖性系统误差（19.0\%）；待第\ref{chap:systematics}章中标记为「待评估」的其余系统误差源完成定量研究后，总截面误差将相应更新。额外的归一化不确定度来自积分亮度（2.1\%）和分支比（$\mathcal{B}(J/\psi \to \mu^+\mu^-)$为0.55\%、$\mathcal{B}(\phi \to K^+K^-)$为1.0\%），将在系统误差综合时一并传播。
+
+% The above cross-section measurement corresponds to $pp$ collisions at $\sqrt{s} = 13.6$~TeV in the CMS detector, and is restricted to the single-muon and single-kaon kinematic acceptance ranges defined in Chapter~\ref{chap:reconstruction-selection} ($p_T(\mu) > 3.5$~GeV, $|\eta(\mu)| < 2.4$; $p_T(K) > 0.5$~GeV, $|\eta(K)| < 2.4$). Currently only the efficiency model-dependence systematic (19.0\%) is included; the total cross-section uncertainty will be updated once the remaining systematic sources marked "to be evaluated" in Chapter~\ref{chap:systematics} are quantitatively studied. Additional normalization uncertainties from the integrated luminosity (2.1\%) and branching fractions ($\mathcal{B}(J/\psi \to \mu^+\mu^-)$ 0.55\%, $\mathcal{B}(\phi \to K^+K^-)$ 1.0\%) will be propagated in the full systematic combination.
+
+\subsection{物理解释}
+
+测量得到的$206 \pm 41\,(\mathrm{stat}) \pm 39\,(\mathrm{syst,\,model})$~pb截面显著大于典型SPS产生三重夸克偶素的微扰QCD预期。SPS机制中，三个夸克偶素需由单次硬散射中的三对重夸克产生，其截面受到高阶$\alpha_s$和多重重夸克波函数重叠的双重压低，预期在fb量级或更低~\cite{Lansberg:2014swa}。相比之下，DPS机制中三个夸克偶素可通过一次或两次硬散射产生，其截面由双部分子分布函数（dPDF）和单夸克偶素截面的乘积决定，有望达到数十至数百pb量级。本分析测得的较大截面自然地支持了DPS主导的产生图景，与双$J/\psi$产生中DPS贡献占优的实验证据一致~\cite{CMS_TRI_JPSI}。效率修正的模型依赖性研究（第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）进一步确认了这一点：采用SPS主导的效率图（SPS\_CS）将导致修正后的产额异常增大到不合理的程度（$\sim 5 \times 10^5$），反映出SPS运动学与数据之间的失配。
+
+% The measured cross-section of $206 \pm 41\,(\mathrm{stat}) \pm 39\,(\mathrm{syst,\,model})$~pb is significantly larger than the typical pQCD expectation for SPS production of three quarkonia. In the SPS mechanism, three quarkonia must be produced from three heavy-quark pairs in a single hard scattering, with the cross-section doubly suppressed by higher-order $\alpha_s$ and the overlap of multiple heavy-quark wave functions, expected at the fb level or below~\cite{Lansberg:2014swa}. In contrast, in the DPS mechanism the three quarkonia can be produced via one or two hard scatterings, with the cross-section given by the product of dPDFs and single-quarkonium cross-sections, potentially reaching tens to hundreds of pb. The large cross-section measured in this analysis naturally supports a DPS-dominated production picture, consistent with the experimental evidence for DPS dominance in double-$J/\psi$ production~\cite{CMS_TRI_JPSI}. This is further confirmed by the efficiency model-dependence study (Chapter~\ref{chap:systematics}, Sec.~\ref{subsec:syst-model-dependence}): adopting SPS-dominated efficiency maps (SPS\_CS) leads to an anomalously large corrected yield ($\sim 5 \times 10^5$), reflecting the mismatch between SPS kinematics and the data.
 
 \section{与相关工作的比较}
 % \section{Comparison with Related Work}
+\label{sec:comparison-related}
 
-% [PENDING]
-这里可以结合 \texttt{struct-ref/} 中公开结果的组织方式，讨论本文结果与已有双 quarkonium、
-三 quarkonium 或相关伴随产生研究之间的联系。
-但在没有最终数值和可靠可比定义之前，不应写出定量优劣判断。
-% Following the organization of public results collected in \texttt{struct-ref/}, this section may discuss how the present result relates to existing studies of double quarkonium, triple quarkonium, or related associated-production processes.
-% However, before final numerical values and reliably comparable definitions are available, no quantitative judgment of relative performance or preference should be made.
+$J/\psi J/\psi \phi$的伴随产生是本分析首次在实验上进行探索的末态。此前，CMS合作组已在$\sqrt{s} = 13$~TeV下观测到了三重$J/\psi$产生~\cite{CMS_TRI_JPSI}以及$Y(1S)$对产生~\cite{CMSY1SY1S13TeV2020}；ATLAS和LHCb合作组也在不同能量下测量了双$J/\psi$产生截面~\cite{ATLASPromptJpsiJpsi8TeV2017,LHCbJpsiJpsi13TeV2017,LHCbJpsiJpsi13TeV2024}。然而，在有意义地比较不同末态的绝对截面之前，需要计算有效截面（$\sigma_{\mathrm{eff}}$）以扣除部分子分布函数的依赖，从而将不同的多重夸克偶素过程置于同一标度下讨论。有效截面的提取需要额外的理论输入和实验测量，目前尚未完成，因此本节暂不进行定量的过程间比较。
+
+% The associated production of $J/\psi J/\psi \phi$ is a final state explored experimentally for the first time in this analysis. Previously, the CMS Collaboration has observed triple $J/\psi$ production [...] and $Y(1S)$ pair production [...]; ATLAS and LHCb have also measured double $J/\psi$ production cross-sections at various energies [...]. However, before meaningfully comparing absolute cross-sections across different final states, the effective cross-section ($\sigma_{\mathrm{eff}}$) must be computed to factor out the parton distribution function dependence, placing different multi-quarkonium processes on the same footing. The extraction of $\sigma_{\mathrm{eff}}$ requires additional theoretical input and experimental measurements, which have not yet been completed; therefore, quantitative cross-process comparisons are deferred.
+
+需要指出的是，目前的截面测量仍以模型依赖性为主的系统误差所主导。为了获得具有足够精度的物理结果，后续工作应着重完成第\ref{chap:systematics}章中列出的其余系统误差源的定量评估，计算$\sigma_{\mathrm{eff}}$以与相关过程进行比较，并在获得更精确的双部分子分布函数约束和更完备的SPS理论计算后，对DPS与SPS贡献进行定量分离。此外，微分截面测量（如$J/\psi J/\psi \phi$横动量谱和$\Delta y$、$\Delta\phi$角关联分布）将为产生机制的甄别提供更灵敏的信息。
+
+% It should be noted that the current cross-section measurement is still dominated by systematic uncertainties, primarily from model dependence. To obtain a physical result with sufficient precision, future work should focus on completing the quantitative evaluation of the remaining systematic sources listed in Chapter~\ref{chap:systematics}, computing $\sigma_{\mathrm{eff}}$ for comparison with related processes, and quantitatively separating the DPS and SPS contributions once more precise dPDF constraints and more complete SPS theoretical calculations become available. Furthermore, differential cross-section measurements (e.g., the $J/\psi J/\psi \phi$ transverse momentum spectra and $\Delta y$, $\Delta\phi$ angular correlation distributions) will provide more sensitive information for discriminating the production mechanisms.

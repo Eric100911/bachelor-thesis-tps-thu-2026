@@ -3,60 +3,73 @@
 % 中英文摘要和关键字
 
 \begin{abstract}
-  论文的摘要是对论文研究内容和成果的高度概括。
-  % The thesis abstract is a concise summary of the research content and results.
+  多重部分子散射（MPS）是探索质子内部部分子横向空间分布和关联的核心探针。
+  在独立散射近似下，MPS 过程的有效截面 $\sigma_{\mathrm{eff}}$ 概括了这些非微扰信息。
+  然而，不同末态对 $\sigma_{\mathrm{eff}}$ 的测量结果存在显著差异，表明简化的因子化图像需要来自更多样化末态的检验。
+  本论文基于 CMS 实验在 Run~3 期间采集的 $\sqrt{s}=13.6~\mathrm{TeV}$ 质子--质子对撞数据，
+  对三重夸克偶素联合产生过程 $pp \to J/\psi + J/\psi + \phi + X$ 进行了首次观测，
+  积分亮度为 $289.21~\mathrm{fb}^{-1}$。
+  $\phi$ 介子作为含 $s\bar{s}$ 的轻味矢量介子，为 MPS 研究提供了不同于纯重夸克偶素末态的独立检验道。
 
-% [PENDING]
-  摘要应对论文所研究的问题及其研究目的进行描述，对研究方法和过程进行简单介绍，对研究成果和所得结论进行概括。
-  % It should describe the research problem and objectives, briefly introduce the research methods and process, and summarize the research results and conclusions.
+  两个 $J/\psi$ 候选粒子通过 $J/\psi \to \mu^+\mu^-$ 衰变道重建，$\phi$ 候选粒子通过 $\phi \to K^+K^-$ 衰变道重建。
+  经完整选择流程后，共获得 $48\,829$ 个 $J/\psi J/\psi \phi$ 候选事例。
+  通过对 $m(J/\psi_1)$、$m(J/\psi_2)$ 和 $m(\phi)$ 三维不变质量谱的无分箱最大似然拟合，
+  提取原始信号产额 $N_{sss} = 1563 \pm 143$，信号统计显著性为 $12.0\,\sigma$。
+  基于蒙特卡罗模拟，计算了逐分箱的几何接受度和条件效率修正因子，
+  并利用 sPlot 技术实现了信号与本底在运动学分布中的统计分离。
+  经效率修正后的总信号产额为 $N_{sss}^{\mathrm{corr}} = 1.04 \times 10^5 \pm 2.06 \times 10^4\,(\mathrm{stat}) \pm 1.98 \times 10^4\,(\mathrm{syst,\,model})$，
+  对应的产生截面为 $\sigma(pp \to J/\psi J/\psi \phi + X) \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = 359 \pm 71\,(\mathrm{stat}) \pm 68\,(\mathrm{syst,\,model})~\mathrm{fb}$
+  和 $\sigma(pp \to J/\psi J/\psi \phi + X) = 206 \pm 41\,(\mathrm{stat}) \pm 39\,(\mathrm{syst,\,model})~\mathrm{pb}$。
+  论文建立了涵盖信号提取、效率修正、候选体重建和样本建模等环节的系统误差评估框架，
+  其中效率修正的模型依赖性为主要系统误差源（19.0\%）。
 
-% [PENDING]
-  摘要应具有独立性和自明性，其内容应包含与论文全文同等量的主要信息。
-  % The abstract should be independent and self-contained, and should include the principal information contained in the full thesis.
+  本分析首次在含有一个轻味矢量介子的三粒子末态中观测到 MPS 信号，
+  为检验因子化 MPS 图像在多种末态中的普适性提供了新的实验依据。
+  所建立的分析框架可直接服务于后续截面测量和有效截面 $\sigma_{\mathrm{eff}}$ 的提取。
 
-% [PENDING]
-  使读者即使不阅读全文，通过摘要就能了解论文的总体内容和主要成果。
-  % It should allow readers to understand the overall content and main results of the thesis without reading the full text.
-
-% [PENDING]
-  论文摘要的书写应力求精确、简明。
-  % The abstract should be written precisely and concisely.
-
-% [PENDING]
-  切忌写成对论文书写内容进行提要的形式，尤其要避免"第 1 章……；第 2 章……；……"这种或类似的陈述方式。
-  % It should not be written as a chapter-by-chapter outline of the thesis; in particular, statements such as ``Chapter 1 ...; Chapter 2 ...; ...'' or similar forms should be avoided.
-
-% [PENDING]
-  关键词是为了文献标引工作、用以表示全文主要内容信息的单词或术语。
-  % Keywords are words or terms used for literature indexing and for indicating the main content of the thesis.
-
-% [PENDING]
-  关键词不超过 5 个，每个关键词中间用分号分隔。
-  % No more than five keywords should be provided, separated by semicolons.
-
-  % 关键词用"英文逗号"分隔，输出时会自动处理为正确的分隔符
   \thusetup{
-    % keywords = {关键词 1, 关键词 2, 关键词 3, 关键词 4, 关键词 5},
-    keywords = {keyword 1, keyword 2, keyword 3, keyword 4, keyword 5},
+    keywords = {多重部分子散射, 三重夸克偶素产生, $J/\psi$ 介子, $\phi$ 介子, CMS},
   }
 \end{abstract}
 
 \begin{abstract*}
-  An abstract of a dissertation is a summary and extraction of research work and contributions.
-  Included in an abstract should be description of research topic and research objective, brief introduction to methodology and research process, and summary of conclusion and contributions of the research.
-  An abstract should be characterized by independence and clarity and carry identical information with the dissertation.
-  It should be such that the general idea and major contributions of the dissertation are conveyed without reading the dissertation.
+  Multiple parton scattering (MPS) is a key probe of the transverse spatial distribution
+  and correlations of partons inside the proton. Under the independent-scattering
+  approximation, the effective cross section $\sigma_{\mathrm{eff}}$ encapsulates these
+  non-perturbative properties. However, $\sigma_{\mathrm{eff}}$ values extracted from
+  different final states show significant discrepancies, indicating that the simplified
+  factorisation picture requires testing with more diverse final states.
+  This thesis presents the first observation of the triple-quarkonium production process
+  $pp \to J/\psi + J/\psi + \phi + X$ in proton--proton collisions at $\sqrt{s}=13.6~\mathrm{TeV}$
+  using data collected by the CMS experiment during LHC Run~3, corresponding to an
+  integrated luminosity of $289.21~\mathrm{fb}^{-1}$.
+  The $\phi$ meson, a light $s\bar{s}$ vector meson, provides an independent probe
+  for MPS studies distinct from pure heavy-quarkonium final states.
 
-% [PENDING]
-  An abstract should be concise and to the point.
-  It is a misunderstanding to make an abstract an outline of the dissertation and words "the first chapter", "the second chapter" and the like should be avoided in the abstract.
+  Two $J/\psi$ candidates are reconstructed via the $J/\psi \to \mu^+\mu^-$ decay channel,
+  and the $\phi$ candidate via $\phi \to K^+K^-$.
+  After the full selection, $48\,829$ $J/\psi J/\psi \phi$ candidates are obtained.
+  A three-dimensional unbinned maximum-likelihood fit to the $m(J/\psi_1)$,
+  $m(J/\psi_2)$, and $m(\phi)$ invariant-mass distributions yields a raw signal yield
+  of $N_{sss} = 1563 \pm 143$, with a statistical significance of $12.0\,\sigma$.
+  Per-bin geometric acceptance and conditional efficiency correction factors are
+  evaluated using Monte Carlo simulation, and the sPlot technique is employed to
+  statistically separate signal and background in kinematic distributions.
+  The efficiency-corrected total signal yield is $N_{sss}^{\mathrm{corr}} = 1.04 \times 10^5 \pm 2.06 \times 10^4\,(\mathrm{stat}) \pm 1.98 \times 10^4\,(\mathrm{syst,\,model})$,
+  corresponding to a production cross section of
+  $\sigma(pp \to J/\psi J/\psi \phi + X) \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = 359 \pm 71\,(\mathrm{stat}) \pm 68\,(\mathrm{syst,\,model})~\mathrm{fb}$
+  and $\sigma(pp \to J/\psi J/\psi \phi + X) = 206 \pm 41\,(\mathrm{stat}) \pm 39\,(\mathrm{syst,\,model})~\mathrm{pb}$.
+  A systematic-uncertainty evaluation framework is established, covering signal extraction,
+  efficiency corrections, candidate reconstruction, and sample modelling,
+  with the efficiency model dependence being the dominant systematic source (19.0\%).
 
-% [PENDING]
-  Keywords are terms used in a dissertation for indexing, reflecting core information of the dissertation.
-  An abstract may contain a maximum of 5 keywords, with semi-colons used in between to separate one another.
+  This analysis provides the first observation of MPS signals in a three-particle final
+  state containing a light-flavour vector meson, offering new experimental input for
+  testing the universality of the factorised MPS picture across diverse final states.
+  The analysis framework established in this thesis lays the groundwork for subsequent
+  cross-section measurements and extraction of the effective cross section $\sigma_{\mathrm{eff}}$.
 
-  % Use comma as separator when inputting
   \thusetup{
-    keywords* = {keyword 1, keyword 2, keyword 3, keyword 4, keyword 5},
+    keywords* = {Multiple parton scattering, Triple-quarkonium production, $J/\psi$ meson, $\phi$ meson, CMS},
   }
 \end{abstract*}

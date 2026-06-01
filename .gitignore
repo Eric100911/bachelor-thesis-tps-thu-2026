@@ -12,6 +12,18 @@ struct-ref/
 __pycache__/
 *.pyc
 *.pyo
+.python-version
+uv.lock
+scripts/
+
+# Agent / AI tool config (local only)
+.agents/
+CLAUDE.md
+AGENTS.md
+AGENTS-sketch.md
+
+# Working notes (local only)
+notes/
 
 # LaTeX build artifacts
 *.aux
@@ -27,6 +39,7 @@ __pycache__/
 *.log
 *.lot
 *.out
+*.ptc
 *.run.xml
 *.synctex.gz
 *.toc
@@ -47,3 +60,6 @@ _markdown_thuthesis*
 thuthesis.markdown.*
 main-survey.*
 main-translation.*
+
+# Recovery / draft files
+data/recover-*.tex
