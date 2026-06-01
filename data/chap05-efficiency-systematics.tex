@@ -1,14 +1,118 @@
-% \chapter{效率修正、信号提取与系统误差}
-\chapter{Efficiency Corrections, Signal Extraction, and Systematic Uncertainties}
+% \chapter{信号提取与效率修正}
+\chapter{Signal Extraction and Efficiency Correction}
 
-% \section{接受度与效率分解}
-\section{Acceptance and Efficiency Factorization}
-\label{sec:acc-eff}
+\section{Overview}
+\label{sec:signal-efficiency-overview}
 
-In an ideal measurement, every $pp \to J/\psi + J/\psi + \phi$ event produced in a proton--proton collision would be recorded and reconstructed perfectly. In practice, the number of events that survive detection, reconstruction, and selection is only a fraction of those produced. The purpose of the acceptance and efficiency correction is to establish, for each selected event, how many events of its kinematic type were originally produced. This section defines the acceptance and efficiency factorisation used in this analysis, describes how each component is computed from simulated events, and presents the resulting two-dimensional correction maps.
+% [TODO] 简要说明本章的逻辑链：从筛选后的事例样本出发，通过三维拟合提取原始信号产额，然后计算接受度和效率修正，最终给出修正后的信号产额和sPlot加权的物理量分布。
 
-\subsection{Acceptance}
-\label{sec:acceptance}
+\textbf{[To be filled: This chapter takes the selected candidate sample of 48,829 events from Chapter~4 and proceeds through three stages. First, the raw signal yield is extracted via a three-dimensional unbinned maximum likelihood fit to the invariant mass distributions (Section~\ref{sec:signal-extraction}). Second, the acceptance and efficiency corrections are computed from simulation (Sections~\ref{sec:acceptance-correction}--\ref{sec:candidate-choice-migration}). Third, the corrected signal yield and sPlot-weighted kinematic distributions are presented (Section~\ref{sec:corrected-results}).]}
+
+\section{Signal Extraction from the Three-Dimensional Mass Spectrum}
+\label{sec:signal-extraction}
+
+The signal yield is extracted from the selected data sample of $48\,829$ events by an extended unbinned maximum likelihood (UML) fit to the two dimuon invariant masses $m(J/\psi_1)$, $m(J/\psi_2)$, and the dikaon invariant mass $m(\phi)$. The fit is performed simultaneously in three dimensions using the \textsc{RooFit} framework~\cite{Verkerke:2003ir}.
+
+Each $J/\psi \to \mu^+\mu^-$ resonance is described by a double-sided Crystal Ball (DSCB) function~\cite{Oreglia:1980cs}. The tail parameters $\alpha_L$, $\alpha_R$, $n_L$, and $n_R$ are shared between the two $J/\psi$ mesons, reflecting the common detector response; the mean $\mu$ and resolution $\sigma$ float independently for each. The $\phi \to K^+K^-$ resonance is modelled by a Voigtian function --- a convolution of a relativistic Breit--Wigner with a Gaussian resolution kernel --- with the Breit--Wigner width fixed to the PDG value $\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}.
+
+The combinatorial background in each $J/\psi$ mass distribution is modelled by an exponential function with an independent slope for each $J/\psi$. The $\phi$ background is described by a threshold power-law times an exponential, $(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$, with the $K^+K^-$ kinematic threshold fixed at $m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$.
+
+Denoting the signal PDF as \textbf{S} and the background PDF as \textbf{B}, the eight possible combinations of one $J/\psi_1$ PDF, one $J/\psi_2$ PDF, and one $\phi$ PDF are constructed as independent fit components. This accounts for all ways in which genuine resonances and combinatorial backgrounds can combine in a three-body final state:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Eight yield components. \textbf{S} = signal, \textbf{B} = background.}
+  \label{tab:yield-components}
+  \small
+  \begin{tabular}{ccccc}
+    \toprule
+    Component & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & Physical interpretation \\
+    \midrule
+    $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ signal \\
+    $N_{ssb}$ & S & S & B & $\phi$ sideband under $J/\psi$ peaks \\
+    $N_{sbs}$ & S & B & S & $J/\psi_2$ sideband under $J/\psi_1 + \phi$ peaks \\
+    $N_{bss}$ & B & S & S & $J/\psi_1$ sideband under $J/\psi_2 + \phi$ peaks \\
+    $N_{sbb}$ & S & B & B & $J/\psi_2 + \phi$ sidebands under $J/\psi_1$ peak \\
+    $N_{bsb}$ & B & S & B & $J/\psi_1 + \phi$ sidebands under $J/\psi_2$ peak \\
+    $N_{bbs}$ & B & B & S & $J/\psi_1 + J/\psi_2$ sidebands under $\phi$ peak \\
+    $N_{bbb}$ & B & B & B & Pure combinatorial background \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The model has 20 floating parameters in total: 8 yields and 12 shape parameters. The tail powers $n_L$ and $n_R$ are fixed to $5.0$, as they are found to be insensitive within the fit range.
+
+The fit converges with $\mathrm{NLL} = -732\,596$, and the full covariance matrix is obtained. The fitted shape parameters are summarised in Table~\ref{tab:fit-shape-params}. The $J/\psi$ means are consistent with the PDG value of $3.0969\;\mathrm{GeV}$~\cite{PDG2024}, and the dimuon resolution of $27.7\;\mathrm{MeV}$ is consistent with CMS performance. The $\phi$ mean agrees with the PDG value of $1.01946\;\mathrm{GeV}$ within the fit uncertainty.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Fitted shape parameters. ``fixed'' = taken from external inputs.}
+  \label{tab:fit-shape-params}
+  \small
+  \begin{tabular}{lcc}
+    \toprule
+    Parameter & Fit value & Uncertainty \\
+    \midrule
+    $\mu(J/\psi_1)$ & $3.0933\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
+    $\mu(J/\psi_2)$ & $3.0928\;\mathrm{GeV}$ & $\pm 0.0003\;\mathrm{GeV}$ \\
+    $\sigma(J/\psi_1)$ & $0.02766\;\mathrm{GeV}$ & $\pm 0.00031\;\mathrm{GeV}$ \\
+    $\sigma(J/\psi_2)$ & $0.02760\;\mathrm{GeV}$ & $\pm 0.00033\;\mathrm{GeV}$ \\
+    $\alpha_L(J/\psi)$ & $1.131$ & $\pm 0.025$ \\
+    $\alpha_R(J/\psi)$ & $1.408$ & $\pm 0.032$ \\
+    $n_L(J/\psi)$ & $5.0$ & fixed \\
+    $n_R(J/\psi)$ & $5.0$ & fixed \\
+    $\mu(\phi)$ & $1.0193\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
+    $\sigma(\phi)$ & $0.00215\;\mathrm{GeV}$ & $\pm 0.00026\;\mathrm{GeV}$ \\
+    $\Gamma(\phi)$ & $0.004249\;\mathrm{GeV}$ & fixed (PDG) \\
+    $\lambda_1(J/\psi\ \mathrm{bkg})$ & $-1.008$ & $\pm 0.107$ \\
+    $\lambda_2(J/\psi\ \mathrm{bkg})$ & $-1.048$ & $\pm 0.073$ \\
+    $p(\phi\ \mathrm{bkg})$ & $0.440$ & $\pm 0.024$ \\
+    $a_1(\phi\ \mathrm{bkg})$ & $-2.869$ & $\pm 0.766$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The fitted yields are given in Table~\ref{tab:fit-yields}. The raw signal yield, before efficiency and acceptance corrections, is
+
+\begin{equation}
+\boxed{N_{sss} = 1563 \pm 143\;(\mathrm{stat})},
+\end{equation}
+
+corresponding to a signal fraction $S/(S+B) = 3.20\%$ and a signal-to-background ratio $S/B = 3.31\%$. The dominant background components are $N_{ssb}$ ($22\,919$ events, genuine $J/\psi$ pair with a non-resonant $K^+K^-$ combination) and $N_{sbb}$ ($11\,947$ events, single $J/\psi$ with a non-resonant companion), as expected given that the $\phi$ resonance is considerably narrower than the $J/\psi$.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Fitted yields of the eight components.}
+  \label{tab:fit-yields}
+  \small
+  \begin{tabular}{ccc}
+    \toprule
+    Component & Yield & Statistical uncertainty \\
+    \midrule
+    $N_{sss}$ (signal) & $1563$ & $\pm 143$ \\
+    $N_{ssb}$ & $22\,919$ & $\pm 323$ \\
+    $N_{sbs}$ & $801$ & $\pm 117$ \\
+    $N_{bss}$ & $422$ & $\pm 90$ \\
+    $N_{sbb}$ & $11\,947$ & $\pm 242$ \\
+    $N_{bsb}$ & $4163$ & $\pm 184$ \\
+    $N_{bbs}$ & $362$ & $\pm 91$ \\
+    $N_{bbb}$ & $6651$ & $\pm 190$ \\
+    \midrule
+    Total & $48\,829$ & --- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The statistical significance of the $J/\psi J/\psi \phi$ signal is evaluated with a likelihood ratio test. The null hypothesis, in which the signal yield $N_{sss}$ is fixed to zero, is refitted. The test statistic $q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$ follows a half-$\chi^2(1)$ distribution under Wilks' theorem~\cite{Wilks:1938}, giving $Z = \sqrt{q_0}$. The null-hypothesis fit yields $\mathrm{NLL} = -732\,524$, giving
+
+\begin{equation}
+Z = \sqrt{144.2} = 12.0 .
+\end{equation}
+
+This result far exceeds the conventional $5\,\sigma$ threshold for discovery, providing unambiguous evidence for the existence of the $J/\psi J/\psi \phi$ final state in proton-proton collisions at $\sqrt{s} = 13.6 \mathrm{TeV}$.
+
+\section{Acceptance Correction}
+\label{sec:acceptance-correction}
 
 The acceptance quantifies the probability that the decay products of a meson reach the sensitive volume of the detector and leave reconstructable signals. For the muons from $J/\psi \to \mu^+\mu^-$, the single-muon fiducial requirements are
 \begin{equation}
@@ -49,7 +153,7 @@ At low $p_{\mathrm{T}}$ and high $|y|$, the acceptance drops because one or both
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_fiducial_acceptance.png}
-  \caption{Per-object fiducial acceptance for the leading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$. The left panel shows the acceptance value; the right panel shows the Clopper--Pearson binomial uncertainty.}
+  \caption{Per-object fiducial acceptance for the leading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
   \label{fig:acc-jpsi-lead}
 \end{figure}
 
@@ -76,8 +180,8 @@ For later use in the event-by-event correction, the two $J/\psi$ acceptances are
   \label{fig:acc-stacked-jpsi}
 \end{figure}
 
-\subsection{Reconstruction and Selection Efficiency}
-\label{sec:efficiency}
+\section{Efficiency Correction}
+\label{sec:efficiency-correction}
 
 Once the decay products are within the detector acceptance, they must be reconstructed by the CMS tracking and muon systems, identified as signal candidates, and selected by the trigger and event-level requirements. The efficiency of each step is defined as a conditional probability: the fraction of events that pass a given selection, given that they have passed all previous selections. Computing each efficiency step conditionally --- rather than cumulatively with respect to the generated sample --- isolates the effect of individual selection criteria and facilitates systematic studies.
 
@@ -88,7 +192,7 @@ The efficiency is evaluated using fully simulated MC samples (generator, detecto
 \end{equation}
 where $N$ denotes the number of events in the given kinematic bin. This bin-by-bin approach ensures that the correction factor does not depend on the assumed production kinematics of the MC generator.
 
-The efficiency chain for this analysis is summarised in Table~\ref{tab:efficiency-chain}. Steps 1--3 are applied per $J/\psi$ or per $\phi$ object and are binned in $(p_{\mathrm{T}}, |y|)$ of the respective meson. Steps 4--6 are event-level selections. For the HLT trigger efficiency (step~4), the denominator is the set of events in which both $J/\psi$ candidates and the $\phi$ candidate have been reconstructed and identified; a data-driven cross-check of the trigger efficiency is discussed in Section~\ref{sec:correction-closure}.
+The efficiency chain for this analysis is summarised in Table~\ref{tab:efficiency-chain}. For the HLT trigger efficiency, the denominator is the set of events in which both $J/\psi$ candidates and the $\phi$ candidate have been reconstructed and identified; a data-driven cross-check of the trigger efficiency will be performed as part of the closure tests.
 
 \begin{table}[htbp]
   \centering
@@ -123,7 +227,7 @@ The efficiency chain for this analysis is summarised in Table~\ref{tab:efficienc
   \end{threeparttable}
 \end{table}
 
-The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency (step~1a) is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency (step~1b) is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency (step~1c), which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
+The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency, which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
 
 \begin{figure}[htbp]
   \centering
@@ -152,7 +256,7 @@ The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-
   \label{fig:eff-stacked-jpsi}
 \end{figure}
 
-The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-trionia}. The HLT efficiency (step~3) is evaluated in the three-dimensional space of $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$, projected onto the $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ plane for each $\phi$ $p_{\mathrm{T}}$ interval. The four-muon vertex efficiency (step~4) is shown in Fig.~\ref{fig:eff-fourmu-vtx}. This step checks whether the four muons from the two $J/\psi$ decays can be fitted to a common vertex, and its efficiency is approximately 95\% across the fiducial region. The tri-onia vertex efficiency (step~5), which includes the common $J/\psi J/\psi \phi$ vertex fit and the remaining event-level quality requirements, is presented in Fig.~\ref{fig:eff-trionia}.
+The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-trionia}. The HLT efficiency is evaluated in the three-dimensional space of $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$, projected onto the $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ plane for each $\phi$ $p_{\mathrm{T}}$ interval. The four-muon vertex efficiency is shown in Fig.~\ref{fig:eff-fourmu-vtx}; this step checks whether the four muons from the two $J/\psi$ decays can be fitted to a common vertex, and its efficiency is approximately 95\% across the fiducial region. The tri-onia vertex efficiency, which includes the common $J/\psi J/\psi \phi$ vertex fit and the remaining event-level quality requirements, is presented in Fig.~\ref{fig:eff-trionia}.
 
 \begin{figure}[htbp]
   \centering
@@ -201,24 +305,8 @@ The total efficiency for an event is the product of all conditional efficiencies
 \end{aligned}
 \end{equation}
 
-\subsection{Correction to Data and Closure Test}
-\label{sec:correction-closure}
-
-Each selected event is assigned a total correction weight
-\begin{equation}
-\label{eq:correction-weight}
-w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
-\end{equation}
-where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for. In the subsequent fitting and cross-section extraction, the weighted event counts are used in place of raw counts, so that the corrected yield directly estimates the number of events produced in the fiducial phase space.
-
-The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known \textit{a priori}, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
-\begin{equation}
-N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
-\end{equation}
-The test is carried out on pure SPS and pure DPS samples, representing the two kinematic extremes of the physical data, using efficiency maps derived from SPS, DPS, and mixed samples. For the acceptance correction, all strategies give consistent results within statistical uncertainties, consistent with the expectation that acceptance is purely geometric and independent of the production mechanism. For the efficiency correction, a mild dependence on the SPS-to-DPS mixture is observed in the HLT and vertexing efficiency maps, which is taken as a systematic uncertainty (Section~\ref{sec:systematics}). The nominal correction uses efficiency maps derived from a sample with SPS:DPS~=~1:2, which is chosen based on the closure test performance and preliminary indications of the DPS-dominated nature of this final state.
-
-\subsection{Candidate Selection and Kinematic Migration}
-\label{sec:candidate-selection}
+\section{Candidate Choice and Migration Effects}
+\label{sec:candidate-choice-migration}
 
 In events with multiple $\phi$ mesons or multiple $K^+K^-$ combinations satisfying the selection criteria, more than one $J/\psi J/\psi \phi$ candidate can be formed. This analysis adopts a deterministic best-candidate rule: among all valid candidates in an event, the one that maximises
 \begin{equation}
@@ -228,53 +316,61 @@ is retained. The same best-candidate rule is applied at both the generator level
 
 When the generator-level best candidate and the reconstruction-level best candidate involve different $\phi$ mesons or different $K^+K^-$ pairings --- a situation referred to as candidate mismatch --- the reconstructed kinematics may migrate from one bin to another with respect to the generator-level truth. The extent of this migration has been studied by constructing the generator-to-reconstruction response matrix for each differential variable. The response matrix is found to be approximately diagonal for the $(p_{\mathrm{T}}, |y|)$ variables of the individual mesons, with bin purities and stabilities above 90\% in most bins. A detailed discussion of the multi-candidate problem, the definition of the response matrix, and the validation of the bin-by-bin correction approach is given in Appendix~\ref{app:multicandidate}.
 
-% \section{信号提取策略}
-\section{Signal Extraction Strategy}
-\label{sec:signal-extraction}
+\iffalse
+\section{Closure Tests}
+\label{sec:closure-tests}
 
-% 本节用于说明最终结果是如何从数据中提取的。
-% 根据后续分析实现，可在这里填入：
-% TO_APPROVE
+Each selected event is assigned a total correction weight
+\begin{equation}
+\label{eq:correction-weight}
+w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
+\end{equation}
+where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for.
 
-This section describes how the final result is extracted from data.
-Depending on the subsequent analysis implementation, the following information can be specified here:
+The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known \textit{a priori}, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
+\begin{equation}
+N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
+\end{equation}
+The test is carried out on pure SPS and pure DPS samples, representing the two kinematic extremes of the physical data, using efficiency maps derived from SPS, DPS, and mixed samples. For the acceptance correction, all strategies give consistent results within statistical uncertainties, consistent with the expectation that acceptance is purely geometric and independent of the production mechanism. For the efficiency correction, a mild dependence on the SPS-to-DPS mixture is observed in the HLT and vertexing efficiency maps, which is taken as a systematic uncertainty (Chapter~\ref{chap:systematics}). The nominal correction uses efficiency maps derived from a sample with SPS:DPS~=~1:2, which is chosen based on the closure test performance and preliminary indications of the DPS-dominated nature of this final state.
 
-\begin{itemize}
-  % \item 质量分布或多维分布的拟合变量；
-  \item the fit variables used in mass distributions or multidimensional distributions;
-  % \item 信号模型与组合背景模型；
-  \item the signal model and the combinatorial-background model;
-  % \item 参数固定项与自由项的来源；
-  \item the sources of fixed and floating fit parameters;
-  % \item 交叉检验方法，例如旁带检验、替代模型或 toy study。
-  \item cross-check methods, such as sideband tests, alternative models, or toy studies.
-\end{itemize}
+\textbf{[To be filled: Full closure test results when implemented.]}
+\fi
 
-% \section{系统误差框架}
-\section{Framework for Systematic Uncertainties}
-\label{sec:systematics}
+\section{Efficiency-Corrected Signal Yield and sPlot Distributions}
+\label{sec:corrected-results}
 
-% 系统误差部分应围绕分析链条逐项组织，而不是简单堆叠来源名称。
-% 推荐的归类方式包括：
-% TO_APPROVE
+Each selected event is assigned a total correction weight
+\begin{equation}
+w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
+\end{equation}
+where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described in Sections~\ref{sec:acceptance-correction} and~\ref{sec:efficiency-correction}. This weight represents the expected number of produced events that each selected event stands for.
 
-The discussion of systematic uncertainties should be organised around the individual steps of the analysis chain, rather than as a simple list of source names.
-Recommended categories include:
+To separate the signal component from backgrounds in the kinematic distributions, the sPlot technique~\cite{Pivk:2004ty} is employed. Using the three-dimensional fit model described in Section~\ref{sec:signal-extraction}, per-event signal weights (sWeights) are computed for the $N_{sss}$ component. The sWeights are validated by verifying that the signal-weighted mass projections reproduce the fitted signal shapes. The signal-weighted mass projections are shown in Fig.~\ref{fig:fit-projections}. Clear resonance peaks are visible in all three signal projections, while the background components are smooth.
 
-\begin{itemize}
-  % \item 触发、重建和鉴别效率；
-  \item trigger, reconstruction, and identification efficiencies;
-  % \item 质量模型和背景模型；
-  \item mass models and background models;
-  % \item 候选选择和优选规则；
-  \item candidate selection and candidate arbitration rules;
-  % \item MC 建模与重加权；
-  \item MC modelling and reweighting;
-  % \item 积分亮度或归一化相关误差。
-  \item uncertainties related to the integrated luminosity or normalisation.
-\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_jpsi1.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_jpsi2.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_phi.png}
+  \caption{Fit projections onto $m(J/\psi_1)$ (left), $m(J/\psi_2)$ (middle), and $m(\phi)$ (right), with signal and background components separated by sWeights.}
+  \label{fig:fit-projections}
+\end{figure}
 
-% 在最终数值尚未确定之前，这一章只保留方法框架和待填位置，不写假定百分比。
-% TO_APPROVE
+For each event, the combined weight is the product of the correction weight and the sWeight:
+\begin{equation}
+w_{\mathrm{comb}} = w \times sWeight .
+\end{equation}
+Summing these combined weights over all selected events gives the efficiency-corrected inclusive signal yield:
+\begin{equation}
+\boxed{N_{sss}^{\mathrm{corr}} = \sum_{i} w_{i} \times sWeight_{i} .}
+\end{equation}
+\textbf{[To be filled: numerical value of the corrected inclusive signal yield.]}
 
-Before the final numerical results are determined, this chapter retains only the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.
+The efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events are obtained by filling histograms weighted by $w_{\mathrm{comb}}$. The distributions of the transverse momenta, rapidities, and angular separations of the three mesons are shown in Figs.~\ref{fig:corr-kinematics}. \textbf{[To be filled: corrected kinematic distribution figures and their descriptions.]}
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap05/corr_kinematics.png}
+  \caption{Efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events. \textbf{[To be filled: specific distributions and descriptions.]}}
+  \label{fig:corr-kinematics}
+\end{figure}

@@ -1,0 +1,168 @@
+% \chapter{系统误差}
+\chapter{Systematic Uncertainties}
+\label{chap:systematics}
+
+\section{Overview}
+\label{sec:syst-overview}
+
+The discussion of systematic uncertainties is organised around the individual steps of the analysis chain, rather than as a simple list of source names. The following categories of systematic effects are considered:
+
+\begin{itemize}
+  \item uncertainties related to the signal extraction procedure (signal and background mass models, fixed fit parameters, fit range);
+  \item uncertainties in the acceptance and efficiency corrections (MC statistical uncertainty, binning effects, muon and kaon reconstruction and identification efficiencies, trigger efficiency, vertexing and event-level selection efficiencies);
+  \item uncertainties related to candidate reconstruction and selection (multiple-candidate treatment, best-candidate selection, candidate-matching and migration effects);
+  \item uncertainties from sample modelling (signal MC modelling, kinematic reweighting, model dependence of efficiency corrections, pileup modelling);
+  \item normalisation uncertainties (integrated luminosity, branching fractions).
+\end{itemize}
+
+Each source is propagated to the corrected signal yield and to the differential distributions. Before the final numerical results are determined, this chapter retains the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.
+
+\section{Uncertainties from Signal Extraction}
+\label{sec:syst-signal-extraction}
+
+The systematic uncertainty associated with the signal extraction is evaluated by varying the fit model within a set of reasonable alternatives and recording the change in the extracted raw signal yield $N_{sss}$.
+
+\subsection{Signal Mass Model}
+\label{subsec:syst-signal-model}
+
+\textbf{[To be filled: variation of the $J/\psi$ signal model --- replace DSCB with a simple Crystal Ball or a double Gaussian; vary the tail parameters $\alpha_L$, $\alpha_R$ by their fit uncertainties; replace the Voigtian $\phi$ model with a relativistic Breit--Wigner convolved with a Crystal Ball resolution function.]}
+
+\subsection{Background Mass Model}
+\label{subsec:syst-background-model}
+
+\textbf{[To be filled: variation of the background model --- replace the exponential $J/\psi$ background with a first- or second-order polynomial; replace the threshold power-law $\phi$ background with an exponential or a Chebychev polynomial.]}
+
+\subsection{Fixed Fit Parameters}
+\label{subsec:syst-fixed-parameters}
+
+\textbf{[To be filled: vary the fixed tail powers $n_L$, $n_R$ by $\pm 1$ unit; vary the fixed $\phi$ width $\Gamma_\phi$ within its PDG uncertainty.]}
+
+\subsection{Fit Range}
+\label{subsec:syst-fit-range}
+
+\textbf{[To be filled: vary the mass fit range for $J/\psi$ and $\phi$ by $\pm 10\%$; repeat the fit on the extended and restricted ranges and record the change in $N_{sss}$.]}
+
+\subsection{Fit Stability}
+\label{subsec:syst-fit-stability}
+
+\textbf{[To be filled: check fit convergence with different initial parameter values; perform ensemble tests with pseudo-experiments to verify the fit bias is negligible compared to the statistical uncertainty.]}
+
+\subsection{sPlot-Related Uncertainties}
+\label{subsec:syst-splot}
+
+\textbf{[To be filled: assess potential biases in the sWeight calculation due to correlations among the fit variables; compare sWeighted distributions with those obtained from a tighter mass-window selection as a cross-check.]}
+
+\section{Uncertainties from Acceptance and Efficiency Corrections}
+\label{sec:syst-efficiency}
+
+\subsection{Monte Carlo Statistical Uncertainty}
+\label{subsec:syst-mc-stat}
+
+The limited size of the MC samples used to compute the acceptance and efficiency maps introduces a statistical uncertainty in each $(p_{\mathrm{T}}, |y|)$ bin. This uncertainty is propagated to the corrected yield by fluctuating the per-bin correction factors within their Clopper--Pearson binomial uncertainties.
+
+\subsection{Acceptance Map Binning}
+\label{subsec:syst-acceptance-binning}
+
+\textbf{[To be filled: vary the binning of the acceptance maps and record the effect on the corrected yield.]}
+
+\subsection{Efficiency Map Binning}
+\label{subsec:syst-efficiency-binning}
+
+\textbf{[To be filled: vary the binning of the efficiency maps and record the effect on the corrected yield.]}
+
+\subsection{Muon Reconstruction and Identification Efficiencies}
+\label{subsec:syst-muon-eff}
+
+\textbf{[To be filled: systematic uncertainty from the muon reconstruction and identification efficiency measurements --- compare MC-based efficiencies with tag-and-probe measurements in data if available; vary the single-muon efficiency correction factors within their uncertainties.]}
+
+\subsection{Kaon Reconstruction and Identification Efficiencies}
+\label{subsec:syst-kaon-eff}
+
+\textbf{[To be filled: systematic uncertainty from the charged-kaon reconstruction and identification efficiencies --- compare track reconstruction efficiency in MC and data using control samples.]}
+
+\subsection{Trigger Efficiency}
+\label{subsec:syst-trigger-eff}
+
+\textbf{[To be filled: systematic uncertainty from the HLT trigger efficiency --- vary the SPS-to-DPS mixture in the MC sample used to derive the trigger efficiency; compare with a data-driven trigger efficiency measurement using a tag-and-probe method if available.]}
+
+\subsection{Vertexing and Event-Level Selection Efficiencies}
+\label{subsec:syst-vertex-event-eff}
+
+\textbf{[To be filled: systematic uncertainty from the four-muon vertex and tri-onia vertex efficiencies --- compare MC-derived efficiencies with data in a signal-depleted control region.]}
+
+\section{Uncertainties from Candidate Reconstruction and Selection}
+\label{sec:syst-candidate-selection}
+
+\subsection{Multiple-Candidate Treatment}
+\label{subsec:syst-multiple-candidates}
+
+\textbf{[To be filled: compare the nominal best-candidate selection based on $p_{\mathrm{T}}$-sum with an alternative rule based on vertex-fit $\chi^2$; record the change in the corrected yield.]}
+
+\subsection{Best-Candidate Selection}
+\label{subsec:syst-best-candidate}
+
+\textbf{[To be filled: vary the best-candidate criterion and assess the impact on the event yield and kinematic distributions.]}
+
+\subsection{Candidate-Matching and Migration Effects}
+\label{subsec:syst-candidate-migration}
+
+\textbf{[To be filled: compare the nominal bin-by-bin correction with an iterative matrix-unfolding approach; the difference is assigned as a systematic uncertainty.]}
+
+\subsection{Closure-Test Residual Bias}
+\label{subsec:syst-closure-bias}
+
+\textbf{[To be filled: any residual non-closure observed in the MC closure tests is assigned as a systematic uncertainty.]}
+
+\section{Uncertainties from Sample Modeling}
+\label{sec:syst-sample-modeling}
+
+\subsection{Signal Monte Carlo Modeling}
+\label{subsec:syst-signal-mc-modeling}
+
+\textbf{[To be filled: compare the efficiency maps derived from different MC generators (e.g., \textsc{Pythia8} vs.\ \textsc{Helac-Onia}); the difference is assigned as a modelling uncertainty.]}
+
+\subsection{Kinematic Reweighting}
+\label{subsec:syst-kinematic-reweighting}
+
+\textbf{[To be filled: reweight the MC sample to match the data kinematic distributions and re-evaluate the efficiencies; the difference from the nominal efficiencies is taken as a systematic uncertainty.]}
+
+\subsection{Model Dependence of Efficiency Corrections}
+\label{subsec:syst-model-dependence}
+
+\textbf{[To be filled: evaluate efficiencies using MC samples with different SPS:DPS mixture fractions; the envelope of variations is assigned as a systematic uncertainty.]}
+
+\subsection{Pileup Modeling}
+\label{subsec:syst-pileup}
+
+\textbf{[To be filled: reweight the MC pileup profile to match the data pileup distribution; compare the efficiencies before and after reweighting.]}
+
+\section{Luminosity and Branching Fraction Uncertainties}
+\label{sec:syst-normalization}
+
+\subsection{Integrated Luminosity}
+\label{subsec:syst-luminosity}
+
+The integrated luminosity of the data sample is $289.21 \pm 5.97~\text{fb}^{-1}$, corresponding to a relative uncertainty of 2.1\%~\cite{CMS:LUMI-PUB}. This uncertainty is fully correlated across all bins and is applied as a global normalisation uncertainty.
+
+\subsection{Branching Fractions}
+\label{subsec:syst-branching-fractions}
+
+The world-average branching fractions $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ and $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} enter the cross-section calculation. Their uncertainties are propagated as fully correlated normalisation uncertainties.
+
+\section{Combination of Systematic Uncertainties}
+\label{sec:syst-combination}
+
+\subsection{Correlation Assumptions}
+\label{subsec:syst-correlations}
+
+\textbf{[To be filled: specify which uncertainties are treated as fully correlated across bins (e.g., luminosity, branching fractions) and which are treated as uncorrelated (e.g., bin-by-bin fit variations).]}
+
+\subsection{Combination Procedure}
+\label{subsec:syst-combination-procedure}
+
+The total systematic uncertainty is obtained by adding all individual sources in quadrature, assuming they are uncorrelated. For sources with both correlated and uncorrelated components, the two components are summed separately and then combined.
+
+\subsection{Summary Table of Systematic Uncertainties}
+\label{subsec:syst-summary-table}
+
+\textbf{[To be filled: a summary table listing each source of systematic uncertainty, its relative contribution to the corrected yield, and whether it is treated as correlated or uncorrelated across kinematic bins.]}

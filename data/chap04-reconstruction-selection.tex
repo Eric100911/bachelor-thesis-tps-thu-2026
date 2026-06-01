@@ -1,48 +1,20 @@
 % \chapter{事例重建与选择策略}
-\chapter{Event Reconstruction and Selection Strategy}
+\chapter{Event Reconstruction and Selection}
 
-% \section{初级对撞顶点重建}
-\section{Primary Collision Vertex Reconstruction}
+\section{Overview of the Analysis Strategy}
+\label{sec:analysis-overview}
 
-\label{sec:pv-reco}
-% [TODO] 提供自ChatGPT （GPT-5.5），细节表述还需要修改。
+% [TODO] 简要说明分析策略的整体逻辑：从探测器信息出发，逐级重建物理对象，最终构建事例级候选并给出筛选后的事例样本。
 
+\textbf{[To be filled: A short overview of the analysis strategy. The chapter proceeds from low-level reconstruction (primary vertex, tracks) through intermediate physics objects (muons, $J/\psi$, $\phi$) to event-level candidates, ending with the selected sample of 48,829 events that enters the signal extraction.]}
 
-% 在 CMS 事件重建中，初级顶点（Primary Vertex, PV）的重建大致分为顶点寻找（Vertex Finding）和顶点拟合（Vertex Fitting）两个步骤。前者将同一束团交汇中产生的带电径迹按照其空间位置分组，形成若干顶点候选；后者则在每个候选径迹集合内估计顶点位置与相应协方差，并提供各条径迹在加入顶点位置约束后的相关参数与相应协方差，以及径迹在该顶点拟合中的权重。经上述顶点重建过程，对撞顶点的空间位置、与束流线的相对位置以及每条径迹与各个顶点的关联关系都得到了估计，从而为后续的物理对象重建和事件选择提供了重要的空间信息和关联信息。
-% TO_APPROVE
+\section{Primary Vertex and Track Reconstruction}
+\label{sec:pv-track-reco}
 
 In CMS event reconstruction, primary vertex (PV) reconstruction is broadly divided into two steps: vertex finding and vertex fitting. The former groups charged tracks produced in the same bunch crossing according to their spatial positions, forming several vertex candidates. The latter estimates the vertex position and its covariance for each candidate track set, and provides the relevant track parameters and covariances after applying the vertex-position constraint, together with the weight of each track in the vertex fit. Through this vertex reconstruction procedure, the spatial positions of collision vertices, their positions relative to the beam line, and the association between each track and each vertex are estimated, providing essential spatial and association information for subsequent physics-object reconstruction and event selection.
 
-% \subsection{初级顶点的寻找}
-\subsection{Primary Vertex Finding}
+The reconstruction procedure first selects, from the charged-track collection and using beam-spot information, the charged tracks suitable for primary vertex reconstruction. The default selection requirements are shown in Table~\ref{tab:pv-reco-track-selection}. These requirements remove tracks with poor reconstruction quality, large impact parameters relative to the beam line, large measurement uncertainties, or trajectories outside the main geometrical acceptance of the tracking detector, thereby improving the stability of the vertex-finding procedure.
 
-\label{sec:pv-reco_pv-finding}
-
-% \begin{table}
-%   \centering
-%   \begin{threeparttable}[c]
-%     \caption{用于初级顶点重建的带电径迹默认选择条件}
-%     \label{tab:pv-reco-track-selection}
-%     \begin{tabular}{ll}
-%       \toprule
-%       物理量 & 默认条件 \\
-%       \midrule
-%       归一化径迹拟合 $\chi^2$\tnote{a} & $< 10$ \\
-%       横向碰撞参数显著性 $|d_0|/\sigma_{d_0}$ & $< 4$ \\
-%       横向碰撞参数不确定度 $\sigma_{d_0}$ & $< \SI{1.0}{cm}$ \\
-%       纵向碰撞参数不确定度 $\sigma_{d_z}$ & $< \SI{1.0}{cm}$ \\
-%       横动量 $p_{\mathrm{T}}$ & $> \SI{0}{GeV}$ \\
-%       赝快度 $\eta$ & $|\eta| < 2.4$ \\
-%       像素探测器命中层数 & $\ge 2$ \\
-%       硅径迹探测器命中层数 & $\ge 5$ \\
-%       径迹质量标记 & 任意质量标记均可接受 \\
-%       \bottomrule
-%     \end{tabular}
-%     \begin{tablenotes}
-%       \item [a] 归一化 $\chi^2$ 由径迹 Kalman 滤波拟合给出，反映径迹重建整体质量。
-%     \end{tablenotes}
-%   \end{threeparttable}
-% \end{table}
 \begin{table}
   \centering
   \begin{threeparttable}[c]
@@ -69,30 +41,14 @@ In CMS event reconstruction, primary vertex (PV) reconstruction is broadly divid
   \end{threeparttable}
 \end{table}
 
-% 首先，重建程序从带电径迹集合中，综合束斑信息，选择适合用于初级顶点重建的带电径迹（默认选择条件见表~\ref{tab:pv-reco-track-selection}）。这些条件的物理作用是去除重建质量较差、对束流线碰撞参数过大、测量误差过大，或超出径迹探测器主要几何覆盖范围的径迹，从而提高顶点寻找过程的稳定性。
-% TO_APPROVE
-
-The reconstruction procedure first selects, from the charged-track collection and using beam-spot information, the charged tracks suitable for primary vertex reconstruction. The default selection requirements are shown in Table~\ref{tab:pv-reco-track-selection}. These requirements remove tracks with poor reconstruction quality, large impact parameters relative to the beam line, large measurement uncertainties, or trajectories outside the main geometrical acceptance of the tracking detector, thereby improving the stability of the vertex-finding procedure.
-
-% 通过预筛选的径迹随后按照其沿束流方向的位置进行聚类。聚类使用的$z$ 坐标取径迹在相对于束流线的最近接近处，即碰撞点（Impact Point, IP）的 $z$ 坐标 $z_{\mathrm{IP}}$。
-% TO_APPROVE
-
 The preselected tracks are then clustered according to their positions along the beam direction. The $z$ coordinate used for clustering is the $z$ coordinate $z_{\mathrm{IP}}$ of the impact point (IP), defined as the point of closest approach of the track to the beam line.
 
-% 径迹聚类时同时需要考察 $z_{\mathrm{IP}}$ 的不确定度。这一不确定度既来自径迹重建算法本身带来的 $z$ 方向位置误差 $\sigma_{d_z}$，亦有束斑在横向平面内宽度对 $z_{\mathrm{IP}}$ 不确定度的贡献：束斑在横向平面内的宽度，赋予径迹的碰撞点位置一项额外的 $z$ 方向不确定度 $\sigma_{z,\mathrm{BS}}$。在默认配置中，径迹聚类算法还会考虑到初级顶点位置的本征尺度，并额外加入一个本征顶点尺度项。在默认配置中，该本征顶点尺度为：
-% TO_APPROVE
-
 Track clustering must also account for the uncertainty in $z_{\mathrm{IP}}$. This uncertainty receives contributions from the intrinsic $z$-position uncertainty $\sigma_{d_z}$ provided by the track reconstruction algorithm, as well as from the transverse width of the beam spot, which induces an additional $z$-direction uncertainty $\sigma_{z,\mathrm{BS}}$ in the track impact-point position. In the default configuration, the track-clustering algorithm also accounts for the intrinsic scale of the primary-vertex position by adding an intrinsic vertex-size term. This intrinsic vertex scale is:
-
 \begin{equation}
   \sigma_{\mathrm{vtx}} = \SI{0.006}{cm}.
 \end{equation}
 
-% 这导出有效的 $z$ 方向位置不确定度 $\sigma_{z,\mathrm{eff}}$：
-% TO_APPROVE
-
 This gives the effective $z$-direction position uncertainty $\sigma_{z,\mathrm{eff}}$:
-
 \begin{equation}
   \sigma_{z,\mathrm{eff}}^2
   =
@@ -101,55 +57,11 @@ This gives the effective $z$-direction position uncertainty $\sigma_{z,\mathrm{e
   + \sigma_{\mathrm{vtx}}^2
 \end{equation}
 
-% 在聚类过程中，被用于聚类的径迹的权重被取为与 $\sigma_{z,\mathrm{eff}}^2$ 成反比，这有利于降低那些 $z$ 位置不确定度较大的径迹对聚类结果的影响，从而提高聚类的稳定性和准确性。
-% TO_APPROVE
-
 During clustering, the weight assigned to each track is taken to be inversely proportional to $\sigma_{z,\mathrm{eff}}^2$. This reduces the influence of tracks with large $z$-position uncertainties on the clustering result and improves the stability and accuracy of the clustering procedure.
-
-% [TODO] 检查详细数据的有效性。
-
-% 径迹聚类采用一维 $z$ 方向的确定性退火算法
-% （deterministic annealing, DA）\cite{roseDeterministicAnnealingApproach1990,roseDeterministicAnnealingClustering1998}。
-% 该算法从较高的有效温度开始，使径迹可以以较软的权重同时关联到多个
-% 顶点原型；随后逐步降低温度，使不同 $z$ 位置的顶点候选逐渐分离并收敛。
-% CMS 实验中将这一算法应用于顶点寻找的细节见文献~\cite{Chabanat:2005zz}。
-% 默认配置中，退火因子为
-% $0.6$，聚类时只考虑位于径迹附近约 $4\sigma\sqrt{T}$ 范围内的顶点候选，
-% 退火停止温度为 $T_{\mathrm{stop}}=0.5$，顶点分裂阶段结束温度为
-% $T_{\min}=2.0$。相距小于 $\SI{0.01}{cm}$ 的中间顶点原型会被合并。
-% 此外，横向碰撞参数显著性较大的径迹会在聚类中被降权；默认降权尺度为
-% $d_0/\sigma_{d_0}=3$。
-% \textbf{[待添加引用：以上 DA 顶点寻找的默认参数来源于 CMSSW 源代码
-% （\texttt{github.com/cms-sw/cmssw}）中的顶点重建模块配置。]}
-% 这些设定使得算法能够在 pileup 环境下根据
-% $z_{\mathrm{PCA}}$ 将来自不同 pp 相互作用的径迹分成多个顶点候选，同时
-% 降低非初级径迹或离群径迹对聚类结果的影响。
-% TO_APPROVE
 
 Track clustering is performed using a one-dimensional deterministic annealing (DA) algorithm in the $z$ direction~\cite{roseDeterministicAnnealingApproach1990,roseDeterministicAnnealingClustering1998}. The algorithm starts from a high effective temperature, allowing tracks to be associated with several vertex prototypes simultaneously through soft weights. The temperature is then lowered gradually, so that vertex candidates at different $z$ positions progressively separate and converge. The application of this algorithm to vertex finding in the CMS experiment is described in Ref.~\cite{Chabanat:2005zz}. In the default configuration, the annealing factor is $0.6$; during clustering, only vertex candidates within approximately $4\sigma\sqrt{T}$ of a track are considered; the annealing stopping temperature is $T_{\mathrm{stop}}=0.5$; and the temperature at which the vertex-splitting stage ends is $T_{\min}=2.0$. Intermediate vertex prototypes separated by less than $\SI{0.01}{cm}$ are merged. In addition, tracks with large transverse impact-parameter significance are downweighted in clustering, with a default downweighting scale of $d_0/\sigma_{d_0}=3$. \textbf{[Reference to be added: the above default parameters for DA vertex finding are taken from the vertex-reconstruction module configuration in the CMSSW source code (\texttt{github.com/cms-sw/cmssw}).]} These settings allow the algorithm to separate tracks from different pp interactions into multiple vertex candidates according to $z_{\mathrm{PCA}}$ in pileup environments, while reducing the impact of nonprimary or outlier tracks on the clustering result.
 
-% \subsection{初级顶点的拟合}
-\subsection{Primary Vertex Fitting}
-\label{sec:pv-reco_pv-fitting}
-
-% [TODO] 核查AVF是否确实不需要预先决定径迹的权重。
-
-% 对每个径迹团簇，随后使用自适应顶点拟合算法
-% （Adaptive Vertex Fitter, AVF）进行三维顶点拟合。AVF 是一种迭代加权
-% 拟合方法：在每次迭代中，算法根据径迹与当前顶点估计之间的相容性为径迹
-% 赋予权重；与顶点位置不相容的径迹被逐渐降权，而与顶点相容的径迹保持
-% 较高权重。默认几何退火参数对应的 $\chi^2$ 截断尺度为 $2.5$。因此，
-% AVF 不需要在拟合前硬性决定某条径迹是否属于某个顶点，而是在拟合过程中
-% 以软权重的方式抑制离群径迹。拟合完成后，每个候选顶点需要满足有效性
-% 要求，并且与束流线在横向平面内的距离小于 $\SI{1.0}{cm}$。
-% TO_APPROVE
-
 For each track cluster, a three-dimensional vertex fit is subsequently performed using the Adaptive Vertex Fitter (AVF). The AVF is an iterative weighted fitting method: at each iteration, the algorithm assigns weights to tracks according to their compatibility with the current vertex estimate. Tracks incompatible with the vertex position are gradually downweighted, while tracks compatible with the vertex retain high weights. The default geometric annealing parameters correspond to a $\chi^2$ cutoff scale of $2.5$. Thus, the AVF does not require a hard decision before the fit as to whether a given track belongs to a vertex; instead, it suppresses outlier tracks through soft weights during the fitting procedure. After the fit is completed, each vertex candidate must satisfy validity requirements and have a distance from the beam line in the transverse plane smaller than $\SI{1.0}{cm}$.
-
-% 当一个事件中存在多个初级顶点候选时，顶点按照其关联径迹的横动量平方和
-% 从大到小排序。当前实现中使用的排序量并非裸的 $\sum p_{\mathrm{T}}^2$，
-% 而是
-% TO_APPROVE
 
 When multiple primary vertex candidates are present in an event, the vertices are ordered in descending order according to the sum of squared transverse momenta of their associated tracks. In the current implementation, the ranking variable is not the bare $\sum p_{\mathrm{T}}^2$, but rather
 \begin{equation}
@@ -163,61 +75,8 @@ When multiple primary vertex candidates are present in an event, the vertices ar
   \right]^2 ,
   \label{eq:pv-ranking}
 \end{equation}
-
-% 其中 $\sigma_{p_{\mathrm{T}},i}$ 为第 $i$ 条径迹的横动量误差。排序后
-% $S_{\mathrm{PV}}$ 最大的顶点位于顶点集合的第零个位置，通常被视为
-% 硬散射过程的主顶点候选。
-% TO_APPROVE
-
 where $\sigma_{p_{\mathrm{T}},i}$ is the transverse-momentum uncertainty of the $i$th track. After sorting, the vertex with the largest $S_{\mathrm{PV}}$ is placed at index zero of the vertex collection and is usually regarded as the leading primary-vertex candidate for the hard-scattering process.
 
-
-% \begin{table}
-%   \centering
-%   \begin{threeparttable}[c]
-%     \caption{带电 PF 候选粒子与初级顶点关联的主要判据}
-%     \label{tab:pv-association}
-%     \begin{tabular}{p{0.22\linewidth}p{0.68\linewidth}}
-%       \toprule
-%       类别 & 判据与物理含义 \\
-%       \midrule
-%       顶点拟合成员关系 &
-%       若径迹已经被某个初级顶点拟合使用，则将该径迹优先关联到该顶点。这是最强的关联，表示该径迹在顶点重建阶段已经参与了该顶点位置的估计。
-%       \\
-%
-%       prompt-like $d_z$\tnote{a} 相容性
-%       &
-%       若径迹未被明确用于某个顶点拟合，则比较其相对于各个顶点的纵向碰撞参数。默认要求最近相容顶点满足
-%       $|d_z| < \SI{0.1}{cm}$、
-%       $|d_z|/\sigma_{d_z,\mathrm{eff}} < 5$，
-%       且径迹本身的 $\sigma_{d_z}<\SI{0.05}{cm}$。满足这些条件时，径迹被认为与该顶点在束流方向上相容，符合 prompt 带电粒子的拓扑特征。
-%       \\
-%       重味强子衰变径迹
-%       &
-%       若径迹不满足 prompt-like 条件，算法进一步考虑它可能来自
-%       $B_s$ 强子等长寿命粒子的次级衰变。此时寻找附近喷注，默认要求
-%       喷注 $p_{\mathrm{T}}>\SI{25}{GeV}$，径迹与喷注满足
-%       $\Delta R<0.5$。随后要求径迹相对于候选顶点满足
-%       $|d_z|<\SI{0.1}{cm}$ 和 $|d_{xy}|<\SI{0.1}{cm}$，
-%       并且径迹到喷注轴的距离小于 $\SI{0.07}{cm}$。若存在满足条件的顶点，
-%       则将径迹关联到该顶点，表示该径迹虽非 prompt，但与来自该顶点的喷注
-%       内 displaced 衰变拓扑相容。
-%       \\
-%       未重建初级顶点情形
-%       &
-%       若径迹未能与任何重建顶点形成强关联，但其相对于首个顶点的横向碰撞参数很小，即 $|d_{xy}|<\SI{0.01}{cm}$ 且$|d_{xy}|/\sigma_{d_{xy}}<2$，则认为该径迹可能来自一个未被成功重建的初级顶点，并将其指向 $z$ 方向上最接近的重建顶点。
-%       \\
-%       最近 $z$ 弱关联
-%       &
-%       若以上判据均不满足，但仍可计算径迹与各个重建顶点的 $d_z$，则将其弱关联到 $d_z$ 显著性最小的顶点。这一步只作为兜底处理，表示在现有重建顶点中该顶点与径迹在 $z$ 方向上最接近。
-%       \\
-%       \bottomrule
-%     \end{tabular}
-%     \begin{tablenotes}
-%       \item [a] $d_z$ 表示径迹相对于顶点的纵向碰撞参数；$d_{xy}$ 为横向碰撞参数。
-%     \end{tablenotes}
-%   \end{threeparttable}
-% \end{table}
 \begin{table}
   \centering
   \begin{threeparttable}[c]
@@ -263,56 +122,22 @@ where $\sigma_{p_{\mathrm{T}},i}$ is the transverse-momentum uncertainty of the 
   \end{threeparttable}
 \end{table}
 
-% 在完成初级顶点重建后，CMS 的粒子流（Particle Flow, PF）算法所重建得到的候选粒子将与重建的初级顶点进行关联。对于每个带电 PF 候选粒子，算法首先检查其带电径迹是否已经在某个顶点拟合中被使用，并且在该顶点中具有非零拟合权重。如果满足这一条件，则该顶点被认为是该粒子最可靠的来源顶点。这是因为在顶点拟合阶段，该径迹已经参与了该顶点位置的估计，并且具有较高的相容性。若一条径迹未能通过顶点拟合权重被明确
-% 归属，则根据表~\ref{tab:pv-association} 中的分层判据继续判断。该分层
-% 结构体现了从强到弱的物理信息：优先使用顶点拟合成员关系，其次使用
-% prompt-like 的 $d_z$ 相容性，再考虑来自重味强子衰变的 displaced 径迹，
-% 最后才使用最近 $z$ 距离作为弱关联。
-% TO_APPROVE
-
 After primary vertex reconstruction is completed, the candidates reconstructed by the CMS particle-flow (PF) algorithm are associated with reconstructed primary vertices. For each charged PF candidate, the algorithm first checks whether its charged track has already been used in a vertex fit and has a nonzero fit weight in that vertex. If this condition is satisfied, the vertex is considered the most reliable origin vertex for the particle. This is because the track has already contributed to the vertex-position estimate during the vertex-fitting stage and has high compatibility with that vertex. If a track cannot be explicitly assigned through its vertex-fit weight, the hierarchical criteria listed in Table~\ref{tab:pv-association} are applied. This hierarchy reflects physical information from strongest to weakest: vertex-fit membership is used first, followed by prompt-like $d_z$ compatibility, then displaced tracks from heavy-flavor hadron decays, and finally the nearest $z$ distance as a weak association.
-
-% \section{带电径迹重建}
-\section{Charged Track Reconstruction}
-\label{sec:track-reco}
-
-% 带电径迹在 CMS 硅径迹探测器中通过多轮迭代的组合径迹寻找器（CTF）进行重建，其核心算法为 Kalman 滤波方法。重建流程依次包括探测器击中聚类、径迹种子产生、模式识别（径迹寻找）、歧义分辨率（去除共享击中过多的冗余径迹）和最终径迹拟合。
-% TO_APPROVE
 
 Charged-particle tracks in the CMS silicon tracker are reconstructed using an iterative Combinatorial Track Finder (CTF) based on the Kalman filter method~\cite{Fruhwirth:1987:Kalman,CMS_TDR_CH6_TRACKING}. The reconstruction sequence proceeds through hit clustering, seed generation, pattern recognition (track finding), ambiguity resolution (removal of redundant tracks sharing too many hits), and final track fitting.
 
-% 探测器原始信号首先在像素和微条传感器中进行聚类。像素探测器中，相邻像素之间的电荷共享提供二维位置信息，弯曲平面内空间分辨率约为 10~μm。微条探测器中，在相邻读出条上超过阈值的信号被合并为一维击中团簇。聚类完成后，径迹重建从种子产生开始：利用像素探测器中两层或三层的击中组合，以及微条探测器第一层的击中信息，估计径迹候选的初始五维螺旋线参数及其协方差矩阵，为后续 Kalman 滤波提供初值。
-% TO_APPROVE
-
 Raw signals are first clustered in the pixel and strip sensors. In the pixel detector, charge sharing among adjacent pixels provides two-dimensional position information with a spatial resolution of about 10~$\mu$m in the bending plane. In the strip detector, signals on adjacent strips above threshold are merged into one-dimensional hit clusters. After clustering, track reconstruction begins with seed generation: combinations of two or three pixel hits, together with a hit in the first strip layer, are used to estimate initial five-dimensional helix parameters and their covariance matrix, providing starting values for the subsequent Kalman filter.
-
-% 组合径迹寻找器将种子从像素层逐层向外传播，在每一层硅传感器上利用 Kalman 滤波寻找与径迹候选相容的击中点并更新径迹参数。当一条径迹候选可以通过多组不同击中分配传播时，算法同时保留多个轨迹候选，并在每一层根据 $\chi^2$ 相容性筛选最优的若干候选。通过全部径迹探测器层后，径迹自外向内反向进行第二次 Kalman 滤波（平滑），以获取在每层测量面上的最优参数估计。
-% TO_APPROVE
 
 The CTF propagates each seed outward through successive tracker layers, using the Kalman filter to find hits compatible with the trajectory candidate and update the track parameters at each layer. When a candidate can be propagated through multiple hit assignments, the algorithm maintains several trajectory candidates in parallel and prunes them at each layer based on $\chi^2$ compatibility with the assigned hits. After traversing all tracker layers, a second Kalman filter (smoother) is applied from the outside in to obtain optimal parameter estimates at every measurement surface.
 
-% 为提高对不同运动学特征径迹的重建效率，CTF 在多个迭代轮次中运行。每次迭代中，已被高质量径迹明确使用的击中点从后续轮次的搜索中移除，从而降低组合复杂度。CMS 在 Run~1 数据处理中采用了六个迭代轮次，分别针对高横动量径迹、低横动量径迹和来自长寿命粒子衰变的位移径迹等不同拓扑。
-% TO_APPROVE
-
 To improve the reconstruction efficiency across different track topologies, the CTF is run in multiple iterations. After each iteration, hits unambiguously assigned to high-quality tracks are removed from subsequent searches, reducing combinatorial complexity. In the Run~1 data processing, CMS employed six iterations, each targeting specific track topologies such as high-$p_{\mathrm{T}}$ prompt tracks, low-$p_{\mathrm{T}}$ tracks, and displaced tracks from long-lived particle decays.
 
-% 若多条重建径迹共享大部分击中点，歧义分辨率步骤根据击中数量和 $\chi^2$ 对径迹进行排序，保留最优径迹并移除冗余候选。最终的重建径迹按击中数量、$\chi^2$ 以及与初级顶点的一致性分为不同的质量等级（loose、tight、high-purity），其中 high-purity 等级用于物理分析。对于 $p_{\mathrm{T}} > 1$~GeV 的带电粒子，径迹重建效率约为 95\%，假径迹率低于百分之几，中心区域横动量分辨率约为 1--2\%（$p_{\mathrm{T}} \sim 10$~GeV）~\cite{CMS_TDR_CH6_TRACKING}。
+If several reconstructed tracks share a majority of their hits, the ambiguity resolution step ranks tracks by number of hits and $\chi^2$, retains the best track, and removes redundant candidates. The final reconstructed tracks are classified into quality categories (loose, tight, high-purity) according to number of hits, $\chi^2$, and compatibility with the primary vertex; the high-purity category is used for physics analysis. For charged particles with $p_{\mathrm{T}} > 1$~GeV, the track reconstruction efficiency is approximately 95\%, the fake rate is below a few percent, and the transverse momentum resolution in the central region is about 1--2\% at $p_{\mathrm{T}} \sim 10$~GeV~\cite{CMS_TDR_CH6_TRACKING}.
 
-% \section{缪子的重建}
-\section{Muon Reconstruction}
+\section{Muon Reconstruction and Selection}
 \label{sec:muon-reco-selection}
 
-% CMS 中的缪子候选体通过综合硅径迹探测器与缪子谱仪的信息进行重建。标准缪子重建流程首先分别在内层硅径迹探测器和外层缪子系统中独立重建径迹。后者称为 standalone muon 重建：它从漂移管（Drift Tune, DT）和阴极条室（Cathode Strip Chamber, CSC）中局部重建得到的径迹段出发，并结合阻性板室（Resistive Plate Chamber, RPC）的击中信息，利用 Kalman 滤波方法构建缪子系统中的径迹。随后，global muon 重建将 standalone muon 径迹与硅径迹探测器中的 tracker track 进行匹配，并使用来自内层径迹探测器和缪子系统的击中信息进行联合拟合。由于同时利用了两套探测器的信息，global muon 重建在高横动量缪子的动量测量中具有较好的分辨率~\cite{CMS_MUON_PERF_13TEV}。
-% TO_APPROVE
-
 Muon candidates in CMS are reconstructed by combining information from the silicon tracker and the muon spectrometer~\cite{CMS_MUON_PERF_13TEV,CMS_TDR_CH9_MUONS}. In the standard muon reconstruction sequence, tracks are first reconstructed independently in the inner silicon tracker and in the outer muon system. The latter procedure is referred to as standalone muon reconstruction: starting from track segments locally reconstructed in the drift tubes (DTs) and cathode strip chambers (CSCs), combined with hit information from the resistive plate chambers (RPCs), a Kalman filter builds tracks by propagating state vectors from the innermost muon station outward through successive stations. Energy loss, multiple scattering, and the non-uniform magnetic field in the iron return yoke are taken into account during propagation. A backward Kalman filter is then applied from the outside in, and the track parameters are defined at the innermost muon station, followed by an extrapolation to the nominal interaction point with a beam-spot constraint. The overall muon reconstruction efficiency is 95--99\% over $|\eta| < 2.4$, with slight dips at the geometrical boundaries between detector wheels and in the barrel--endcap transition region ($|\eta| \approx 0.25$, 0.8, and 1.2). Global muon reconstruction then matches standalone muon tracks to tracker tracks in the silicon tracker and performs a combined fit using hits from both the inner tracker and the muon system. Because it uses information from both detector systems, global muon reconstruction provides an improvement by nearly an order of magnitude in transverse momentum resolution compared to standalone reconstruction across all $p_{\mathrm{T}}$ ranges~\cite{CMS_TDR_CH9_MUONS}.
-
-% 除上述由外向内的重建方式外，CMS 还使用由内向外的 tracker muon 重建算法。该算法从硅径迹探测器中已重建的 tracker track 出发，将满足
-% $p_{\mathrm{T}} > 0.5~\mathrm{GeV}$ 且 $p > 2.5~\mathrm{GeV}$
-% 的径迹外推到缪子系统。如果外推径迹与至少一个 DT 或 CSC 径迹段相匹配，则该径迹被标记为 tracker muon。匹配在缪子室的局部坐标系中进行，主要使用弯曲平面内测量精度较高的局部 $x$ 坐标；当位置差满足
-% $|\Delta x| < 3~\mathrm{cm}$
-% 或相应的 pull 小于 4 时，认为 tracker track 与缪子径迹段匹配。tracker muon 对低横动量缪子以及探测器几何覆盖较弱的区域尤为重要，因为这些缪子可能无法形成完整的 standalone 或 global muon。
-% TO_APPROVE
 
 In addition to the outside-in reconstruction described above, CMS also uses an inside-out tracker muon reconstruction algorithm. This algorithm starts from reconstructed tracker tracks in the silicon tracker and extrapolates tracks satisfying
 $p_{\mathrm{T}} > 0.5~\mathrm{GeV}$ and $p > 2.5~\mathrm{GeV}$
@@ -320,170 +145,100 @@ to the muon system. If the extrapolated track is matched to at least one DT or C
 $|\Delta x| < 3~\mathrm{cm}$
 or the corresponding pull is less than 4. Tracker muons are particularly important for low-transverse-momentum muons and for detector regions with weaker geometrical coverage, where such muons may not form complete standalone or global muons.
 
-% 在高级触发（HLT）系统中，缪子重建分两步进行：Level-2 在缪子谱仪内独立进行 standalone 径迹重建，以 Level-1 缪子触发候选体为种子；Level-3 引入硅径迹探测器的信息，以 Level-2 候选体为种子，进行 global 拟合重建~\cite{CMS_TDR_CH9_MUONS}。在 Run~2 数据收取条件下，不触发隔离条件的单缪子 HLT 路径的横动量阈值约为 19~GeV，双缪子路径的典型阈值为 7~GeV。
-% TO_APPROVE
-
 In the High-Level Trigger system, muon reconstruction proceeds in two steps: Level-2 performs standalone track reconstruction in the muon spectrometer, seeded by Level-1 muon trigger candidates; Level-3 incorporates silicon-tracker information and performs a global fit reconstruction, seeded by Level-2 candidates~\cite{CMS_TDR_CH9_MUONS}. Under Run~2 data-taking conditions, the single-muon HLT path without isolation has a $p_{\mathrm{T}}$ threshold of approximately 19~GeV, while the typical dimuon threshold is 7~GeV.
-
-% \subsection{缪子鉴别与运动学选择}
-\subsection{Muon Identification and Kinematic Selection}
-
-\label{sec:muon-id-selection}
-
-% 本分析采用 CMS 的 soft muon 工作点作为缪子的鉴别标准~\cite{CMS_MUON_PERF_13TEV}。该工作点针对低横动量缪子优化，尤其适用于 $B$ 物理和夸克偶素相关末态。在探测器层面，soft muon 工作点的具体筛选条件为：
-% TO_APPROVE
 
 This analysis uses the CMS soft muon working point as the muon identification criterion~\cite{CMS_MUON_PERF_13TEV}. This working point is optimized for low-transverse-momentum muons and is particularly suitable for $B$-physics and quarkonium-related final states. At the detector level, the soft muon working point is defined by the following requirements:
 
 \begin{enumerate}
-%   \item 候选体必须被重建为 tracker muon，并且其内层 tracker track 满足 high-purity 质量要求。该 tracker track 须在至少六层硅径迹探测器中具有击中信息，其中至少包含一层像素探测器击中；
   \item The candidate must be reconstructed as a tracker muon, and its inner tracker track must satisfy the high-purity quality requirement. The tracker track must have hits in at least six silicon-tracker layers, including at least one pixel-detector hit;
-%   \item tracker muon 的径迹段匹配须较为严格：外推 tracker track 与匹配缪子径迹段之间在局部 $x$ 和局部 $y$ 坐标方向上的 pull 均需小于 3，以在保持低横动量缪子效率的同时抑制强子穿透和随机匹配背景；
   \item The segment matching for the tracker muon must be stringent: the pulls between the extrapolated tracker track and the matched muon segment in both the local $x$ and local $y$ coordinates must be less than 3, suppressing hadron punch-through and random matching backgrounds while retaining efficiency for low-transverse-momentum muons;
-%   \item 候选体与主顶点须保持较宽松的一致性，其横向和纵向冲击参数分别满足 $|d_{xy}| < 0.3~\mathrm{cm}$ 和 $|d_z| < 20~\mathrm{cm}$。
   \item The candidate must be loosely compatible with the primary vertex, with transverse and longitudinal impact parameters satisfying $|d_{xy}| < 0.3~\mathrm{cm}$ and $|d_z| < 20~\mathrm{cm}$, respectively.
 \end{enumerate}
 
-% soft muon 鉴别策略的核心思想是主要依赖内层硅径迹探测器提供的精确动量和冲击参数测量，同时利用缪子系统中径迹段匹配来确认缪子假设，从而在低横动量区域实现较高的缪子鉴别效率。
-% TO_APPROVE
-
 The central idea of the soft muon identification strategy is to rely primarily on the precise momentum and impact-parameter measurements provided by the inner silicon tracker, while using segment matching in the muon system to confirm the muon hypothesis. This achieves high muon identification efficiency in the low-transverse-momentum region.
-
-% 在 soft muon 鉴别的基础上，本分析进一步对缪子施加以下运动学选择条件：
-% TO_APPROVE
 
 On top of the soft muon identification, this analysis imposes the following kinematic selection requirements on muons:
 
 \begin{itemize}
-%   \item \textbf{赝快度}：$|\eta| < 2.4$，以保证缪子处于 CMS 硅径迹探测器与缪子谱仪的有效几何覆盖范围内。
   \item \textbf{Pseudorapidity}: $|\eta| < 2.4$, ensuring that muons lie within the effective geometrical acceptance of the CMS silicon tracker and muon spectrometer.
-%   \item \textbf{横动量}：基于缪子探测器的触发接收效率和重建分辨率的 $\eta$ 依赖特征，采用分区域阈值：
   \item \textbf{Transverse momentum}: Region-dependent thresholds are used, based on the $\eta$ dependence of the trigger acceptance and reconstruction resolution of the muon detector:
     \begin{itemize}
-%       \item 桶部区域（$|\eta| < 1.2$）：$p_{\mathrm{T}} > 3.5~\mathrm{GeV}$；
       \item Barrel region ($|\eta| < 1.2$): $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$;
-%       \item 端盖区域（$1.2 \leq |\eta| < 2.4$）：$p_{\mathrm{T}} > 2.5~\mathrm{GeV}$。
       \item Endcap region ($1.2 \leq |\eta| < 2.4$): $p_{\mathrm{T}} > 2.5~\mathrm{GeV}$.
     \end{itemize}
 \end{itemize}
-% 该分区域 $p_{\mathrm{T}}$ 阈值的设计兼顾了触发效率和分析纯度的要求。
-% TO_APPROVE
-
 This region-dependent $p_{\mathrm{T}}$ threshold design balances the requirements of trigger efficiency and analysis purity.
 
-% \section{\texorpdfstring{$J/\psi$}{J/psi}候选重建}
 \section{\texorpdfstring{$J/\psi$}{J/psi} Candidate Reconstruction}
-
 \label{sec:jpsi-reco}
-
-% $J/\psi$ 介子通过其双缪子衰变道 $J/\psi \to \mu^+\mu^-$ 进行重建。该衰变道的分支比约为 $5.96\%$~\cite{PDG2024}。虽然相比轻强子衰变道的总分支比（约 $87.7\%$）更低，但末态中的两个缪子提供了清晰的实验特征，在 CMS 优秀的缪子重建与鉴别能力下，可以实现较高的信噪比，有利于在复杂本底环境中提取信号。
-% TO_APPROVE
 
 The $J/\psi$ meson is reconstructed through its dimuon decay channel $J/\psi \to \mu^+\mu^-$. The branching fraction of this decay channel is approximately $5.96\%$~\cite{PDG2024}. Although this is smaller than the total branching fraction to light-hadron decay channels, about $87.7\%$, the two muons in the final state provide a clean experimental signature. With the excellent muon reconstruction and identification capabilities of CMS, this channel provides a high signal-to-background ratio and facilitates signal extraction in complex background environments.
 
-% $J/\psi$ 候选的重建从满足第~\ref{sec:muon-id-selection}~节所述筛选条件的缪子中，选取一对电荷相反的缪子组合而成。候选需依次满足以下条件：
-% TO_APPROVE
-
-$J/\psi$ candidates are reconstructed by selecting pairs of oppositely charged muons from the muons satisfying the selection requirements described in Section~\ref{sec:muon-id-selection}. Each candidate is required to satisfy the following criteria:
+$J/\psi$ candidates are reconstructed by selecting pairs of oppositely charged muons from the muons satisfying the selection requirements described in Section~\ref{sec:muon-reco-selection}. Each candidate is required to satisfy the following criteria:
 
 \begin{enumerate}
-%   \item \textbf{不变质量窗口}：双缪子不变质量 $m_{\mu\mu}$ 须满足 $2.9 < m_{\mu\mu} < 3.3~\mathrm{GeV}$；
   \item \textbf{Invariant-mass window}: The dimuon invariant mass $m_{\mu\mu}$ must satisfy $2.9 < m_{\mu\mu} < 3.3~\mathrm{GeV}$;
-%   \item \textbf{横动量与快度}：$J/\psi$ 候选的横动量须满足 $p_{\mathrm{T}}^{J/\psi} > 6.0~\mathrm{GeV}$，快度须满足 $|y^{J/\psi}| < 2.5$；
   \item \textbf{Transverse momentum and rapidity}: The transverse momentum of the $J/\psi$ candidate must satisfy $p_{\mathrm{T}}^{J/\psi} > 6.0~\mathrm{GeV}$, and its rapidity must satisfy $|y^{J/\psi}| < 2.5$;
-%   \item \textbf{顶点拟合质量}：两条缪子径迹须被拟合到一个共同的衰变顶点，且顶点拟合的概率须大于 $1\%$。
   \item \textbf{Vertex-fit quality}: The two muon tracks must be fitted to a common decay vertex, and the vertex-fit probability must be greater than $1\%$.
 \end{enumerate}
 
-% 以上筛选条件中，不变质量窗口的设计兼顾了 $J/\psi$ 质量峰的分辨率与连续区背景的抑制；横动量与快度的选择基于 CMS 的触发效率和重建性能；顶点拟合质量要求则有助于抑制组合本底，确保两个缪子在空间上来自同一衰变顶点。
-% TO_APPROVE
-
 Among these selection requirements, the invariant-mass window balances the mass-peak resolution of the $J/\psi$ and the suppression of continuum background. The transverse-momentum and rapidity selections are based on the trigger efficiency and reconstruction performance of CMS. The vertex-fit quality requirement helps suppress combinatorial background and ensures that the two muons are spatially consistent with originating from the same decay vertex.
 
-% \section{\texorpdfstring{$\phi$}{phi}候选重建}
 \section{\texorpdfstring{$\phi$}{phi} Candidate Reconstruction}
-
 \label{sec:phi-reco}
 
-% $\phi$介子通过其主要衰变道 $\phi \to K^+K^-$ 进行重建，该衰变道的分支比约为 $49.1\%$~\cite{PDG2024}。在 CMS 实验中，对于横动量处于 $\mathrm{GeV}$ 量级的带电强子，$K^\pm$ 与 $\pi^\pm$ 的鉴别能力有限。因此，本分析遵循 CMS 多重夸克偶素分析的常用策略：对所有通过基本质量筛选且未被鉴别为缪子的带电径迹，统一赋予 $K^\pm$ 的质量假设~\cite{CMS_TRI_JPSI}。
-% TO_APPROVE
-
 The $\phi$ meson is reconstructed through its dominant decay channel $\phi \to K^+K^-$, which has a branching fraction of approximately $49.1\%$~\cite{PDG2024}. In the CMS experiment, the ability to distinguish $K^\pm$ from $\pi^\pm$ is limited for charged hadrons with transverse momenta at the $\mathrm{GeV}$ scale. Therefore, this analysis follows the strategy commonly used in CMS multiple-quarkonium analyses: all charged tracks that pass the basic quality selection and are not identified as muons are assigned the $K^\pm$ mass hypothesis~\cite{CMS_TRI_JPSI}.
-
-% $\phi$候选的重建从满足以下条件的带电径迹中选取一对电荷相反的径迹组合而成：
-% TO_APPROVE
 
 $\phi$ candidates are reconstructed by selecting pairs of oppositely charged tracks from charged tracks satisfying the following requirements:
 
 \begin{enumerate}
-%   \item \textbf{径迹质量}：带电径迹须满足 CMS 的 high-purity 质量要求，以确保径迹重建的可靠性。
   \item \textbf{Track quality}: The charged tracks must satisfy the CMS high-purity quality requirement to ensure reliable track reconstruction.
-%   \item \textbf{运动学接受度}：径迹的赝快度须满足 $|\eta| < 2.5$，横动量须满足 $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$。
   \item \textbf{Kinematic acceptance}: The track pseudorapidity must satisfy $|\eta| < 2.5$, and the transverse momentum must satisfy $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$.
-%   \item \textbf{不变质量窗口}：在 $K^\pm$ 质量假设下，双径迹不变质量 $m_{KK}$ 须满足 $0.99 < m_{KK} < 1.07~\mathrm{GeV}$，即以 PDG 给出的 $\phi$ 质量 $1019.5~\mathrm{MeV}$~\cite{PDG2024} 为中心的约 $\pm 40~\mathrm{MeV}$ 窗口。
   \item \textbf{Invariant-mass window}: Under the $K^\pm$ mass hypothesis, the two-track invariant mass $m_{KK}$ must satisfy $0.99 < m_{KK} < 1.07~\mathrm{GeV}$, corresponding to an approximately $\pm 40~\mathrm{MeV}$ window centered on the PDG value of the $\phi$ mass, $1019.5~\mathrm{MeV}$~\cite{PDG2024}.
-%   \item \textbf{横动量}：$\phi$候选的横动量须满足 $p_{\mathrm{T}}^{\phi} > 4.0~\mathrm{GeV}$。该阈值的选择基于以下物理考虑：$\phi(s\bar{s})$ 属于轻味介子，在质子-质子对撞中可通过软 QCD 过程大量产生，主要集中于 $p_{\mathrm{T}} \lesssim 1~\mathrm{GeV}$ 区域。施加较高的 $p_{\mathrm{T}}$ 阈值可有效抑制来自软 QCD 过程的组合本底，确保重建的 $\phi$ 候选来自硬散射过程。
   \item \textbf{Transverse momentum}: The transverse momentum of the $\phi$ candidate must satisfy $p_{\mathrm{T}}^{\phi} > 4.0~\mathrm{GeV}$. This threshold is chosen based on the following physical consideration: the $\phi(s\bar{s})$ is a light-flavor meson and is abundantly produced in proton--proton collisions through soft QCD processes, mostly in the $p_{\mathrm{T}} \lesssim 1~\mathrm{GeV}$ region. Imposing a higher $p_{\mathrm{T}}$ threshold effectively suppresses combinatorial background from soft QCD processes and helps ensure that the reconstructed $\phi$ candidates originate from hard-scattering processes.
-%   \item \textbf{顶点拟合质量}：两条带电径迹须被拟合到共同顶点，且顶点拟合概率须大于 $1\%$，以抑制随机径迹的组合本底。
   \item \textbf{Vertex-fit quality}: The two charged tracks must be fitted to a common vertex, and the vertex-fit probability must be greater than $1\%$, suppressing combinatorial background from random track pairs.
 \end{enumerate}
 
-% \section{触发条件与事件级选择}
-\section{Trigger Requirements and Event-Level Selection}
-
-\label{sec:event-selection}
-
-% \subsection{触发条件}
-\subsection{Trigger Requirements}
-
-% [TODO] 补充对其他HLT的描述。
-
-% 本分析使用的数据由 CMS 的两级触发系统进行在线选择。分析的候选事件须通过 \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v} 触发路径。该触发路径对事例的主要筛选要求如下：
-% TO_APPROVE
-
-The data used in this analysis are selected online by the CMS two-level trigger system. Candidate events in the analysis are required to pass the \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v} trigger path. The main event-selection requirements of this trigger path are:
-
-\begin{itemize}
-%   \item 事例中至少存在三个缪子，每个缪子须满足 $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$ 和 $|\eta| < 2.5$；
-  \item At least three muons must be present in the event, each satisfying $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$ and $|\eta| < 2.5$;
-%   \item 至少存在一对电荷相反的缪子，满足 $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$；
-  \item At least one oppositely charged muon pair must satisfy $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$;
-%   \item 该对缪子的不变质量须满足 $2.95 < m_{\mu\mu} < 3.25~\mathrm{GeV}$；
-  \item The invariant mass of the muon pair must satisfy $2.95 < m_{\mu\mu} < 3.25~\mathrm{GeV}$;
-%   \item 两条缪子径迹拟合到共同顶点的概率须大于 $0.5\%$。
-  \item The probability for the two muon tracks to be fitted to a common vertex must be greater than $0.5\%$.
-\end{itemize}
-
-% 该触发路径的双缪子质量窗口与 $J/\psi$ 质量峰相匹配，旨在高效选择包含 $J/\psi \to \mu^+\mu^-$ 衰变的事例。
-% TO_APPROVE
-
-The dimuon mass window of this trigger path is matched to the $J/\psi$ mass peak and is designed to efficiently select events containing $J/\psi \to \mu^+\mu^-$ decays.
-
-% \subsection{事件级候选组合策略}
-\subsection{Event-Level Candidate Combination Strategy}
-
-% 在完成单个末态粒子（缪子、$J/\psi$、φ）的重建与筛选后，本分析构建 $J/\psi + J/\psi + \phi$ 的事例级候选组合：
-% TO_APPROVE
+\section{\texorpdfstring{$J/\psi J/\psi\phi$}{J/psi J/psi phi} Candidate Reconstruction}
+\label{sec:triplet-reco}
 
 After reconstructing and selecting the individual final-state particles, namely muons, $J/\psi$ candidates, and $\phi$ candidates, this analysis constructs event-level $J/\psi + J/\psi + \phi$ candidate combinations:
 
 \begin{enumerate}
-%   \item 从事件中选取两对满足第~\ref{sec:jpsi-reco}~节所述条件的 $J/\psi$ 候选，要求两者不共享缪子径迹；
   \item Two $J/\psi$ candidates satisfying the requirements described in Section~\ref{sec:jpsi-reco} are selected from the event, with the requirement that they do not share any muon tracks;
-%   \item 从事件中选取一个满足第~\ref{sec:phi-reco}~节所述条件的 $\phi$ 候选，要求其两条带电径迹不与上述两对 $J/\psi$ 候选所使用的缪子径迹重叠；
   \item One $\phi$ candidate satisfying the requirements described in Section~\ref{sec:phi-reco} is selected from the event, with the requirement that its two charged tracks do not overlap with the muon tracks used by the two $J/\psi$ candidates;
-%   \item 将两个 $J/\psi$ 候选拟合到共同顶点，要求顶点拟合概率大于 $1\%$，以确保两个 $J/\psi$ 在空间上来自同一碰撞顶点~\cite{CMS_TRI_JPSI}；
   \item The two $J/\psi$ candidates are fitted to a common vertex, with the vertex-fit probability required to be greater than $1\%$, ensuring that the two $J/\psi$ candidates are spatially consistent with originating from the same collision vertex~\cite{CMS_TRI_JPSI};
-%   \item 将两个 $J/\psi$ 候选与 $\phi$ 候选共同拟合到同一个顶点，要求拟合成功（valid vertex），以进一步增强三个夸克偶素同时产生的信号假设。
   \item The two $J/\psi$ candidates and the $\phi$ candidate are jointly fitted to the same vertex, and the fit is required to succeed, yielding a valid vertex, to further strengthen the signal hypothesis of simultaneous production of the three quarkonia.
 \end{enumerate}
 
-% 若事件中存在多组满足上述条件的候选组合，则选取三个末态介子拟合到共同顶点的 $\chi^2$ 最小的组合作为最终候选。
-% TO_APPROVE
-
 If multiple candidate combinations in an event satisfy the above requirements, the combination with the smallest $\chi^2$ from the common-vertex fit of the three final-state mesons is selected as the final candidate.
 
-% 上述逐级筛选策略体现了从单个物理对象到完整事例的逻辑层次：首先通过 soft muon 工作点和运动学选择确保单缪子的质量，再通过双缪子不变质量和顶点拟合确认 $J/\psi$ 候选，随后以类似方式构建 $\phi$ 候选，最终通过多重介子的共同顶点约束在事例层面确认三个夸克偶素的同时产生。这一设计在尽可能保留信号效率的同时，逐级抑制来自随机组合、连续区过程和软 QCD 过程的本底贡献。
-% TO_APPROVE
-
 The hierarchical selection strategy above reflects the logical progression from individual physics objects to the complete event. First, the quality of single muons is ensured through the soft muon working point and kinematic selection. The $J/\psi$ candidates are then identified using the dimuon invariant mass and vertex fit, after which $\phi$ candidates are constructed in an analogous manner. Finally, the simultaneous production of the three quarkonia is tested at the event level through the common-vertex constraint on multiple mesons. This design suppresses background contributions from random combinations, continuum processes, and soft QCD processes step by step while retaining signal efficiency as much as possible.
+
+\section{Trigger and Event-Level Selection}
+\label{sec:trigger-event-selection}
+
+The data used in this analysis are selected online by the CMS two-level trigger system. Candidate events in the analysis are required to pass the \texttt{HLT\_Dimuon0\_Jpsi3p5\_Muon2\_v} trigger path. The main event-selection requirements of this trigger path are:
+
+\begin{itemize}
+  \item At least three muons must be present in the event, each satisfying $p_{\mathrm{T}} > 2.0~\mathrm{GeV}$ and $|\eta| < 2.5$;
+  \item At least one oppositely charged muon pair must satisfy $p_{\mathrm{T}} > 3.5~\mathrm{GeV}$;
+  \item The invariant mass of the muon pair must satisfy $2.95 < m_{\mu\mu} < 3.25~\mathrm{GeV}$;
+  \item The probability for the two muon tracks to be fitted to a common vertex must be greater than $0.5\%$.
+\end{itemize}
+
+The dimuon mass window of this trigger path is matched to the $J/\psi$ mass peak and is designed to efficiently select events containing $J/\psi \to \mu^+\mu^-$ decays.
+
+\section{Selected Candidate Sample}
+\label{sec:selected-candidate-sample}
+
+Applying the full set of selection requirements described in Sections~\ref{sec:pv-track-reco}--\ref{sec:trigger-event-selection} to the Run~3 data sample yields a total of \textbf{48,829} $J/\psi J/\psi \phi$ candidate events. These events constitute the input to the signal extraction described in Chapter~5. The invariant mass distributions of the selected candidates, prior to any fit, are shown in Fig.~\ref{fig:prefit-mass-distributions}. The $J/\psi$ and $\phi$ resonance peaks are clearly visible above the combinatorial background.
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.48\textwidth]{figures/chap04/prefit_mass_jpsi1.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap04/prefit_mass_jpsi2.png}
+  % \includegraphics[width=0.48\textwidth]{figures/chap04/prefit_mass_phi.png}
+  \caption{Invariant mass distributions of the selected $J/\psi J/\psi \phi$ candidates before signal extraction: $m(J/\psi_1)$ (left), $m(J/\psi_2)$ (middle), and $m(\phi)$ (right).}
+  \label{fig:prefit-mass-distributions}
+\end{figure}
