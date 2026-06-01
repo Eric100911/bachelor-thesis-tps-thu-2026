@@ -1,168 +1,235 @@
-% \chapter{系统误差}
-\chapter{Systematic Uncertainties}
+\chapter{系统误差}
+% \chapter{Systematic Uncertainties}
 \label{chap:systematics}
 
-\section{Overview}
+\section{概述}
+% \section{Overview}
 \label{sec:syst-overview}
 
-The discussion of systematic uncertainties is organised around the individual steps of the analysis chain, rather than as a simple list of source names. The following categories of systematic effects are considered:
+% [PENDING]
+系统误差的讨论围绕分析链条的各个环节组织，而非简单罗列误差来源名称。本分析考虑以下类别的系统效应：
 
 \begin{itemize}
-  \item uncertainties related to the signal extraction procedure (signal and background mass models, fixed fit parameters, fit range);
-  \item uncertainties in the acceptance and efficiency corrections (MC statistical uncertainty, binning effects, muon and kaon reconstruction and identification efficiencies, trigger efficiency, vertexing and event-level selection efficiencies);
-  \item uncertainties related to candidate reconstruction and selection (multiple-candidate treatment, best-candidate selection, candidate-matching and migration effects);
-  \item uncertainties from sample modelling (signal MC modelling, kinematic reweighting, model dependence of efficiency corrections, pileup modelling);
-  \item normalisation uncertainties (integrated luminosity, branching fractions).
+  \item 与信号提取程序相关的误差（信号和本底质量模型、固定拟合参数、拟合范围）；
+  \item 接受度和效率修正中的误差（MC 统计误差、分箱效应、缪子和带电强子重建与鉴别效率、触发效率、顶点拟合和事例级选择效率）；
+  \item 与候选体重建和选择相关的误差（多重候选体处理、最佳候选体选择、候选体匹配和迁移效应）；
+  \item 样本建模相关的误差（信号 MC 建模、运动学重加权、效率修正的模型依赖性、堆叠建模）；
+  \item 归一化误差（积分亮度、分支比）。
 \end{itemize}
+% The discussion of systematic uncertainties is organised around the individual steps of the analysis chain, rather than as a simple list of source names. The following categories of systematic effects are considered:
+% \begin{itemize}
+%   \item uncertainties related to the signal extraction procedure (signal and background mass models, fixed fit parameters, fit range);
+%   \item uncertainties in the acceptance and efficiency corrections (MC statistical uncertainty, binning effects, muon and kaon reconstruction and identification efficiencies, trigger efficiency, vertexing and event-level selection efficiencies);
+%   \item uncertainties related to candidate reconstruction and selection (multiple-candidate treatment, best-candidate selection, candidate-matching and migration effects);
+%   \item uncertainties from sample modelling (signal MC modelling, kinematic reweighting, model dependence of efficiency corrections, pileup modelling);
+%   \item normalisation uncertainties (integrated luminosity, branching fractions).
+% \end{itemize}
 
-Each source is propagated to the corrected signal yield and to the differential distributions. Before the final numerical results are determined, this chapter retains the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.
+% [PENDING]
+每一项误差源均被传播至修正后信号产额和微分分布。在最终数值结果确定之前，本章仅保留方法框架和明确的占位符，不引入假定的百分比误差。
+% Each source is propagated to the corrected signal yield and to the differential distributions. Before the final numerical results are determined, this chapter retains the methodological framework and explicit placeholders, without introducing assumed percentage uncertainties.
 
-\section{Uncertainties from Signal Extraction}
+\section{信号提取相关的系统误差}
+% \section{Uncertainties from Signal Extraction}
 \label{sec:syst-signal-extraction}
 
-The systematic uncertainty associated with the signal extraction is evaluated by varying the fit model within a set of reasonable alternatives and recording the change in the extracted raw signal yield $N_{sss}$.
+% [PENDING]
+信号提取的系统误差通过在一组合理的替代方案中改变拟合模型，记录提取的原始信号产额 $N_{sss}$ 的变化来评估。
+% The systematic uncertainty associated with the signal extraction is evaluated by varying the fit model within a set of reasonable alternatives and recording the change in the extracted raw signal yield $N_{sss}$.
 
-\subsection{Signal Mass Model}
+\subsection{信号质量模型}
+% \subsection{Signal Mass Model}
 \label{subsec:syst-signal-model}
 
-\textbf{[To be filled: variation of the $J/\psi$ signal model --- replace DSCB with a simple Crystal Ball or a double Gaussian; vary the tail parameters $\alpha_L$, $\alpha_R$ by their fit uncertainties; replace the Voigtian $\phi$ model with a relativistic Breit--Wigner convolved with a Crystal Ball resolution function.]}
+\textbf{[待填：改变 $J/\psi$ 信号模型——将 DSCB 替换为简单 Crystal Ball 或双高斯函数；将尾部参数 $\alpha_L$、$\alpha_R$ 在其拟合误差范围内变化；将 $\phi$ 的 Voigt 模型替换为相对论 Breit--Wigner 与 Crystal Ball 分辨率函数的卷积。]}
+% \textbf{[To be filled: variation of the $J/\psi$ signal model --- replace DSCB with a simple Crystal Ball or a double Gaussian; vary the tail parameters $\alpha_L$, $\alpha_R$ by their fit uncertainties; replace the Voigtian $\phi$ model with a relativistic Breit--Wigner convolved with a Crystal Ball resolution function.]}
 
-\subsection{Background Mass Model}
+\subsection{本底质量模型}
+% \subsection{Background Mass Model}
 \label{subsec:syst-background-model}
 
-\textbf{[To be filled: variation of the background model --- replace the exponential $J/\psi$ background with a first- or second-order polynomial; replace the threshold power-law $\phi$ background with an exponential or a Chebychev polynomial.]}
+\textbf{[待填：改变本底模型——将 $J/\psi$ 的指数本底替换为一阶或二阶多项式；将 $\phi$ 的阈值幂律本底替换为指数函数或 Chebychev 多项式。]}
+% \textbf{[To be filled: variation of the background model --- replace the exponential $J/\psi$ background with a first- or second-order polynomial; replace the threshold power-law $\phi$ background with an exponential or a Chebychev polynomial.]}
 
-\subsection{Fixed Fit Parameters}
+\subsection{固定拟合参数}
+% \subsection{Fixed Fit Parameters}
 \label{subsec:syst-fixed-parameters}
 
-\textbf{[To be filled: vary the fixed tail powers $n_L$, $n_R$ by $\pm 1$ unit; vary the fixed $\phi$ width $\Gamma_\phi$ within its PDG uncertainty.]}
+\textbf{[待填：将固定的尾部幂次 $n_L$、$n_R$ 改变 $\pm 1$ 单位；将固定的 $\phi$ 宽度 $\Gamma_\phi$ 在其 PDG 误差范围内变化。]}
+% \textbf{[To be filled: vary the fixed tail powers $n_L$, $n_R$ by $\pm 1$ unit; vary the fixed $\phi$ width $\Gamma_\phi$ within its PDG uncertainty.]}
 
-\subsection{Fit Range}
+\subsection{拟合范围}
+% \subsection{Fit Range}
 \label{subsec:syst-fit-range}
 
-\textbf{[To be filled: vary the mass fit range for $J/\psi$ and $\phi$ by $\pm 10\%$; repeat the fit on the extended and restricted ranges and record the change in $N_{sss}$.]}
+\textbf{[待填：将 $J/\psi$ 和 $\phi$ 的质量拟合范围改变 $\pm 10\%$；在扩展和收缩范围内重新拟合，记录 $N_{sss}$ 的变化。]}
+% \textbf{[To be filled: vary the mass fit range for $J/\psi$ and $\phi$ by $\pm 10\%$; repeat the fit on the extended and restricted ranges and record the change in $N_{sss}$.]}
 
-\subsection{Fit Stability}
+\subsection{拟合稳定性}
+% \subsection{Fit Stability}
 \label{subsec:syst-fit-stability}
 
-\textbf{[To be filled: check fit convergence with different initial parameter values; perform ensemble tests with pseudo-experiments to verify the fit bias is negligible compared to the statistical uncertainty.]}
+\textbf{[待填：检查不同初始参数值下的拟合收敛性；利用伪实验进行系综检验，验证拟合偏差相对于统计误差可忽略。]}
+% \textbf{[To be filled: check fit convergence with different initial parameter values; perform ensemble tests with pseudo-experiments to verify the fit bias is negligible compared to the statistical uncertainty.]}
 
-\subsection{sPlot-Related Uncertainties}
+\subsection{sPlot 相关误差}
+% \subsection{sPlot-Related Uncertainties}
 \label{subsec:syst-splot}
 
-\textbf{[To be filled: assess potential biases in the sWeight calculation due to correlations among the fit variables; compare sWeighted distributions with those obtained from a tighter mass-window selection as a cross-check.]}
+\textbf{[待填：评估由于拟合变量之间的相关性导致的 sWeight 计算中的潜在偏差；将 sWeight 加权的分布与更紧质量窗口选择得到的结果进行比较作为交叉检验。]}
+% \textbf{[To be filled: assess potential biases in the sWeight calculation due to correlations among the fit variables; compare sWeighted distributions with those obtained from a tighter mass-window selection as a cross-check.]}
 
-\section{Uncertainties from Acceptance and Efficiency Corrections}
+\section{接受度和效率修正相关的系统误差}
+% \section{Uncertainties from Acceptance and Efficiency Corrections}
 \label{sec:syst-efficiency}
 
-\subsection{Monte Carlo Statistical Uncertainty}
+\subsection{蒙特卡罗统计误差}
+% \subsection{Monte Carlo Statistical Uncertainty}
 \label{subsec:syst-mc-stat}
 
-The limited size of the MC samples used to compute the acceptance and efficiency maps introduces a statistical uncertainty in each $(p_{\mathrm{T}}, |y|)$ bin. This uncertainty is propagated to the corrected yield by fluctuating the per-bin correction factors within their Clopper--Pearson binomial uncertainties.
+% [PENDING]
+用于计算接受度和效率图的 MC 样本的有限规模在每个 $(p_{\mathrm{T}}, |y|)$ 分箱中引入了统计误差。该误差通过在 Clopper--Pearson 二项式误差范围内浮动逐分箱修正因子传播至修正后产额。
+% The limited size of the MC samples used to compute the acceptance and efficiency maps introduces a statistical uncertainty in each $(p_{\mathrm{T}}, |y|)$ bin. This uncertainty is propagated to the corrected yield by fluctuating the per-bin correction factors within their Clopper--Pearson binomial uncertainties.
 
-\subsection{Acceptance Map Binning}
+\subsection{接受度图分箱}
+% \subsection{Acceptance Map Binning}
 \label{subsec:syst-acceptance-binning}
 
-\textbf{[To be filled: vary the binning of the acceptance maps and record the effect on the corrected yield.]}
+\textbf{[待填：改变接受度图的分箱方案，记录对修正后产额的影响。]}
+% \textbf{[To be filled: vary the binning of the acceptance maps and record the effect on the corrected yield.]}
 
-\subsection{Efficiency Map Binning}
+\subsection{效率图分箱}
+% \subsection{Efficiency Map Binning}
 \label{subsec:syst-efficiency-binning}
 
-\textbf{[To be filled: vary the binning of the efficiency maps and record the effect on the corrected yield.]}
+\textbf{[待填：改变效率图的分箱方案，记录对修正后产额的影响。]}
+% \textbf{[To be filled: vary the binning of the efficiency maps and record the effect on the corrected yield.]}
 
-\subsection{Muon Reconstruction and Identification Efficiencies}
+\subsection{缪子重建与鉴别效率}
+% \subsection{Muon Reconstruction and Identification Efficiencies}
 \label{subsec:syst-muon-eff}
 
-\textbf{[To be filled: systematic uncertainty from the muon reconstruction and identification efficiency measurements --- compare MC-based efficiencies with tag-and-probe measurements in data if available; vary the single-muon efficiency correction factors within their uncertainties.]}
+\textbf{[待填：缪子重建和鉴别效率测量的系统误差——若可能，将基于 MC 的效率与数据中的 tag-and-probe 测量结果进行比较；将单缪子效率修正因子在其误差范围内变化。]}
+% \textbf{[To be filled: systematic uncertainty from the muon reconstruction and identification efficiency measurements --- compare MC-based efficiencies with tag-and-probe measurements in data if available; vary the single-muon efficiency correction factors within their uncertainties.]}
 
-\subsection{Kaon Reconstruction and Identification Efficiencies}
+\subsection{带电强子重建与鉴别效率}
+% \subsection{Kaon Reconstruction and Identification Efficiencies}
 \label{subsec:syst-kaon-eff}
 
-\textbf{[To be filled: systematic uncertainty from the charged-kaon reconstruction and identification efficiencies --- compare track reconstruction efficiency in MC and data using control samples.]}
+\textbf{[待填：带电强子重建和鉴别效率的系统误差——利用控制样本比较 MC 与数据中的径迹重建效率。]}
+% \textbf{[To be filled: systematic uncertainty from the charged-kaon reconstruction and identification efficiencies --- compare track reconstruction efficiency in MC and data using control samples.]}
 
-\subsection{Trigger Efficiency}
+\subsection{触发效率}
+% \subsection{Trigger Efficiency}
 \label{subsec:syst-trigger-eff}
 
-\textbf{[To be filled: systematic uncertainty from the HLT trigger efficiency --- vary the SPS-to-DPS mixture in the MC sample used to derive the trigger efficiency; compare with a data-driven trigger efficiency measurement using a tag-and-probe method if available.]}
+\textbf{[待填：HLT 触发效率的系统误差——改变用于推导触发效率的 MC 样本中的 SPS 与 DPS 混合比例；若可能，利用 tag-and-probe 方法进行数据驱动的触发效率测量作为比较。]}
+% \textbf{[To be filled: systematic uncertainty from the HLT trigger efficiency --- vary the SPS-to-DPS mixture in the MC sample used to derive the trigger efficiency; compare with a data-driven trigger efficiency measurement using a tag-and-probe method if available.]}
 
-\subsection{Vertexing and Event-Level Selection Efficiencies}
+\subsection{顶点拟合和事例级选择效率}
+% \subsection{Vertexing and Event-Level Selection Efficiencies}
 \label{subsec:syst-vertex-event-eff}
 
-\textbf{[To be filled: systematic uncertainty from the four-muon vertex and tri-onia vertex efficiencies --- compare MC-derived efficiencies with data in a signal-depleted control region.]}
+\textbf{[待填：四缪子顶点和三夸克偶素顶点效率的系统误差——在信号压低控制区中将 MC 推导的效率与数据进行比较。]}
+% \textbf{[To be filled: systematic uncertainty from the four-muon vertex and tri-onia vertex efficiencies --- compare MC-derived efficiencies with data in a signal-depleted control region.]}
 
-\section{Uncertainties from Candidate Reconstruction and Selection}
+\section{候选体重建与选择相关的系统误差}
+% \section{Uncertainties from Candidate Reconstruction and Selection}
 \label{sec:syst-candidate-selection}
 
-\subsection{Multiple-Candidate Treatment}
+\subsection{多重候选体处理}
+% \subsection{Multiple-Candidate Treatment}
 \label{subsec:syst-multiple-candidates}
 
-\textbf{[To be filled: compare the nominal best-candidate selection based on $p_{\mathrm{T}}$-sum with an alternative rule based on vertex-fit $\chi^2$; record the change in the corrected yield.]}
+\textbf{[待填：将基于 $p_{\mathrm{T}}$-求和的标称最佳候选体选择与基于顶点拟合 $\chi^2$ 的替代规则进行比较；记录修正后产额的变化。]}
+% \textbf{[To be filled: compare the nominal best-candidate selection based on $p_{\mathrm{T}}$-sum with an alternative rule based on vertex-fit $\chi^2$; record the change in the corrected yield.]}
 
-\subsection{Best-Candidate Selection}
+\subsection{最佳候选体选择}
+% \subsection{Best-Candidate Selection}
 \label{subsec:syst-best-candidate}
 
-\textbf{[To be filled: vary the best-candidate criterion and assess the impact on the event yield and kinematic distributions.]}
+\textbf{[待填：改变最佳候选体判据，评估对事例产额和运动学分布的影响。]}
+% \textbf{[To be filled: vary the best-candidate criterion and assess the impact on the event yield and kinematic distributions.]}
 
-\subsection{Candidate-Matching and Migration Effects}
+\subsection{候选体匹配与迁移效应}
+% \subsection{Candidate-Matching and Migration Effects}
 \label{subsec:syst-candidate-migration}
 
-\textbf{[To be filled: compare the nominal bin-by-bin correction with an iterative matrix-unfolding approach; the difference is assigned as a systematic uncertainty.]}
+\textbf{[待填：将标称的逐分箱修正与迭代矩阵展开方法进行比较；差异作为系统误差计入。]}
+% \textbf{[To be filled: compare the nominal bin-by-bin correction with an iterative matrix-unfolding approach; the difference is assigned as a systematic uncertainty.]}
 
-\subsection{Closure-Test Residual Bias}
+\subsection{闭合检验残余偏差}
+% \subsection{Closure-Test Residual Bias}
 \label{subsec:syst-closure-bias}
 
-\textbf{[To be filled: any residual non-closure observed in the MC closure tests is assigned as a systematic uncertainty.]}
+\textbf{[待填：MC 闭合检验中观察到的任何残余非闭合均作为系统误差计入。]}
+% \textbf{[To be filled: any residual non-closure observed in the MC closure tests is assigned as a systematic uncertainty.]}
 
-\section{Uncertainties from Sample Modeling}
+\section{样本建模相关的系统误差}
+% \section{Uncertainties from Sample Modeling}
 \label{sec:syst-sample-modeling}
 
-\subsection{Signal Monte Carlo Modeling}
+\subsection{信号蒙特卡罗建模}
 \label{subsec:syst-signal-mc-modeling}
 
-\textbf{[To be filled: compare the efficiency maps derived from different MC generators (e.g., \textsc{Pythia8} vs.\ \textsc{Helac-Onia}); the difference is assigned as a modelling uncertainty.]}
+\textbf{[待填：比较从不同 MC 产生子（如 \textsc{Pythia8} 与 \textsc{Helac-Onia}）推导的效率图；差异作为建模误差计入。]}
+% \textbf{[To be filled: compare the efficiency maps derived from different MC generators (e.g., \textsc{Pythia8} vs.\ \textsc{Helac-Onia}); the difference is assigned as a modelling uncertainty.]}
 
-\subsection{Kinematic Reweighting}
+\subsection{运动学重加权}
 \label{subsec:syst-kinematic-reweighting}
 
-\textbf{[To be filled: reweight the MC sample to match the data kinematic distributions and re-evaluate the efficiencies; the difference from the nominal efficiencies is taken as a systematic uncertainty.]}
+\textbf{[待填：对 MC 样本进行重加权以匹配数据的运动学分布，重新评估效率；与标称效率的差异作为系统误差计入。]}
+% \textbf{[To be filled: reweight the MC sample to match the data kinematic distributions and re-evaluate the efficiencies; the difference from the nominal efficiencies is taken as a systematic uncertainty.]}
 
-\subsection{Model Dependence of Efficiency Corrections}
+\subsection{效率修正的模型依赖性}
 \label{subsec:syst-model-dependence}
 
-\textbf{[To be filled: evaluate efficiencies using MC samples with different SPS:DPS mixture fractions; the envelope of variations is assigned as a systematic uncertainty.]}
+\textbf{[待填：使用不同 SPS:DPS 混合比例的 MC 样本评估效率；变化范围的包络作为系统误差计入。]}
+% \textbf{[To be filled: evaluate efficiencies using MC samples with different SPS:DPS mixture fractions; the envelope of variations is assigned as a systematic uncertainty.]}
 
-\subsection{Pileup Modeling}
+\subsection{堆叠建模}
 \label{subsec:syst-pileup}
 
-\textbf{[To be filled: reweight the MC pileup profile to match the data pileup distribution; compare the efficiencies before and after reweighting.]}
+\textbf{[待填：对 MC 堆叠分布进行重加权以匹配数据堆叠分布；比较重加权前后的效率。]}
+% \textbf{[To be filled: reweight the MC pileup profile to match the data pileup distribution; compare the efficiencies before and after reweighting.]}
 
-\section{Luminosity and Branching Fraction Uncertainties}
+\section{亮度与分支比误差}
+% \section{Luminosity and Branching Fraction Uncertainties}
 \label{sec:syst-normalization}
 
-\subsection{Integrated Luminosity}
+\subsection{积分亮度}
 \label{subsec:syst-luminosity}
 
-The integrated luminosity of the data sample is $289.21 \pm 5.97~\text{fb}^{-1}$, corresponding to a relative uncertainty of 2.1\%~\cite{CMS:LUMI-PUB}. This uncertainty is fully correlated across all bins and is applied as a global normalisation uncertainty.
+% [PENDING]
+数据样本的积分亮度为 $289.21 \pm 5.97~\text{fb}^{-1}$，对应的相对误差为 2.1\%~\cite{CMS:LUMI-PUB}。该误差在所有分箱中完全相关，并作为全局归一化误差处理。
+% The integrated luminosity of the data sample is $289.21 \pm 5.97~\text{fb}^{-1}$, corresponding to a relative uncertainty of 2.1\%~\cite{CMS:LUMI-PUB}. This uncertainty is fully correlated across all bins and is applied as a global normalisation uncertainty.
 
-\subsection{Branching Fractions}
+\subsection{分支比}
 \label{subsec:syst-branching-fractions}
 
-The world-average branching fractions $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ and $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} enter the cross-section calculation. Their uncertainties are propagated as fully correlated normalisation uncertainties.
+% [PENDING]
+世界平均分支比 $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ 和 $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} 参与截面计算。其误差作为完全相关的归一化误差传播。
+% The world-average branching fractions $\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$ and $\mathcal{B}(\phi \to K^+K^-) = (49.1 \pm 0.5)\%$~\cite{PDG2024} enter the cross-section calculation. Their uncertainties are propagated as fully correlated normalisation uncertainties.
 
-\section{Combination of Systematic Uncertainties}
+\section{系统误差的综合}
+% \section{Combination of Systematic Uncertainties}
 \label{sec:syst-combination}
 
-\subsection{Correlation Assumptions}
+\subsection{相关性假设}
 \label{subsec:syst-correlations}
 
-\textbf{[To be filled: specify which uncertainties are treated as fully correlated across bins (e.g., luminosity, branching fractions) and which are treated as uncorrelated (e.g., bin-by-bin fit variations).]}
+\textbf{[待填：明确哪些误差在各分箱之间视为完全相关（如亮度、分支比），哪些视为不相关（如逐分箱拟合变化）。]}
+% \textbf{[To be filled: specify which uncertainties are treated as fully correlated across bins (e.g., luminosity, branching fractions) and which are treated as uncorrelated (e.g., bin-by-bin fit variations).]}
 
-\subsection{Combination Procedure}
+\subsection{综合方法}
 \label{subsec:syst-combination-procedure}
 
-The total systematic uncertainty is obtained by adding all individual sources in quadrature, assuming they are uncorrelated. For sources with both correlated and uncorrelated components, the two components are summed separately and then combined.
+% [PENDING]
+总系统误差由所有独立误差源平方求和开方得到，假定它们互不相关。对于同时包含相关和不相关分量的误差源，两部分先分别求和再合并。
+% The total systematic uncertainty is obtained by adding all individual sources in quadrature, assuming they are uncorrelated. For sources with both correlated and uncorrelated components, the two components are summed separately and then combined.
 
-\subsection{Summary Table of Systematic Uncertainties}
+\subsection{系统误差汇总表}
 \label{subsec:syst-summary-table}
 
-\textbf{[To be filled: a summary table listing each source of systematic uncertainty, its relative contribution to the corrected yield, and whether it is treated as correlated or uncorrelated across kinematic bins.]}
+\textbf{[待填：汇总表列出每个系统误差源、其对修正后产额的相对贡献、以及在各运动学分箱之间视为相关还是不相关。]}
+% \textbf{[To be filled: a summary table listing each source of systematic uncertainty, its relative contribution to the corrected yield, and whether it is treated as correlated or uncorrelated across kinematic bins.]}

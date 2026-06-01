@@ -1,39 +1,47 @@
-\chapter{Theory Background}
-% \chapter{理论背景}
+\chapter{理论背景}
+% \chapter{Theory Background}
 
-\section{Proton Structure and Parton Correlations}
-% \section{质子结构与部分子关联}
-
-% TO_APPROVE
-
-In the standard collinear factorisation framework, the proton is described by single-parton distribution functions (PDFs) $f_i(x, Q^2)$, which give the probability density of finding a parton of flavor $i$ carrying a longitudinal momentum fraction $x$ when the proton is probed at a factorisation scale $Q^2$. The $Q^2$-dependence of the PDFs is governed by the DGLAP evolution equations and has been tested to high precision in deep-inelastic scattering and in hard-scattering processes at hadron colliders.
-
-% 在标准共线因子化框架下，质子由部分子分布函数 $f_i(x,Q^2)$ 描述，仅给出纵向动量密度。DGLAP 演化方程描述其 $Q^2$ 依赖性。
+\section{质子结构与部分子关联}
+% \section{Proton Structure and Parton Correlations}
 
 % TO_APPROVE
 
-Collinear PDFs, however, are one-body objects: they carry no information about the transverse spatial distribution of partons inside the proton, nor about correlations among multiple partons. At the LHC, the proton is probed in the regime of low longitudinal momentum fraction $x$ and high parton density, where the number of gluons grows rapidly. In this environment, the probability that more than one parton pair from the same proton--proton collision undergoes a hard scattering becomes non-negligible. The proton's transverse parton profile and the correlations among its constituent partons --- in flavor, momentum, spin, and color --- thus become experimentally accessible through observables that are sensitive to multiple hard scatters~\cite{Z48W3VLV,Diehl:2018:DPS-theory}.
+% [PENDING]
+在标准共线因子化框架下，质子由单部分子分布函数（PDF）$f_i(x,Q^2)$描述，它给出在因子化标度$Q^2$下探测质子时，找到携带纵向动量分数$x$、味为$i$的部分子的概率密度。PDF的$Q^2$依赖性由DGLAP演化方程决定，并已在深度非弹性散射和强子对撞机的硬散射过程中得到了高精度检验。
 
-% 共线 PDF 是一体对象，不含横向空间分布和部分子间关联信息。在 LHC 的低 $x$、高部分子密度环境下，同一次碰撞中多个部分子对发生硬散射的概率不可忽略，质子的横向结构变得可实验探测。
-
-\section{From Single- to Multiple-Parton Scattering}
-% \section{从单部分子散射到多重部分子散射}
+% In the standard collinear factorisation framework, the proton is described by single-parton distribution functions (PDFs) $f_i(x, Q^2)$, which give the probability density of finding a parton of flavor $i$ carrying a longitudinal momentum fraction $x$ when the proton is probed at a factorisation scale $Q^2$. The $Q^2$-dependence of the PDFs is governed by the DGLAP evolution equations and has been tested to high precision in deep-inelastic scattering and in hard-scattering processes at hadron colliders.
 
 % TO_APPROVE
 
-In the usual leading picture of a hard proton--proton collision, one parton from each incoming proton participates in a short-distance partonic subprocess, while the remaining constituents form the beam remnants and the underlying event. This mechanism is called single-parton scattering (SPS) and is the default framework for perturbative calculations of high-scale final states. The SPS cross section for producing final states $A,B$ from partons $i,j$ is
+% [PENDING]
+然而，共线PDF是单体对象：它们既不包含质子内部部分子横向空间分布的信息，也不包含多个部分子之间关联的信息。在LHC上，质子在低纵向动量分数$x$和高部分子密度的区域被探测，在此区域中胶子数量迅速增长。在这种环境下，同一次质子--质子碰撞中不止一对部分子发生硬散射的概率变得不可忽略。因此，质子的横向部分子轮廓及其组分部分子之间的关联——包括味、动量、自旋和色的关联——通过对多重硬散射敏感的观测量变得可实验探测~\cite{Z48W3VLV,Diehl:2018:DPS-theory}。
+
+% Collinear PDFs, however, are one-body objects: they carry no information about the transverse spatial distribution of partons inside the proton, nor about correlations among multiple partons. At the LHC, the proton is probed in the regime of low longitudinal momentum fraction $x$ and high parton density, where the number of gluons grows rapidly. In this environment, the probability that more than one parton pair from the same proton--proton collision undergoes a hard scattering becomes non-negligible. The proton's transverse parton profile and the correlations among its constituent partons --- in flavor, momentum, spin, and color --- thus become experimentally accessible through observables that are sensitive to multiple hard scatters~\cite{Z48W3VLV,Diehl:2018:DPS-theory}.
+
+\section{从单部分子散射到多重部分子散射}
+% \section{From Single- to Multiple-Parton Scattering}
+
+% TO_APPROVE
+
+% [PENDING]
+在通常的硬质子--质子碰撞主导图像中，每个入射质子各有一个部分子参与短程部分子子过程，其余组分形成束流剩余和底层事例。这种机制称为单部分子散射（SPS），是对高标度末态进行微扰计算的默认框架。由部分子$i,j$产生末态$A,B$的SPS截面为
 
 \begin{equation}
   \sigma_\mathrm{SPS}^{AB} = \sum_{i,j} \int dx_1 dx_2 \, f_i(x_1, Q^2) \, f_j(x_2, Q^2) \, \hat{\sigma}_{ij \to AB}(x_1, x_2, Q^2) .
 \end{equation}
 
-% 在通常的硬质子--质子碰撞图像中，每个质子各有一个部分子参与短程散射（SPS）。SPS 截面由共线 PDF 的卷积给出。
+% In the usual leading picture of a hard proton--proton collision, one parton from each incoming proton participates in a short-distance partonic subprocess, while the remaining constituents form the beam remnants and the underlying event. This mechanism is called single-parton scattering (SPS) and is the default framework for perturbative calculations of high-scale final states. The SPS cross section for producing final states $A,B$ from partons $i,j$ is
+%
+% \begin{equation}
+%   \sigma_\mathrm{SPS}^{AB} = \sum_{i,j} \int dx_1 dx_2 \, f_i(x_1, Q^2) \, f_j(x_2, Q^2) \, \hat{\sigma}_{ij \to AB}(x_1, x_2, Q^2) .
+% \end{equation}
 
 % TO_APPROVE
 
-At the LHC, the large parton luminosity in the gluon-rich region of low $x$ makes it possible for two or more parton pairs to undergo separate hard scatterings in the same proton--proton collision~\cite{Z48W3VLV,denterriaDoubleTripleNparton2017}. Such events are collectively referred to as multiple-parton scattering (MPS), with double-parton scattering (DPS) and triple-parton scattering (TPS) as the most commonly discussed cases. MPS probes dimensions of proton structure that are inaccessible to single-parton measurements. Whereas SPS cross sections constrain the one-body PDFs $f_i(x,Q^2)$, MPS observables are sensitive to the joint distributions of two or more partons, including their relative transverse positions~\cite{Diehl:2018:DPS-theory}. Because these correlations are nonperturbative inputs, they must be extracted from measurements in multiple final states and at different scattering multiplicities~\cite{Z48W3VLV,Blok:2017:MPI-correlations}.
+% [PENDING]
+在LHC上，低$x$胶子丰富区域中巨大的部分子亮度使得两对或更多对部分子能在同一次质子--质子碰撞中发生独立的硬散射~\cite{Z48W3VLV,denterriaDoubleTripleNparton2017}。这类事例统称为多重部分子散射（MPS），其中最常讨论的是双部分子散射（DPS）和三重部分子散射（TPS）。MPS探测了单部分子测量无法触及的质子结构维度。SPS截面约束单体PDF $f_i(x,Q^2)$，而MPS观测量则对两个或更多部分子的联合分布敏感，包括它们的相对横向位置~\cite{Diehl:2018:DPS-theory}。由于这些关联是非微扰输入，必须从多种末态和不同散射重数的测量中提取~\cite{Z48W3VLV,Blok:2017:MPI-correlations}。
 
-% 在 LHC 的高部分子亮度下，同一次质子--质子碰撞中可能发生两个或更多独立硬散射，统称为 MPS。MPS 观测量对多个部分子的联合分布敏感，包括横向位置和味、动量、自旋、色的关联，这些关联无法从第一性原理预言，需从多种末态的测量中提取。
+% At the LHC, the large parton luminosity in the gluon-rich region of low $x$ makes it possible for two or more parton pairs to undergo separate hard scatterings in the same proton--proton collision~\cite{Z48W3VLV,denterriaDoubleTripleNparton2017}. Such events are collectively referred to as multiple-parton scattering (MPS), with double-parton scattering (DPS) and triple-parton scattering (TPS) as the most commonly discussed cases. MPS probes dimensions of proton structure that are inaccessible to single-parton measurements. Whereas SPS cross sections constrain the one-body PDFs $f_i(x,Q^2)$, MPS observables are sensitive to the joint distributions of two or more partons, including their relative transverse positions~\cite{Diehl:2018:DPS-theory}. Because these correlations are nonperturbative inputs, they must be extracted from measurements in multiple final states and at different scattering multiplicities~\cite{Z48W3VLV,Blok:2017:MPI-correlations}.
 
 \begin{figure}[htbp]
   \centering
@@ -51,16 +59,18 @@ At the LHC, the large parton luminosity in the gluon-rich region of low $x$ make
 
 % TO_APPROVE
 
-The formal QCD description of multiple parton scattering requires extending the factorisation framework beyond single PDFs. Double parton distribution functions (dPDFs) $D_{ij}(x_1, x_2, \mathbf{b}; Q_1^2, Q_2^2)$ describe the joint probability of extracting two partons of flavors $i$ and $j$ with longitudinal momentum fractions $x_1$ and $x_2$ at a relative transverse separation $\mathbf{b}$~\cite{Gaunt:2010:dPDF,Diehl:2018:DPS-theory}. Unlike single PDFs, dPDFs encode both the longitudinal and the transverse structure of the proton. Their QCD evolution differs from DGLAP: the perturbative $1\to 2$ splitting of a single parton into two partons that both undergo hard scatterings introduces an inhomogeneous term absent from single-PDF evolution, which generates strong correlations at small $\mathbf{b}$.
+% [PENDING]
+多重部分子散射的形式化QCD描述需要将因子化框架扩展到单PDF之外。双部分子分布函数（dPDF）$D_{ij}(x_1, x_2, \mathbf{b}; Q_1^2, Q_2^2)$描述了以相对横向距离$\mathbf{b}$提取味为$i$和$j$、纵向动量分数分别为$x_1$和$x_2$的两个部分子的联合概率~\cite{Gaunt:2010:dPDF,Diehl:2018:DPS-theory}。与单PDF不同，dPDF同时编码了质子的纵向和横向结构。其QCD演化也与DGLAP不同：单个部分子微扰$1\to 2$劈裂为两个随后都发生硬散射的部分子，这引入了单PDF演化中不存在的非齐次项，在小$\mathbf{b}$处产生强关联。
 
-% 双部分子分布函数 $D_{ij}(x_1, x_2, \mathbf{b}; Q_1^2, Q_2^2)$ 同时编码了部分子的纵向量子数和横向位置信息。dPDF 的 QCD 演化包含 $1\to 2$ 劈裂项，与单 PDF 的 DGLAP 演化本质不同。
+% The formal QCD description of multiple parton scattering requires extending the factorisation framework beyond single PDFs. Double parton distribution functions (dPDFs) $D_{ij}(x_1, x_2, \mathbf{b}; Q_1^2, Q_2^2)$ describe the joint probability of extracting two partons of flavors $i$ and $j$ with longitudinal momentum fractions $x_1$ and $x_2$ at a relative transverse separation $\mathbf{b}$~\cite{Gaunt:2010:dPDF,Diehl:2018:DPS-theory}. Unlike single PDFs, dPDFs encode both the longitudinal and the transverse structure of the proton. Their QCD evolution differs from DGLAP: the perturbative $1\to 2$ splitting of a single parton into two partons that both undergo hard scatterings introduces an inhomogeneous term absent from single-PDF evolution, which generates strong correlations at small $\mathbf{b}$.
 
-\section{Pocket Formulae and Effective Cross Sections}
-% \section{口袋公式与有效截面}
+\section{口袋公式与有效截面}
+% \section{Pocket Formulae and Effective Cross Sections}
 
 % APPROVED
 
-A further simplification --- the independent-scattering approximation --- provides the most commonly used phenomenological framework for MPS. Correlations among the separate hard scatterings are neglected, and the complicated dPDF structure is summarised by the single parameter $\sigma_\mathrm{eff}$. For $n$ hard final states $A_1,\ldots,A_n$, the factorised MPS cross section is~\cite{denterriaDoubleTripleNparton2017}
+% [PENDING]
+进一步的简化——独立散射近似——提供了MPS最常用的唯象框架。各次独立硬散射之间的关联被忽略，复杂的dPDF结构由单一参数$\sigma_\mathrm{eff}$概括。对于$n$个硬末态$A_1,\ldots,A_n$，因子化的MPS截面为~\cite{denterriaDoubleTripleNparton2017}
 
 \begin{equation}
   \label{eq:nps-pocket}
@@ -71,7 +81,8 @@ A further simplification --- the independent-scattering approximation --- provid
        {(\sigma_{\mathrm{eff},\,\mathrm{NPS}})^{\,n-1}} .
 \end{equation}
 
-Here $\mathfrak{m}$ is a combinatorial factor that accounts for identical final states and removes duplicate assignments. For the DPS ($n=2$) and TPS ($n=3$) cases most relevant to this thesis,
+% [PENDING]
+其中$\mathfrak{m}$是组合因子，用于处理全同末态并去除重复分配。对于与本论文最相关的DPS（$n=2$）和TPS（$n=3$）情况，
 
 \begin{equation}
   \label{eq:dps-pocket}
@@ -104,9 +115,54 @@ Here $\mathfrak{m}$ is a combinatorial factor that accounts for identical final 
   \end{cases}
 \end{equation}
 
+% A further simplification --- the independent-scattering approximation --- provides the most commonly used phenomenological framework for MPS. Correlations among the separate hard scatterings are neglected, and the complicated dPDF structure is summarised by the single parameter $\sigma_\mathrm{eff}$. For $n$ hard final states $A_1,\ldots,A_n$, the factorised MPS cross section is~\cite{denterriaDoubleTripleNparton2017}
+%
+% \begin{equation}
+%   \label{eq:nps-pocket}
+%   \sigma_{\mathrm{NPS}}^{A_1+\cdots+A_n}
+%   =
+%   \frac{\mathfrak{m}}{n!}
+%   \frac{\prod_{i=1}^{n}\sigma_{\mathrm{SPS}}^{A_i}}
+%        {(\sigma_{\mathrm{eff},\,\mathrm{NPS}})^{\,n-1}} .
+% \end{equation}
+%
+% Here $\mathfrak{m}$ is a combinatorial factor that accounts for identical final states and removes duplicate assignments. For the DPS ($n=2$) and TPS ($n=3$) cases most relevant to this thesis,
+%
+% \begin{equation}
+%   \label{eq:dps-pocket}
+%   \sigma_{\mathrm{DPS}}^{A+B}
+%   =
+%   \frac{\mathfrak{m}}{2}
+%   \frac{\sigma_{\mathrm{SPS}}^{A}\,\sigma_{\mathrm{SPS}}^{B}}
+%        {\sigma_{\mathrm{eff},\,\mathrm{DPS}}},
+%   \qquad
+%   \mathfrak{m}=
+%   \begin{cases}
+%     1, & A = B,\\
+%     2, & A \neq B,
+%   \end{cases}
+% \end{equation}
+%
+% \begin{equation}
+%   \label{eq:tps-pocket}
+%   \sigma_{\mathrm{TPS}}^{A+B+C}
+%   =
+%   \frac{\mathfrak{m}}{3!}
+%   \frac{\sigma_{\mathrm{SPS}}^{A}\,\sigma_{\mathrm{SPS}}^{B}\,\sigma_{\mathrm{SPS}}^{C}}
+%        {(\sigma_{\mathrm{eff},\,\mathrm{TPS}})^2},
+%   \qquad
+%   \mathfrak{m}=
+%   \begin{cases}
+%     1, & A = B = C,\\
+%     3, & \text{exactly two identical},\\
+%     6, & \text{all distinct}.
+%   \end{cases}
+% \end{equation}
+
 % APPROVED
 
-D'Enterria and Snigirev showed that, for several choices of transverse parton-density profiles, the TPS and DPS effective cross sections are approximately related by~\cite{WHQAFHD5,denterriaDoubleTripleNparton2017}
+% [PENDING]
+D'Enterria和Snigirev指出，对于若干横向部分子密度分布的选择，TPS和DPS有效截面近似满足以下关系~\cite{WHQAFHD5,denterriaDoubleTripleNparton2017}
 
 \begin{equation}
   \label{eq:dps-tps-relation}
@@ -117,114 +173,158 @@ D'Enterria and Snigirev showed that, for several choices of transverse parton-de
   \kappa = 0.82 \pm 0.11 .
 \end{equation}
 
-This relation provides a practical bridge between DPS and TPS interpretations, conditional on the assumed transverse profiles and on the independence assumptions of the factorised framework.
+% [PENDING]
+该关系在假定的横向分布和因子化框架的独立性假设下，为DPS和TPS解释之间提供了实用的桥梁。
 
-% $\sigma_\mathrm{eff,TPS} = \kappa \sigma_\mathrm{eff,DPS}$，$\kappa = 0.82 \pm 0.11$，受限于横向部分子密度分布的假设。
+% D'Enterria and Snigirev showed that, for several choices of transverse parton-density profiles, the TPS and DPS effective cross sections are approximately related by~\cite{WHQAFHD5,denterriaDoubleTripleNparton2017}
+%
+% \begin{equation}
+%   \label{eq:dps-tps-relation}
+%   \sigma_{\mathrm{eff},\,\mathrm{TPS}}
+%   =
+%   \kappa\,\sigma_{\mathrm{eff},\,\mathrm{DPS}},
+%   \qquad
+%   \kappa = 0.82 \pm 0.11 .
+% \end{equation}
+%
+% This relation provides a practical bridge between DPS and TPS interpretations, conditional on the assumed transverse profiles and on the independence assumptions of the factorised framework.
 
 % APPROVED
 
-The factorised formulae are useful because they provide a transparent normalisation estimate and a common language for comparing measurements across final states. Their simplicity also defines their limitations: they assume that the hard scatterings factorise, that the transverse parton distribution can be represented by a process-independent effective area, and that parton correlations can be absorbed into $\sigma_\mathrm{eff}$. These assumptions are especially delicate for quarkonium final states, where the SPS component involves both a perturbative heavy-quark pair and nonperturbative hadronisation. If the SPS template is incomplete, the inferred MPS fraction and the extracted $\sigma_\mathrm{eff}$ can be biased. The analysis in this thesis therefore uses the factorised framework as an organising language rather than as a claim that the final state is described by independent scatterings alone.
+% [PENDING]
+因子化公式之所以有用，是因为它们提供了透明的归一化估计和跨末态比较测量的共同语言。其简单性也定义了其局限性：它们假设硬散射可以因子化，横向部分子分布可以用一个过程无关的有效面积表示，部分子关联可以被吸收进$\sigma_\mathrm{eff}$。这些假设对于夸克偶素末态尤其微妙，因为SPS分量同时涉及微扰重夸克对和非微扰强子化。如果SPS模板不完整，推断的MPS比例和提取的$\sigma_\mathrm{eff}$可能会有偏差。因此，本论文中的分析将因子化框架用作组织语言，而非声称末态仅由独立散射描述。
 
-% 因子化公式的局限：假设硬散射可因子化、横向分布可用过程无关的有效面积表示、部分子关联可吸收进 $\sigma_\mathrm{eff}$。夸克偶素末态的 SPS 建模不确定性尤其敏感。
+% The factorised formulae are useful because they provide a transparent normalisation estimate and a common language for comparing measurements across final states. Their simplicity also defines their limitations: they assume that the hard scatterings factorise, that the transverse parton distribution can be represented by a process-independent effective area, and that parton correlations can be absorbed into $\sigma_\mathrm{eff}$. These assumptions are especially delicate for quarkonium final states, where the SPS component involves both a perturbative heavy-quark pair and nonperturbative hadronisation. If the SPS template is incomplete, the inferred MPS fraction and the extracted $\sigma_\mathrm{eff}$ can be biased. The analysis in this thesis therefore uses the factorised framework as an organising language rather than as a claim that the final state is described by independent scatterings alone.
 
 % TO_APPROVE
 
-The effective cross section $\sigma_\mathrm{eff}$ that appears in MPS phenomenology is not an independent parameter but emerges from the transverse overlap integral of the dPDFs. In the simplified geometric picture where longitudinal and transverse degrees of freedom factorise and parton correlations are neglected,
+% [PENDING]
+出现在MPS唯象学中的有效截面$\sigma_\mathrm{eff}$并非独立参数，而是源于dPDF的横向重叠积分。在纵向和横向自由度因子化且部分子关联被忽略的简化几何图像中，
 
 \begin{equation}
   \label{eqn:dps-eff-xsec-from-overlap}
   \sigma_\mathrm{eff} = \left[ \int d^2b \, T^2(\mathbf{b}) \right]^{-1}
 \end{equation}
 
+% [PENDING]
+其中$T(\mathbf{b})$是横向空间中两个质子的重叠函数。使用电磁形状因子的纯几何模型预测$\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$，与Pythia~8和Herwig++的默认轮廓一致~\cite{Z48W3VLV}。
 
-where $T(\mathbf{b})$ is the overlap function of the two protons in transverse space. Purely geometric models using electromagnetic form factors predict $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$, consistent with default profiles in Pythia~8 and Herwig++~\cite{Z48W3VLV}.
-
-% 有效截面 $\sigma_\mathrm{eff}$ 源于 dPDF 的横向重叠积分。纯几何模型预期 $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$。
+% The effective cross section $\sigma_\mathrm{eff}$ that appears in MPS phenomenology is not an independent parameter but emerges from the transverse overlap integral of the dPDFs. In the simplified geometric picture where longitudinal and transverse degrees of freedom factorise and parton correlations are neglected,
+%
+% \begin{equation}
+%   \label{eqn:dps-eff-xsec-from-overlap}
+%   \sigma_\mathrm{eff} = \left[ \int d^2b \, T^2(\mathbf{b}) \right]^{-1}
+% \end{equation}
+%
+%
+% where $T(\mathbf{b})$ is the overlap function of the two protons in transverse space. Purely geometric models using electromagnetic form factors predict $\sigma_\mathrm{eff} \approx 20\text{--}30~\mathrm{mb}$, consistent with default profiles in Pythia~8 and Herwig++~\cite{Z48W3VLV}.
 
 % TO_APPROVE
 
-Experimentally, DPS measurements in final states involving high-$p_T$ jets and electroweak bosons yield $\sigma_\mathrm{eff} \approx 10\text{--}20~\mathrm{mb}$, already a factor of approximately two below the geometric expectation. Measurements based on double heavy quarkonium production ($J/\psi J/\psi$, $J/\psi\Upsilon$, $\Upsilon\Upsilon$) give even smaller values, $\sigma_\mathrm{eff} \approx 3\text{--}10~\mathrm{mb}$~\cite{WHQAFHD5,zhaoExperimentalReviewQuarkonium2025}. For instance, ATLAS obtained $\sigma_\mathrm{eff} = 6.3 \pm 1.6~(\mathrm{stat.}) \pm 1.0~(\mathrm{syst.})~\mathrm{mb}$ from prompt $J/\psi J/\psi$ production at $8~\mathrm{TeV}$~\cite{ATLAS_JPSIJPSI_8TEV}, whereas ATLAS four-jet data at $7~\mathrm{TeV}$ gave $\sigma_\mathrm{eff} = 14.9\,^{+5.1}_{-3.8}~\mathrm{mb}$~\cite{ATLAS:2016:4jet-DPS}. This systematic difference has been interpreted as evidence that quarkonium production preferentially probes gluon-dominated parton configurations, and that gluons are concentrated in a smaller transverse area than quarks inside the proton~\cite{Blok:2017:MPI-correlations}. That $\sigma_\mathrm{eff}$ varies across final states demonstrates that it is not a universal constant: it is a process-dependent observable that encodes information about the partonic composition and the kinematic regime of each measurement.
+% [PENDING]
+在实验上，涉及高$p_T$喷注和电弱玻色子的末态中的DPS测量给出$\sigma_\mathrm{eff} \approx 10\text{--}20~\mathrm{mb}$，已经比几何预期低约一倍。基于双重重夸克偶素产生（$J/\psi J/\psi$、$J/\psi\Upsilon$、$\Upsilon\Upsilon$）的测量给出更小的值，$\sigma_\mathrm{eff} \approx 3\text{--}10~\mathrm{mb}$~\cite{WHQAFHD5,zhaoExperimentalReviewQuarkonium2025}。例如，ATLAS从$8~\mathrm{TeV}$的瞬发$J/\psi J/\psi$产生中获得$\sigma_\mathrm{eff} = 6.3 \pm 1.6~(\mathrm{stat.}) \pm 1.0~(\mathrm{syst.})~\mathrm{mb}$~\cite{ATLAS_JPSIJPSI_8TEV}，而ATLAS在$7~\mathrm{TeV}$的四喷注数据给出$\sigma_\mathrm{eff} = 14.9\,^{+5.1}_{-3.8}~\mathrm{mb}$~\cite{ATLAS:2016:4jet-DPS}。这种系统性差异被解释为夸克偶素产生优先探测胶子主导的部分子组态，而胶子在质子内部集中在比夸克更小的横向区域内~\cite{Blok:2017:MPI-correlations}。$\sigma_\mathrm{eff}$跨末态的变化表明它并非普适常数：它是一个依赖于过程的观测量，编码了每次测量的部分子组成和运动学区域的信息。
 
-% 实验 $\sigma_\mathrm{eff}$ 值随末态变化：喷注/电弱玻色子 $\sim 10\text{--}20~\mathrm{mb}$，夸克偶素对 $\sim 3\text{--}10~\mathrm{mb}$，表明胶子在质子中比夸克更紧密分布，$\sigma_\mathrm{eff}$ 是过程依赖的可观测量。
+% Experimentally, DPS measurements in final states involving high-$p_T$ jets and electroweak bosons yield $\sigma_\mathrm{eff} \approx 10\text{--}20~\mathrm{mb}$, already a factor of approximately two below the geometric expectation. Measurements based on double heavy quarkonium production ($J/\psi J/\psi$, $J/\psi\Upsilon$, $\Upsilon\Upsilon$) give even smaller values, $\sigma_\mathrm{eff} \approx 3\text{--}10~\mathrm{mb}$~\cite{WHQAFHD5,zhaoExperimentalReviewQuarkonium2025}. For instance, ATLAS obtained $\sigma_\mathrm{eff} = 6.3 \pm 1.6~(\mathrm{stat.}) \pm 1.0~(\mathrm{syst.})~\mathrm{mb}$ from prompt $J/\psi J/\psi$ production at $8~\mathrm{TeV}$~\cite{ATLAS_JPSIJPSI_8TEV}, whereas ATLAS four-jet data at $7~\mathrm{TeV}$ gave $\sigma_\mathrm{eff} = 14.9\,^{+5.1}_{-3.8}~\mathrm{mb}$~\cite{ATLAS:2016:4jet-DPS}. This systematic difference has been interpreted as evidence that quarkonium production preferentially probes gluon-dominated parton configurations, and that gluons are concentrated in a smaller transverse area than quarks inside the proton~\cite{Blok:2017:MPI-correlations}. That $\sigma_\mathrm{eff}$ varies across final states demonstrates that it is not a universal constant: it is a process-dependent observable that encodes information about the partonic composition and the kinematic regime of each measurement.
 
 
-\section{Heavy Quarkonium Production in QCD}
-% \section{QCD 中的重夸克偶素产生}
 
-Heavy-quarkonium production in high-energy proton--proton collisions is a central testing ground for quantum chromodynamics (QCD). The heavy-quark mass provides a perturbative scale for the short-distance production of a heavy quark--antiquark pair, while the formation of a color-neutral bound state involves nonperturbative dynamics. In the nonrelativistic QCD (NRQCD) factorisation framework, the production cross section is expressed as a sum of short-distance coefficients --- computable in perturbative QCD --- multiplied by universal long-distance matrix elements that encode the hadronisation probability for each intermediate $\mathrm{Q}\bar{\mathrm{Q}}$ configuration~\cite{NRQCD_BBL1995}. This dual nature makes quarkonium measurements sensitive to both perturbative calculations and hadronisation models, and an extensive programme of differential cross-section, polarisation, and correlation measurements across the LHC experiments has provided stringent tests of the NRQCD approach~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}.
-% 重夸克偶素产生同时涉及微扰短程过程和非微扰束缚态形成。在NRQCD因子化框架下，产生截面表示为短程系数与普适长程矩阵元的乘积之和。LHC各实验通过微分截面、极化和关联测量对NRQCD方法进行了严格检验。
+\section{QCD 中的重夸克偶素产生}
+% \section{Heavy Quarkonium Production in QCD}
 
-% APPROVED
+% [PENDING]
+高能质子--质子碰撞中的重夸克偶素产生是量子色动力学（QCD）的核心检验场所。重夸克质量$m_Q \gg \Lambda_\mathrm{QCD}$为短程重夸克--反夸克对的产生提供了微扰标度，而色中性束缚态的形成则涉及非微扰动力学。在非相对论QCD（NRQCD）因子化框架下，产生截面表示为微扰QCD可计算的短程系数乘以编码每个中间$\mathrm{Q}\bar{\mathrm{Q}}$组态强子化概率的普适长程矩阵元之和~\cite{NRQCD_BBL1995}。这种双重性使得夸克偶素测量对微扰计算和强子化模型都敏感，LHC各实验广泛的微分截面、极化和关联测量计划为NRQCD方法提供了严格的检验~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}。
 
-The production of a heavy quarkonium state in high-energy hadron collisions is a multi-scale process that tests both perturbative and nonperturbative quantum chromodynamics (QCD). The heavy-quark mass $m_Q \gg \Lambda_\mathrm{QCD}$ provides a hard scale that justifies a perturbative treatment of the short-distance creation of a heavy quark--antiquark pair $Q\bar{Q}$. The subsequent evolution of the $Q\bar{Q}$ pair into a physical color-neutral bound state involves long-distance dynamics that must be treated nonperturbatively.
-
-% 重夸克偶素在高能强子碰撞中的产生涉及微扰和非微扰 QCD 的多重能标。重夸克质量提供了微扰处理短程 $Q\bar{Q}$ 对产生的硬标度，而色中性束缚态的形成涉及长程非微扰动力学。
+% Heavy-quarkonium production in high-energy proton--proton collisions is a central testing ground for quantum chromodynamics (QCD). The heavy-quark mass provides a perturbative scale for the short-distance production of a heavy quark--antiquark pair, while the formation of a color-neutral bound state involves nonperturbative dynamics. In the nonrelativistic QCD (NRQCD) factorisation framework, the production cross section is expressed as a sum of short-distance coefficients --- computable in perturbative QCD --- multiplied by universal long-distance matrix elements that encode the hadronisation probability for each intermediate $\mathrm{Q}\bar{\mathrm{Q}}$ configuration~\cite{NRQCD_BBL1995}. This dual nature makes quarkonium measurements sensitive to both perturbative calculations and hadronisation models, and an extensive programme of differential cross-section, polarisation, and correlation measurements across the LHC experiments has provided stringent tests of the NRQCD approach~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}.
 
 % APPROVED
 
-The nonrelativistic QCD (NRQCD) factorisation framework provides a systematic approach to separate these two regimes~\cite{NRQCD_BBL1995}. In NRQCD, the production cross section for a quarkonium state $H$ is expressed as a sum over intermediate $Q\bar{Q}$ configurations $n$, each labeled by spin $S$, orbital angular momentum $L$, total angular momentum $J$, and color ($c=1$ or $8$):
+% [PENDING]
+重夸克偶素在高能强子碰撞中的产生是一个涉及多重标度的过程，同时检验微扰和非微扰量子色动力学（QCD）。重夸克质量$m_Q \gg \Lambda_\mathrm{QCD}$提供了一个硬标度，使得对短程重夸克--反夸克对$Q\bar{Q}$产生的微扰处理是合理的。随后$Q\bar{Q}$对演化为物理的色中性束缚态则涉及必须以非微扰方式处理的长程动力学。
+
+% The production of a heavy quarkonium state in high-energy hadron collisions is a multi-scale process that tests both perturbative and nonperturbative quantum chromodynamics (QCD). The heavy-quark mass $m_Q \gg \Lambda_\mathrm{QCD}$ provides a hard scale that justifies a perturbative treatment of the short-distance creation of a heavy quark--antiquark pair $Q\bar{Q}$. The subsequent evolution of the $Q\bar{Q}$ pair into a physical color-neutral bound state involves long-distance dynamics that must be treated nonperturbatively.
+
+% APPROVED
+
+% [PENDING]
+非相对论QCD（NRQCD）因子化框架提供了一个系统分离这两种区域的方法~\cite{NRQCD_BBL1995}。在NRQCD中，夸克偶素态$H$的产生截面表示为对中间$Q\bar{Q}$组态$n$的求和，每个组态由自旋$S$、轨道角动量$L$、总角动量$J$和颜色（$c=1$或$8$）标记：
 
 \begin{equation}
   \sigma(pp \to H+X) = \sum_n \mathrm{SDC}(Q\bar{Q}[^{2S+1}L_J^{[c]}]) \times \langle\mathcal{O}^H[n]\rangle .
 \end{equation}
 
-The short-distance coefficients (SDCs) describe the perturbative production of the $Q\bar{Q}$ pair in configuration $n$ and are computable as a power series in the strong coupling $\alpha_s$. The long-distance matrix elements (LDMEs) $\langle\mathcal{O}^H[n]\rangle$ encode the nonperturbative probability for the intermediate $Q\bar{Q}$ configuration to evolve into the physical quarkonium state. The LDMEs are assumed to be universal — independent of the production process — and are extracted from global fits to experimental data. The expansion is organised in powers of $v$, the relative velocity of the heavy quarks in the bound state; for $J/\psi$, $v^2 \approx 0.3$, and for $\phi(1020)$, the strange-quark mass is too light for a nonrelativistic expansion to apply rigorously.
+% [PENDING]
+短程系数（SDC）描述组态$n$中$Q\bar{Q}$对的微扰产生，可作为强耦合常数$\alpha_s$的幂级数计算。长程矩阵元（LDME）$\langle\mathcal{O}^H[n]\rangle$编码了中间$Q\bar{Q}$组态演化为物理夸克偶素态的非微扰概率。LDME被假定为普适的——不依赖于产生过程——并通过实验数据的全局拟合提取。展开按束缚态中重夸克相对速度$v$的幂次组织；对$J/\psi$，$v^2 \approx 0.3$，而对$\phi(1020)$，奇异夸克质量太轻，非相对论展开无法严格适用。
 
-% NRQCD 因子化框架将产生截面分解为微扰短程系数与普适长程矩阵元的乘积之和。SDC 按 $\alpha_s$ 微扰展开计算，LDME 由实验数据全局拟合提取，按重夸克相对速度 $v$ 展开。
-
-% APPROVED
-
-Three broad classes of quarkonium production models coexist in the literature. The Color-Singlet Model (CSM) assumes that the $Q\bar{Q}$ pair is produced directly with the same quantum numbers as the physical quarkonium; it fails to describe high-transverse-momentum $J/\psi$ production at the Tevatron and the LHC by one to two orders of magnitude. The Color-Octet Mechanism (COM), embedded in NRQCD, allows the $Q\bar{Q}$ pair to be produced in an intermediate color-octet state that subsequently radiates soft gluons to form a color-singlet bound state; this is the most complete framework and has been extensively tested against LHC measurements of differential cross sections and polarisation observables~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}.
-
-% 三类夸克偶素产生模型：色单态模型（CSM）、色八重态机制（COM/NRQCD）和色蒸发模型（CEM）。NRQCD 提供了最完整的框架，并在 LHC 微分截面和极化测量中得到了广泛检验。
-
-The Color-Evaporation Model (CEM) takes a conceptually different approach. Rather than assigning the $Q\bar{Q}$ pair a definite color state at production, the CEM assumes that multiple soft gluon exchanges after the hard scattering randomise --- ``evaporate'' --- the color and spin of the pair, so that the final-state quantum numbers are uncorrelated with those at production. The cross section for a given quarkonium state $H$ is then obtained by integrating the $Q\bar{Q}$ production cross section over the invariant-mass range from $2m_Q$ to the open-heavy-flavor threshold, multiplying by the statistical color-singlet probability $1/9$ from $\mathrm{SU}(3)$ counting, and applying a universal hadronisation fraction $\rho_H$ for each state~\cite{LANSBERG_QUARKONIUM_REVIEW}. While the CEM cannot predict polarisation and assumes process-independent production ratios that are contradicted by data, its simplicity and its connection to quark--hadron duality make it a useful phenomenological reference.
-
-% 色蒸发模型假设软胶子交换使 $Q\bar{Q}$ 对的颜色和自旋"蒸发"，末态量子数与产生时无关。截面通过对 $Q\bar{Q}$ 产生截面在不变质量区间积分并乘以统计因子 $1/9$ 和普适强子化比例 $\rho_H$ 得到。
+% The nonrelativistic QCD (NRQCD) factorisation framework provides a systematic approach to separate these two regimes~\cite{NRQCD_BBL1995}. In NRQCD, the production cross section for a quarkonium state $H$ is expressed as a sum over intermediate $Q\bar{Q}$ configurations $n$, each labeled by spin $S$, orbital angular momentum $L$, total angular momentum $J$, and color ($c=1$ or $8$):
+%
+% \begin{equation}
+%   \sigma(pp \to H+X) = \sum_n \mathrm{SDC}(Q\bar{Q}[^{2S+1}L_J^{[c]}]) \times \langle\mathcal{O}^H[n]\rangle .
+% \end{equation}
+%
+% The short-distance coefficients (SDCs) describe the perturbative production of the $Q\bar{Q}$ pair in configuration $n$ and are computable as a power series in the strong coupling $\alpha_s$. The long-distance matrix elements (LDMEs) $\langle\mathcal{O}^H[n]\rangle$ encode the nonperturbative probability for the intermediate $Q\bar{Q}$ configuration to evolve into the physical quarkonium state. The LDMEs are assumed to be universal — independent of the production process — and are extracted from global fits to experimental data. The expansion is organised in powers of $v$, the relative velocity of the heavy quarks in the bound state; for $J/\psi$, $v^2 \approx 0.3$, and for $\phi(1020)$, the strange-quark mass is too light for a nonrelativistic expansion to apply rigorously.
 
 % APPROVED
 
-The $J/\psi$ meson ($m = 3.097~\mathrm{GeV}$, $\Gamma \approx 93~\mathrm{keV}$) is reconstructed via its dimuon decay $J/\psi \to \mu^+\mu^-$, with a branching fraction $\mathcal{B} = (5.961 \pm 0.033)\%$~\cite{PDG2024}. Its narrow natural width and the clean dimuon final state make it experimentally well suited for precision measurements at the LHC. In collider experiments, $J/\psi$ mesons are classified as \emph{prompt} if they are produced directly in the hard scattering or through the electromagnetic or strong decay of a heavier charmonium state (e.g., $\psi(2S) \to J/\psi + X$), and as \emph{nonprompt} if they originate from the weak decay of a $B$ hadron ($\mathcal{B}(B \to J/\psi X) \approx 1\%$). The nonprompt component is experimentally suppressed by requiring a small proper decay length between the $J/\psi$ vertex and the primary vertex.
+% [PENDING]
+文献中共存着三大类夸克偶素产生模型。色单态模型（CSM）假设$Q\bar{Q}$对直接以与物理夸克偶素相同的量子数产生；它无法描述Tevatron和LHC上高横动量$J/\psi$的产生，低了约一至两个数量级。嵌入NRQCD的色八重态机制（COM）允许$Q\bar{Q}$对以中间色八重态产生，随后通过辐射软胶子形成色单态束缚态；这是最完整的框架，并已在LHC微分截面和极化观测量的测量中得到了广泛检验~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}。
 
-% $J/\psi$ 介子通过双缪子衰变道重建，具有窄宽度和清洁实验签名。根据产生机制分为 prompt（直接产生或强/电磁衰变）和 nonprompt（$B$ 强子弱衰变）两类。
+% Three broad classes of quarkonium production models coexist in the literature. The Color-Singlet Model (CSM) assumes that the $Q\bar{Q}$ pair is produced directly with the same quantum numbers as the physical quarkonium; it fails to describe high-transverse-momentum $J/\psi$ production at the Tevatron and the LHC by one to two orders of magnitude. The Color-Octet Mechanism (COM), embedded in NRQCD, allows the $Q\bar{Q}$ pair to be produced in an intermediate color-octet state that subsequently radiates soft gluons to form a color-singlet bound state; this is the most complete framework and has been extensively tested against LHC measurements of differential cross sections and polarisation observables~\cite{LANSBERG_QUARKONIUM_REVIEW,zhaoExperimentalReviewQuarkonium2025}.
 
-% APPROVED
+% [PENDING]
+色蒸发模型（CEM）采用了概念上不同的方法。CEM不要求$Q\bar{Q}$对在产生时具有确定的色态，而是假设硬散射后的多次软胶子交换使$Q\bar{Q}$对的颜色和自旋随机化——"蒸发"——使得末态量子数与产生时的量子数不相关。给定夸克偶素态$H$的截面通过以下方式获得：将$Q\bar{Q}$产生截面对从$2m_Q$到开重味阈值的不变质量区间积分，乘以由$\mathrm{SU}(3)$计数得出的统计色单态概率$1/9$，并对每个态施加一个普适的强子化比例$\rho_H$~\cite{LANSBERG_QUARKONIUM_REVIEW}。虽然CEM不能预测极化和假定过程无关的产生比例（与实验数据矛盾），但其简单性以及与夸克--强子对偶性的联系使其成为有用的唯象参考。
 
-The $\phi(1020)$ meson ($m = 1.019~\mathrm{GeV}$, $\Gamma \approx 4.2~\mathrm{MeV}$) is a vector meson with valence quark content approximately $s\bar{s}$, reconstructed in the $K^+K^-$ decay channel with $\mathcal{B} = (49.2 \pm 0.5)\%$~\cite{PDG2024}. Unlike $J/\psi$, the $\phi$ is not a heavy quarkonium: the strange-quark mass ($m_s \sim 100~\mathrm{MeV}$) does not provide a perturbative hard scale, so NRQCD factorisation does not apply and $\phi$ production is typically described by gluon fragmentation. In this analysis, $\phi$ candidates are selected above a minimum transverse-momentum threshold, which selects hard-scattering $\phi$ production and suppresses the soft $\phi$ background from the underlying event. This allows the $\phi$ to serve as a hard probe of parton-level dynamics, on a similar footing to the $J/\psi$, despite the absence of a heavy-quark mass scale.
-
-% $\phi(1020)$ 介子是 $s\bar{s}$ 矢量介子，不满足 NRQCD 因子化的重夸克质量条件。本分析通过 $p_T$ 阈值选择硬散射产生的 $\phi$，压低软本底，使其作为硬探针与 $J/\psi$ 协同使用。
-
-
-\section{MPS in Multi-Quarkonium Final States}
-% \section{多夸克偶素末态中的多重部分子散射}
-
-% TO_APPROVE
-
-Multi-quarkonium final states are particularly well suited for MPS studies. Quarkonium production at the LHC is dominated by gluon-initiated subprocesses, and the SPS cross sections for single $J/\psi$ and for hard $\phi$ mesons above typical analysis $p_T$ thresholds are large. Since the DPS cross section scales as the product of SPS cross sections divided by $\sigma_\mathrm{eff}$, while the TPS cross section scales as the triple product divided by $\sigma_\mathrm{eff}^2$, large single-particle cross sections amplify the relative weight of multiple-scattering contributions compared with rarer processes such as electroweak boson production.
-
-% 夸克偶素产生由胶子引发，SPS 截面大，DPS 和 TPS 的相对贡献因乘积结构被放大，与电弱玻色子等稀有过程形成对比。
+% The Color-Evaporation Model (CEM) takes a conceptually different approach. Rather than assigning the $Q\bar{Q}$ pair a definite color state at production, the CEM assumes that multiple soft gluon exchanges after the hard scattering randomise --- ``evaporate'' --- the color and spin of the pair, so that the final-state quantum numbers are uncorrelated with those at production. The cross section for a given quarkonium state $H$ is then obtained by integrating the $Q\bar{Q}$ production cross section over the invariant-mass range from $2m_Q$ to the open-heavy-flavor threshold, multiplying by the statistical color-singlet probability $1/9$ from $\mathrm{SU}(3)$ counting, and applying a universal hadronisation fraction $\rho_H$ for each state~\cite{LANSBERG_QUARKONIUM_REVIEW}. While the CEM cannot predict polarisation and assumes process-independent production ratios that are contradicted by data, its simplicity and its connection to quark--hadron duality make it a useful phenomenological reference.
 
 % APPROVED
 
-Experimentally, multi-quarkonium states provide several observables for separating SPS from MPS contributions. In SPS, the final-state particles are produced from a single hard scattering and tend to be correlated in invariant mass, rapidity difference $\Delta y$, and azimuthal angle $\Delta\phi$. In DPS and TPS, the independently produced systems are less correlated. Measurements of double-$J/\psi$, double-$\Upsilon$, and mixed $J/\psi\Upsilon$ production at the LHC have exploited these kinematic differences to extract the DPS fraction and to constrain $\sigma_\mathrm{eff}$~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,BORSCHENSKY_KULESZA_2017}.
+% [PENDING]
+$J/\psi$介子（$m = 3.097~\mathrm{GeV}$，$\Gamma \approx 93~\mathrm{keV}$）通过其双缪子衰变$J/\psi \to \mu^+\mu^-$重建，分支比为$\mathcal{B} = (5.961 \pm 0.033)\%$~\cite{PDG2024}。其极窄的自然宽度和清洁的双缪子末态使其非常适合LHC上的精密测量。在对撞机实验中，$J/\psi$介子按照产生机制分类：\emph{瞬发}类指在硬散射中直接产生或通过较重粲偶素态（如$\psi(2S) \to J/\psi + X$）的电磁或强衰变产生；\emph{非瞬发}类指来自$B$强子弱衰变（$\mathcal{B}(B \to J/\psi X) \approx 1\%$）。非瞬发分量通过要求$J/\psi$顶点与主顶点之间的固有衰变长度较小，在实验上被压低。
 
-% 多夸克偶素末态通过不变质量、快度差 $\Delta y$ 和方位角差 $\Delta\phi$ 等观测量区分 SPS 和 MPS 贡献。LHC 双夸克偶素测量已利用这些差异约束 $\sigma_\mathrm{eff}$。
+% The $J/\psi$ meson ($m = 3.097~\mathrm{GeV}$, $\Gamma \approx 93~\mathrm{keV}$) is reconstructed via its dimuon decay $J/\psi \to \mu^+\mu^-$, with a branching fraction $\mathcal{B} = (5.961 \pm 0.033)\%$~\cite{PDG2024}. Its narrow natural width and the clean dimuon final state make it experimentally well suited for precision measurements at the LHC. In collider experiments, $J/\psi$ mesons are classified as \emph{prompt} if they are produced directly in the hard scattering or through the electromagnetic or strong decay of a heavier charmonium state (e.g., $\psi(2S) \to J/\psi + X$), and as \emph{nonprompt} if they originate from the weak decay of a $B$ hadron ($\mathcal{B}(B \to J/\psi X) \approx 1\%$). The nonprompt component is experimentally suppressed by requiring a small proper decay length between the $J/\psi$ vertex and the primary vertex.
+
+% APPROVED
+
+% [PENDING]
+$\phi(1020)$介子（$m = 1.019~\mathrm{GeV}$，$\Gamma \approx 4.2~\mathrm{MeV}$）是一个矢量介子，价夸克含量近似为$s\bar{s}$，通过$K^+K^-$衰变道重建，$\mathcal{B} = (49.2 \pm 0.5)\%$~\cite{PDG2024}。与$J/\psi$不同，$\phi$不是重夸克偶素：奇异夸克质量（$m_s \sim 100~\mathrm{MeV}$）不提供微扰硬标度，因此NRQCD因子化不适用，$\phi$的产生通常由胶子碎裂描述。在本分析中，$\phi$候选粒子需高于横动量阈值，以选择硬散射产生的$\phi$并压低来自底层事例的软$\phi$本底。这使得$\phi$能够作为部分子级动力学的硬探针，尽管缺乏重夸克质量标度，但与$J/\psi$具有类似的地位。
+
+% The $\phi(1020)$ meson ($m = 1.019~\mathrm{GeV}$, $\Gamma \approx 4.2~\mathrm{MeV}$) is a vector meson with valence quark content approximately $s\bar{s}$, reconstructed in the $K^+K^-$ decay channel with $\mathcal{B} = (49.2 \pm 0.5)\%$~\cite{PDG2024}. Unlike $J/\psi$, the $\phi$ is not a heavy quarkonium: the strange-quark mass ($m_s \sim 100~\mathrm{MeV}$) does not provide a perturbative hard scale, so NRQCD factorisation does not apply and $\phi$ production is typically described by gluon fragmentation. In this analysis, $\phi$ candidates are selected above a minimum transverse-momentum threshold, which selects hard-scattering $\phi$ production and suppresses the soft $\phi$ background from the underlying event. This allows the $\phi$ to serve as a hard probe of parton-level dynamics, on a similar footing to the $J/\psi$, despite the absence of a heavy-quark mass scale.
+
+
+\section{多夸克偶素末态中的多重部分子散射}
+% \section{MPS in Multi-Quarkonium Final States}
 
 % TO_APPROVE
 
-For final states with three heavy quarkonia, the sensitivity to MPS increases further. Shao and Zhang used the HELAC-Onia matrix-element generator~\cite{HS_SHAO_HO} to compute triple prompt-$J/\psi$ hadroproduction within NRQCD at leading order, and demonstrated that the pure SPS contribution is negligible compared with the DPS and TPS components at LHC energies~\cite{XREDRBCJ}. This makes triple-$J/\psi$ production a golden channel for TPS studies: the observed cross section directly constrains the DPS and TPS effective cross sections with minimal SPS contamination. The CMS Collaboration subsequently observed triple-$J/\psi$ production in $133~\mathrm{fb}^{-1}$ of $13~\mathrm{TeV}$ proton--proton collision data, extracting a fiducial cross section of $\sigma(pp \to 3J/\psi + X) = 272^{+141}_{-104}\,(\mathrm{stat.}) \pm 17\,(\mathrm{syst.})~\mathrm{fb}$ and confirming that the DPS and TPS contributions dominate~\cite{CMS_TRI_JPSI}. The extracted $\sigma_\mathrm{eff,DPS}$ is consistent with the range obtained from quarkonium-pair measurements. Ascioti further argued that charmed mesons such as $D^{*+}$ can serve as complementary TPS probes, with larger production cross sections and different systematic uncertainties~\cite{ascioti_2022_6fw3g-xj153}. This multi-probe approach --- combining measurements with different quarkonium multiplicities and resonance content --- is essential to test whether the factorised MPS picture holds across diverse final states.
+% [PENDING]
+多夸克偶素末态特别适合MPS研究。LHC上的夸克偶素产生由胶子引发的子过程主导，单$J/\psi$和典型分析$p_T$阈值以上的硬$\phi$介子的SPS截面很大。由于DPS截面正比于SPS截面乘积除以$\sigma_\mathrm{eff}$，而TPS截面正比于三重乘积除以$\sigma_\mathrm{eff}^2$，与电弱玻色子产生等更稀有的过程相比，大的单粒子截面放大了多重散射贡献的相对权重。
 
-% Shao--Zhang 用 HELAC-Onia 进行 NRQCD 计算，发现 triple prompt-$J/\psi$ 的纯 SPS 贡献可忽略不计，DPS 和 TPS 占主导，使该道成为 TPS 研究的黄金通道。CMS 随后观测到三重 $J/\psi$ 产生，证实了 DPS 和 TPS 的主导地位。Ascioti 提出粲介子作为互补 TPS 探针。
+% Multi-quarkonium final states are particularly well suited for MPS studies. Quarkonium production at the LHC is dominated by gluon-initiated subprocesses, and the SPS cross sections for single $J/\psi$ and for hard $\phi$ mesons above typical analysis $p_T$ thresholds are large. Since the DPS cross section scales as the product of SPS cross sections divided by $\sigma_\mathrm{eff}$, while the TPS cross section scales as the triple product divided by $\sigma_\mathrm{eff}^2$, large single-particle cross sections amplify the relative weight of multiple-scattering contributions compared with rarer processes such as electroweak boson production.
+
+% APPROVED
+
+% [PENDING]
+在实验上，多夸克偶素态提供了若干区分SPS和MPS贡献的观测量。在SPS中，末态粒子来自单次硬散射，倾向于在不变质量、快度差$\Delta y$和方位角差$\Delta\phi$上呈现关联。在DPS和TPS中，独立产生的系统关联较弱。LHC上双$J/\psi$、双$\Upsilon$和混合$J/\psi\Upsilon$产生的测量已利用这些运动学差异提取了DPS比例并约束了$\sigma_\mathrm{eff}$~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,BORSCHENSKY_KULESZA_2017}。
+
+% Experimentally, multi-quarkonium states provide several observables for separating SPS from MPS contributions. In SPS, the final-state particles are produced from a single hard scattering and tend to be correlated in invariant mass, rapidity difference $\Delta y$, and azimuthal angle $\Delta\phi$. In DPS and TPS, the independently produced systems are less correlated. Measurements of double-$J/\psi$, double-$\Upsilon$, and mixed $J/\psi\Upsilon$ production at the LHC have exploited these kinematic differences to extract the DPS fraction and to constrain $\sigma_\mathrm{eff}$~\cite{CMS_JPSI_PAIR_7TEV,ATLAS_JPSIJPSI_8TEV,CMS_YY_8TEV,BORSCHENSKY_KULESZA_2017}.
 
 % TO_APPROVE
 
-The process $pp \to J/\psi+J/\psi+\phi+X$ is a natural extension of the multi-quarkonium MPS programme. It contains two charmonia ($J/\psi$) and one light $s\bar{s}$ vector meson ($\phi$). The two $J/\psi \to \mu^+\mu^-$ decays provide a clean multi-muon signature, while $\phi \to K^+K^-$ adds a narrow hadronic resonance reconstructed from charged tracks. The final state is experimentally similar to triple-$J/\psi$, yet with different mass scales, charged-track multiplicity, combinatorial background, and possible production mechanisms.
+% [PENDING]
+对于含有三个重夸克偶素的末态，对MPS的灵敏度进一步提高。Shao和Zhang使用HELAC-Onia矩阵元产生子~\cite{HS_SHAO_HO}在NRQCD框架下以领头阶计算了三重瞬发$J/\psi$的强子产生，证明了在LHC能量下纯SPS贡献与DPS和TPS分量相比可忽略不计~\cite{XREDRBCJ}。这使得三重$J/\psi$产生成为TPS研究的黄金通道：观测截面以最小的SPS污染直接约束DPS和TPS有效截面。CMS合作组随后在$133~\mathrm{fb}^{-1}$的$13~\mathrm{TeV}$质子--质子碰撞数据中观测到三重$J/\psi$产生，提取的基准截面为$\sigma(pp \to 3J/\psi + X) = 272^{+141}_{-104}\,(\mathrm{stat.}) \pm 17\,(\mathrm{syst.})~\mathrm{fb}$，并证实了DPS和TPS贡献占主导地位~\cite{CMS_TRI_JPSI}。提取的$\sigma_\mathrm{eff,DPS}$与夸克偶素对测量得到的范围一致。Ascioti进一步指出，粲介子如$D^{*+}$可以作为互补的TPS探针，具有更大的产生截面和不同的系统不确定度~\cite{ascioti_2022_6fw3g-xj153}。这种多探针方法——结合不同夸克偶素重数和共振成分的测量——对于检验因子化MPS图像是否在多种末态中成立至关重要。
 
-% $J/\psi+J/\psi+\phi$ 末态是多重夸克偶素 MPS 计划的自然延伸。两个 $J/\psi$ 提供清洁多缪子签名，$\phi$ 通过带电 $K^+K^-$ 重建。与三重 $J/\psi$ 相比，$\phi$ 替换一个 $J/\psi$ 改变了质量标度、带电径迹多重数和产生机制。
+% For final states with three heavy quarkonia, the sensitivity to MPS increases further. Shao and Zhang used the HELAC-Onia matrix-element generator~\cite{HS_SHAO_HO} to compute triple prompt-$J/\psi$ hadroproduction within NRQCD at leading order, and demonstrated that the pure SPS contribution is negligible compared with the DPS and TPS components at LHC energies~\cite{XREDRBCJ}. This makes triple-$J/\psi$ production a golden channel for TPS studies: the observed cross section directly constrains the DPS and TPS effective cross sections with minimal SPS contamination. The CMS Collaboration subsequently observed triple-$J/\psi$ production in $133~\mathrm{fb}^{-1}$ of $13~\mathrm{TeV}$ proton--proton collision data, extracting a fiducial cross section of $\sigma(pp \to 3J/\psi + X) = 272^{+141}_{-104}\,(\mathrm{stat.}) \pm 17\,(\mathrm{syst.})~\mathrm{fb}$ and confirming that the DPS and TPS contributions dominate~\cite{CMS_TRI_JPSI}. The extracted $\sigma_\mathrm{eff,DPS}$ is consistent with the range obtained from quarkonium-pair measurements. Ascioti further argued that charmed mesons such as $D^{*+}$ can serve as complementary TPS probes, with larger production cross sections and different systematic uncertainties~\cite{ascioti_2022_6fw3g-xj153}. This multi-probe approach --- combining measurements with different quarkonium multiplicities and resonance content --- is essential to test whether the factorised MPS picture holds across diverse final states.
 
 % TO_APPROVE
 
-Within the factorised framework, the TPS component of the $J/\psi+J/\psi+\phi$ cross section is obtained from Eq.~\eqref{eq:tps-pocket} with $\mathfrak{m}=2$ (two identical $J/\psi$ mesons) and $n=3$, giving
+% [PENDING]
+过程$pp \to J/\psi+J/\psi+\phi+X$是多夸克偶素MPS计划的自然延伸。它包含两个粲偶素（$J/\psi$）和一个轻$s\bar{s}$矢量介子（$\phi$）。两个$J/\psi \to \mu^+\mu^-$衰变提供清洁的多缪子签名，而$\phi \to K^+K^-$则增加了一个由带电径迹重建的窄强子共振。该末态在实验上与三重$J/\psi$类似，但具有不同的质量标度、带电径迹多重数、组合本底和可能的产生机制。
+
+% The process $pp \to J/\psi+J/\psi+\phi+X$ is a natural extension of the multi-quarkonium MPS programme. It contains two charmonia ($J/\psi$) and one light $s\bar{s}$ vector meson ($\phi$). The two $J/\psi \to \mu^+\mu^-$ decays provide a clean multi-muon signature, while $\phi \to K^+K^-$ adds a narrow hadronic resonance reconstructed from charged tracks. The final state is experimentally similar to triple-$J/\psi$, yet with different mass scales, charged-track multiplicity, combinatorial background, and possible production mechanisms.
+
+% TO_APPROVE
+
+% [PENDING]
+在因子化框架内，$J/\psi+J/\psi+\phi$截面的TPS分量由式~\eqref{eq:tps-pocket}取$\mathfrak{m}=2$（两个全同$J/\psi$介子）和$n=3$得到：
 
 \begin{equation}
   \label{eq:jpsijpsiphi-tps}
@@ -235,7 +335,8 @@ Within the factorised framework, the TPS component of the $J/\psi+J/\psi+\phi$ c
        {(\sigma_{\mathrm{eff},\,\mathrm{TPS}})^2} .
 \end{equation}
 
-The DPS contribution can proceed through two distinct topology partitions: one hard scattering producing the $J/\psi$ pair and the other producing the $\phi$,
+% [PENDING]
+DPS贡献可通过两种不同的拓扑划分进行：一次硬散射产生$J/\psi$对，另一次产生$\phi$，
 
 \begin{equation}
   \sigma_{\mathrm{DPS}}^{(J/\psi+J/\psi)+\phi}
@@ -243,7 +344,8 @@ The DPS contribution can proceed through two distinct topology partitions: one h
          {\sigma_{\mathrm{eff},\,\mathrm{DPS}}},
 \end{equation}
 
-or one scattering producing an associated $J/\psi+\phi$ pair and the other producing the remaining $J/\psi$,
+% [PENDING]
+或一次散射产生伴随的$J/\psi+\phi$对，另一次产生剩下的$J/\psi$，
 
 \begin{equation}
   \sigma_{\mathrm{DPS}}^{(J/\psi+\phi)+J/\psi}
@@ -251,15 +353,44 @@ or one scattering producing an associated $J/\psi+\phi$ pair and the other produ
          {\sigma_{\mathrm{eff},\,\mathrm{DPS}}}.
 \end{equation}
 
-Whether SPS, DPS, or TPS dominates in a given phase-space region depends on the relative magnitudes of the SPS cross sections, the effective cross sections, and the experimental selection.
+% [PENDING]
+在给定相空间区域中SPS、DPS或TPS何者占主导，取决于SPS截面的相对大小、有效截面和实验选择。
 
-% TPS 贡献由因子化公式给出（$\mathfrak{m}=2$，因子 $1/3$）。DPS 可通过两种拓扑划分：$(J/\psi+J/\psi)+\phi$ 或 $(J/\psi+\phi)+J/\psi$。
+% Within the factorised framework, the TPS component of the $J/\psi+J/\psi+\phi$ cross section is obtained from Eq.~\eqref{eq:tps-pocket} with $\mathfrak{m}=2$ (two identical $J/\psi$ mesons) and $n=3$, giving
+%
+% \begin{equation}
+%   \label{eq:jpsijpsiphi-tps}
+%   \sigma_{\mathrm{TPS}}^{J/\psi+J/\psi+\phi}
+%   =
+%   \frac{1}{3}\,
+%   \frac{\sigma_{\mathrm{SPS}}^{J/\psi}\,\sigma_{\mathrm{SPS}}^{J/\psi}\,\sigma_{\mathrm{SPS}}^{\phi}}
+%        {(\sigma_{\mathrm{eff},\,\mathrm{TPS}})^2} .
+% \end{equation}
+%
+% The DPS contribution can proceed through two distinct topology partitions: one hard scattering producing the $J/\psi$ pair and the other producing the $\phi$,
+%
+% \begin{equation}
+%   \sigma_{\mathrm{DPS}}^{(J/\psi+J/\psi)+\phi}
+%   = \frac{\sigma_{\mathrm{SPS}}^{J/\psi+J/\psi}\,\sigma_{\mathrm{SPS}}^{\phi}}
+%          {\sigma_{\mathrm{eff},\,\mathrm{DPS}}},
+% \end{equation}
+%
+% or one scattering producing an associated $J/\psi+\phi$ pair and the other producing the remaining $J/\psi$,
+%
+% \begin{equation}
+%   \sigma_{\mathrm{DPS}}^{(J/\psi+\phi)+J/\psi}
+%   = \frac{\sigma_{\mathrm{SPS}}^{J/\psi+\phi}\,\sigma_{\mathrm{SPS}}^{J/\psi}}
+%          {\sigma_{\mathrm{eff},\,\mathrm{DPS}}}.
+% \end{equation}
+%
+% Whether SPS, DPS, or TPS dominates in a given phase-space region depends on the relative magnitudes of the SPS cross sections, the effective cross sections, and the experimental selection.
 
 % TO_APPROVE
 
-Several features of the $\phi$ meson deserve specific attention in an MPS context. Because $\phi$ is a light $s\bar{s}$ state with a large production cross section at the LHC, the product of SPS cross sections in the numerator of the DPS and TPS formulae is larger than in the triple-$J/\psi$ case, potentially enhancing the MPS contribution relative to SPS. However, $\phi$ mesons are also copiously produced in soft fragmentation, contributing a non-negligible background from the underlying event. This analysis suppresses the soft $\phi$ component by requiring $\phi$ candidates above a minimum $p_T$ threshold, selecting those produced in hard parton--parton scatterings. The analysis choices that control the $\phi$ purity --- $p_T$ threshold, track quality, vertex quality, and $K^+K^-$ mass window --- are therefore integral to any eventual MPS interpretation. The theory framework defined in this chapter serves as a language for interpreting the results of those experimental selections, which are documented in the chapters that follow.
+% [PENDING]
+在MPS语境中，$\phi$介子的若干特征值得特别关注。由于$\phi$是在LHC上具有大产生截面的轻$s\bar{s}$态，DPS和TPS公式分子中SPS截面的乘积比三重$J/\psi$情况更大，可能增强MPS相对于SPS的贡献。然而，$\phi$介子也大量产生于软碎裂，贡献了来自底层事例的不可忽略的本底。本分析通过要求$\phi$候选粒子高于最小$p_T$阈值来压低软$\phi$分量，选择在硬部分子--部分子散射中产生的$\phi$。因此，控制$\phi$纯度的分析选择——$p_T$阈值、径迹质量、顶点质量和$K^+K^-$质量窗口——是任何最终MPS解释的组成部分。本章定义的理论框架为解释这些实验选择的结果提供了语言，相关选择将在后续章节中记录。
 
-% $\phi$ 介子的特殊性：产生截面大增强了 MPS 相对 SPS 的贡献；软碎裂产生的 $\phi$ 本底通过 $p_T$ 阈值压低。本章的理论框架为后续章节的实验选择和分析结果提供解释语言。
+% Several features of the $\phi$ meson deserve specific attention in an MPS context. Because $\phi$ is a light $s\bar{s}$ state with a large production cross section at the LHC, the product of SPS cross sections in the numerator of the DPS and TPS formulae is larger than in the triple-$J/\psi$ case, potentially enhancing the MPS contribution relative to SPS. However, $\phi$ mesons are also copiously produced in soft fragmentation, contributing a non-negligible background from the underlying event. This analysis suppresses the soft $\phi$ component by requiring $\phi$ candidates above a minimum $p_T$ threshold, selecting those produced in hard parton--parton scatterings. The analysis choices that control the $\phi$ purity --- $p_T$ threshold, track quality, vertex quality, and $K^+K^-$ mass window --- are therefore integral to any eventual MPS interpretation. The theory framework defined in this chapter serves as a language for interpreting the results of those experimental selections, which are documented in the chapters that follow.
 
 
 % TODO: Section on discriminating SPS, DPS, and TPS — kinematic observables,

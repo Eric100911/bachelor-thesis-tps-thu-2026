@@ -1,57 +1,84 @@
-% \chapter{信号提取与效率修正}
-\chapter{Signal Extraction and Efficiency Correction}
+\chapter{信号提取与效率修正}
+% \chapter{Signal Extraction and Efficiency Correction}
 
-\section{Overview}
+\section{概述}
+% \section{Overview}
 \label{sec:signal-efficiency-overview}
 
 % [TODO] 简要说明本章的逻辑链：从筛选后的事例样本出发，通过三维拟合提取原始信号产额，然后计算接受度和效率修正，最终给出修正后的信号产额和sPlot加权的物理量分布。
 
-\textbf{[To be filled: This chapter takes the selected candidate sample of 48,829 events from Chapter~4 and proceeds through three stages. First, the raw signal yield is extracted via a three-dimensional unbinned maximum likelihood fit to the invariant mass distributions (Section~\ref{sec:signal-extraction}). Second, the acceptance and efficiency corrections are computed from simulation (Sections~\ref{sec:acceptance-correction}--\ref{sec:candidate-choice-migration}). Third, the corrected signal yield and sPlot-weighted kinematic distributions are presented (Section~\ref{sec:corrected-results}).]}
+\textbf{[待填：本章从第4章筛选得到的48,829个候选事例出发，分三个阶段进行。首先，通过对不变质量分布的三维无分箱最大似然拟合提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，基于模拟计算接受度和效率修正（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第三，给出修正后的信号产额和sPlot加权的运动学分布（第\ref{sec:corrected-results}节）。]}
+% \textbf{[To be filled: This chapter takes the selected candidate sample of 48,829 events from Chapter~4 and proceeds through three stages. First, the raw signal yield is extracted via a three-dimensional unbinned maximum likelihood fit to the invariant mass distributions (Section~\ref{sec:signal-extraction}). Second, the acceptance and efficiency corrections are computed from simulation (Sections~\ref{sec:acceptance-correction}--\ref{sec:candidate-choice-migration}). Third, the corrected signal yield and sPlot-weighted kinematic distributions are presented (Section~\ref{sec:corrected-results}).]}
 
-\section{Signal Extraction from the Three-Dimensional Mass Spectrum}
+\section{从三维质量谱中提取信号}
+% \section{Signal Extraction from the Three-Dimensional Mass Spectrum}
 \label{sec:signal-extraction}
 
-The signal yield is extracted from the selected data sample of $48\,829$ events by an extended unbinned maximum likelihood (UML) fit to the two dimuon invariant masses $m(J/\psi_1)$, $m(J/\psi_2)$, and the dikaon invariant mass $m(\phi)$. The fit is performed simultaneously in three dimensions using the \textsc{RooFit} framework~\cite{Verkerke:2003ir}.
+% [PENDING]
+信号产额通过对筛选得到的$48\,829$个数据事例进行扩展的无分箱最大似然（UML）拟合提取，拟合变量为两个双缪子不变质量$m(J/\psi_1)$、$m(J/\psi_2)$和双介子不变质量$m(\phi)$。该拟合使用\textsc{RooFit}框架~\cite{Verkerke:2003ir}在三维空间中同时进行。
+% The signal yield is extracted from the selected data sample of $48\,829$ events by an extended unbinned maximum likelihood (UML) fit to the two dimuon invariant masses $m(J/\psi_1)$, $m(J/\psi_2)$, and the dikaon invariant mass $m(\phi)$. The fit is performed simultaneously in three dimensions using the \textsc{RooFit} framework~\cite{Verkerke:2003ir}.
 
-Each $J/\psi \to \mu^+\mu^-$ resonance is described by a double-sided Crystal Ball (DSCB) function~\cite{Oreglia:1980cs}. The tail parameters $\alpha_L$, $\alpha_R$, $n_L$, and $n_R$ are shared between the two $J/\psi$ mesons, reflecting the common detector response; the mean $\mu$ and resolution $\sigma$ float independently for each. The $\phi \to K^+K^-$ resonance is modelled by a Voigtian function --- a convolution of a relativistic Breit--Wigner with a Gaussian resolution kernel --- with the Breit--Wigner width fixed to the PDG value $\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}.
+% [PENDING]
+每个$J/\psi \to \mu^+\mu^-$共振态用双面 Crystal Ball（DSCB）函数~\cite{Oreglia:1980cs}描述。拖尾参数$\alpha_L$、$\alpha_R$、$n_L$和$n_R$在两个$J/\psi$介子之间共享，以反映共同的探测器响应；平均值$\mu$和分辨率$\sigma$分别对各$J/\psi$独立浮动。$\phi \to K^+K^-$共振态用Voigtian函数建模——即相对论性Breit--Wigner函数与高斯分辨核的卷积——其中Breit--Wigner宽度固定为PDG值$\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}。
+% Each $J/\psi \to \mu^+\mu^-$ resonance is described by a double-sided Crystal Ball (DSCB) function~\cite{Oreglia:1980cs}. The tail parameters $\alpha_L$, $\alpha_R$, $n_L$, and $n_R$ are shared between the two $J/\psi$ mesons, reflecting the common detector response; the mean $\mu$ and resolution $\sigma$ float independently for each. The $\phi \to K^+K^-$ resonance is modelled by a Voigtian function --- a convolution of a relativistic Breit--Wigner with a Gaussian resolution kernel --- with the Breit--Wigner width fixed to the PDG value $\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}.
 
-The combinatorial background in each $J/\psi$ mass distribution is modelled by an exponential function with an independent slope for each $J/\psi$. The $\phi$ background is described by a threshold power-law times an exponential, $(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$, with the $K^+K^-$ kinematic threshold fixed at $m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$.
+% [PENDING]
+每个$J/\psi$质量分布中的组合本底用指数函数建模，各$J/\psi$具有独立的斜率参数。$\phi$本底用阈值幂律乘以指数函数描述，即$(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$，其中$K^+K^-$运动学阈值固定为$m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$。
+% The combinatorial background in each $J/\psi$ mass distribution is modelled by an exponential function with an independent slope for each $J/\psi$. The $\phi$ background is described by a threshold power-law times an exponential, $(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$, with the $K^+K^-$ kinematic threshold fixed at $m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$.
 
-Denoting the signal PDF as \textbf{S} and the background PDF as \textbf{B}, the eight possible combinations of one $J/\psi_1$ PDF, one $J/\psi_2$ PDF, and one $\phi$ PDF are constructed as independent fit components. This accounts for all ways in which genuine resonances and combinatorial backgrounds can combine in a three-body final state:
+% [PENDING]
+将信号概率密度函数记作\textbf{S}，本底概率密度函数记作\textbf{B}，则一个$J/\psi_1$概率密度函数、一个$J/\psi_2$概率密度函数和一个$\phi$概率密度函数的八种可能组合构成独立的拟合分量。这涵盖了真实共振态与组合本底在三体末态中所有可能的组合方式：
+% Denoting the signal PDF as \textbf{S} and the background PDF as \textbf{B}, the eight possible combinations of one $J/\psi_1$ PDF, one $J/\psi_2$ PDF, and one $\phi$ PDF are constructed as independent fit components. This accounts for all ways in which genuine resonances and combinatorial backgrounds can combine in a three-body final state:
 
 \begin{table}[htbp]
   \centering
-  \caption{Eight yield components. \textbf{S} = signal, \textbf{B} = background.}
+  \caption{八个产额分量。\textbf{S} = 信号，\textbf{B} = 本底。}
+  % \caption{Eight yield components. \textbf{S} = signal, \textbf{B} = background.}
   \label{tab:yield-components}
   \small
   \begin{tabular}{ccccc}
     \toprule
-    Component & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & Physical interpretation \\
+    分量 & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & 物理含义 \\
+    % Component & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & Physical interpretation \\
     \midrule
-    $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ signal \\
-    $N_{ssb}$ & S & S & B & $\phi$ sideband under $J/\psi$ peaks \\
-    $N_{sbs}$ & S & B & S & $J/\psi_2$ sideband under $J/\psi_1 + \phi$ peaks \\
-    $N_{bss}$ & B & S & S & $J/\psi_1$ sideband under $J/\psi_2 + \phi$ peaks \\
-    $N_{sbb}$ & S & B & B & $J/\psi_2 + \phi$ sidebands under $J/\psi_1$ peak \\
-    $N_{bsb}$ & B & S & B & $J/\psi_1 + \phi$ sidebands under $J/\psi_2$ peak \\
-    $N_{bbs}$ & B & B & S & $J/\psi_1 + J/\psi_2$ sidebands under $\phi$ peak \\
-    $N_{bbb}$ & B & B & B & Pure combinatorial background \\
+    $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ 信号 \\
+    % $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ signal \\
+    $N_{ssb}$ & S & S & B & $J/\psi$ 峰下的 $\phi$ 边带 \\
+    % $N_{ssb}$ & S & S & B & $\phi$ sideband under $J/\psi$ peaks \\
+    $N_{sbs}$ & S & B & S & $J/\psi_1 + \phi$ 峰下的 $J/\psi_2$ 边带 \\
+    % $N_{sbs}$ & S & B & S & $J/\psi_2$ sideband under $J/\psi_1 + \phi$ peaks \\
+    $N_{bss}$ & B & S & S & $J/\psi_2 + \phi$ 峰下的 $J/\psi_1$ 边带 \\
+    % $N_{bss}$ & B & S & S & $J/\psi_1$ sideband under $J/\psi_2 + \phi$ peaks \\
+    $N_{sbb}$ & S & B & B & $J/\psi_1$ 峰下的 $J/\psi_2 + \phi$ 边带 \\
+    % $N_{sbb}$ & S & B & B & $J/\psi_2 + \phi$ sidebands under $J/\psi_1$ peak \\
+    $N_{bsb}$ & B & S & B & $J/\psi_2$ 峰下的 $J/\psi_1 + \phi$ 边带 \\
+    % $N_{bsb}$ & B & S & B & $J/\psi_1 + \phi$ sidebands under $J/\psi_2$ peak \\
+    $N_{bbs}$ & B & B & S & $\phi$ 峰下的 $J/\psi_1 + J/\psi_2$ 边带 \\
+    % $N_{bbs}$ & B & B & S & $J/\psi_1 + J/\psi_2$ sidebands under $\phi$ peak \\
+    $N_{bbb}$ & B & B & B & 纯组合本底 \\
+    % $N_{bbb}$ & B & B & B & Pure combinatorial background \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-The model has 20 floating parameters in total: 8 yields and 12 shape parameters. The tail powers $n_L$ and $n_R$ are fixed to $5.0$, as they are found to be insensitive within the fit range.
+% [PENDING]
+模型共有20个自由参数：8个产额和12个形状参数。拖尾幂次$n_L$和$n_R$固定为$5.0$，因为它们在拟合范围内不敏感。
+% The model has 20 floating parameters in total: 8 yields and 12 shape parameters. The tail powers $n_L$ and $n_R$ are fixed to $5.0$, as they are found to be insensitive within the fit range.
 
-The fit converges with $\mathrm{NLL} = -732\,596$, and the full covariance matrix is obtained. The fitted shape parameters are summarised in Table~\ref{tab:fit-shape-params}. The $J/\psi$ means are consistent with the PDG value of $3.0969\;\mathrm{GeV}$~\cite{PDG2024}, and the dimuon resolution of $27.7\;\mathrm{MeV}$ is consistent with CMS performance. The $\phi$ mean agrees with the PDG value of $1.01946\;\mathrm{GeV}$ within the fit uncertainty.
+% [PENDING]
+拟合收敛，$\mathrm{NLL} = -732\,596$，并获得了完整的协方差矩阵。拟合得到的形状参数汇总于表~\ref{tab:fit-shape-params}。$J/\psi$平均值与PDG值$3.0969\;\mathrm{GeV}$~\cite{PDG2024}一致，双缪子分辨率$27.7\;\mathrm{MeV}$与CMS性能一致。$\phi$平均值在拟合不确定度范围内与PDG值$1.01946\;\mathrm{GeV}$相符。
+% The fit converges with $\mathrm{NLL} = -732\,596$, and the full covariance matrix is obtained. The fitted shape parameters are summarised in Table~\ref{tab:fit-shape-params}. The $J/\psi$ means are consistent with the PDG value of $3.0969\;\mathrm{GeV}$~\cite{PDG2024}, and the dimuon resolution of $27.7\;\mathrm{MeV}$ is consistent with CMS performance. The $\phi$ mean agrees with the PDG value of $1.01946\;\mathrm{GeV}$ within the fit uncertainty.
 
 \begin{table}[htbp]
   \centering
-  \caption{Fitted shape parameters. ``fixed'' = taken from external inputs.}
+  \caption{拟合得到的形状参数。"fixed" = 取自外部输入。}
+  % \caption{Fitted shape parameters. ``fixed'' = taken from external inputs.}
   \label{tab:fit-shape-params}
   \small
   \begin{tabular}{lcc}
     \toprule
-    Parameter & Fit value & Uncertainty \\
+    参数 & 拟合值 & 不确定度 \\
+    % Parameter & Fit value & Uncertainty \\
     \midrule
     $\mu(J/\psi_1)$ & $3.0933\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
     $\mu(J/\psi_2)$ & $3.0928\;\mathrm{GeV}$ & $\pm 0.0003\;\mathrm{GeV}$ \\
@@ -72,56 +99,72 @@ The fit converges with $\mathrm{NLL} = -732\,596$, and the full covariance matri
   \end{tabular}
 \end{table}
 
-The fitted yields are given in Table~\ref{tab:fit-yields}. The raw signal yield, before efficiency and acceptance corrections, is
+% [PENDING]
+拟合产额列于表~\ref{tab:fit-yields}。在效率和接受度修正之前，原始信号产额为
+% The fitted yields are given in Table~\ref{tab:fit-yields}. The raw signal yield, before efficiency and acceptance corrections, is
 
 \begin{equation}
 \boxed{N_{sss} = 1563 \pm 143\;(\mathrm{stat})},
 \end{equation}
 
-corresponding to a signal fraction $S/(S+B) = 3.20\%$ and a signal-to-background ratio $S/B = 3.31\%$. The dominant background components are $N_{ssb}$ ($22\,919$ events, genuine $J/\psi$ pair with a non-resonant $K^+K^-$ combination) and $N_{sbb}$ ($11\,947$ events, single $J/\psi$ with a non-resonant companion), as expected given that the $\phi$ resonance is considerably narrower than the $J/\psi$.
+% [PENDING]
+对应的信号比例为$S/(S+B) = 3.20\%$，信噪比为$S/B = 3.31\%$。主要本底分量为$N_{ssb}$（$22\,919$个事例，真实$J/\psi$对伴随非共振$K^+K^-$组合）和$N_{sbb}$（$11\,947$个事例，单个$J/\psi$伴随非共振伴随粒子），这与$\phi$共振态远窄于$J/\psi$的预期一致。
+% corresponding to a signal fraction $S/(S+B) = 3.20\%$ and a signal-to-background ratio $S/B = 3.31\%$. The dominant background components are $N_{ssb}$ ($22\,919$ events, genuine $J/\psi$ pair with a non-resonant $K^+K^-$ combination) and $N_{sbb}$ ($11\,947$ events, single $J/\psi$ with a non-resonant companion), as expected given that the $\phi$ resonance is considerably narrower than the $J/\psi$.
 
 \begin{table}[htbp]
   \centering
-  \caption{Fitted yields of the eight components.}
+  \caption{八个分量的拟合产额。}
+  % \caption{Fitted yields of the eight components.}
   \label{tab:fit-yields}
   \small
   \begin{tabular}{ccc}
     \toprule
-    Component & Yield & Statistical uncertainty \\
+    分量 & 产额 & 统计不确定度 \\
+    % Component & Yield & Statistical uncertainty \\
     \midrule
-    $N_{sss}$ (signal) & $1563$ & $\pm 143$ \\
+    $N_{sss}$ (信号) & $1563$ & $\pm 143$ \\
+    % $N_{sss}$ (signal) & $1563$ & $\pm 143$ \\
     $N_{ssb}$ & $22\,919$ & $\pm 323$ \\
     $N_{sbs}$ & $801$ & $\pm 117$ \\
     $N_{bss}$ & $422$ & $\pm 90$ \\
     $N_{sbb}$ & $11\,947$ & $\pm 242$ \\
-    $N_{bsb}$ & $4163$ & $\pm 184$ \\
+    $N_{bsb}$ & $4\,163$ & $\pm 184$ \\
     $N_{bbs}$ & $362$ & $\pm 91$ \\
-    $N_{bbb}$ & $6651$ & $\pm 190$ \\
+    $N_{bbb}$ & $6\,651$ & $\pm 190$ \\
     \midrule
-    Total & $48\,829$ & --- \\
+    总计 & $48\,829$ & --- \\
+    % Total & $48\,829$ & --- \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-The statistical significance of the $J/\psi J/\psi \phi$ signal is evaluated with a likelihood ratio test. The null hypothesis, in which the signal yield $N_{sss}$ is fixed to zero, is refitted. The test statistic $q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$ follows a half-$\chi^2(1)$ distribution under Wilks' theorem~\cite{Wilks:1938}, giving $Z = \sqrt{q_0}$. The null-hypothesis fit yields $\mathrm{NLL} = -732\,524$, giving
+% [PENDING]
+$J/\psi J/\psi \phi$信号的统计显著性通过似然比检验进行评估。将信号产额$N_{sss}$固定为零的零假设被重新拟合。检验统计量$q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$在Wilks定理~\cite{Wilks:1938}下服从半-$\chi^2(1)$分布，由此得到$Z = \sqrt{q_0}$。零假设拟合给出$\mathrm{NLL} = -732\,524$，从而得到
+% The statistical significance of the $J/\psi J/\psi \phi$ signal is evaluated with a likelihood ratio test. The null hypothesis, in which the signal yield $N_{sss}$ is fixed to zero, is refitted. The test statistic $q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$ follows a half-$\chi^2(1)$ distribution under Wilks' theorem~\cite{Wilks:1938}, giving $Z = \sqrt{q_0}$. The null-hypothesis fit yields $\mathrm{NLL} = -732\,524$, giving
 
 \begin{equation}
 Z = \sqrt{144.2} = 12.0 .
 \end{equation}
 
-This result far exceeds the conventional $5\,\sigma$ threshold for discovery, providing unambiguous evidence for the existence of the $J/\psi J/\psi \phi$ final state in proton-proton collisions at $\sqrt{s} = 13.6 \mathrm{TeV}$.
+% [PENDING]
+这一结果远超通常的 $5\,\sigma$ 发现阈值，为质心系能量$\sqrt{s} = 13.6 \mathrm{TeV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
+% This result far exceeds the conventional $5\,\sigma$ threshold for discovery, providing unambiguous evidence for the existence of the $J/\psi J/\psi \phi$ final state in proton-proton collisions at $\sqrt{s} = 13.6 \mathrm{TeV}$.
 
-\section{Acceptance Correction}
+\section{接受度修正}
+% \section{Acceptance Correction}
 \label{sec:acceptance-correction}
 
-The acceptance quantifies the probability that the decay products of a meson reach the sensitive volume of the detector and leave reconstructable signals. For the muons from $J/\psi \to \mu^+\mu^-$, the single-muon fiducial requirements are
+% [PENDING]
+接受度量化了介子衰变产物到达探测器灵敏体积并留下可重建信号的概率。对于$J/\psi \to \mu^+\mu^-$产生的缪子，单缪子基准要求为
+% The acceptance quantifies the probability that the decay products of a meson reach the sensitive volume of the detector and leave reconstructable signals. For the muons from $J/\psi \to \mu^+\mu^-$, the single-muon fiducial requirements are
 \begin{equation}
   \label{eq:muon-fiducial}
     p_{\mathrm{T}}(\mu^{\pm}) > 3.5\;\mathrm{GeV},
   \qquad
     |\eta(\mu^{\pm})| < 2.4 .
 \end{equation}
-These thresholds are standard in CMS quarkonium analyses: the $p_{\mathrm{T}}$ cut ensures that muons traverse enough muon stations to be reconstructed with high efficiency, while the $\eta$ requirement restricts muons to the geometrical coverage of the muon system~\cite{CMS_MUON_PERF_13TEV}. For the kaons from $\phi \to K^+K^-$, the fiducial criteria follow the charged-track acceptance of the silicon tracker:
+这些阈值是CMS夸克偶素分析中的标准选择：$p_{\mathrm{T}}$截断确保缪子穿越足够多的缪子站以被高效率重建，而$\eta$要求将缪子限制在缪子系统的几何覆盖范围内~\cite{CMS_MUON_PERF_13TEV}。对于$\phi \to K^+K^-$产生的介子，基准标准遵循硅径迹探测器的带电径迹接受度：
+% These thresholds are standard in CMS quarkonium analyses: the $p_{\mathrm{T}}$ cut ensures that muons traverse enough muon stations to be reconstructed with high efficiency, while the $\eta$ requirement restricts muons to the geometrical coverage of the muon system~\cite{CMS_MUON_PERF_13TEV}. For the kaons from $\phi \to K^+K^-$, the fiducial criteria follow the charged-track acceptance of the silicon tracker:
 \begin{equation}
   \label{eq:kaon-fiducial}
     p_{\mathrm{T}}(K^{\pm}) > 0.5\;\mathrm{GeV},
@@ -129,9 +172,13 @@ These thresholds are standard in CMS quarkonium analyses: the $p_{\mathrm{T}}$ c
     |\eta(K^{\pm})| < 2.4 .
 \end{equation}
 
-The acceptance is computed per object --- separately for the leading $J/\psi$, the subleading $J/\psi$, and the $\phi$ meson --- as a function of the meson's transverse momentum $p_{\mathrm{T}}$ and absolute rapidity $|y|$. For a given $(p_{\mathrm{T}}, |y|)$ bin, the per-object acceptance is defined as the fraction of generated mesons in that bin for which both decay daughters satisfy the fiducial criteria of Eqs.~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial}. This is determined using a generator-level-only MC sample, since no detector simulation is needed.
+% [PENDING]
+接受度按单个对象计算——分别对leading $J/\psi$、subleading $J/\psi$和$\phi$介子——作为介子横动量$p_{\mathrm{T}}$和绝对快度$|y|$的函数。对于给定的$(p_{\mathrm{T}}, |y|)$分箱，每个对象的接受度定义为该分箱内生成介子中其两个衰变子体均满足式~\eqref{eq:muon-fiducial}至~\eqref{eq:kaon-fiducial}基准标准的事件比例。这通过仅含生成子级别的MC样本确定，因为不需要探测器模拟。
+% The acceptance is computed per object --- separately for the leading $J/\psi$, the subleading $J/\psi$, and the $\phi$ meson --- as a function of the meson's transverse momentum $p_{\mathrm{T}}$ and absolute rapidity $|y|$. For a given $(p_{\mathrm{T}}, |y|)$ bin, the per-object acceptance is defined as the fraction of generated mesons in that bin for which both decay daughters satisfy the fiducial criteria of Eqs.~\eqref{eq:muon-fiducial}--\eqref{eq:kaon-fiducial}. This is determined using a generator-level-only MC sample, since no detector simulation is needed.
 
-The total acceptance for a $J/\psi J/\psi \phi$ event is approximated by the product of the three per-object acceptances:
+% [PENDING]
+一个$J/\psi J/\psi \phi$事例的总接受度近似为三个单对象接受度的乘积：
+% The total acceptance for a $J/\psi J/\psi \phi$ event is approximated by the product of the three per-object acceptances:
 \begin{equation}
 \label{eq:acceptance-product}
 A_{\mathrm{tot}}\bigl(\vec{x}_{J/\psi_1}, \vec{x}_{J/\psi_2}, \vec{x}_{\phi}\bigr)
@@ -140,101 +187,138 @@ A_{J/\psi}\bigl(\vec{x}_{J/\psi_1}\bigr)\;
 A_{J/\psi}\bigl(\vec{x}_{J/\psi_2}\bigr)\;
 A_{\phi}\bigl(\vec{x}_{\phi}\bigr),
 \end{equation}
-where $\vec{x} = (p_{\mathrm{T}}, |y|)$ denotes the kinematic coordinates of each meson. This factorisation assumes that the decay kinematics of each meson are independent of the others, which is valid for unpolarised $J/\psi$ production and is a standard treatment in CMS multiple-quarkonium measurements~\cite{CMS_TRI_JPSI}. The same per-object acceptance map is used for both $J/\psi$ mesons, justified by the fact that the acceptance depends on the decay properties of the meson rather than its rank ordering in $p_{\mathrm{T}}$.
+其中$\vec{x} = (p_{\mathrm{T}}, |y|)$表示各介子的运动学坐标。这种因子化假设各介子的衰变运动学彼此独立，这对非极化$J/\psi$产生是有效的，并且是CMS多重夸克偶素测量中的标准处理方法~\cite{CMS_TRI_JPSI}。相同的单对象接受度映射用于两个$J/\psi$介子，其合理性在于接受度取决于介子的衰变性质而非其在$p_{\mathrm{T}}$中的排序。
+% where $\vec{x} = (p_{\mathrm{T}}, |y|)$ denotes the kinematic coordinates of each meson. This factorisation assumes that the decay kinematics of each meson are independent of the others, which is valid for unpolarised $J/\psi$ production and is a standard treatment in CMS multiple-quarkonium measurements~\cite{CMS_TRI_JPSI}. The same per-object acceptance map is used for both $J/\psi$ mesons, justified by the fact that the acceptance depends on the decay properties of the meson rather than its rank ordering in $p_{\mathrm{T}}$.
 
-The per-object acceptance maps are shown in Figs.~\ref{fig:acc-jpsi-lead}--\ref{fig:acc-phi}. The acceptance is binned in
+% [PENDING]
+单对象接受度映射如图~\ref{fig:acc-jpsi-lead}至~\ref{fig:acc-phi}所示。接受度的分箱为
+% The per-object acceptance maps are shown in Figs.~\ref{fig:acc-jpsi-lead}--\ref{fig:acc-phi}. The acceptance is binned in
 \[
 p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \qquad
 |y| \in [0,\;0.6,\;1.2,\;1.8,\;2.4].
 \]
-At low $p_{\mathrm{T}}$ and high $|y|$, the acceptance drops because one or both decay muons fall outside the fiducial $\eta$ range. At high $p_{\mathrm{T}}$, the decay products are more collimated along the meson direction, and the acceptance approaches unity across all rapidity bins.
+在低$p_{\mathrm{T}}$和高$|y|$区域，接受度下降，因为一个或两个衰变缪子落在基准$\eta$范围之外。在高$p_{\mathrm{T}}$区域，衰变产物沿介子方向更加集中，接受度在所有快度分箱中趋近于1。
+% At low $p_{\mathrm{T}}$ and high $|y|$, the acceptance drops because one or both decay muons fall outside the fiducial $\eta$ range. At high $p_{\mathrm{T}}$, the decay products are more collimated along the meson direction, and the acceptance approaches unity across all rapidity bins.
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_fiducial_acceptance.png}
-  \caption{Per-object fiducial acceptance for the leading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
+  \caption{Leading $J/\psi$的单对象基准接受度，作为$p_{\mathrm{T}}(J/\psi)$和$|y(J/\psi)|$的函数。}
+  % \caption{Per-object fiducial acceptance for the leading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
   \label{fig:acc-jpsi-lead}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_sublead_fiducial_acceptance.png}
-  \caption{Per-object fiducial acceptance for the subleading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
+  \caption{Subleading $J/\psi$的单对象基准接受度，作为$p_{\mathrm{T}}(J/\psi)$和$|y(J/\psi)|$的函数。}
+  % \caption{Per-object fiducial acceptance for the subleading $J/\psi$ as a function of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
   \label{fig:acc-jpsi-sublead}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_fiducial_acceptance.png}
-  \caption{Per-object fiducial acceptance for the $\phi$ meson as a function of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
+  \caption{$\phi$介子的单对象基准接受度，作为$p_{\mathrm{T}}(\phi)$和$|y(\phi)|$的函数。}
+  % \caption{Per-object fiducial acceptance for the $\phi$ meson as a function of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
   \label{fig:acc-phi}
 \end{figure}
 
-For later use in the event-by-event correction, the two $J/\psi$ acceptances are combined into a single stacked $J/\psi$ acceptance map, shown in Fig.~\ref{fig:acc-stacked-jpsi}. This stacked map pools the leading and subleading $J/\psi$ samples, providing better statistical precision per bin and a single reference for both $J/\psi$ mesons.
+% [PENDING]
+为便于后续逐事例修正，将两个$J/\psi$的接受度合并为一个堆叠的$J/\psi$接受度映射，如图~\ref{fig:acc-stacked-jpsi}所示。这一堆叠映射汇集了leading和subleading $J/\psi$样本，为每个分箱提供更好的统计精度，并为两个$J/\psi$介子提供统一的参考。
+% For later use in the event-by-event correction, the two $J/\psi$ acceptances are combined into a single stacked $J/\psi$ acceptance map, shown in Fig.~\ref{fig:acc-stacked-jpsi}. This stacked map pools the leading and subleading $J/\psi$ samples, providing better statistical precision per bin and a single reference for both $J/\psi$ mesons.
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_fiducial_acceptance.png}
-  \caption{Stacked $J/\psi$ fiducial acceptance obtained by combining the leading and subleading $J/\psi$ samples into a single map.}
+  \caption{堆叠的$J/\psi$基准接受度，由leading和subleading $J/\psi$样本合并为单一映射得到。}
+  % \caption{Stacked $J/\psi$ fiducial acceptance obtained by combining the leading and subleading $J/\psi$ samples into a single map.}
   \label{fig:acc-stacked-jpsi}
 \end{figure}
 
-\section{Efficiency Correction}
+\section{效率修正}
+% \section{Efficiency Correction}
 \label{sec:efficiency-correction}
 
-Once the decay products are within the detector acceptance, they must be reconstructed by the CMS tracking and muon systems, identified as signal candidates, and selected by the trigger and event-level requirements. The efficiency of each step is defined as a conditional probability: the fraction of events that pass a given selection, given that they have passed all previous selections. Computing each efficiency step conditionally --- rather than cumulatively with respect to the generated sample --- isolates the effect of individual selection criteria and facilitates systematic studies.
+% [PENDING]
+一旦衰变产物处于探测器接受度内，它们必须被CMS径迹和缪子系统重建，被鉴别为信号候选粒子，并通过触发和事例级别的选择。每一步的效率定义为条件概率：即通过给定选择的事例占已通过所有先前选择的事例的比例。以条件方式（而非相对于生成样本的累积方式）计算每个效率步骤，可以隔离各个选择标准的影响，并便于系统研究。
+% Once the decay products are within the detector acceptance, they must be reconstructed by the CMS tracking and muon systems, identified as signal candidates, and selected by the trigger and event-level requirements. The efficiency of each step is defined as a conditional probability: the fraction of events that pass a given selection, given that they have passed all previous selections. Computing each efficiency step conditionally --- rather than cumulatively with respect to the generated sample --- isolates the effect of individual selection criteria and facilitates systematic studies.
 
-The efficiency is evaluated using fully simulated MC samples (generator, detector simulation, and reconstruction). Because the kinematic distributions in simulation may differ from those in data --- particularly due to the unknown SPS-to-DPS mixture --- the efficiency is computed in the same $(p_{\mathrm{T}}, |y|)$ bins used for the acceptance. In each bin, the conditional efficiency is
+% [PENDING]
+效率使用完全模拟的MC样本（包含产生子、探测器模拟和重建）进行评估。由于模拟中的运动学分布可能与数据不同——特别地，由于SPS与DPS的未知混合比例——效率在与接受度相同的$(p_{\mathrm{T}}, |y|)$分箱中计算。在每个分箱中，条件效率为
+% The efficiency is evaluated using fully simulated MC samples (generator, detector simulation, and reconstruction). Because the kinematic distributions in simulation may differ from those in data --- particularly due to the unknown SPS-to-DPS mixture --- the efficiency is computed in the same $(p_{\mathrm{T}}, |y|)$ bins used for the acceptance. In each bin, the conditional efficiency is
 \begin{equation}
 \epsilon_i(\vec{x}) = \frac{N(\text{pass step } i \;\cap\; \text{pass steps } 1,\dots,i-1;\;\vec{x})}
                          {N(\text{pass steps } 1,\dots,i-1;\;\vec{x})},
 \end{equation}
-where $N$ denotes the number of events in the given kinematic bin. This bin-by-bin approach ensures that the correction factor does not depend on the assumed production kinematics of the MC generator.
+其中$N$表示给定运动学分箱中的事例数。这种逐分箱方法确保修正因子不依赖于MC产生子所假设的产生运动学。
+% where $N$ denotes the number of events in the given kinematic bin. This bin-by-bin approach ensures that the correction factor does not depend on the assumed production kinematics of the MC generator.
 
-The efficiency chain for this analysis is summarised in Table~\ref{tab:efficiency-chain}. For the HLT trigger efficiency, the denominator is the set of events in which both $J/\psi$ candidates and the $\phi$ candidate have been reconstructed and identified; a data-driven cross-check of the trigger efficiency will be performed as part of the closure tests.
+% [PENDING]
+本分析的效率链汇总于表~\ref{tab:efficiency-chain}。对于HLT触发效率，分母为两个$J/\psi$候选粒子和$\phi$候选粒子均已重建并鉴别的事例集合；触发的数据驱动交叉检验将作为闭合检验的一部分进行。
+% The efficiency chain for this analysis is summarised in Table~\ref{tab:efficiency-chain}. For the HLT trigger efficiency, the denominator is the set of events in which both $J/\psi$ candidates and the $\phi$ candidate have been reconstructed and identified; a data-driven cross-check of the trigger efficiency will be performed as part of the closure tests.
 
 \begin{table}[htbp]
   \centering
   \begin{threeparttable}[c]
-    \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied.}
+    \caption{效率链汇总。每一步均以前面所有步骤均已满足为条件。}
+    % \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied.}
     \label{tab:efficiency-chain}
     \small
     \begin{tabular}{ccll}
       \toprule
-      Step & Label & Definition & Binning \\
+      步骤 & 标签 & 定义 & 分箱方式 \\
+      % Step & Label & Definition & Binning \\
       \midrule
-      \multicolumn{4}{c}{\textit{Per $J/\psi$ (applied to both leading and subleading)}} \\
-      1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      \multicolumn{4}{c}{\textit{每个 $J/\psi$（对 leading 和 subleading 均适用）}} \\
+      % \multicolumn{4}{c}{\textit{Per $J/\psi$ (applied to both leading and subleading)}} \\
+      1a & $\epsilon_{\mu\mathrm{RECO}}$ & 两个子缪子均被重建并与生成子级缪子匹配 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      % 1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1b & $\epsilon_{\mu\mathrm{ID}}$   & 两个匹配的缪子均满足软缪子鉴别条件 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      % 1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1c & $\epsilon_{\mu\mu}$          & 双缪子顶点拟合概率 $> 0.5\%$ 且不变质量在 $J/\psi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      % 1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       \midrule
-      \multicolumn{4}{c}{\textit{Per $\phi$}} \\
-      2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      \multicolumn{4}{c}{\textit{每个 $\phi$}} \\
+      % \multicolumn{4}{c}{\textit{Per $\phi$}} \\
+      2a & $\epsilon_{K\mathrm{RECO}}$  & 两个子介子均被重建并与生成子级介子匹配 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      % 2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2b & $\epsilon_{K\mathrm{ID}}$    & 两个匹配的径迹均满足径迹质量和介子选择标准 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      % 2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2c & $\epsilon_{KK}$              & 双介子顶点拟合且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      % 2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
       \midrule
-      \multicolumn{4}{c}{\textit{Event-level}} \\
-      3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
-      4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
-      5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
+      \multicolumn{4}{c}{\textit{事例级别}} \\
+      % \multicolumn{4}{c}{\textit{Event-level}} \\
+      3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
+      % 3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
+      4  & $\epsilon_{4\mu\mathrm{vtx}}$& 四缪子顶点拟合收敛 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
+      % 4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
+      5  & $\epsilon_{\mathrm{triOnia}}$& 三介子共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
+      % 5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
-      \item [a] The mass window is defined as $[2.95, 3.25]\;\mathrm{GeV}$ for $J/\psi$ and $[1.01, 1.03]\;\mathrm{GeV}$ for $\phi$.
-      \item [b] The HLT trigger efficiency is nominally an event-level quantity but is evaluated in three-dimensional kinematic bins to account for residual correlations between the trigger decision and the meson transverse momenta.
+      \item [a] 质量窗口定义为 $J/\psi$：$[2.95, 3.25]\;\mathrm{GeV}$，$\phi$：$[1.01, 1.03]\;\mathrm{GeV}$。
+      % \item [a] The mass window is defined as $[2.95, 3.25]\;\mathrm{GeV}$ for $J/\psi$ and $[1.01, 1.03]\;\mathrm{GeV}$ for $\phi$.
+      \item [b] HLT触发效率名义上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
+      % \item [b] The HLT trigger efficiency is nominally an event-level quantity but is evaluated in three-dimensional kinematic bins to account for residual correlations between the trigger decision and the meson transverse momenta.
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
-The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency, which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
+% [PENDING]
+每个$J/\psi$和$\phi$的效率映射如图~\ref{fig:eff-jpsi-lead}至~\ref{fig:eff-phi}所示。对于$J/\psi$介子，堆叠效率映射（leading和subleading合并）如图~\ref{fig:eff-stacked-jpsi}所示。缪子重建效率很高，且在大部分$(p_{\mathrm{T}}, |y|)$平面内近似平坦，在桶部--端盖过渡区略有下降。缪子鉴别效率同样平坦，反映了CMS缪子系统的成熟性能。包含顶点拟合和质量窗口要求的双缪子选择效率在整个基准区域内超过95\%。
+% The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-jpsi-lead}--\ref{fig:eff-phi}. For the $J/\psi$ mesons, the stacked efficiency maps (leading and subleading combined) are shown in Fig.~\ref{fig:eff-stacked-jpsi}. The muon reconstruction efficiency is high and approximately flat across most of the $(p_{\mathrm{T}}, |y|)$ plane, dropping slightly in the barrel--endcap transition region. The muon identification efficiency is similarly flat, reflecting the well-understood performance of the CMS muon system. The dimuon selection efficiency, which includes the vertex fit and mass-window requirements, exceeds 95\% across the fiducial region.
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_muonRECO.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_muonID.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_jpsi_lead_dimuon.png}
-  \caption{Per-object conditional efficiencies for the leading $J/\psi$: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection. All maps are shown as functions of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
+  \caption{Leading $J/\psi$的单对象条件效率：（上）缪子重建，（中）缪子鉴别，（下）双缪子选择。所有映射均作为$p_{\mathrm{T}}(J/\psi)$和$|y(J/\psi)|$的函数展示。}
+  % \caption{Per-object conditional efficiencies for the leading $J/\psi$: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection. All maps are shown as functions of $p_{\mathrm{T}}(J/\psi)$ and $|y(J/\psi)|$.}
   \label{fig:eff-jpsi-lead}
 \end{figure}
 
@@ -243,7 +327,8 @@ The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_kaonRECO.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_kaonID.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/object2d_phi_dikaon.png}
-  \caption{Per-object conditional efficiencies for the $\phi$ meson: (top) kaon reconstruction, (middle) kaon identification, (bottom) dikaon selection. All maps are shown as functions of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
+  \caption{$\phi$介子的单对象条件效率：（上）介子重建，（中）介子鉴别，（下）双介子选择。所有映射均作为$p_{\mathrm{T}}(\phi)$和$|y(\phi)|$的函数展示。}
+  % \caption{Per-object conditional efficiencies for the $\phi$ meson: (top) kaon reconstruction, (middle) kaon identification, (bottom) dikaon selection. All maps are shown as functions of $p_{\mathrm{T}}(\phi)$ and $|y(\phi)|$.}
   \label{fig:eff-phi}
 \end{figure}
 
@@ -252,11 +337,14 @@ The per-$J/\psi$ and per-$\phi$ efficiency maps are shown in Figs.~\ref{fig:eff-
   % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_muonRECO.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_muonID.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/stacked_jpsi_dimuon.png}
-  \caption{Stacked $J/\psi$ conditional efficiencies combining the leading and subleading $J/\psi$ samples: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection.}
+  \caption{合并leading和subleading $J/\psi$样本的堆叠$J/\psi$条件效率：（上）缪子重建，（中）缪子鉴别，（下）双缪子选择。}
+  % \caption{Stacked $J/\psi$ conditional efficiencies combining the leading and subleading $J/\psi$ samples: (top) muon reconstruction, (middle) muon identification, (bottom) dimuon selection.}
   \label{fig:eff-stacked-jpsi}
 \end{figure}
 
-The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-trionia}. The HLT efficiency is evaluated in the three-dimensional space of $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$, projected onto the $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ plane for each $\phi$ $p_{\mathrm{T}}$ interval. The four-muon vertex efficiency is shown in Fig.~\ref{fig:eff-fourmu-vtx}; this step checks whether the four muons from the two $J/\psi$ decays can be fitted to a common vertex, and its efficiency is approximately 95\% across the fiducial region. The tri-onia vertex efficiency, which includes the common $J/\psi J/\psi \phi$ vertex fit and the remaining event-level quality requirements, is presented in Fig.~\ref{fig:eff-trionia}.
+% [PENDING]
+事例级效率如图~\ref{fig:eff-hlt}至~\ref{fig:eff-trionia}所示。HLT效率在$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$三维空间中评估，并投影到$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$平面上，针对每个$\phi$的$p_{\mathrm{T}}$区间分别展示。四缪子顶点效率如图~\ref{fig:eff-fourmu-vtx}所示；此步骤检查两个$J/\psi$衰变产生的四个缪子能否拟合到共同顶点，其效率在整个基准区域内约为95\%。三夸克偶素顶点效率包含$J/\psi J/\psi \phi$共同顶点拟合和剩余的事例级质量要求，如图~\ref{fig:eff-trionia}所示。
+% The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-trionia}. The HLT efficiency is evaluated in the three-dimensional space of $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$, projected onto the $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ plane for each $\phi$ $p_{\mathrm{T}}$ interval. The four-muon vertex efficiency is shown in Fig.~\ref{fig:eff-fourmu-vtx}; this step checks whether the four muons from the two $J/\psi$ decays can be fitted to a common vertex, and its efficiency is approximately 95\% across the fiducial region. The tri-onia vertex efficiency, which includes the common $J/\psi J/\psi \phi$ vertex fit and the remaining event-level quality requirements, is presented in Fig.~\ref{fig:eff-trionia}.
 
 \begin{figure}[htbp]
   \centering
@@ -264,14 +352,16 @@ The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-
   % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_1.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_2.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/corr3d_hlt_event_phiPt_3.png}
-  \caption{HLT trigger efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, shown for four intervals of $p_{\mathrm{T}}(\phi)$: (top left) $[4,6]$, (top right) $[6,10]$, (bottom left) $[10,20]$, (bottom right) $[20,50]$~GeV.}
+  \caption{HLT触发效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$的四个区间展示：（左上）$[4,6]$，（右上）$[6,10]$，（左下）$[10,20]$，（右下）$[20,50]$~GeV。}
+  % \caption{HLT trigger efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, shown for four intervals of $p_{\mathrm{T}}(\phi)$: (top left) $[4,6]$, (top right) $[6,10]$, (bottom left) $[10,20]$, (bottom right) $[20,50]$~GeV.}
   \label{fig:eff-hlt}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/pair2d_four_muon_vtx.png}
-  \caption{Four-muon vertex efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$.}
+  \caption{四缪子顶点效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数。}
+  % \caption{Four-muon vertex efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$.}
   \label{fig:eff-fourmu-vtx}
 \end{figure}
 
@@ -281,11 +371,14 @@ The event-level efficiencies are shown in Figs.~\ref{fig:eff-hlt}--\ref{fig:eff-
   % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin1.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin2.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/trionia_phiPt_bin3.png}
-  \caption{Tri-onia vertex and remaining event-level selection efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, split by $p_{\mathrm{T}}(\phi)$ intervals as in Fig.~\ref{fig:eff-hlt}.}
+  \caption{三夸克偶素顶点及剩余事例级选择效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$区间分组，同图~\ref{fig:eff-hlt}。}
+  % \caption{Tri-onia vertex and remaining event-level selection efficiency as a function of $p_{\mathrm{T}}(J/\psi_1)$ and $p_{\mathrm{T}}(J/\psi_2)$, split by $p_{\mathrm{T}}(\phi)$ intervals as in Fig.~\ref{fig:eff-hlt}.}
   \label{fig:eff-trionia}
 \end{figure}
 
-The total efficiency for an event is the product of all conditional efficiencies:
+% [PENDING]
+一个事例的总效率是所有条件效率的乘积：
+% The total efficiency for an event is the product of all conditional efficiencies:
 \begin{equation}
 \label{eq:efficiency-product}
 \begin{aligned}
@@ -305,21 +398,28 @@ The total efficiency for an event is the product of all conditional efficiencies
 \end{aligned}
 \end{equation}
 
-\section{Candidate Choice and Migration Effects}
+\section{候选选择和迁移效应}
+% \section{Candidate Choice and Migration Effects}
 \label{sec:candidate-choice-migration}
 
-In events with multiple $\phi$ mesons or multiple $K^+K^-$ combinations satisfying the selection criteria, more than one $J/\psi J/\psi \phi$ candidate can be formed. This analysis adopts a deterministic best-candidate rule: among all valid candidates in an event, the one that maximises
+% [PENDING]
+在有多个$\phi$介子或多个$K^+K^-$组合满足选择标准的事例中，可能形成多于一个$J/\psi J/\psi \phi$候选粒子。本分析采用确定的择优候选规则：在一个事例中所有有效候选粒子中，保留使下式最大化的那一个：
+% In events with multiple $\phi$ mesons or multiple $K^+K^-$ combinations satisfying the selection criteria, more than one $J/\psi J/\psi \phi$ candidate can be formed. This analysis adopts a deterministic best-candidate rule: among all valid candidates in an event, the one that maximises
 \begin{equation}
 S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mathrm{T}}^2(\phi)\,}
 \end{equation}
-is retained. The same best-candidate rule is applied at both the generator level and the reconstruction level, so that the definition of the fiducial measurement is internally consistent: the event is characterised by the candidate that would be selected by this rule, rather than by a predetermined ``hardest'' $\phi$ meson.
+同一择优候选规则在生成子级和重建级均适用，使得基准测量的定义内部自洽：事例由该规则所选出的候选粒子来表征，而非由预先确定的"最硬"$\phi$介子表征。
+% is retained. The same best-candidate rule is applied at both the generator level and the reconstruction level, so that the definition of the fiducial measurement is internally consistent: the event is characterised by the candidate that would be selected by this rule, rather than by a predetermined ``hardest'' $\phi$ meson.
 
-When the generator-level best candidate and the reconstruction-level best candidate involve different $\phi$ mesons or different $K^+K^-$ pairings --- a situation referred to as candidate mismatch --- the reconstructed kinematics may migrate from one bin to another with respect to the generator-level truth. The extent of this migration has been studied by constructing the generator-to-reconstruction response matrix for each differential variable. The response matrix is found to be approximately diagonal for the $(p_{\mathrm{T}}, |y|)$ variables of the individual mesons, with bin purities and stabilities above 90\% in most bins. A detailed discussion of the multi-candidate problem, the definition of the response matrix, and the validation of the bin-by-bin correction approach is given in Appendix~\ref{app:multicandidate}.
+% [PENDING]
+当生成子级最优候选与重建级最优候选涉及不同的$\phi$介子或不同的$K^+K^-$配对时——这种情况称为候选失配——重建后的运动学可能相对于生成子级真值从一个分箱迁移到另一个分箱。迁移的程度通过对每个微分变量构造生成子到重建的响应矩阵进行了研究。响应矩阵对于单个介子的$(p_{\mathrm{T}}, |y|)$变量近似为对角矩阵，大部分分箱的纯度和稳定性在90\%以上。关于多候选问题、响应矩阵的定义以及逐分箱修正方法的验证的详细讨论见附录~\ref{app:multicandidate}。
+% When the generator-level best candidate and the reconstruction-level best candidate involve different $\phi$ mesons or different $K^+K^-$ pairings --- a situation referred to as candidate mismatch --- the reconstructed kinematics may migrate from one bin to another with respect to the generator-level truth. The extent of this migration has been studied by constructing the generator-to-reconstruction response matrix for each differential variable. The response matrix is found to be approximately diagonal for the $(p_{\mathrm{T}}, |y|)$ variables of the individual mesons, with bin purities and stabilities above 90\% in most bins. A detailed discussion of the multi-candidate problem, the definition of the response matrix, and the validation of the bin-by-bin correction approach is given in Appendix~\ref{app:multicandidate}.
 
 \iffalse
 \section{Closure Tests}
 \label{sec:closure-tests}
 
+% [PENDING]
 Each selected event is assigned a total correction weight
 \begin{equation}
 \label{eq:correction-weight}
@@ -327,6 +427,7 @@ w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 \end{equation}
 where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for.
 
+% [PENDING]
 The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known \textit{a priori}, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
 \begin{equation}
 N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
@@ -336,41 +437,55 @@ The test is carried out on pure SPS and pure DPS samples, representing the two k
 \textbf{[To be filled: Full closure test results when implemented.]}
 \fi
 
-\section{Efficiency-Corrected Signal Yield and sPlot Distributions}
+\section{效率修正后的信号产额与sPlot分布}
+% \section{Efficiency-Corrected Signal Yield and sPlot Distributions}
 \label{sec:corrected-results}
 
-Each selected event is assigned a total correction weight
+% [PENDING]
+每个选定事例被赋予一个总修正权重
+% Each selected event is assigned a total correction weight
 \begin{equation}
 w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 \end{equation}
-where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described in Sections~\ref{sec:acceptance-correction} and~\ref{sec:efficiency-correction}. This weight represents the expected number of produced events that each selected event stands for.
+其中$A_{\mathrm{tot}}$和$\epsilon_{\mathrm{tot}}$使用第\ref{sec:acceptance-correction}节和第\ref{sec:efficiency-correction}节描述的接受度和效率映射，在事例的运动学坐标处求值。该权重表示每个选定事例所代表的预期产生事例数。
+% where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described in Sections~\ref{sec:acceptance-correction} and~\ref{sec:efficiency-correction}. This weight represents the expected number of produced events that each selected event stands for.
 
-To separate the signal component from backgrounds in the kinematic distributions, the sPlot technique~\cite{Pivk:2004ty} is employed. Using the three-dimensional fit model described in Section~\ref{sec:signal-extraction}, per-event signal weights (sWeights) are computed for the $N_{sss}$ component. The sWeights are validated by verifying that the signal-weighted mass projections reproduce the fitted signal shapes. The signal-weighted mass projections are shown in Fig.~\ref{fig:fit-projections}. Clear resonance peaks are visible in all three signal projections, while the background components are smooth.
+% [PENDING]
+为了在运动学分布中将信号分量与本底分离，采用sPlot技术~\cite{Pivk:2004ty}。利用第\ref{sec:signal-extraction}节描述的三维拟合模型，计算$N_{sss}$分量的逐事例信号权重（sWeights）。通过验证信号加权的质量投影能够重现拟合的信号形状来检验sWeights。信号加权的质量投影如图~\ref{fig:fit-projections}所示。在所有三个信号投影中均清晰可见共振峰，而本底分量是平滑的。
+% To separate the signal component from backgrounds in the kinematic distributions, the sPlot technique~\cite{Pivk:2004ty} is employed. Using the three-dimensional fit model described in Section~\ref{sec:signal-extraction}, per-event signal weights (sWeights) are computed for the $N_{sss}$ component. The sWeights are validated by verifying that the signal-weighted mass projections reproduce the fitted signal shapes. The signal-weighted mass projections are shown in Fig.~\ref{fig:fit-projections}. Clear resonance peaks are visible in all three signal projections, while the background components are smooth.
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_jpsi1.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_jpsi2.png}
   % \includegraphics[width=0.48\textwidth]{figures/chap05/fit_projection_phi.png}
-  \caption{Fit projections onto $m(J/\psi_1)$ (left), $m(J/\psi_2)$ (middle), and $m(\phi)$ (right), with signal and background components separated by sWeights.}
+  \caption{拟合在$m(J/\psi_1)$（左）、$m(J/\psi_2)$（中）和$m(\phi)$（右）上的投影，信号和本底分量通过sWeights分离。}
+  % \caption{Fit projections onto $m(J/\psi_1)$ (left), $m(J/\psi_2)$ (middle), and $m(\phi)$ (right), with signal and background components separated by sWeights.}
   \label{fig:fit-projections}
 \end{figure}
 
-For each event, the combined weight is the product of the correction weight and the sWeight:
+% [PENDING]
+对于每个事例，组合权重为修正权重与sWeight的乘积：
+% For each event, the combined weight is the product of the correction weight and the sWeight:
 \begin{equation}
 w_{\mathrm{comb}} = w \times sWeight .
 \end{equation}
-Summing these combined weights over all selected events gives the efficiency-corrected inclusive signal yield:
+对所有选定事例求和该组合权重，即得到效率修正后的总信号产额：
+% Summing these combined weights over all selected events gives the efficiency-corrected inclusive signal yield:
 \begin{equation}
 \boxed{N_{sss}^{\mathrm{corr}} = \sum_{i} w_{i} \times sWeight_{i} .}
 \end{equation}
-\textbf{[To be filled: numerical value of the corrected inclusive signal yield.]}
+\textbf{[待填：修正后总信号产额的数值。]}
+% \textbf{[To be filled: numerical value of the corrected inclusive signal yield.]}
 
-The efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events are obtained by filling histograms weighted by $w_{\mathrm{comb}}$. The distributions of the transverse momenta, rapidities, and angular separations of the three mesons are shown in Figs.~\ref{fig:corr-kinematics}. \textbf{[To be filled: corrected kinematic distribution figures and their descriptions.]}
+% [PENDING]
+信号$J/\psi J/\psi \phi$事例的效率修正运动学分布通过以$w_{\mathrm{comb}}$加权的直方图填充得到。三个介子的横动量、快度和角间距的分布如图~\ref{fig:corr-kinematics}所示。\textbf{[待填：修正后的运动学分布图及其描述。]}
+% The efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events are obtained by filling histograms weighted by $w_{\mathrm{comb}}$. The distributions of the transverse momenta, rapidities, and angular separations of the three mesons are shown in Figs.~\ref{fig:corr-kinematics}. \textbf{[To be filled: corrected kinematic distribution figures and their descriptions.]}
 
 \begin{figure}[htbp]
   \centering
   % \includegraphics[width=0.48\textwidth]{figures/chap05/corr_kinematics.png}
-  \caption{Efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events. \textbf{[To be filled: specific distributions and descriptions.]}}
+  \caption{信号$J/\psi J/\psi \phi$事例的效率修正运动学分布。\textbf{[待填：具体分布和描述。]}}
+  % \caption{Efficiency-corrected kinematic distributions of the signal $J/\psi J/\psi \phi$ events. \textbf{[To be filled: specific distributions and descriptions.]}}
   \label{fig:corr-kinematics}
 \end{figure}
