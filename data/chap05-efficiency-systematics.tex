@@ -4,28 +4,22 @@
 \section{概述}
 \label{sec:signal-efficiency-overview}
 
-% [TODO] 简要说明本章的逻辑链：从筛选后的事例样本出发，通过三维拟合提取原始信号产额，然后计算接受度和效率修正，最终给出修正后的信号产额和sPlot加权的物理量分布。
-
-本章从第4章筛选得到的48,829个候选事例出发，分三个阶段进行。首先，通过对$m(J/\psi_1)$、$m(J/\psi_2)$和$m(\phi)$三维不变质量分布的无分箱最大似然拟合，将信号分量（$N_{sss}$）与七类本底分量分离，提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，基于生成子级和全模拟MC样本，计算单对象基准接受度和条件效率修正，并讨论候选选择与迁移效应（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第三，结合修正权重与sPlot技术，给出效率修正后的信号产额和信号加权的运动学分布（第\ref{sec:corrected-results}节）。
+本章从此前筛选得到的48829个候选事例出发，分三个阶段进行。首先，通过对$m(J/\psi_1)$、$m(J/\psi_2)$和$m(\phi)$三维不变质量分布的无分箱最大似然拟合，将信号分量（$N_{sss}$）与七类本底分量分离，提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，基于生成子级和全模拟MC样本，计算单对象基准接受度和条件效率修正，并讨论候选选择与迁移效应（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第三，结合修正权重与sPlot技术，给出效率修正后的信号产额和信号加权的运动学分布（第\ref{sec:corrected-results}节）。
 
 \section{从三维质量谱中提取信号}
 \label{sec:signal-extraction}
 
-% [PENDING]
-信号产额通过对筛选得到的$48\,829$个数据事例进行扩展的无分箱最大似然（UML）拟合提取，拟合变量为两个双缪子不变质量$m(J/\psi_1)$、$m(J/\psi_2)$和双介子不变质量$m(\phi)$。该拟合使用\textsc{RooFit}框架~\cite{Verkerke:2003ir}在三维空间中同时进行。
+信号产额通过对筛选得到的$48829$个数据事例进行扩展的无分箱最大似然（UML）拟合提取，拟合变量为两个双缪子不变质量$m(J/\psi_1)$、$m(J/\psi_2)$和双介子不变质量$m(\phi)$。该拟合使用\textsc{RooFit}框架~\cite{Verkerke:2003ir}在三维空间中同时进行。
 
-% [PENDING]
-每个$J/\psi \to \mu^+\mu^-$共振态用双面 Crystal Ball（DSCB）函数~\cite{Oreglia:1980cs}描述。拖尾参数$\alpha_L$、$\alpha_R$、$n_L$和$n_R$在两个$J/\psi$介子之间共享，以反映共同的探测器响应；平均值$\mu$和分辨率$\sigma$分别对各$J/\psi$独立浮动。$\phi \to K^+K^-$共振态用Voigtian函数建模——即相对论性Breit--Wigner函数与高斯分辨核的卷积——其中Breit--Wigner宽度固定为PDG值$\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}。
+每个$J/\psi \to \mu^+\mu^-$共振态用双侧水晶球（Double-Sided Crystal Ball, DSCB）函数~\cite{Oreglia:1980cs}描述。拖尾参数$\alpha_L$、$\alpha_R$、$n_L$和$n_R$在两个$J/\psi$介子之间共享，以反映共同的探测器响应；平均值$\mu$和分辨率$\sigma$分别对各$J/\psi$独立浮动。$\phi \to K^+K^-$共振态用Voigtian函数建模——即相对论性Breit--Wigner函数与高斯分辨核的卷积——其中Breit--Wigner宽度固定为PDG值$\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}。
 
-% [PENDING]
 每个$J/\psi$质量分布中的组合本底用指数函数建模，各$J/\psi$具有独立的斜率参数。$\phi$本底用阈值幂律乘以指数函数描述，即$(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$，其中$K^+K^-$运动学阈值固定为$m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$。
 
-% [PENDING]
 将信号概率密度函数记作$S$，本底概率密度函数记作$B$，则一个$J/\psi_1$概率密度函数、一个$J/\psi_2$概率密度函数和一个$\phi$概率密度函数的八种可能组合构成独立的拟合分量。这涵盖了真实共振态与组合本底在三体末态中所有可能的组合方式：
 
 \begin{table}[htbp]
   \centering
-  \caption{八个产额分量。$S$ = 信号，$B$ = 本底。}
+  \caption{产额分量情况汇总表}
   \label{tab:yield-components}
   \small
   \begin{tabular}{ccccc}
@@ -33,26 +27,24 @@
     分量 & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & 物理含义 \\
     \midrule
     $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ 信号 \\
-    $N_{ssb}$ & S & S & B & $J/\psi$ 峰下的 $\phi$ 边带 \\
-    $N_{sbs}$ & S & B & S & $J/\psi_1 + \phi$ 峰下的 $J/\psi_2$ 边带 \\
-    $N_{bss}$ & B & S & S & $J/\psi_2 + \phi$ 峰下的 $J/\psi_1$ 边带 \\
-    $N_{sbb}$ & S & B & B & $J/\psi_1$ 峰下的 $J/\psi_2 + \phi$ 边带 \\
-    $N_{bsb}$ & B & S & B & $J/\psi_2$ 峰下的 $J/\psi_1 + \phi$ 边带 \\
-    $N_{bbs}$ & B & B & S & $\phi$ 峰下的 $J/\psi_1 + J/\psi_2$ 边带 \\
+    $N_{ssb}$ & S & S & B & $J/\psi$ 峰下的 $\phi$ 组合本底 \\
+    $N_{sbs}$ & S & B & S & $J/\psi_1 + \phi$ 峰下的 $J/\psi_2$ 组合本底 \\
+    $N_{bss}$ & B & S & S & $J/\psi_2 + \phi$ 峰下的 $J/\psi_1$ 组合本底 \\
+    $N_{sbb}$ & S & B & B & $J/\psi_1$ 峰下的 $J/\psi_2 + \phi$ 组合本底 \\
+    $N_{bsb}$ & B & S & B & $J/\psi_2$ 峰下的 $J/\psi_1 + \phi$ 组合本底 \\
+    $N_{bbs}$ & B & B & S & $\phi$ 峰下的 $J/\psi_1 + J/\psi_2$ 组合本底 \\
     $N_{bbb}$ & B & B & B & 纯组合本底 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-% [PENDING]
 模型共有20个自由参数：8个产额和12个形状参数。拖尾幂次$n_L$和$n_R$固定为$5.0$，因为它们在拟合范围内不敏感。
 
-% [PENDING]
-拟合收敛，$\mathrm{NLL} = -732\,596$，并获得了完整的协方差矩阵。拟合得到的形状参数汇总于表~\ref{tab:fit-shape-params}。$J/\psi$平均值与PDG值$3.0969\;\mathrm{GeV}$~\cite{PDG2024}一致，双缪子分辨率$27.7\;\mathrm{MeV}$与CMS性能一致。$\phi$平均值在拟合不确定度范围内与PDG值$1.01946\;\mathrm{GeV}$相符。
+经拟合得到的形状参数汇总于表~\ref{tab:fit-shape-params}，对应于拟合最大似然值负对数值$\mathrm{NLL} = -732596$。$J/\psi$平均值与PDG值$3.0969\;\mathrm{GeV}$~\cite{PDG2024}一致，双缪子分辨率$27.7\;\mathrm{MeV}$与CMS性能一致。$\phi$平均值在拟合不确定度范围内与PDG值$1.01946\;\mathrm{GeV}$相符。
 
 \begin{table}[htbp]
   \centering
-  \caption{拟合得到的形状参数。"fixed" = 取自外部输入。}
+  \caption{拟合得到的形状参数及其不确定度。}
   \label{tab:fit-shape-params}
   \small
   \begin{tabular}{lcc}
@@ -78,15 +70,14 @@
   \end{tabular}
 \end{table}
 
-% [PENDING]
 拟合产额列于表~\ref{tab:fit-yields}。在效率和接受度修正之前，原始信号产额为
 
 \begin{equation}
+\label{eq:raw-yield}
 \boxed{N_{sss} = 1563 \pm 143\;(\mathrm{stat})},
 \end{equation}
 
-% [PENDING]
-对应的信号比例为$S/(S+B) = 3.20\%$，信噪比为$S/B = 3.31\%$。主要本底分量为$N_{ssb}$（$22\,919$个事例，真实$J/\psi$对伴随非共振$K^+K^-$组合）和$N_{sbb}$（$11\,947$个事例，单个$J/\psi$伴随非共振伴随粒子），这与$\phi$共振态远窄于$J/\psi$的预期一致。
+对应的信号比例为$S/(S+B) = 3.20\%$，信噪比为$S/B = 3.31\%$。主要本底分量为$N_{ssb}$（$22919$个事例，真实$J/\psi$对伴随非共振$K^+K^-$组合）和$N_{sbb}$（$11947$个事例，单个$J/\psi$伴随非共振伴随粒子），这与$\phi$共振态远窄于$J/\psi$的预期一致。
 
 \begin{table}[htbp]
   \centering
@@ -98,43 +89,47 @@
     分量 & 产额 & 统计不确定度 \\
     \midrule
     $N_{sss}$ (信号) & $1563$ & $\pm 143$ \\
-    $N_{ssb}$ & $22\,919$ & $\pm 323$ \\
+    $N_{ssb}$ & $22919$ & $\pm 323$ \\
     $N_{sbs}$ & $801$ & $\pm 117$ \\
     $N_{bss}$ & $422$ & $\pm 90$ \\
-    $N_{sbb}$ & $11\,947$ & $\pm 242$ \\
-    $N_{bsb}$ & $4\,163$ & $\pm 184$ \\
+    $N_{sbb}$ & $11947$ & $\pm 242$ \\
+    $N_{bsb}$ & $4163$ & $\pm 184$ \\
     $N_{bbs}$ & $362$ & $\pm 91$ \\
-    $N_{bbb}$ & $6\,651$ & $\pm 190$ \\
+    $N_{bbb}$ & $6651$ & $\pm 190$ \\
     \midrule
-    总计 & $48\,829$ & --- \\
+    总计 & $48829$ & --- \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 % [PENDING]
-$J/\psi J/\psi \phi$信号的统计显著性通过似然比检验进行评估。将信号产额$N_{sss}$固定为零的零假设被重新拟合。检验统计量$q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$在Wilks定理~\cite{Wilks:1938}下服从半-$\chi^2(1)$分布，由此得到$Z = \sqrt{q_0}$。零假设拟合给出$\mathrm{NLL} = -732\,524$，从而得到
+$J/\psi J/\psi \phi$信号的统计显著性通过似然比检验进行评估。将信号产额$N_{sss}$固定为零的零假设被重新拟合。检验统计量$q_0 = -2\ln(\mathcal{L}_{N_{sss}=0} / \mathcal{L}_{\mathrm{best}})$在Wilks定理~\cite{Wilks:1938}下服从半-$\chi^2(1)$分布，由此得到$Z = \sqrt{q_0}$。零假设拟合给出$\mathrm{NLL} = -732524$，从而得到
 
 \begin{equation}
-Z = \sqrt{144.2} = 12.0 .
+\label{eq:significance}
+Z = \sqrt{-2\mathrm{NLL}_{N_{sss}=0} + 2\mathrm{NLL}_{\mathrm{best}}} = \sqrt{-2(-732524) + 2(-732596)} \approx \sqrt{144} = 12.0
 \end{equation}
 
-% [PENDING]
-这一结果远超通常的 $5\,\sigma$ 发现阈值，为质心系能量$\sqrt{s} = 13.6 \mathrm{TeV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
+这一结果远超通常的 $5\sigma$ 发现阈值，为质心系能量$\sqrt{s} = 13.6 \mathrm{TeV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
 
 \section{接受度修正}
 \label{sec:acceptance-correction}
 
 接受度量化了介子衰变产物到达探测器灵敏体积并留下可重建信号的概率。对于$J/\psi \to \mu^+\mu^-$产生的缪子，单缪子基准要求为
+
 \begin{equation}
   \label{eq:muon-fiducial}
-    p_{\mathrm{T}}(\mu^{\pm}) > 3.5\;\mathrm{GeV},
-  \qquad
-    |\eta(\mu^{\pm})| < 2.4 .
+    p_{\mathrm{T}}(\mu) > \begin{cases}
+      3.5\;\mathrm{GeV}, & |\eta(\mu)| < 1.2 \\
+      2.5\;\mathrm{GeV}, & 1.2 \leq |\eta(\mu)| < 2.4
+    \end{cases},
 \end{equation}
+
 这些阈值是CMS夸克偶素分析中的标准选择：$p_{\mathrm{T}}$截断确保缪子穿越足够多的缪子站以被高效率重建，而$\eta$要求将缪子限制在缪子系统的几何覆盖范围内~\cite{CMS_MUON_PERF_13TEV}。对于$\phi \to K^+K^-$产生的介子，基准标准遵循硅径迹探测器的带电径迹接受度：
+
 \begin{equation}
   \label{eq:kaon-fiducial}
-    p_{\mathrm{T}}(K^{\pm}) > 0.5\;\mathrm{GeV},
+    p_{\mathrm{T}}(K^{\pm}) > 2\;\mathrm{GeV},
   \qquad
     |\eta(K^{\pm})| < 2.4 .
 \end{equation}
@@ -143,21 +138,23 @@ Z = \sqrt{144.2} = 12.0 .
 
 一个$J/\psi J/\psi \phi$事例的总接受度近似为三个单对象接受度的乘积：
 \begin{equation}
-\label{eq:acceptance-product}
-A_{\mathrm{tot}}\bigl(\vec{x}_{J/\psi_1}, \vec{x}_{J/\psi_2}, \vec{x}_{\phi}\bigr)
-\;\approx\;
-A_{J/\psi}\bigl(\vec{x}_{J/\psi_1}\bigr)\;
-A_{J/\psi}\bigl(\vec{x}_{J/\psi_2}\bigr)\;
-A_{\phi}\bigl(\vec{x}_{\phi}\bigr),
+  \label{eq:acceptance-product}
+  A_{\mathrm{tot}}\bigl(\vec{x}_{J/\psi_1}, \vec{x}_{J/\psi_2}, \vec{x}_{\phi}\bigr)
+  \;\approx\;
+  A_{J/\psi}\bigl(\vec{x}_{J/\psi_1}\bigr)\;
+  A_{J/\psi}\bigl(\vec{x}_{J/\psi_2}\bigr)\;
+  A_{\phi}\bigl(\vec{x}_{\phi}\bigr),
 \end{equation}
+
 其中$\vec{x} = (p_{\mathrm{T}}, |y|)$表示各介子的运动学坐标。这种因子化假设各介子的衰变运动学彼此独立，这对非极化$J/\psi$产生是有效的，并且是CMS多重夸克偶素测量中的标准处理方法~\cite{CMS_TRI_JPSI}。相同的单对象接受度映射用于两个$J/\psi$介子，其合理性在于接受度取决于介子的衰变性质而非其在$p_{\mathrm{T}}$中的排序。
 
 单对象接受度映射在$(p_{\mathrm{T}}, |y|)$平面中计算，分箱为
-\[
+\begin{equation}
+\label{eq:acceptance-binning}
 p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \qquad
 |y| \in [0,\;0.6,\;1.2,\;1.8,\;2.4].
-\]
+\end{equation}
 在低$p_{\mathrm{T}}$和高$|y|$区域，接受度下降，因为一个或两个衰变缪子落在基准$\eta$范围之外。在高$p_{\mathrm{T}}$区域，衰变产物沿介子方向更加集中，接受度在所有快度分箱中趋近于1。单个对象的接受度映射（leading $J/\psi$、subleading $J/\psi$和$\phi$）详见附录~\ref{app:efficiency-plots}。
 
 为便于后续逐事例修正，将两个$J/\psi$的接受度合并为一个堆叠的$J/\psi$接受度映射，如图~\ref{fig:acc-stacked-jpsi}所示。这一堆叠映射汇集了leading和subleading $J/\psi$样本，为每个分箱提供更好的统计精度，并为两个$J/\psi$介子提供统一的参考。
@@ -172,12 +169,11 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \section{效率修正}
 \label{sec:efficiency-correction}
 
-% [PENDING]
 一旦衰变产物处于探测器接受度内，它们必须被CMS径迹和缪子系统重建，被鉴别为信号候选粒子，并通过触发和事例级别的选择。每一步的效率定义为条件概率：即通过给定选择的事例占已通过所有先前选择的事例的比例。以条件方式（而非相对于生成样本的累积方式）计算每个效率步骤，可以隔离各个选择标准的影响，并便于系统研究。
 
-% [PENDING]
 效率使用完全模拟的MC样本（包含产生子、探测器模拟和重建）进行评估。由于模拟中的运动学分布可能与数据不同——特别地，由于SPS与DPS的未知混合比例——效率在与接受度相同的$(p_{\mathrm{T}}, |y|)$分箱中计算。在每个分箱中，条件效率为
 \begin{equation}
+\label{eq:step-efficiency}
 \epsilon_i(\vec{x}) = \frac{N(\text{pass step } i \;\cap\; \text{pass steps } 1,\dots,i-1;\;\vec{x})}
                          {N(\text{pass steps } 1,\dots,i-1;\;\vec{x})},
 \end{equation}
@@ -214,7 +210,7 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
     \end{tabular}
     \begin{tablenotes}
       \item [a] 质量窗口定义为 $J/\psi$：$[2.95, 3.25]\;\mathrm{GeV}$，$\phi$：$[1.01, 1.03]\;\mathrm{GeV}$。
-      \item [b] HLT触发效率名义上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
+      \item [b] HLT触发效率原则上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
@@ -308,6 +304,7 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 % [PENDING]
 在有多个$\phi$介子或多个$K^+K^-$组合满足选择标准的事例中，可能形成多于一个$J/\psi J/\psi \phi$候选粒子。本分析采用确定的择优候选规则：在一个事例中所有有效候选粒子中，保留使下式最大化的那一个：
 \begin{equation}
+\label{eq:best-candidate}
 S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mathrm{T}}^2(\phi)\,}
 \end{equation}
 同一择优候选规则在生成子级和重建级均适用，使得基准测量的定义内部自洽：事例由该规则所选出的候选粒子来表征，而非由预先确定的"最硬"$\phi$介子表征。
@@ -342,6 +339,7 @@ The test is carried out on pure SPS and pure DPS samples, representing the two k
 
 每个选定事例被赋予一个总修正权重
 \begin{equation}
+\label{eq:weight}
 w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 \end{equation}
 其中$A_{\mathrm{tot}}$和$\epsilon_{\mathrm{tot}}$使用第\ref{sec:acceptance-correction}节和第\ref{sec:efficiency-correction}节描述的接受度和效率映射，在事例的运动学坐标处求值。该权重表示每个选定事例所代表的预期产生事例数。
@@ -359,17 +357,20 @@ w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 
 对于每个事例，组合权重为修正权重与sWeight的乘积：
 \begin{equation}
+\label{eq:combined-weight}
 w_{\mathrm{comb}} = w \times sWeight .
 \end{equation}
 对所有选定事例求和该组合权重，即得到效率修正后的总信号产额：
 \begin{equation}
+\label{eq:corrected-yield-formula}
 \boxed{N_{sss}^{\mathrm{corr}} = \sum_{i} w_{i} \times sWeight_{i} .}
 \end{equation}
-利用\ref{sec:efficiency-correction}节所述的效率修正框架，对DPS1名义效率图进行评估，得到
+利用\ref{sec:efficiency-correction}节所述的效率修正框架，对DPS1基准效率图进行评估，得到
 \begin{equation}
-\boxed{N_{sss}^{\mathrm{corr}} = 103{,}972 \pm 20{,}558\,(\mathrm{stat}) \pm 19{,}754\,(\mathrm{syst,\,model}) .}
+\label{eq:corrected-yield}
+\boxed{N_{sss}^{\mathrm{corr}} = 103972 \pm 20558\,(\mathrm{stat}) \pm 19754\,(\mathrm{syst,\,model}) .}
 \end{equation}
-其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差取自四种效率变动情景（DPS2\_CS、DPS2\_G、SPS\_G与名义DPS1）的包络半宽（\ref{chap:systematics}章\ref{subsec:syst-model-dependence}节）。名义修正采用DPS1效率图，对应于以DPS为主的效率假设。
+其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差取自四种效率变动情景（DPS2\_CS、DPS2\_G、SPS\_G与基准DPS1）的包络半宽（\ref{chap:systematics}章\ref{subsec:syst-model-dependence}节）。基准修正采用DPS1效率图，对应于以DPS为主的效率假设。
 
 % [PENDING]
 信号$J/\psi J/\psi \phi$事例的sPlot加权运动学分布如图~\ref{fig:corr-kinematics-mass}--\ref{fig:corr-kinematics-pt}所示。图~\ref{fig:corr-kinematics-mass}给出了三个介子的不变质量谱，图~\ref{fig:corr-kinematics-pt}给出了横动量谱。所有分布均以$w \times sWeight$加权填充，从而在统计意义上将$N_{sss}$信号分量从本底中分离。质量谱中可见清晰的$J/\psi$和$\phi$共振峰，横动量谱展示了信号事例中三个介子的运动学特征。角关联分布（$\Delta y$与$\Delta\phi$）将另行补充。
@@ -399,4 +400,4 @@ w_{\mathrm{comb}} = w \times sWeight .
   \label{fig:corr-kinematics-correlations}
 \end{figure}
 
-综上，本章完成了从原始信号提取到效率修正的完整分析链：通过三维无分箱最大似然拟合从48,829个候选事例中提取了$N_{sss} = 1563 \pm 143$的原始信号产额，显著性达到$12.0\sigma$；基于MC模拟计算了逐分箱的接受度和条件效率修正因子，名义修正采用DPS1效率图；通过sPlot技术实现了信号与本底在运动学分布中的统计分离，得到效率修正后的总信号产额$N_{sss}^{\mathrm{corr}} = 103{,}972 \pm 20{,}558\,(\mathrm{stat}) \pm 19{,}754\,(\mathrm{syst,\,model})$。本章建立的修正框架和效率因子将作为第6章系统误差评估的核心输入，修正后的信号产额将用于第7章的物理结果计算。
+综上，本章完成了从原始信号提取到效率修正的完整分析链：通过三维无分箱最大似然拟合从48829个候选事例中提取了$N_{sss} = 1563 \pm 143$的原始信号产额，显著性达到$12.0\sigma$；基于MC模拟计算了逐分箱的接受度和条件效率修正因子，基准修正采用DPS1效率图；通过sPlot技术实现了信号与本底在运动学分布中的统计分离，得到效率修正后的总信号产额$N_{sss}^{\mathrm{corr}} = 103972 \pm 20558\,(\mathrm{stat}) \pm 19754\,(\mathrm{syst,\,model})$。本章建立的修正框架和效率因子将作为第6章系统误差评估的核心输入，修正后的信号产额将用于第7章的物理结果计算。
