@@ -1,9 +1,7 @@
 \chapter{信号提取与效率修正}
-% \chapter{Signal Extraction and Efficiency Correction}
 \label{chap:signal-efficiency}
 
 \section{概述}
-% \section{Overview}
 \label{sec:signal-efficiency-overview}
 
 % [TODO] 简要说明本章的逻辑链：从筛选后的事例样本出发，通过三维拟合提取原始信号产额，然后计算接受度和效率修正，最终给出修正后的信号产额和sPlot加权的物理量分布。
@@ -11,7 +9,6 @@
 本章从第4章筛选得到的48,829个候选事例出发，分三个阶段进行。首先，通过对$m(J/\psi_1)$、$m(J/\psi_2)$和$m(\phi)$三维不变质量分布的无分箱最大似然拟合，将信号分量（$N_{sss}$）与七类本底分量分离，提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，基于生成子级和全模拟MC样本，计算单对象基准接受度和条件效率修正，并讨论候选选择与迁移效应（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第三，结合修正权重与sPlot技术，给出效率修正后的信号产额和信号加权的运动学分布（第\ref{sec:corrected-results}节）。
 
 \section{从三维质量谱中提取信号}
-% \section{Signal Extraction from the Three-Dimensional Mass Spectrum}
 \label{sec:signal-extraction}
 
 % [PENDING]
@@ -24,12 +21,11 @@
 每个$J/\psi$质量分布中的组合本底用指数函数建模，各$J/\psi$具有独立的斜率参数。$\phi$本底用阈值幂律乘以指数函数描述，即$(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$，其中$K^+K^-$运动学阈值固定为$m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$。
 
 % [PENDING]
-将信号概率密度函数记作\textbf{S}，本底概率密度函数记作\textbf{B}，则一个$J/\psi_1$概率密度函数、一个$J/\psi_2$概率密度函数和一个$\phi$概率密度函数的八种可能组合构成独立的拟合分量。这涵盖了真实共振态与组合本底在三体末态中所有可能的组合方式：
+将信号概率密度函数记作$S$，本底概率密度函数记作$B$，则一个$J/\psi_1$概率密度函数、一个$J/\psi_2$概率密度函数和一个$\phi$概率密度函数的八种可能组合构成独立的拟合分量。这涵盖了真实共振态与组合本底在三体末态中所有可能的组合方式：
 
 \begin{table}[htbp]
   \centering
-  \caption{八个产额分量。\textbf{S} = 信号，\textbf{B} = 本底。}
-  % \caption{Eight yield components. \textbf{S} = signal, \textbf{B} = background.}
+  \caption{八个产额分量。$S$ = 信号，$B$ = 本底。}
   \label{tab:yield-components}
   \small
   \begin{tabular}{ccccc}
@@ -37,21 +33,13 @@
     分量 & $J/\psi_1$ & $J/\psi_2$ & $\phi$ & 物理含义 \\
     \midrule
     $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ 信号 \\
-    % $N_{sss}$ & S & S & S & $J/\psi J/\psi \phi$ signal \\
     $N_{ssb}$ & S & S & B & $J/\psi$ 峰下的 $\phi$ 边带 \\
-    % $N_{ssb}$ & S & S & B & $\phi$ sideband under $J/\psi$ peaks \\
     $N_{sbs}$ & S & B & S & $J/\psi_1 + \phi$ 峰下的 $J/\psi_2$ 边带 \\
-    % $N_{sbs}$ & S & B & S & $J/\psi_2$ sideband under $J/\psi_1 + \phi$ peaks \\
     $N_{bss}$ & B & S & S & $J/\psi_2 + \phi$ 峰下的 $J/\psi_1$ 边带 \\
-    % $N_{bss}$ & B & S & S & $J/\psi_1$ sideband under $J/\psi_2 + \phi$ peaks \\
     $N_{sbb}$ & S & B & B & $J/\psi_1$ 峰下的 $J/\psi_2 + \phi$ 边带 \\
-    % $N_{sbb}$ & S & B & B & $J/\psi_2 + \phi$ sidebands under $J/\psi_1$ peak \\
     $N_{bsb}$ & B & S & B & $J/\psi_2$ 峰下的 $J/\psi_1 + \phi$ 边带 \\
-    % $N_{bsb}$ & B & S & B & $J/\psi_1 + \phi$ sidebands under $J/\psi_2$ peak \\
     $N_{bbs}$ & B & B & S & $\phi$ 峰下的 $J/\psi_1 + J/\psi_2$ 边带 \\
-    % $N_{bbs}$ & B & B & S & $J/\psi_1 + J/\psi_2$ sidebands under $\phi$ peak \\
     $N_{bbb}$ & B & B & B & 纯组合本底 \\
-    % $N_{bbb}$ & B & B & B & Pure combinatorial background \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -65,13 +53,11 @@
 \begin{table}[htbp]
   \centering
   \caption{拟合得到的形状参数。"fixed" = 取自外部输入。}
-  % \caption{Fitted shape parameters. ``fixed'' = taken from external inputs.}
   \label{tab:fit-shape-params}
   \small
   \begin{tabular}{lcc}
     \toprule
     参数 & 拟合值 & 不确定度 \\
-    % Parameter & Fit value & Uncertainty \\
     \midrule
     $\mu(J/\psi_1)$ & $3.0933\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
     $\mu(J/\psi_2)$ & $3.0928\;\mathrm{GeV}$ & $\pm 0.0003\;\mathrm{GeV}$ \\
@@ -105,16 +91,13 @@
 \begin{table}[htbp]
   \centering
   \caption{八个分量的拟合产额。}
-  % \caption{Fitted yields of the eight components.}
   \label{tab:fit-yields}
   \small
   \begin{tabular}{ccc}
     \toprule
     分量 & 产额 & 统计不确定度 \\
-    % Component & Yield & Statistical uncertainty \\
     \midrule
     $N_{sss}$ (信号) & $1563$ & $\pm 143$ \\
-    % $N_{sss}$ (signal) & $1563$ & $\pm 143$ \\
     $N_{ssb}$ & $22\,919$ & $\pm 323$ \\
     $N_{sbs}$ & $801$ & $\pm 117$ \\
     $N_{bss}$ & $422$ & $\pm 90$ \\
@@ -124,7 +107,6 @@
     $N_{bbb}$ & $6\,651$ & $\pm 190$ \\
     \midrule
     总计 & $48\,829$ & --- \\
-    % Total & $48\,829$ & --- \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -188,7 +170,6 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \end{figure}
 
 \section{效率修正}
-% \section{Efficiency Correction}
 \label{sec:efficiency-correction}
 
 % [PENDING]
@@ -209,44 +190,31 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
   \centering
   \begin{threeparttable}[c]
     \caption{效率链汇总。每一步均以前面所有步骤均已满足为条件。}
-    % \caption{Summary of the efficiency chain. Each step is conditional on all preceding steps having been satisfied.}
     \label{tab:efficiency-chain}
     \small
     \begin{tabular}{ccll}
       \toprule
       步骤 & 标签 & 定义 & 分箱方式 \\
-      % Step & Label & Definition & Binning \\
       \midrule
       \multicolumn{4}{c}{\textit{每个 $J/\psi$（对 leading 和 subleading 均适用）}} \\
       1a & $\epsilon_{\mu\mathrm{RECO}}$ & 两个子缪子均被重建并与生成子级缪子匹配 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      % 1a & $\epsilon_{\mu\mathrm{RECO}}$ & Both daughter muons reconstructed and matched to generator-level muons & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       1b & $\epsilon_{\mu\mathrm{ID}}$   & 两个匹配的缪子均满足软缪子鉴别条件 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      % 1b & $\epsilon_{\mu\mathrm{ID}}$   & Both matched muons satisfy the soft muon identification & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       1c & $\epsilon_{\mu\mu}$          & 双缪子顶点拟合概率 $> 0.5\%$ 且不变质量在 $J/\psi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      % 1c & $\epsilon_{\mu\mu}$          & Dimuon vertex fit probability $> 0.5\%$ and invariant mass within the $J/\psi$ window\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{每个 $\phi$}} \\
       2a & $\epsilon_{K\mathrm{RECO}}$  & 两个子介子均被重建并与生成子级介子匹配 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      % 2a & $\epsilon_{K\mathrm{RECO}}$  & Both daughter kaons reconstructed and matched to generator-level kaons & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
       2b & $\epsilon_{K\mathrm{ID}}$    & 两个匹配的径迹均满足径迹质量和介子选择标准 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      % 2b & $\epsilon_{K\mathrm{ID}}$    & Both matched tracks satisfy the track quality and kaon selection criteria & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
       2c & $\epsilon_{KK}$              & 双介子顶点拟合且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      % 2c & $\epsilon_{KK}$              & Dikaon vertex fit and invariant mass within the $\phi$ window\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{事例级别}} \\
       3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
-      % 3  & $\epsilon_{\mathrm{HLT}}$    & Event passes the HLT trigger and trigger objects match reconstructed muons\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
       4  & $\epsilon_{4\mu\mathrm{vtx}}$& 四缪子顶点拟合收敛 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
-      % 4  & $\epsilon_{4\mu\mathrm{vtx}}$& Four-muon vertex fit converges & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
       5  & $\epsilon_{\mathrm{triOnia}}$& 三介子共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
-      % 5  & $\epsilon_{\mathrm{triOnia}}$& Three-meson common vertex fit and remaining event-level selections & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$,\, split by $p_{\mathrm{T}}^{\phi}$ \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
       \item [a] 质量窗口定义为 $J/\psi$：$[2.95, 3.25]\;\mathrm{GeV}$，$\phi$：$[1.01, 1.03]\;\mathrm{GeV}$。
-      % \item [a] The mass window is defined as $[2.95, 3.25]\;\mathrm{GeV}$ for $J/\psi$ and $[1.01, 1.03]\;\mathrm{GeV}$ for $\phi$.
       \item [b] HLT触发效率名义上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
-      % \item [b] The HLT trigger efficiency is nominally an event-level quantity but is evaluated in three-dimensional kinematic bins to account for residual correlations between the trigger decision and the meson transverse momenta.
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
@@ -335,7 +303,6 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \end{table}
 
 \section{候选选择和迁移效应}
-% \section{Candidate Choice and Migration Effects}
 \label{sec:candidate-choice-migration}
 
 % [PENDING]
@@ -361,7 +328,7 @@ w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for.
 
 % [PENDING]
-The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known \textit{a priori}, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
+The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known a priori, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
 \begin{equation}
 N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
 \end{equation}
@@ -371,7 +338,6 @@ The test is carried out on pure SPS and pure DPS samples, representing the two k
 \fi
 
 \section{效率修正后的信号产额与sPlot分布}
-% \section{Efficiency-Corrected Signal Yield and sPlot Distributions}
 \label{sec:corrected-results}
 
 每个选定事例被赋予一个总修正权重
@@ -388,7 +354,6 @@ w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
   \subcaptionbox{$m(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass_fit.png}}
   \subcaptionbox{$m(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass_fit.png}}
   \caption{三维拟合在$m(J/\psi_1)$（左）、$m(J/\psi_2)$（中）和$m(\phi)$（右）上的投影，信号和本底分量通过sWeights分离。数据点为选定事例，蓝色实线为总拟合函数，红色虚线为$N_{sss}$信号分量，绿色点线为本底分量之和。}
-  % \caption{Projections of the 3D fit onto $m(J/\psi_1)$ (left), $m(J/\psi_2)$ (middle), and $m(\phi)$ (right), with signal and background components separated by sWeights. Data points are selected events, solid blue curves are the total fit, dashed red curves are the $N_{sss}$ signal component, dotted green curves are the sum of background components.}
   \label{fig:fit-projections}
 \end{figure}
 
@@ -405,11 +370,9 @@ w_{\mathrm{comb}} = w \times sWeight .
 \boxed{N_{sss}^{\mathrm{corr}} = 103{,}972 \pm 20{,}558\,(\mathrm{stat}) \pm 19{,}754\,(\mathrm{syst,\,model}) .}
 \end{equation}
 其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差取自四种效率变动情景（DPS2\_CS、DPS2\_G、SPS\_G与名义DPS1）的包络半宽（\ref{chap:systematics}章\ref{subsec:syst-model-dependence}节）。名义修正采用DPS1效率图，对应于以DPS为主的效率假设。
-% Using the efficiency correction framework described in Sec.~\ref{sec:efficiency-correction}, evaluated with the nominal DPS1 efficiency maps, we obtain [...]. The statistical uncertainty is propagated from the sWeight statistical uncertainties, and the model-dependence systematic uncertainty is taken as the envelope half-width across four efficiency variation scenarios (DPS2_CS, DPS2_G, SPS_G, and the nominal DPS1), as detailed in Chapter~\ref{chap:systematics}, Sec.~\ref{subsec:syst-model-dependence}. The nominal correction uses DPS1 efficiency maps, corresponding to a DPS-dominated efficiency assumption.
 
 % [PENDING]
 信号$J/\psi J/\psi \phi$事例的sPlot加权运动学分布如图~\ref{fig:corr-kinematics-mass}--\ref{fig:corr-kinematics-pt}所示。图~\ref{fig:corr-kinematics-mass}给出了三个介子的不变质量谱，图~\ref{fig:corr-kinematics-pt}给出了横动量谱。所有分布均以$w \times sWeight$加权填充，从而在统计意义上将$N_{sss}$信号分量从本底中分离。质量谱中可见清晰的$J/\psi$和$\phi$共振峰，横动量谱展示了信号事例中三个介子的运动学特征。角关联分布（$\Delta y$与$\Delta\phi$）将另行补充。
-% The sPlot-weighted kinematic distributions of signal $J/\psi J/\psi \phi$ events are shown in Fig.~\ref{fig:corr-kinematics}. Fig.~\ref{fig:corr-kinematics-mass} shows the invariant mass spectra of the three mesons, and Fig.~\ref{fig:corr-kinematics-pt} shows the transverse momentum spectra. All distributions are filled with $w \times sWeight$, statistically separating the $N_{sss}$ signal component from backgrounds. The $J/\psi$ and $\phi$ resonance peaks are clearly visible in the mass spectra, and the $p_T$ spectra show the kinematic features of the three mesons in signal events. Angular correlation distributions ($\Delta y$ and $\Delta\phi$) will be added separately.
 
 \begin{figure}[htbp]
   \centering
@@ -417,7 +380,6 @@ w_{\mathrm{comb}} = w \times sWeight .
   \subcaptionbox{$m(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass.png}}
   \subcaptionbox{$m(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass.png}}
   \caption{sPlot加权的信号$J/\psi J/\psi \phi$候选事例不变质量分布。}
-  % \caption{sPlot-weighted invariant mass distributions of signal $J/\psi J/\psi \phi$ candidate events.}
   \label{fig:corr-kinematics-mass}
 \end{figure}
 
@@ -427,16 +389,13 @@ w_{\mathrm{comb}} = w \times sWeight .
   \subcaptionbox{$p_T(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_pt.png}}
   \subcaptionbox{$p_T(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_pt.png}}
   \caption{sPlot加权的信号$J/\psi J/\psi \phi$候选事例横动量分布。}
-  % \caption{sPlot-weighted transverse momentum distributions of signal $J/\psi J/\psi \phi$ candidate events.}
   \label{fig:corr-kinematics-pt}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \textbf{[待填：$\Delta y(J/\psi_1, J/\psi_2)$、$\Delta y(J/\psi, \phi)$、$\Delta\phi(J/\psi_1, J/\psi_2)$、$\Delta\phi(J/\psi, \phi)$ 的角关联分布图。]}
-  % \textbf{[To be filled: angular correlation distributions of $\Delta y(J/\psi_1, J/\psi_2)$, $\Delta y(J/\psi, \phi)$, $\Delta\phi(J/\psi_1, J/\psi_2)$, $\Delta\phi(J/\psi, \phi)$.]}
   \caption{信号$J/\psi J/\psi \phi$候选事例的角关联分布（待补充）。}
-  % \caption{Angular correlation distributions of signal $J/\psi J/\psi \phi$ candidate events (to be added).}
   \label{fig:corr-kinematics-correlations}
 \end{figure}
 
