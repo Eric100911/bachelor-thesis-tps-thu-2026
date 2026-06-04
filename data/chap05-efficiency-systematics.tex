@@ -4,7 +4,7 @@
 \section{概述}
 \label{sec:signal-efficiency-overview}
 
-本章从此前筛选得到的48829个候选事例出发，分三个阶段进行。首先，通过对$m(J/\psi_1)$、$m(J/\psi_2)$和$m(\phi)$三维不变质量分布的无分箱最大似然拟合，将信号分量（$N_{sss}$）与七类本底分量分离，提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，基于生成子级和全模拟MC样本，计算单对象基准接受度和条件效率修正，并讨论候选选择与迁移效应（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第三，结合修正权重与sPlot技术，给出效率修正后的信号产额和信号加权的运动学分布（第\ref{sec:corrected-results}节）。
+本章从此前筛选得到的48829个候选事例出发，分四个阶段进行。首先，通过对$m(J/\psi_1)$、$m(J/\psi_2)$和$m(\phi)$三维不变质量分布的无分箱最大似然拟合，将信号分量（$N_{sss}$）与七类本底分量分离，提取原始信号产额（第\ref{sec:signal-extraction}节）。其次，利用sPlot技术计算逐事例信号权重，在不需要效率修正的条件下获得信号的运动学分布特征（第\ref{sec:splot-distributions}节）。第三，基于生成子级和全模拟MC样本，以DPS1子过程样本作为基准计算单对象基准接受度和条件效率修正因子，并讨论候选选择与迁移效应（第\ref{sec:acceptance-correction}节至第\ref{sec:candidate-choice-migration}节）。第四，将DPS1效率权重应用于事例后重新进行三维质量谱拟合，提取效率修正后的信号产额（第\ref{sec:corrected-results}节）。
 
 \section{从三维质量谱中提取信号}
 \label{sec:signal-extraction}
@@ -110,7 +110,107 @@ $J/\psi J/\psi \phi$信号的统计显著性通过似然比检验进行评估。
 Z = \sqrt{-2\mathrm{NLL}_{N_{sss}=0} + 2\mathrm{NLL}_{\mathrm{best}}} = \sqrt{-2(-732524) + 2(-732596)} \approx \sqrt{144} = 12.0
 \end{equation}
 
-这一结果远超通常的 $5\sigma$ 发现阈值，为质心系能量$\sqrt{s} = \SI{13.6}{\tera\eV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
+这一结果远超通常的 $5\sigma$ 发现阈值，为质心系能量$\sqrt{s} = \SI{13.6}{\tera\eV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。三维拟合在三个不变质量谱上的投影如图~\ref{fig:fit-projections}所示，拟合函数在三个质量投影中均与数据吻合良好。
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{$m(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_mass_fit.png}}
+  \subcaptionbox{$m(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass_fit.png}}
+  \subcaptionbox{$m(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass_fit.png}}
+  \caption{三维拟合在$m(J/\psi_1)$（左）、$m(J/\psi_2)$（中）和$m(\phi)$（右）上的投影。数据点为选定事例，蓝色实线为总拟合函数，红色虚线为$N_{sss}$信号分量，绿色点线为本底分量之和。}
+  \label{fig:fit-projections}
+\end{figure}
+
+\section{sPlot信号--本底分离与运动学分布}
+\label{sec:splot-distributions}
+
+为了在运动学分布中将信号分量与本底分离，采用sPlot技术~\cite{Pivk:2004ty}。利用第\ref{sec:signal-extraction}节描述的三维拟合模型，计算$N_{sss}$分量的逐事例信号权重（sWeights）。该权重在统计意义上将每个候选事例的$N_{sss}$信号分量从七类本底分量中区分出来，从而在不需要逐事例效率修正的条件下获得信号的运动学分布特征。
+
+sPlot加权的信号$J/\psi J/\psi\phi$候选事例运动学分布如图~\ref{fig:corr-kinematics-pt}--\ref{fig:corr-kinematics-correlations}所示，给出了三个介子的横动量谱和角关联分布。所有分布均以sWeight加权填充，在统计意义上将$N_{sss}$信号分量从本底中分离。数据与蒙特卡洛模拟在形状归一化条件下的逐变量比较如图~\ref{fig:datamc-comparison-pt}--\ref{fig:datamc-comparison-mass}，其中所有MC子过程（DPS\_1、DPS\_2\_CS、DPS\_2\_G、SPS\_CS、SPS\_G）以堆叠直方图形式叠加。二维$|\Delta y|$--$|\Delta\phi|$关联热图如图~\ref{fig:corr2d-jpsi1-jpsi2}--\ref{fig:corr2d-jpsi2-phi}，展示了关联结构在数据与各MC子过程之间的差异。上述分布尚未包含效率修正权重，属于拟合级（fit-level）的信号表征；效率修正后的物理分布将在第\ref{sec:corrected-results}节中另行讨论。
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{$p_T(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_pt.png}}
+  \subcaptionbox{$p_T(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_pt.png}}
+  \subcaptionbox{$p_T(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_pt.png}}
+  \caption{sPlot加权的信号$J/\psi J/\psi \phi$候选事例横动量分布。}
+  \label{fig:corr-kinematics-pt}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{$|\Delta y|(J/\psi_1, J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dy_jpsi1_jpsi2.png}}
+  \subcaptionbox{$|\Delta y|(J/\psi_1, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dy_jpsi1_phi.png}}
+  \subcaptionbox{$|\Delta y|(J/\psi_2, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dy_jpsi2_phi.png}}\\[4pt]
+  \subcaptionbox{$|\Delta\phi|(J/\psi_1, J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dphi_jpsi1_jpsi2.png}}
+  \subcaptionbox{$|\Delta\phi|(J/\psi_1, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dphi_jpsi1_phi.png}}
+  \subcaptionbox{$|\Delta\phi|(J/\psi_2, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_abs_dphi_jpsi2_phi.png}}
+  \caption{sPlot加权的信号$J/\psi J/\psi\phi$候选事例角关联分布：$|\Delta y|$（上排）与$|\Delta\phi|$（下排）。所有分布归一化至单位面积。}
+  \label{fig:corr-kinematics-correlations}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{$p_{\mathrm{T}}(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_Jpsi_1_pt.png}}
+  \subcaptionbox{$p_{\mathrm{T}}(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_Jpsi_2_pt.png}}
+  \subcaptionbox{$p_{\mathrm{T}}(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_Phi_pt.png}}
+  \caption{形状归一化的数据--蒙特卡洛比较：介子横动量分布。数据点（sWeighted信号）带有统计误差棒，堆叠直方图为五种MC子过程样本（DPS\_1、DPS\_2\_CS、DPS\_2\_G、SPS\_CS、SPS\_G），各归一化至单位面积。下图面板展示差值$(\mathrm{MC}-\mathrm{Data})/\sigma_{\mathrm{Data}}$。}
+  \label{fig:datamc-comparison-pt}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{$|\Delta y|(J/\psi_1, J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_abs_dy_jpsi1_jpsi2.png}}
+  \subcaptionbox{$|\Delta\phi|(J/\psi_1, J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_abs_dphi_jpsi1_jpsi2.png}}
+  \subcaptionbox{$|\Delta\phi|(J/\psi_1, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_abs_dphi_jpsi1_phi.png}}
+  \caption{形状归一化的数据--蒙特卡洛比较：角关联分布。数据点（sWeighted信号）带有统计误差棒，堆叠直方图为五种MC子过程样本（DPS\_1、DPS\_2\_CS、DPS\_2\_G、SPS\_CS、SPS\_G），各归一化至单位面积。下图面板展示差值$(\mathrm{MC}-\mathrm{Data})/\sigma_{\mathrm{Data}}$。}
+  \label{fig:datamc-comparison-corr}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{$m(J/\psi_1, J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_m_jpsi1_jpsi2.png}}
+  \subcaptionbox{$m(J/\psi_1, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_m_jpsi1_phi.png}}
+  \subcaptionbox{$m(J/\psi_2, \phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/comp_sel_m_jpsi2_phi.png}}
+  \caption{形状归一化的数据--蒙特卡洛比较：介子对不变质量分布。数据点（sWeighted信号）带有统计误差棒，堆叠直方图为五种MC子过程样本（DPS\_1、DPS\_2\_CS、DPS\_2\_G、SPS\_CS、SPS\_G），各归一化至单位面积。下图面板展示差值$(\mathrm{MC}-\mathrm{Data})/\sigma_{\mathrm{Data}}$。}
+  \label{fig:datamc-comparison-mass}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{Data}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/data_correlation_2d_jpsi1_jpsi2.png}}
+  \subcaptionbox{DPS\_1}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_1_correlation_2d_jpsi1_jpsi2.png}}
+  \subcaptionbox{DPS\_2\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_CS_correlation_2d_jpsi1_jpsi2.png}}\\[4pt]
+  \subcaptionbox{DPS\_2\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_G_correlation_2d_jpsi1_jpsi2.png}}
+  \subcaptionbox{SPS\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_CS_correlation_2d_jpsi1_jpsi2.png}}
+  \subcaptionbox{SPS\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_G_correlation_2d_jpsi1_jpsi2.png}}
+  \caption{$J/\psi_1$--$J/\psi_2$对的二维$|\Delta y|$--$|\Delta\phi|$关联热图：sWeighted数据与五种MC子过程样本的比较。所有分布归一化至单位面积。注意DPS\_2\_G和SPS\_G的MC统计量有限，可能存在较强的统计涨落。}
+  \label{fig:corr2d-jpsi1-jpsi2}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{Data}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/data_correlation_2d_jpsi1_phi.png}}
+  \subcaptionbox{DPS\_1}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_1_correlation_2d_jpsi1_phi.png}}
+  \subcaptionbox{DPS\_2\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_CS_correlation_2d_jpsi1_phi.png}}\\[4pt]
+  \subcaptionbox{DPS\_2\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_G_correlation_2d_jpsi1_phi.png}}
+  \subcaptionbox{SPS\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_CS_correlation_2d_jpsi1_phi.png}}
+  \subcaptionbox{SPS\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_G_correlation_2d_jpsi1_phi.png}}
+  \caption{$J/\psi_1$--$\phi$对的二维$|\Delta y|$--$|\Delta\phi|$关联热图：sWeighted数据与五种MC子过程样本的比较。所有分布归一化至单位面积。注意DPS\_2\_G和SPS\_G的MC统计量有限，可能存在较强的统计涨落。}
+  \label{fig:corr2d-jpsi1-phi}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \subcaptionbox{Data}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/data_correlation_2d_jpsi2_phi.png}}
+  \subcaptionbox{DPS\_1}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_1_correlation_2d_jpsi2_phi.png}}
+  \subcaptionbox{DPS\_2\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_CS_correlation_2d_jpsi2_phi.png}}\\[4pt]
+  \subcaptionbox{DPS\_2\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/DPS_2_G_correlation_2d_jpsi2_phi.png}}
+  \subcaptionbox{SPS\_CS}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_CS_correlation_2d_jpsi2_phi.png}}
+  \subcaptionbox{SPS\_G}{\includegraphics[width=0.30\textwidth]{figures/chap05-efficiency-systematics/SPS_G_correlation_2d_jpsi2_phi.png}}
+  \caption{$J/\psi_2$--$\phi$对的二维$|\Delta y|$--$|\Delta\phi|$关联热图：sWeighted数据与五种MC子过程样本的比较。所有分布归一化至单位面积。注意DPS\_2\_G和SPS\_G的MC统计量有限，可能存在较强的统计涨落。}
+  \label{fig:corr2d-jpsi2-phi}
+\end{figure}
 
 \section{接受度修正}
 \label{sec:acceptance-correction}
@@ -206,7 +306,7 @@ p_{\mathrm{T}} \in \{6,10,15,20,30,50,100\}\;\SI{}{\giga\eV},
       \multicolumn{4}{c}{\textit{事例级别}} \\
       3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
       4  & $\epsilon_{4\mu\mathrm{vtx}}$& 四缪子顶点拟合收敛 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
-      5  & $\epsilon_{\mathrm{triOnia}}$& $$J/\psi+J/\psi+\phi$$ 共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
+      5  & $\epsilon_{\mathrm{triOnia}}$& $J/\psi+J/\psi+\phi$ 共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
@@ -313,70 +413,44 @@ S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mat
 % [PENDING]
 当生成子级最优候选与重建级最优候选涉及不同的$\phi$介子或不同的$K^+K^-$配对时——这种情况称为候选失配——重建后的运动学可能相对于生成子级真值从一个分箱迁移到另一个分箱。迁移的程度通过对每个微分变量构造生成子到重建的响应矩阵进行了研究。响应矩阵对于单个介子的$(p_{\mathrm{T}}, |y|)$变量近似为对角矩阵，大部分分箱的纯度和稳定性在90\%以上。关于多候选问题、响应矩阵的定义以及逐分箱修正方法的验证的详细讨论见附录~\ref{app:multicandidate}。
 
-\section{效率修正后的信号产额与sPlot分布}
+\section{效率修正后的信号产额}
 \label{sec:corrected-results}
 
-每个选定事例被赋予一个总修正权重
+效率修正以DPS1产生子作为基准。对于每个选定事例，根据其运动学坐标$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi}, |y^{J/\psi_1}|, |y^{J/\psi_2}|, |y^{\phi}|)$，从第\ref{sec:acceptance-correction}节和第\ref{sec:efficiency-correction}节的接受度和效率映射中求值，构造总修正权重
 \begin{equation}
 \label{eq:weight}
 w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
 \end{equation}
-其中$A_{\mathrm{tot}}$和$\epsilon_{\mathrm{tot}}$使用第\ref{sec:acceptance-correction}节和第\ref{sec:efficiency-correction}节描述的接受度和效率映射，在事例的运动学坐标处求值。该权重表示每个选定事例所代表的预期产生事例数。
+表示每个选定事例所对应的预期产生事例数。
 
-为了在运动学分布中将信号分量与本底分离，采用sPlot技术~\cite{Pivk:2004ty}。利用第\ref{sec:signal-extraction}节描述的三维拟合模型，计算$N_{sss}$分量的逐事例信号权重（sWeights）。通过验证信号加权的质量投影能够重现拟合的信号形状来检验sWeights。信号加权的质量投影如图~\ref{fig:fit-projections}所示。在所有三个信号投影中均清晰可见共振峰，而本底分量是平滑的。
-
-\begin{figure}[htbp]
-  \centering
-  \subcaptionbox{$m(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_mass_fit.png}}
-  \subcaptionbox{$m(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass_fit.png}}
-  \subcaptionbox{$m(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass_fit.png}}
-  \caption{三维拟合在$m(J/\psi_1)$（左）、$m(J/\psi_2)$（中）和$m(\phi)$（右）上的投影，信号和本底分量通过sWeights分离。数据点为选定事例，蓝色实线为总拟合函数，红色虚线为$N_{sss}$信号分量，绿色点线为本底分量之和。}
-  \label{fig:fit-projections}
-\end{figure}
-
-对于每个事例，组合权重为修正权重与sWeight的乘积：
-\begin{equation}
-\label{eq:combined-weight}
-w_{\mathrm{comb}} = w \times sWeight .
-\end{equation}
-对所有选定事例求和该组合权重，即得到效率修正后的总信号产额：
-\begin{equation}
-\label{eq:corrected-yield-formula}
-\boxed{N_{sss}^{\mathrm{corr}} = \sum_{i} w_{i} \times sWeight_{i} .}
-\end{equation}
-利用\ref{sec:efficiency-correction}节所述的效率修正框架，对DPS1基准效率图进行评估，得到
-\begin{equation}
-\label{eq:corrected-yield}
-\boxed{N_{sss}^{\mathrm{corr}} = 103972 \pm 20558\,(\mathrm{stat}) \pm 19754\,(\mathrm{syst,\,model}) .}
-\end{equation}
-其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差取自四种效率变动情景（DPS2\_CS、DPS2\_G、SPS\_G与基准DPS1）的包络半宽（\ref{chap:systematics}章\ref{subsec:syst-model-dependence}节）。基准修正采用DPS1效率图，对应于以DPS为主的效率假设。
-
-% [PENDING]
-信号$J/\psi J/\psi \phi$事例的sPlot加权运动学分布如图~\ref{fig:corr-kinematics-mass}--\ref{fig:corr-kinematics-pt}所示。图~\ref{fig:corr-kinematics-mass}给出了三个介子的不变质量谱，图~\ref{fig:corr-kinematics-pt}给出了横动量谱。所有分布均以$w \times sWeight$加权填充，从而在统计意义上将$N_{sss}$信号分量从本底中分离。质量谱中可见清晰的$J/\psi$和$\phi$共振峰，横动量谱展示了信号事例中三个介子的运动学特征。角关联分布（$\Delta y$与$\Delta\phi$）将另行补充。
+为直接从事例的三维质量谱拟合中提取效率修正后的信号产额，对每个选定事例赋予权重$w$后，采用与第\ref{sec:signal-extraction}节相同的三维无分箱最大似然拟合方法，重新拟合加权后的$m_{J/\psi_1}$--$m_{J/\psi_2}$--$m_{\phi}$质量分布。加权前后各一维投影拟合结果见图~\ref{fig:weighted-mass-fit-projection}。拟合产额汇总于表~\ref{tab:weighted-fit-yields}。
 
 \begin{figure}[htbp]
   \centering
-  \subcaptionbox{$m(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_mass.png}}
-  \subcaptionbox{$m(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass.png}}
-  \subcaptionbox{$m(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass.png}}
-  \caption{sPlot加权的信号$J/\psi J/\psi \phi$候选事例不变质量分布。}
-  \label{fig:corr-kinematics-mass}
+  \includegraphics[width=0.85\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_mass_fit_weighted.png}\\[4pt]
+  \includegraphics[width=0.85\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_mass_fit_weighted.png}\\[4pt]
+  \includegraphics[width=0.85\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_mass_fit_weighted.png}
+  \caption{经DPS1效率修正加权后的三维质量谱拟合在各质量变量上的一维投影：（上）$J/\psi_1$质量，（中）$J/\psi_2$质量，（下）$\phi$质量。数据点表示加权后的候选事例，蓝色实线为总拟合函数，红色虚线为信号分量，绿色点划线为本底分量。}
+  \label{fig:weighted-mass-fit-projection}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{table}[htbp]
   \centering
-  \subcaptionbox{$p_T(J/\psi_1)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_1_pt.png}}
-  \subcaptionbox{$p_T(J/\psi_2)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Jpsi_2_pt.png}}
-  \subcaptionbox{$p_T(\phi)$}{\includegraphics[width=0.32\textwidth]{figures/chap05-efficiency-systematics/sel_Phi_pt.png}}
-  \caption{sPlot加权的信号$J/\psi J/\psi \phi$候选事例横动量分布。}
-  \label{fig:corr-kinematics-pt}
-\end{figure}
+  \begin{threeparttable}[c]
+    \caption{效率修正加权前后三维质量谱拟合的产额对比}
+    \label{tab:weighted-fit-yields}
+    \begin{tabular}{lcc}
+      \toprule
+      & 原始拟合（未加权） & 效率修正拟合（DPS1加权） \\
+      \midrule
+      信号产额 & $1\,560 \pm 143$ & $93\,500 \pm 19\,391$ \\
+      本底产额 & $47\,269$ & $2\,859\,797$ \\
+      加权总事例数 & $48\,829$ & $2\,953\,294$ \\
+      \bottomrule
+    \end{tabular}
+  \end{threeparttable}
+\end{table}
 
-\begin{figure}[htbp]
-  \centering
-  \textbf{[待填：$\Delta y(J/\psi_1, J/\psi_2)$、$\Delta y(J/\psi, \phi)$、$\Delta\phi(J/\psi_1, J/\psi_2)$、$\Delta\phi(J/\psi, \phi)$ 的角关联分布图。]}
-  \caption{信号$J/\psi J/\psi \phi$候选事例的角关联分布（待补充）。}
-  \label{fig:corr-kinematics-correlations}
-\end{figure}
+从效率修正拟合中提取的$J/\psi J/\psi\phi$信号产额为$N_{sss}^{\mathrm{corr}} = 93\,500 \pm 19\,391$。与原始拟合相比，效率加权后的事例权重普遍大于1（在低$p_{\mathrm{T}}$区域尤为显著），使得加权信号产额和本底产额均有所放大。该产额是基于DPS1效率假设的基准结果；关于效率模型依赖性带来的系统误差将在第\ref{chap:systematics}章讨论。
 
-综上，本章完成了从原始信号提取到效率修正的完整分析链：通过三维无分箱最大似然拟合从48829个候选事例中提取了$N_{sss} = 1563 \pm 143$的原始信号产额，显著性达到$12.0\sigma$；基于MC模拟计算了逐分箱的接受度和条件效率修正因子，基准修正采用DPS1效率图；通过sPlot技术实现了信号与本底在运动学分布中的统计分离，得到效率修正后的总信号产额$N_{sss}^{\mathrm{corr}} = 103972 \pm 20558\,(\mathrm{stat}) \pm 19754\,(\mathrm{syst,\,model})$。本章建立的修正框架和效率因子将作为第6章系统误差评估的核心输入，修正后的信号产额将用于第7章的物理结果计算。
+综上，本章完成了从信号提取到效率修正的完整分析流程：通过三维无分箱最大似然拟合从$48\,829$个候选事例中提取了原始信号产额$N_{sss} = 1\,560 \pm 143$；以DPS1产生子为基准计算了逐分箱的接受度和条件效率修正因子；将效率权重应用于事例后重新进行三维质量谱拟合，得到效率修正后的信号产额$N_{sss}^{\mathrm{corr}} = 93\,500 \pm 19\,391$。本章建立的效率修正框架将作为第\ref{chap:systematics}章系统误差评估的核心输入，效率修正后的产额将用于第\ref{chap:results}章的物理结果计算。
