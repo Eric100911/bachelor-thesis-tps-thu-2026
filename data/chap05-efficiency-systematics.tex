@@ -11,9 +11,9 @@
 
 信号产额通过对筛选得到的$48829$个数据事例进行扩展的无分箱最大似然（UML）拟合提取，拟合变量为两个双缪子不变质量$m(J/\psi_1)$、$m(J/\psi_2)$和双介子不变质量$m(\phi)$。该拟合使用\textsc{RooFit}框架~\cite{Verkerke:2003ir}在三维空间中同时进行。
 
-每个$J/\psi \to \mu^+\mu^-$共振态用双侧水晶球（Double-Sided Crystal Ball, DSCB）函数~\cite{Oreglia:1980cs}描述。拖尾参数$\alpha_L$、$\alpha_R$、$n_L$和$n_R$在两个$J/\psi$介子之间共享，以反映共同的探测器响应；平均值$\mu$和分辨率$\sigma$分别对各$J/\psi$独立浮动。$\phi \to K^+K^-$共振态用Voigtian函数建模——即相对论性Breit--Wigner函数与高斯分辨核的卷积——其中Breit--Wigner宽度固定为PDG值$\Gamma_\phi = 4.249\;\mathrm{MeV}$~\cite{PDG2024}。
+每个$J/\psi \to \mu^+\mu^-$共振态用双侧水晶球（Double-Sided Crystal Ball, DSCB）函数~\cite{Oreglia:1980cs}描述。拖尾参数$\alpha_L$、$\alpha_R$、$n_L$和$n_R$在两个$J/\psi$介子之间共享，以反映共同的探测器响应；平均值$\mu$和分辨率$\sigma$分别对各$J/\psi$独立浮动。$\phi \to K^+K^-$共振态用Voigtian函数建模——即相对论性Breit--Wigner函数与高斯分辨核的卷积——其中Breit--Wigner宽度固定为PDG值$\Gamma_\phi = \SI{4.249}{\mega\eV}$~\cite{PDG2024}。
 
-每个$J/\psi$质量分布中的组合本底用指数函数建模，各$J/\psi$具有独立的斜率参数。$\phi$本底用阈值幂律乘以指数函数描述，即$(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$，其中$K^+K^-$运动学阈值固定为$m_{\mathrm{thr}} = 0.987354\;\mathrm{GeV}$。
+每个$J/\psi$质量分布中的组合本底用指数函数建模，各$J/\psi$具有独立的斜率参数。$\phi$本底用阈值幂律乘以指数函数描述，即$(m - m_{\mathrm{thr}})^p \cdot \exp(a_1(m - m_{\mathrm{thr}}))$，其中$K^+K^-$运动学阈值固定为$m_{\mathrm{thr}} = \SI{0.987354}{\giga\eV}$。
 
 将信号概率密度函数记作$S$，本底概率密度函数记作$B$，则一个$J/\psi_1$概率密度函数、一个$J/\psi_2$概率密度函数和一个$\phi$概率密度函数的八种可能组合构成独立的拟合分量。这涵盖了真实共振态与组合本底在三体末态中所有可能的组合方式：
 
@@ -40,7 +40,7 @@
 
 模型共有20个自由参数：8个产额和12个形状参数。拖尾幂次$n_L$和$n_R$固定为$5.0$，因为它们在拟合范围内不敏感。
 
-经拟合得到的形状参数汇总于表~\ref{tab:fit-shape-params}，对应于拟合最大似然值负对数值$\mathrm{NLL} = -732596$。$J/\psi$平均值与PDG值$3.0969\;\mathrm{GeV}$~\cite{PDG2024}一致，双缪子分辨率$27.7\;\mathrm{MeV}$与CMS性能一致。$\phi$平均值在拟合不确定度范围内与PDG值$1.01946\;\mathrm{GeV}$相符。
+经拟合得到的形状参数汇总于表~\ref{tab:fit-shape-params}，对应于拟合最大似然值负对数值$\mathrm{NLL} = -732596$。$J/\psi$平均值与PDG值$\SI{3.0969}{\giga\eV}$~\cite{PDG2024}一致，双缪子分辨率$\SI{27.7}{\mega\eV}$与CMS性能一致。$\phi$平均值在拟合不确定度范围内与PDG值$\SI{1.01946}{\giga\eV}$相符。
 
 \begin{table}[htbp]
   \centering
@@ -51,17 +51,17 @@
     \toprule
     参数 & 拟合值 & 不确定度 \\
     \midrule
-    $\mu(J/\psi_1)$ & $3.0933\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
-    $\mu(J/\psi_2)$ & $3.0928\;\mathrm{GeV}$ & $\pm 0.0003\;\mathrm{GeV}$ \\
-    $\sigma(J/\psi_1)$ & $0.02766\;\mathrm{GeV}$ & $\pm 0.00031\;\mathrm{GeV}$ \\
-    $\sigma(J/\psi_2)$ & $0.02760\;\mathrm{GeV}$ & $\pm 0.00033\;\mathrm{GeV}$ \\
+    $\mu(J/\psi_1)$ & $\SI{3.0933}{\giga\eV}$ & $\pm \SI{0.0002}{\giga\eV}$ \\
+    $\mu(J/\psi_2)$ & $\SI{3.0928}{\giga\eV}$ & $\pm \SI{0.0003}{\giga\eV}$ \\
+    $\sigma(J/\psi_1)$ & $\SI{0.02766}{\giga\eV}$ & $\pm \SI{0.00031}{\giga\eV}$ \\
+    $\sigma(J/\psi_2)$ & $\SI{0.02760}{\giga\eV}$ & $\pm \SI{0.00033}{\giga\eV}$ \\
     $\alpha_L(J/\psi)$ & $1.131$ & $\pm 0.025$ \\
     $\alpha_R(J/\psi)$ & $1.408$ & $\pm 0.032$ \\
     $n_L(J/\psi)$ & $5.0$ & fixed \\
     $n_R(J/\psi)$ & $5.0$ & fixed \\
-    $\mu(\phi)$ & $1.0193\;\mathrm{GeV}$ & $\pm 0.0002\;\mathrm{GeV}$ \\
-    $\sigma(\phi)$ & $0.00215\;\mathrm{GeV}$ & $\pm 0.00026\;\mathrm{GeV}$ \\
-    $\Gamma(\phi)$ & $0.004249\;\mathrm{GeV}$ & fixed (PDG) \\
+    $\mu(\phi)$ & $\SI{1.0193}{\giga\eV}$ & $\pm \SI{0.0002}{\giga\eV}$ \\
+    $\sigma(\phi)$ & $\SI{0.00215}{\giga\eV}$ & $\pm \SI{0.00026}{\giga\eV}$ \\
+    $\Gamma(\phi)$ & $\SI{0.004249}{\giga\eV}$ & fixed (PDG) \\
     $\lambda_1(J/\psi\ \mathrm{bkg})$ & $-1.008$ & $\pm 0.107$ \\
     $\lambda_2(J/\psi\ \mathrm{bkg})$ & $-1.048$ & $\pm 0.073$ \\
     $p(\phi\ \mathrm{bkg})$ & $0.440$ & $\pm 0.024$ \\
@@ -110,7 +110,7 @@ $J/\psi J/\psi \phi$信号的统计显著性通过似然比检验进行评估。
 Z = \sqrt{-2\mathrm{NLL}_{N_{sss}=0} + 2\mathrm{NLL}_{\mathrm{best}}} = \sqrt{-2(-732524) + 2(-732596)} \approx \sqrt{144} = 12.0
 \end{equation}
 
-这一结果远超通常的 $5\sigma$ 发现阈值，为质心系能量$\sqrt{s} = 13.6 \mathrm{TeV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
+这一结果远超通常的 $5\sigma$ 发现阈值，为质心系能量$\sqrt{s} = \SI{13.6}{\tera\eV}$的质子-质子对撞中存在$J/\psi J/\psi \phi$末态提供了明确的证据。
 
 \section{接受度修正}
 \label{sec:acceptance-correction}
@@ -120,21 +120,21 @@ Z = \sqrt{-2\mathrm{NLL}_{N_{sss}=0} + 2\mathrm{NLL}_{\mathrm{best}}} = \sqrt{-2
 \begin{equation}
   \label{eq:muon-fiducial}
     p_{\mathrm{T}}(\mu) > \begin{cases}
-      3.5\;\mathrm{GeV}, & |\eta(\mu)| < 1.2 \\
-      2.5\;\mathrm{GeV}, & 1.2 \leq |\eta(\mu)| < 2.4
+      \SI{3.5}{\giga\eV}, & |\eta(\mu)| < 1.2 \\
+      \SI{2.5}{\giga\eV}, & 1.2 \leq |\eta(\mu)| < 2.4
     \end{cases},
 \end{equation}
 
-这些阈值是CMS夸克偶素分析中的标准选择：$p_{\mathrm{T}}$截断确保缪子穿越足够多的缪子站以被高效率重建，而$\eta$要求将缪子限制在缪子系统的几何覆盖范围内~\cite{CMS_MUON_PERF_13TEV}。对于$\phi \to K^+K^-$产生的介子，基准标准遵循硅径迹探测器的带电径迹接受度：
+这些阈值是CMS夸克偶素分析中的标准选择：$p_{\mathrm{T}}$截断确保缪子穿越足够多的缪子站以被高效率重建，而$\eta$要求将缪子限制在缪子系统的几何覆盖范围内~\cite{CMS_MUON_PERF_13TEV}。对于$\phi \to K^+K^-$产生的$K^\pm$介子，基准标准遵循硅径迹探测器的带电径迹接受度：
 
 \begin{equation}
   \label{eq:kaon-fiducial}
-    p_{\mathrm{T}}(K^{\pm}) > 2\;\mathrm{GeV},
+    p_{\mathrm{T}}(K^{\pm}) > \SI{2}{\giga\eV},
   \qquad
     |\eta(K^{\pm})| < 2.4 .
 \end{equation}
 
-接受度按单个对象计算——分别对leading $J/\psi$、subleading $J/\psi$和$\phi$介子——作为介子横动量$p_{\mathrm{T}}$和绝对快度$|y|$的函数。对于给定的$(p_{\mathrm{T}}, |y|)$分箱，每个对象的接受度定义为该分箱内生成介子中其两个衰变子体均满足式~\eqref{eq:muon-fiducial}至~\eqref{eq:kaon-fiducial}基准标准的事件比例。这通过仅含生成子级别的MC样本确定，因为不需要探测器模拟。
+接受度按单个对象计算——对$J/\psi$介子和$\phi$介子分别评估——作为介子横动量$p_{\mathrm{T}}$和绝对快度$|y|$的函数。对于给定的$(p_{\mathrm{T}}, |y|)$分箱，每个对象的接受度定义为该分箱内生成介子中其两个衰变子体均满足式~\eqref{eq:muon-fiducial}至~\eqref{eq:kaon-fiducial}基准标准的事件比例。这通过仅含生成子级别的MC样本确定，因为不需要探测器模拟。
 
 一个$J/\psi J/\psi \phi$事例的总接受度近似为三个单对象接受度的乘积：
 \begin{equation}
@@ -151,13 +151,13 @@ Z = \sqrt{-2\mathrm{NLL}_{N_{sss}=0} + 2\mathrm{NLL}_{\mathrm{best}}} = \sqrt{-2
 单对象接受度映射在$(p_{\mathrm{T}}, |y|)$平面中计算，分箱为
 \begin{equation}
 \label{eq:acceptance-binning}
-p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
+p_{\mathrm{T}} \in \{6,10,15,20,30,50,100\}\;\SI{}{\giga\eV},
 \qquad
 |y| \in [0,\;0.6,\;1.2,\;1.8,\;2.4].
 \end{equation}
-在低$p_{\mathrm{T}}$和高$|y|$区域，接受度下降，因为一个或两个衰变缪子落在基准$\eta$范围之外。在高$p_{\mathrm{T}}$区域，衰变产物沿介子方向更加集中，接受度在所有快度分箱中趋近于1。单个对象的接受度映射（leading $J/\psi$、subleading $J/\psi$和$\phi$）详见附录~\ref{app:efficiency-plots}。
+在低$p_{\mathrm{T}}$和高$|y|$区域，接受度下降，因为一个或两个衰变缪子落在基准$\eta$范围之外。在高$p_{\mathrm{T}}$区域，衰变产物沿介子方向更加集中，接受度在所有快度分箱中趋近于1。区分$p_{\mathrm{T}}$更高和$p_{\mathrm{T}}$更低$J/\psi$的接受度映射详见附录~\ref{app:efficiency-plots}。
 
-为便于后续逐事例修正，将两个$J/\psi$的接受度合并为一个堆叠的$J/\psi$接受度映射，如图~\ref{fig:acc-stacked-jpsi}所示。这一堆叠映射汇集了leading和subleading $J/\psi$样本，为每个分箱提供更好的统计精度，并为两个$J/\psi$介子提供统一的参考。
+为便于后续逐事例修正，将两个$J/\psi$的接受度合并为图~\ref{fig:acc-stacked-jpsi}所示的堆叠$J/\psi$接受度映射。该映射汇集了所有$J/\psi$候选粒子，为每个分箱提供更好的统计精度。
 
 \begin{figure}[htbp]
   \centering
@@ -169,9 +169,11 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \section{效率修正}
 \label{sec:efficiency-correction}
 
-一旦衰变产物处于探测器接受度内，它们必须被CMS径迹和缪子系统重建，被鉴别为信号候选粒子，并通过触发和事例级别的选择。每一步的效率定义为条件概率：即通过给定选择的事例占已通过所有先前选择的事例的比例。以条件方式（而非相对于生成样本的累积方式）计算每个效率步骤，可以隔离各个选择标准的影响，并便于系统研究。
+% 一旦衰变产物处于探测器接受度内，它们必须被CMS径迹和缪子系统重建，被鉴别为信号候选粒子，并通过触发和事例级别的选择。每一步的效率定义为条件概率：即通过给定选择的事例占已通过所有先前选择的事例的比例。以条件方式（而非相对于生成样本的累积方式）计算每个效率步骤，可以隔离各个选择标准的影响，并便于系统研究。
 
-效率使用完全模拟的MC样本（包含产生子、探测器模拟和重建）进行评估。由于模拟中的运动学分布可能与数据不同——特别地，由于SPS与DPS的未知混合比例——效率在与接受度相同的$(p_{\mathrm{T}}, |y|)$分箱中计算。在每个分箱中，条件效率为
+对于处在探测器接收度内的衰变产物，它们还将需要通过CMS的径迹和缪子系统重建，被鉴别为信号候选粒子，并通过触发和事例级别的选择。以下对各个步骤的比例进行分离计算，以隔离各个选择标准的影响，并便于系统研究。
+
+效率使用完全模拟的MC样本（包含产生子、探测器模拟和重建）进行评估。由于模拟中的运动学分布可能与数据不同——特别地，由于SPS、两类DPS以及TPS的未知混合比例——效率在与接受度相同的$(p_{\mathrm{T}}, |y|)$分箱中计算。在每个分箱中，条件效率为
 \begin{equation}
 \label{eq:step-efficiency}
 \epsilon_i(\vec{x}) = \frac{N(\text{pass step } i \;\cap\; \text{pass steps } 1,\dots,i-1;\;\vec{x})}
@@ -179,7 +181,6 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
 \end{equation}
 其中$N$表示给定运动学分箱中的事例数。这种逐分箱方法确保修正因子不依赖于MC产生子所假设的产生运动学。
 
-% [PENDING]
 本分析的效率链汇总于表~\ref{tab:efficiency-chain}。对于HLT触发效率，分母为两个$J/\psi$候选粒子和$\phi$候选粒子均已重建并鉴别的事例集合；触发的数据驱动交叉检验将在后续系统误差评估中进行。
 
 \begin{table}[htbp]
@@ -194,28 +195,28 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
       \midrule
       \multicolumn{4}{c}{\textit{每个 $J/\psi$（对 leading 和 subleading 均适用）}} \\
       1a & $\epsilon_{\mu\mathrm{RECO}}$ & 两个子缪子均被重建并与生成子级缪子匹配 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
-      1b & $\epsilon_{\mu\mathrm{ID}}$   & 两个匹配的缪子均满足软缪子鉴别条件 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1b & $\epsilon_{\mu\mathrm{ID}}$   & 两个匹配的缪子均满足soft鉴别条件 & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       1c & $\epsilon_{\mu\mu}$          & 双缪子顶点拟合概率 $> 0.5\%$ 且不变质量在 $J/\psi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{J/\psi}, |y^{J/\psi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{每个 $\phi$}} \\
-      2a & $\epsilon_{K\mathrm{RECO}}$  & 两个子介子均被重建并与生成子级介子匹配 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      2b & $\epsilon_{K\mathrm{ID}}$    & 两个匹配的径迹均满足径迹质量和介子选择标准 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
-      2c & $\epsilon_{KK}$              & 双介子顶点拟合且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2a & $\epsilon_{K\mathrm{RECO}}$  & 两个$K^\pm$介子均被重建并与生成子级$K^\pm$介子匹配 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2b & $\epsilon_{K\mathrm{ID}}$    & 两个匹配的径迹均满足径迹质量和$K^\pm$介子选择标准 & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
+      2c & $\epsilon_{KK}$              & 双$K^\pm$介子顶点拟合且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm{T}}^{\phi}, |y^{\phi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{事例级别}} \\
       3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配\tnote{b} & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$ \\
       4  & $\epsilon_{4\mu\mathrm{vtx}}$& 四缪子顶点拟合收敛 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$ \\
-      5  & $\epsilon_{\mathrm{triOnia}}$& 三介子共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
+      5  & $\epsilon_{\mathrm{triOnia}}$& $$J/\psi+J/\psi+\phi$$ 共同顶点拟合及剩余事例级选择 & $(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$，按 $p_{\mathrm{T}}^{\phi}$ 分组 \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
-      \item [a] 质量窗口定义为 $J/\psi$：$[2.95, 3.25]\;\mathrm{GeV}$，$\phi$：$[1.01, 1.03]\;\mathrm{GeV}$。
+      \item [a] 质量窗口定义为 $J/\psi$：$\SIrange{2.95}{3.25}{\giga\eV}$，$\phi$：$\SIrange{1.01}{1.03}{\giga\eV}$。
       \item [b] HLT触发效率原则上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
-每个$J/\psi$和$\phi$的效率映射在$(p_{\mathrm{T}}, |y|)$平面中计算。单个对象的条件效率映射（leading $J/\psi$、subleading $J/\psi$和$\phi$）详见附录~\ref{app:efficiency-plots}。对于$J/\psi$介子，堆叠效率映射（leading和subleading合并）如图~\ref{fig:eff-stacked-jpsi}所示。缪子重建效率很高，且在大部分$(p_{\mathrm{T}}, |y|)$平面内近似平坦，在桶部--端盖过渡区略有下降。缪子鉴别效率同样平坦，反映了CMS缪子系统的成熟性能。包含顶点拟合和质量窗口要求的双缪子选择效率在整个基准区域内超过95\%。
+$J/\psi$和$\phi$的效率映射在$(p_{\mathrm{T}}, |y|)$平面中计算。$J/\psi$的堆叠条件效率如图~\ref{fig:eff-stacked-jpsi}所示，$\phi$的效率映射详见附录~\ref{app:efficiency-plots}；区分$p_{\mathrm{T}}$更高和$p_{\mathrm{T}}$更低$J/\psi$的效率图亦在附录中给出。缪子重建效率很高，且在大部分$(p_{\mathrm{T}}, |y|)$平面内近似平坦，在桶部--端盖过渡区略有下降。缪子鉴别效率同样平坦，反映了CMS缪子系统的成熟性能。包含顶点拟合和质量窗口要求的双缪子选择效率在整个基准区域内超过95\%。
 
 \begin{figure}[htbp]
   \centering
@@ -226,19 +227,19 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
   \label{fig:eff-stacked-jpsi}
 \end{figure}
 
-事例级效率如图~\ref{fig:eff-hlt}至~\ref{fig:eff-fourmu-vtx}所示。HLT效率在$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$三维空间中评估，并投影到$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$平面上，图~\ref{fig:eff-hlt}展示了$p_{\mathrm{T}}(\phi) \in [6,10]~\mathrm{GeV}$区间的代表性子图；完整的四个$\phi$横动量区间详见附录~\ref{app:efficiency-plots}。四缪子顶点效率如图~\ref{fig:eff-fourmu-vtx}所示；此步骤检查两个$J/\psi$衰变产生的四个缪子能否拟合到共同顶点，其效率在整个基准区域内约为95\%。三夸克偶素顶点及剩余事例级选择效率（$\epsilon_{\mathrm{triOnia}}$以及$\epsilon_{\mathrm{Pri\_fitPass}}$、$\epsilon_{\mathrm{Pri\_fitValid}}$等顶点关联效率）的完整映射详见附录~\ref{app:efficiency-plots}。
+事例级效率如图~\ref{fig:eff-hlt}至~\ref{fig:eff-fourmu-vtx}所示。HLT效率在$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2}, p_{\mathrm{T}}^{\phi})$三维空间中评估，并投影到$(p_{\mathrm{T}}^{J/\psi_1}, p_{\mathrm{T}}^{J/\psi_2})$平面上，图~\ref{fig:eff-hlt}展示了$p_{\mathrm{T}}(\phi) \in \SIrange{6}{10}{\giga\eV}$区间的代表性子图；完整的四个$\phi$横动量区间详见附录~\ref{app:efficiency-plots}。四缪子顶点效率如图~\ref{fig:eff-fourmu-vtx}所示；此步骤检查两个$J/\psi$衰变产生的四个缪子能否拟合到共同顶点，其效率在整个基准区域内约为95\%。三夸克偶素顶点及剩余事例级选择效率（$\epsilon_{\mathrm{triOnia}}$以及$\epsilon_{\mathrm{Pri\_fitPass}}$、$\epsilon_{\mathrm{Pri\_fitValid}}$等顶点关联效率）的完整映射详见附录~\ref{app:efficiency-plots}。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/chap05-efficiency-systematics/hlt_event_phiPt_6_10.png}
-  \caption{HLT触发效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，$p_{\mathrm{T}}(\phi) \in [6,10]~\mathrm{GeV}$。其余$p_{\mathrm{T}}(\phi)$区间见附录~\ref{app:efficiency-plots}。}
+  \caption{HLT触发效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，$p_{\mathrm{T}}(\phi) \in \SIrange{6}{10}{\giga\eV}$。其余$p_{\mathrm{T}}(\phi)$区间见附录~\ref{app:efficiency-plots}。}
   \label{fig:eff-hlt}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/chap05-efficiency-systematics/four_muon_vtx_phiPt_6_10.png}
-  \caption{四缪子顶点效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，$p_{\mathrm{T}}(\phi) \in [6,10]~\mathrm{GeV}$。}
+  \caption{四缪子顶点效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，$p_{\mathrm{T}}(\phi) \in \SIrange{6}{10}{\giga\eV}$。}
   \label{fig:eff-fourmu-vtx}
 \end{figure}
 
@@ -285,9 +286,9 @@ p_{\mathrm{T}} \in [6,10,15,20,30,50,100]\;\mathrm{GeV},
     \midrule
     \multicolumn{3}{c}{\textit{$\phi$ 介子}} \\
     $\epsilon_{\mathrm{fiducial}}$（基准接受度）  & $51.3$ & $51.3$ \\
-    $\epsilon_{K\mathrm{RECO}}$（介子重建）         & $7.58$ & $3.89$ \\
-    $\epsilon_{K\mathrm{ID}}$（介子鉴别）           & $65.5$ & $2.55$ \\
-    $\epsilon_{KK}$（双介子选择）                   & $97.1$ & $2.47$ \\
+    $\epsilon_{K\mathrm{RECO}}$（$K^\pm$介子重建）         & $7.58$ & $3.89$ \\
+    $\epsilon_{K\mathrm{ID}}$（$K^\pm$介子鉴别）           & $65.5$ & $2.55$ \\
+    $\epsilon_{KK}$（双$K^\pm$介子选择）                   & $97.1$ & $2.47$ \\
     \midrule
     \multicolumn{3}{c}{\textit{事例级}} \\
     $s_{\mathrm{cand}}$（候选重建）                   & $1.80$ & $1.80$ \\
@@ -311,28 +312,6 @@ S(c) = \sqrt{\,p_{\mathrm{T}}^2(J/\psi_1) + p_{\mathrm{T}}^2(J/\psi_2) + p_{\mat
 
 % [PENDING]
 当生成子级最优候选与重建级最优候选涉及不同的$\phi$介子或不同的$K^+K^-$配对时——这种情况称为候选失配——重建后的运动学可能相对于生成子级真值从一个分箱迁移到另一个分箱。迁移的程度通过对每个微分变量构造生成子到重建的响应矩阵进行了研究。响应矩阵对于单个介子的$(p_{\mathrm{T}}, |y|)$变量近似为对角矩阵，大部分分箱的纯度和稳定性在90\%以上。关于多候选问题、响应矩阵的定义以及逐分箱修正方法的验证的详细讨论见附录~\ref{app:multicandidate}。
-
-\iffalse
-\section{Closure Tests}
-\label{sec:closure-tests}
-
-% [PENDING]
-Each selected event is assigned a total correction weight
-\begin{equation}
-\label{eq:correction-weight}
-w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
-\end{equation}
-where $A_{\mathrm{tot}}$ and $\epsilon_{\mathrm{tot}}$ are evaluated at the kinematic coordinates of the event using the acceptance and efficiency maps described above. This weight represents the expected number of produced events that each selected event stands for.
-
-% [PENDING]
-The acceptance and efficiency maps are computed from MC simulation. Because the relative contributions of the SPS and DPS production mechanisms are not known a priori, the efficiency maps may depend on the assumed mixture. A closure test is performed to verify that the acceptance-and-efficiency correction reproduces the known generator-level event count when applied back to the MC sample:
-\begin{equation}
-N_{\mathrm{gen}} \;\overset{?}{\approx}\; \sum_{\text{selected events}} w .
-\end{equation}
-The test is carried out on pure SPS and pure DPS samples, representing the two kinematic extremes of the physical data, using efficiency maps derived from SPS, DPS, and mixed samples. For the acceptance correction, all strategies give consistent results within statistical uncertainties, consistent with the expectation that acceptance is purely geometric and independent of the production mechanism. For the efficiency correction, a mild dependence on the SPS-to-DPS mixture is observed in the HLT and vertexing efficiency maps, which is taken as a systematic uncertainty (Chapter~\ref{chap:systematics}). The nominal correction uses efficiency maps derived from a sample with SPS:DPS~=~1:2, which is chosen based on the closure test performance and preliminary indications of the DPS-dominated nature of this final state.
-
-\textbf{[To be filled: Full closure test results when implemented.]}
-\fi
 
 \section{效率修正后的信号产额与sPlot分布}
 \label{sec:corrected-results}
