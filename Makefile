@@ -10,6 +10,7 @@ CLSFILE = dtx-style.sty $(PACKAGE).cls
 
 LATEXMK = latexmk
 SHELL  := /usr/bin/env bash
+FEYNMAN_DIR = figures/chap02-theory/Feynman-diagram
 
 # make deletion work on Windows
 ifdef SystemRoot
@@ -18,7 +19,7 @@ else
 	RM = rm -f
 endif
 
-.PHONY: all all-dev clean cleanall distclean dist thesis example viewthesis viewexample doc viewdoc cls check save test FORCE_MAKE
+.PHONY: all all-dev clean cleanall distclean dist thesis example viewthesis viewexample doc viewdoc cls check save test feynman-diagrams FORCE_MAKE
 
 thesis: $(THESIS).pdf
 
@@ -38,7 +39,10 @@ doc: $(PACKAGE).pdf
 $(PACKAGE).pdf: cls FORCE_MAKE
 	$(LATEXMK) $(PACKAGE).dtx
 
-$(THESIS).pdf: cls FORCE_MAKE
+feynman-diagrams: FORCE_MAKE
+	$(MAKE) -C $(FEYNMAN_DIR)
+
+$(THESIS).pdf: cls feynman-diagrams FORCE_MAKE
 	$(LATEXMK) $(THESIS)
 
 $(EXAMPLE).pdf: FORCE_MAKE
@@ -69,10 +73,12 @@ endif
 
 clean:
 	$(LATEXMK) -c $(PACKAGE).dtx $(THESIS) $(EXAMPLE)
+	$(MAKE) -C $(FEYNMAN_DIR) clean
 	-@$(RM) -rf *~ missfont.log main-survey.* main-translation.* _markdown_thuthesis* thuthesis.markdown.*
 
 cleanall: clean
 	-@$(RM) $(PACKAGE).pdf $(THESIS).pdf $(EXAMPLE).pdf
+	$(MAKE) -C $(FEYNMAN_DIR) cleanall
 
 distclean: cleanall
 	-@$(RM) $(CLSFILE)

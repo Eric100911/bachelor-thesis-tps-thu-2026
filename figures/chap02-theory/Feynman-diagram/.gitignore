@@ -1,0 +1,11 @@
+build/
+__pycache__/
+*.aux
+*.ax1
+*.ax2
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+texput.log
+

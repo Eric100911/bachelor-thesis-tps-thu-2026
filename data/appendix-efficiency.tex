@@ -1,44 +1,61 @@
 \chapter{效率评定补充图}
 \label{app:efficiency-plots}
 
-本附录收录第5章效率修正中提及的全部单对象效率映射和事例级效率图，作为正文中堆叠汇总图的补充。所有效率图均基于 DPS1 全模拟 MC 样本产生，分箱方案与正文一致。
+本附录收录第5章效率修正中提及的全部单对象效率映射和事例级效率图，作为正文中汇总图的补充。除特别注明外，效率图均基于 DPS1 全模拟 MC 样本产生，分箱方案与正文一致。
 
-\section{单对象接受度与条件效率}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_lead_fiducial_acceptance.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_sublead_fiducial_acceptance.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_phi_fiducial_acceptance.png}
-  \caption{单对象基准接受度（从上至下：leading $J/\psi$、subleading $J/\psi$、$\phi$），作为各对象$(p_{\mathrm{T}}, |y|)$的函数。}
-  \label{fig:app-all-obj-acceptance}
-\end{figure}
+\section{单对象条件效率}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_lead_muonRECO.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_lead_muonID.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_lead_dimuon.png}
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonRECO.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonID.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_dimuon.png}
   \caption{Leading $J/\psi$的条件效率（从上至下：缪子重建、缪子鉴别、双缪子选择）。}
   \label{fig:app-eff-jpsi-lead}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_sublead_muonRECO.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_sublead_muonID.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_jpsi_sublead_dimuon.png}
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonRECO.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonID.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_dimuon.png}
   \caption{Subleading $J/\psi$的条件效率（从上至下：缪子重建、缪子鉴别、双缪子选择）。}
   \label{fig:app-eff-jpsi-sublead}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_phi_kaonRECO.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_phi_kaonID.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_phi_dikaon.png}
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_phi_kaonRECO.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_phi_kaonID.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_phi_dikaon.png}
   \caption{$\phi$介子的条件效率（从上至下：介子重建、介子鉴别、双介子选择）。}
   \label{fig:app-eff-phi}
+\end{figure}
+
+\section{各子过程接受度对比}
+
+正文中接受度修正以 DPS1 子过程为基准。为评估接受度对产生模型的依赖性，图~\ref{fig:app-acc-jpsi-subprocess} 和图~\ref{fig:app-acc-phi-subprocess} 分别给出了五种 MC 子过程的 $J/\psi$ 和 $\phi$ 基准接受度分布图。所有接受度映射均在与正文一致的 $(p_{\mathrm{T}}, |y|)$ 分箱中计算，其中 DPS1（子图(a)）为基准接受度映射。
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{DPS1（基准）}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_jpsi.png}}
+  \subcaptionbox{DPS2\_CS}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_jpsi.png}}
+  \subcaptionbox{DPS2\_G}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_jpsi.png}}\\[-2pt]
+  \subcaptionbox{SPS\_CS}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_jpsi.png}}
+  \subcaptionbox{SPS\_G}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_jpsi.png}}
+  \caption{五种 MC 子过程的 $J/\psi$ 基准接受度分布图，作为 $(p_{\mathrm{T}}, |y|)$ 的函数。DPS1（子图(a)）为效率修正的基准接受度映射。}
+  \label{fig:app-acc-jpsi-subprocess}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{DPS1（基准）}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_phi.png}}
+  \subcaptionbox{DPS2\_CS}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_phi.png}}
+  \subcaptionbox{DPS2\_G}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_phi.png}}\\[-2pt]
+  \subcaptionbox{SPS\_CS}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_phi.png}}
+  \subcaptionbox{SPS\_G}[0.3\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_phi.png}}
+  \caption{五种 MC 子过程的 $\phi$ 基准接受度分布图，作为 $(p_{\mathrm{T}}, |y|)$ 的函数。DPS1（子图(a)）为效率修正的基准接受度映射。}
+  \label{fig:app-acc-phi-subprocess}
 \end{figure}
 
 \section{事例级效率}

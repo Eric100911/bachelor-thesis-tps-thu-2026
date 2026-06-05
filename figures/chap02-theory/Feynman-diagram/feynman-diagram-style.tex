@@ -1,0 +1,53 @@
+\usetikzlibrary{arrows.meta,decorations.pathmorphing}
+
+\tikzset{
+  fd diagram/.style={
+    x=0.012cm,
+    y=-0.012cm,
+    line cap=round,
+    line join=round,
+  },
+  fd fermion/.style={
+    draw=black,
+    line width=0.7pt,
+  },
+  fd fermion arrow/.style={
+    fd fermion,
+    -{Latex[length=4pt,width=3pt]},
+  },
+  fd gluon/.style={
+    draw=black,
+    line width=0.65pt,
+    decorate,
+    decoration={
+      coil,
+      aspect=0,
+      segment length=3.8pt,
+      amplitude=1.8pt,
+      pre length=2.5pt,
+      post length=2.5pt,
+    },
+  },
+  fd blob/.style={
+    draw=black,
+    fill=gray!18,
+    line width=0.65pt,
+  },
+  fd label/.style={
+    font=\small,
+    inner sep=1pt,
+  },
+}
+
+\newcommand{\fdblob}[4]{%
+  \pgfmathsetmacro{\fdcx}{(#1+#3)/2}%
+  \pgfmathsetmacro{\fdcy}{(#2+#4)/2}%
+  \pgfmathsetmacro{\fdrx}{abs(#3-#1)/2}%
+  \pgfmathsetmacro{\fdry}{abs(#4-#2)/2}%
+  \draw[fd blob] (\fdcx,\fdcy) ellipse [x radius=\fdrx, y radius=\fdry];%
+}
+
+\newcommand{\fdfermion}[4]{\draw[fd fermion] (#1,#2) -- (#3,#4);}
+\newcommand{\fdfermionarrow}[4]{\draw[fd fermion arrow] (#1,#2) -- (#3,#4);}
+\newcommand{\fdgluon}[4]{\draw[fd gluon] (#1,#2) -- (#3,#4);}
+\newcommand{\fdlabel}[3]{\node[fd label] at (#1,#2) {$#3$};}

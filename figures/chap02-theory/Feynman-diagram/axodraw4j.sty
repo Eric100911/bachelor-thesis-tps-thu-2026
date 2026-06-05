@@ -1,0 +1,8 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{axodraw4j}[2026/06/05 Local JaxoDraw compatibility wrapper]
+
+% JaxoDraw 2.1 exports request axodraw4j, while TeX Live ships the
+% compatible axodraw2 backend.  Keep this wrapper local to the diagram
+% directory so the thesis preamble does not depend on axodraw.
+\RequirePackage{axodraw2}
+

@@ -1,0 +1,57 @@
+\documentclass[tikz,border=3pt]{standalone}
+\input{feynman-diagram-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[fd diagram]
+  \path[use as bounding box] (-35,93) rectangle (920,803);
+
+  % Generated from SPS.xml by jaxodraw_to_tikz.py.
+  \fdblob{240}{192}{336}{224}
+
+  \fdfermionarrow{32}{176}{160}{176}
+  \fdfermionarrow{32}{192}{144}{192}
+  \fdfermionarrow{331.2}{201.8}{512}{192}
+  \fdfermionarrow{331.2}{201.8}{496}{160}
+  \fdfermionarrow{316.4}{195.1}{464}{128}
+
+  \fdgluon{311.3}{222}{448}{304}
+
+  \fdfermionarrow{448}{544}{448}{304}
+
+  \fdblob{256}{704}{352}{736}
+
+  \fdgluon{448}{544}{316.6}{704.6}
+
+  \fdfermionarrow{32}{704}{160}{704}
+  \fdfermionarrow{32}{720}{176}{720}
+  \fdfermionarrow{348.4}{723}{512}{704}
+  \fdfermionarrow{348.4}{723}{512}{736}
+  \fdfermionarrow{348.4}{723}{512}{768}
+  \fdfermionarrow{448}{304}{832}{319.7}
+
+  \fdgluon{448}{432}{656}{432}
+
+  \fdblob{848}{336}{832}{304}
+  \fdblob{848}{512}{832}{480}
+  \fdblob{848}{640}{832}{608}
+
+  \fdfermionarrow{848}{368}{656}{432}
+  \fdfermionarrow{656}{432}{832.1}{493.3}
+  \fdfermionarrow{848}{544}{448}{544}
+
+  \fdgluon{416}{608}{560.7}{640.3}
+
+  \fdfermionarrow{560.7}{640.3}{832}{624.5}
+
+  \fdgluon{768}{624}{816}{576}
+  \fdgluon{656}{656}{768}{704}
+
+  \fdlabel{882}{337}{J/\psi}
+  \fdlabel{7}{187}{p}
+  \fdlabel{0}{716}{p}
+  \fdlabel{885}{512}{J/\psi}
+  \fdlabel{884}{640}{\phi}
+
+  \fdfermionarrow{850}{674}{560.7}{640.3}
+\end{tikzpicture}
+\end{document}
