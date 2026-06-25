@@ -143,6 +143,13 @@
 % 表格中支持跨行
 \usepackage{multirow}
 
+% TikZ 图：CMS 坐标系与探测器示意图
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage[outline]{contour}
+\contourlength{0.9pt}
+\usetikzlibrary{3d,arrows.meta,bending}
+
 % 固定宽度的表格。
 % \usepackage{tabularx}
 
@@ -202,6 +209,14 @@
   \fi
 }
 \makeatother
+
+% 论文中 MC 子过程样本的统一显示名称。外部 campaign 名称和图文件名
+% 仍保留原始下划线写法。
+\newcommand{\DPSone}{DPS1}
+\newcommand{\DPStwoLO}{DPS2 CS LO}
+\newcommand{\DPStwoNLO}{DPS2 CS NLO\textsuperscript{*}}
+\newcommand{\SPSLO}{SPS CS LO}
+\newcommand{\SPSNLO}{SPS CS NLO\textsuperscript{*}}
 
 % hyperref 宏包在最后调用
 \usepackage{hyperref}

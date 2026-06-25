@@ -1,0 +1,206 @@
+% Adapted from “CMS detector - west perspective”.
+% Author: Izaak Neutelings (June 2017)
+% Source: https://tikz.net/axis3d_cms/
+% Inspiration:
+% https://tex.stackexchange.com/questions/159445/draw-in-cylindrical-and-spherical-coordinates
+
+\begingroup
+\colorlet{cmsveccol}{green!50!black}
+\colorlet{cmsred}{red!70!black}
+\colorlet{cmscontourred}{red!55!black!3}
+\colorlet{cmscontourredtwo}{red!55!black!6}
+\colorlet{cmsdarkred}{red!40!black}
+\colorlet{cmscol}{red!80!black}
+\tikzset{
+  cms axis/.style={->,thick,line cap=round},
+  cms detector/.style={thick,draw=cmsdarkred,rotate around z=\cmsang},
+  cms beam pipe/.style={
+    draw=blue!20!black!50,
+    fill=blue!20!black!10,
+    rotate around z=\cmsang
+  },
+  cms detector surface/.style={
+    red!60!black!10,
+    opacity=0.5,
+    rotate around z=\cmsang
+  },
+  >=latex
+}
+
+\tdplotsetmaincoords{75}{50}
+\begin{tikzpicture}[scale=2.35,tdplot_main_coords,rotate around x=90]
+  \def\cmsTheta{18}
+  \def\cmsPhi{60}
+  \def\cmsLength{3.3}
+  \def\cmsRadius{0.75}
+  \def\cmsPipeLength{4.3}
+  \def\cmsPipeRadius{0.04}
+  \def\cmsPipeOuterRadius{0.042}
+  \def\cmsXMax{1}
+  \def\cmsYMax{1}
+  \def\cmsZMin{-\cmsPipeLength/2-0.2}
+  \def\cmsZMax{\cmsPipeLength/2+0.3}
+  \def\cmsCompassWidth{0.3}
+  \def\cmsRVec{\cmsLength/2/cos(\cmsTheta)}
+  \def\cmsang{18}
+
+  \coordinate (O) at (0,0,0);
+  \coordinate (Z) at (0,0,\cmsLength/2);
+  \tdplotsetcoord{O'}{0.022}{\cmsTheta}{\cmsPhi}
+  \tdplotsetcoord{O''}{0.018}{90}{\cmsPhi}
+  \tdplotsetcoord{P}{\cmsRVec}{\cmsTheta}{\cmsPhi}
+
+  % Detector cylinder behind the coordinate axes.
+  \fill[
+    top color=red!50!black!4,
+    bottom color=red!60!black!2,
+    rotate around z=\cmsang
+  ]
+    (0,\cmsRadius,\cmsLength/2) --++ (0,0,-\cmsLength)
+    arc(90:270:\cmsRadius) --++ (0,0,\cmsLength)
+    arc(270:90:\cmsRadius) -- cycle;
+  \fill[cms detector surface]
+    (0,0,\cmsLength/2) --++ (0,\cmsRadius,0)
+    arc(90:270:\cmsRadius) -- cycle;
+  \fill[cms detector surface]
+    (0,0,-\cmsLength/2) --++ (0,\cmsRadius,0)
+    arc(90:270:\cmsRadius) -- cycle;
+  \tdplotdrawarc[cms detector]{(0,0,\cmsLength/2)}
+    {\cmsRadius}{0}{360}{}{}
+  \tdplotdrawarc[cms detector,thin]{(0,0,-\cmsLength/2)}
+    {\cmsRadius}{0}{360}{}{}
+  \draw[cms detector,thin] (90:\cmsRadius) arc(90:270:\cmsRadius);
+  \draw[cms detector,very thin]
+    (90:\cmsRadius) arc(90:90-\cmsang:\cmsRadius);
+  \draw[cms detector]
+    (0,0,-\cmsLength/2)++(90:\cmsRadius) --++ (0,0,\cmsLength);
+  \draw[cms detector]
+    (0,0,-\cmsLength/2)++(-90:\cmsRadius) --++ (0,0,\cmsLength);
+
+  % Beam pipe.
+  \tdplotdrawarc[cms beam pipe]{(0,0,\cmsPipeLength/2)}
+    {\cmsPipeRadius}{0}{360}{}{}
+  \draw[cms beam pipe]
+    (0,\cmsPipeRadius,-\cmsPipeLength/2)
+    -- (0,\cmsPipeRadius,-0.2*\cmsPipeLength)
+    -- (90:0.5*\cmsPipeRadius)
+    -- (0,\cmsPipeRadius,0.2*\cmsPipeLength)
+    -- (0,\cmsPipeRadius,0.5*\cmsPipeLength)
+    arc(90:-90:\cmsPipeRadius)
+    -- (0,-\cmsPipeRadius,0.2*\cmsPipeLength)
+    -- (-90:0.5*\cmsPipeRadius)
+    -- (0,-\cmsPipeRadius,-0.2*\cmsPipeLength)
+    -- (0,-\cmsPipeRadius,-\cmsPipeLength/2)
+    arc(-90:90:\cmsPipeRadius);
+  \draw[cms beam pipe] (0,0,\cmsPipeLength/2) circle(\cmsPipeRadius);
+
+  % CMS axes and pseudorapidity labels.
+  \draw[cms axis,-] (0,0,\cmsZMin) -- (0,0,0);
+  \fill[cmscol] (O) circle(0.5pt) node[right=1,below=1] {IP};
+  \draw[cms axis] (0,0,0.020) -- (0,0,\cmsZMax)
+    node[right=3,below=1]{$z$};
+  \draw[cms axis] (0,0.019,0) -- (0,\cmsYMax,0)
+    node[below left]{$y$};
+  \draw[dashed,cmsred] (O'') -- (Pxy);
+  \draw[cms axis] (0.022,0,0) -- (\cmsXMax,0,0)
+    node[below=1,right=-2]{$x$};
+
+  \node[cmsdarkred,above] at (0,\cmsYMax,0) {$\eta=0$};
+  \node[cmsdarkred,above=3] at (0,\cmsRadius,0.3*\cmsLength)
+    {$\eta>0$};
+  \node[cmsdarkred,above=3] at (0,\cmsRadius,-0.2*\cmsLength)
+    {$\eta<0$};
+  \node[cmsdarkred,below=1,left] at (0,0,\cmsZMax)
+    {$\eta=+\infty$};
+  \node[cmsdarkred,above=1,right] at (0,0,\cmsZMin)
+    {$\eta=-\infty$};
+
+  % Momentum vectors.
+  \draw[dashed,cmsred] (Px) -- (Pxy);
+  \draw[->,red,line cap=round] (O'') -- (Pxy)
+    node[anchor=170,inner sep=2pt] {$\vec{p}_{\mathrm T}$};
+  \draw[dashed,cmsred,line join=round] (Py) -- (Pxy) -- (P);
+  \draw[->,red,line cap=round] (O') -- (P);
+
+  % Front surfaces.
+  \draw[cms beam pipe,fill=none]
+    (0,\cmsPipeRadius,-\cmsPipeLength/2) arc(90:-90:\cmsPipeRadius);
+  \fill[cms detector surface]
+    (0,\cmsPipeOuterRadius,\cmsLength/2)
+    --++ (0,\cmsRadius-\cmsPipeOuterRadius,0)
+    arc(90:-90:\cmsRadius)
+    --++ (0,\cmsRadius-\cmsPipeOuterRadius,0)
+    arc(-90:90:\cmsPipeOuterRadius);
+  \fill[cms detector surface]
+    (0,\cmsPipeOuterRadius,-\cmsLength/2)
+    --++ (0,\cmsRadius-\cmsPipeOuterRadius,0)
+    arc(90:-90:\cmsRadius)
+    --++ (0,\cmsRadius-\cmsPipeOuterRadius,0)
+    arc(-90:90:\cmsPipeOuterRadius);
+  \tdplotdrawarc[cms detector]{(0,0,\cmsLength/2)}
+    {\cmsRadius}{-90}{90}{}{}
+  \tdplotdrawarc[cms detector]{(0,0,-\cmsLength/2)}
+    {\cmsRadius}{-90}{90}{}{}
+  \draw[cms beam pipe,fill=none]
+    (0,\cmsPipeRadius,\cmsPipeLength/2) arc(90:-90:\cmsPipeRadius);
+  \draw[cms detector,very thin]
+    (90-\cmsang:\cmsRadius) arc(90-\cmsang:-90:\cmsRadius);
+  \node[red,anchor=-30,inner sep=2pt] at (P) {$\vec{p}$};
+  \draw[dashed,cmsred] (Pz) -- (P);
+
+  % Angular variables.
+  \tdplotdrawarc[thick,cmscontourred]{(O)}{0.2}{4}{0.7*\cmsPhi}{}{}
+  \tdplotdrawarc[draw=none,opacity=0.9]{(O)}{0.2}{0}{\cmsPhi}
+    {anchor=-150,inner sep=1pt}{\contour{cmscontourred}{$\phi$}}
+  \tdplotdrawarc[->]{(O)}{0.2}{0}{\cmsPhi}
+    {anchor=-150,inner sep=1pt}{$\phi$}
+  \tdplotdrawarc[
+    ->,
+    rotate around z=\cmsPhi-90,
+    rotate around y=-90
+  ]{(O)}{0.88}{0}{\cmsTheta}
+    {anchor=-20,inner sep=2pt}{$\theta$}
+  \tdplotdrawarc[
+    thick,
+    red!58!black!4,
+    rotate around z=\cmsPhi-90,
+    rotate around y=-90
+  ]{(O)}{0.3}{88}{0.5*(90+\cmsTheta)}{}{}
+  \tdplotdrawarc[
+    -{>[flex'=1]},
+    rotate around z=\cmsPhi-90,
+    rotate around y=-90,
+    line cap=round
+  ]{(O)}{0.3}{90}{\cmsTheta}
+    {anchor=-40,inner sep=1pt}{$\eta$}
+  \draw[cmsdarkred] (0,0,\cmsLength/2) --++ (\cmsRadius,0,0);
+  \tdplotdrawarc[thick,cmscontourredtwo]
+    {(Z)}{0.2}{4}{0.7*\cmsPhi}{}{}
+  \tdplotdrawarc[draw=none,opacity=0.9]{(Z)}{0.2}{0}{\cmsPhi}
+    {anchor=-150,inner sep=1pt}{\contour{cmscontourredtwo}{$\phi$}}
+  \tdplotdrawarc[->]{(Z)}{0.2}{0}{\cmsPhi}
+    {anchor=-150,inner sep=1pt}{$\phi$}
+
+  % Orientation around the LHC ring.
+  \begin{scope}[
+    shift={(1.1*\cmsRadius,-\cmsRadius,0.2*\cmsLength)},
+    rotate around y=12
+  ]
+    \draw[<->,black!50]
+      (-\cmsCompassWidth,0,0) -- (\cmsCompassWidth,0,0);
+    \draw[<->,black!50]
+      (0,0,-\cmsCompassWidth) -- (0,0,\cmsCompassWidth);
+    \node[above=1,left,black!50,scale=0.6]
+      at (-\cmsCompassWidth,0,0) {N};
+    \node[below=3,left=-2,green!20!black!50,scale=0.6]
+      at (0,0,\cmsCompassWidth) {Jura};
+    \node[below=1,right,blue!30!black!50,scale=0.6]
+      at (\cmsCompassWidth,0,0) {ATLAS};
+  \end{scope}
+  \draw[->,thick,orange!30!black]
+    (1.4*\cmsCompassWidth,-\cmsRadius,-0.1*\cmsLength)
+    --++ (2*\cmsCompassWidth,0,0)
+    node[below=1,right,scale=0.8,align=center]
+      {center of\\[-1pt]the LHC};
+\end{tikzpicture}
+\endgroup

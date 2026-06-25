@@ -8,7 +8,7 @@
 % \section{Candidate Events and Fit Results}
 \label{sec:final-candidates-fit}
 
-按照第\ref{chap:reconstruction-selection}章的选择流程，从$\SI{13.6}{\tera\eV}$质子--质子碰撞数据的$\mu^+\mu^- K^+K^- \mu^+\mu^-$终态中获得48829个$J/\psi J/\psi \phi$候选事例。采用第\ref{chap:signal-efficiency}章所述的三维无分箱扩展最大似然拟合提取信号，三个粒子均为真实信号的分量产额为$N_{sss} = 1563 \pm 143\,(\mathrm{stat})$，信号统计显著性由似然比检验确认为：$12.0\sigma$。 
+按照第\ref{chap:reconstruction-selection}章的选择流程，从$\SI{13.6}{\tera\eV}$质子--质子碰撞数据的$\mu^+\mu^-\mu^+\mu^-K^+K^-$末态中获得$4.8829\times10^4$个$J/\psi J/\psi \phi$候选事例。采用第\ref{chap:signal-efficiency}章所述的三维无分箱扩展最大似然拟合提取信号，三个共振均为真实信号的分量产额为$N_{sss}=(1.563\pm0.143)\times10^3\,(\mathrm{stat})$，信号统计显著性由似然比检验确认为$12.0\sigma$。
 
 
 \section{修正后结果与物理解释}
@@ -17,18 +17,21 @@
 
 \subsection{效率修正后的信号产额}
 
-利用第\ref{chap:signal-efficiency}章描述的接受度与效率修正框架，基于DPS1基准效率图，对每个选定事例赋予修正权重$w = 1/(A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}})$并乘以sWeight信号权重，得到效率修正后的总信号产额：
+利用第\ref{chap:signal-efficiency}章描述的接受度与效率修正框架，基于\DPSone 基准效率图，对每个选定事例赋予修正权重$w = 1/(A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}})$并乘以sWeight信号权重，得到效率修正后的总信号产额：
 \begin{equation}
 \label{eq:result-corrected-yield}
-N_{sss}^{\mathrm{corr}} = 93500 \pm 19391\,(\mathrm{stat}) \pm 17578\,(\mathrm{syst,\,model})
+N_{sss}^{\mathrm{corr}}
+=
+(9.35 \pm 1.94\,(\mathrm{stat}) \pm 1.76\,(\mathrm{syst,\,partial}))
+\times10^4
 \end{equation}
-其中统计误差由sWeight的统计不确定性传播得到，模型依赖性系统误差（18.8\%）来自四种效率变动情景相对于基准DPS1效率图的包络半宽（详见第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）。图~\ref{fig:yield-comparison}比较了五种效率情景下的修正后信号产额。排除SPS\_CS情景后，其余四种情景给出的产额范围为$[5.8 \times 10^4, 9.35 \times 10^4]$，彼此之间的一致性在模型依赖性误差范围内。
+其中统计误差由产额修正后不变质量谱拟合不确定度给出。标记为$\mathrm{syst,\,partial}$的第二项仅表示当前已经定量评定的部分系统误差，其数值为18.8\%，来自采用不同子过程MC样本构造效率图时修正后产额的变化（详见第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）。图~\ref{fig:yield-comparison}比较了五种效率情景下的修正后信号产额。排除\SPSLO 情景后，其余四种情景给出的产额范围为$[5.8 \times 10^4, 9.35 \times 10^4]$；以该范围相对于\DPSone 基准值的包络半宽定义当前传播的系统误差分量。
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.65\textwidth]{figures/chap07-results/yield_comparison.png}
-  \caption{五种效率变动情景下的修正后$J/\psi J/\psi \phi$信号产额比较。基准结果为DPS1（红色圆点），误差棒表示统计误差。SPS\_CS情景（灰色）给出的产额远大于其余四种情景，因其SPS主导的运动学导致极低的缪子重建效率，从而放大修正权重。该情景的SPS截面理论预期极低，故在系统误差评估中予以排除。}
+  \caption{五种效率变动情景下的修正后$J/\psi J/\psi \phi$信号产额比较。基准结果为\DPSone（红色），误差棒表示统计误差。\SPSLO 情景（内部campaign名为\texttt{JJP\_SPS\_CS}）给出的产额远大于其余四种情景，因其运动学分布对应较低的缪子重建效率，从而放大修正权重。该情景的SPS截面理论预期极低，故不计入标称系统误差包络。}
   \label{fig:yield-comparison}
 \end{figure}
 
@@ -42,29 +45,26 @@ N_{sss}^{\mathrm{corr}} = 93500 \pm 19391\,(\mathrm{stat}) \pm 17578\,(\mathrm{s
 其中$\mathcal{L}_{\mathrm{int}} = \SI{289.21 \pm 5.97}{\per\femto\barn}$为积分亮度（第\ref{chap:reconstruction-selection}章）。代入数值得到
 \begin{equation}
 \label{eq:result-xsec-times-BR}
-\sigma \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = 323 \pm 67\,(\mathrm{stat}) \pm 61\,(\mathrm{syst,\,model})~\SI{}{\femto\barn} 
+\sigma \times \mathcal{B}^2(J/\psi \to \mu^+\mu^-) \times \mathcal{B}(\phi \to K^+K^-) = 323 \pm 67\,(\mathrm{stat}) \pm 61\,(\mathrm{syst,\,partial})~\SI{}{\femto\barn}
 \end{equation}
 
 利用世界平均分支比$\mathcal{B}(J/\psi \to \mu^+\mu^-) = (5.961 \pm 0.033)\%$和$\mathcal{B}(\phi \to K^+K^-) = (49.9 \pm 0.5)\%$~\cite{PDG2024}，进一步得到绝对产生截面：
 \begin{equation}
 \label{eq:result-xsec}
-\sigma(pp \to J/\psi + J/\psi + \phi + X) = 182 \pm 38\,(\mathrm{stat}) \pm 34\,(\mathrm{syst,\,model})~\SI{}{\pico\barn}
+\sigma(pp \to J/\psi + J/\psi + \phi + X) = 182 \pm 38\,(\mathrm{stat}) \pm 34\,(\mathrm{syst,\,partial})~\SI{}{\pico\barn}
 \end{equation}
 
-其中，实验分析给出的系统误差目前仅包含效率修正的模型依赖性系统误差（18.8\%）；待第\ref{chap:systematics}章中标记为“待评估”的其余系统误差源完成定量研究后，总截面误差将相应更新。额外的归一化不确定度来自积分亮度（2.1\%）和分支比（$\mathcal{B}(J/\psi \to \mu^+\mu^-)$为0.55\%、$\mathcal{B}(\phi \to K^+K^-)$为1.0\%），将在系统误差综合时一并传播。
+式~\eqref{eq:result-xsec-times-BR}和式~\eqref{eq:result-xsec}中的$\mathrm{syst,\,partial}$与式~\eqref{eq:result-corrected-yield}采用相同定义，仅传播不同子过程MC效率图所给出的18.8\%变化。该标签不代表完整的实验系统误差。
 
 \subsection{物理解释}
 
-测量得到的$\SI{182 \pm 38}{\pico\barn}\,(\mathrm{stat}) \pm \SI{34}{\pico\barn}\,(\mathrm{syst,\,model})$截面显著大于典型SPS产生三重夸克偶素的微扰QCD预期。SPS机制中，三个夸克偶素需由单次硬散射中的三对重夸克产生，其截面受到高阶$\alpha_s$和多重重夸克波函数重叠的双重压低，预期在fb量级或更低~\cite{Lansberg:2014swa}。相比之下，DPS机制中三个夸克偶素可通过一次或两次硬散射产生，其截面由双部分子分布函数（dPDF）和单夸克偶素截面的乘积决定，有望达到数十至数百pb量级。本分析测得的较大截面自然地支持了DPS主导的产生图景，与双$J/\psi$产生中DPS贡献占优的实验证据一致~\cite{CMS_TRI_JPSI}。效率修正的模型依赖性研究（第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）进一步确认了这一点：采用SPS主导的效率图（SPS\_CS）将导致修正后的产额异常增大到不合理的程度（$\sim 2.5 \times 10^5$），反映出SPS运动学与数据之间的失配。
+测量得到的$\SI{182 \pm 38}{\pico\barn}\,(\mathrm{stat}) \pm \SI{34}{\pico\barn}\,(\mathrm{syst,\,partial})$截面显著大于典型SPS产生多夸克偶素末态的微扰QCD预期。对于包含两个$J/\psi$候选和一个$\phi$候选的末态，单次硬散射需要同时产生双粲偶素系统，并通过伴随部分子辐射和强子化形成$\phi$候选，因而受到高阶耦合和多重强子形成概率的压低。相比之下，DPS机制可将不同介子分配到相互独立的硬散射中，有望给出更大的产生率。本分析测得的较大截面支持MPS贡献占优的产生图景，与双$J/\psi$产生中DPS贡献占优的实验证据一致~\cite{CMS_TRI_JPSI}。不同子过程MC效率图之间的比较（第\ref{chap:systematics}章第\ref{subsec:syst-model-dependence}节）表明，采用\SPSLO 样本得到的效率图会给出远大于其他情景的修正产额（$\sim 2.5 \times 10^5$），反映出该样本运动学与数据之间存在明显差异。
 
 \section{与相关工作的比较}
 % \section{Comparison with Related Work}
 \label{sec:comparison-related}
 
 $J/\psi J/\psi \phi$的伴随产生是本分析首次在实验上进行探索的末态。此前，CMS合作组已在$\sqrt{s} = \SI{13}{\tera\eV}$下观测到了三重$J/\psi$产生~\cite{CMS_TRI_JPSI}以及$Y(1S)$对产生~\cite{CMSY1SY1S13TeV2020}；ATLAS和LHCb合作组也在不同能量下测量了双$J/\psi$产生截面~\cite{ATLAS_JPSIJPSI_8TEV,LHCbJpsiJpsi13TeV2017,LHCbJpsiJpsi13TeV2024}。然而，在有意义地比较不同末态的绝对截面之前，需要计算有效截面（$\sigma_{\mathrm{eff}}$）以扣除部分子分布函数的依赖，从而将不同的多重夸克偶素过程置于同一标度下讨论。有效截面的提取需要额外的理论输入和实验测量，目前尚未完成，因此本节暂不进行定量的过程间比较。
-
-
-需要指出的是，目前的截面测量仍以模型依赖性为主的系统误差所主导。为了获得具有足够精度的物理结果，后续工作应着重完成第\ref{chap:systematics}章中列出的其余系统误差源的定量评估，计算$\sigma_{\mathrm{eff}}$以与相关过程进行比较，并在获得更精确的双部分子分布函数约束和更完备的SPS理论计算后，对DPS与SPS贡献进行定量分离。此外，微分截面测量（如$J/\psi J/\psi \phi$横动量谱和$\Delta y$、$\Delta\phi$角关联分布）将为产生机制的甄别提供更灵敏的信息。
 
 \section{结论与展望}
 % \section{Conclusion and Outlook}
@@ -73,14 +73,17 @@ $J/\psi J/\psi \phi$的伴随产生是本分析首次在实验上进行探索的
 本文围绕 CMS 实验中 \(pp \to J/\psi + J/\psi + \phi + X\) 联合产生过程，
 完成了候选事例选择、三维质量谱信号提取、接受度与效率修正、系统误差评估框架以及截面结果讨论的论文整理。
 本分析在$\sqrt{s}=\SI{13.6}{\tera\eV}$质子--质子碰撞数据中重建
-\(\mu^+\mu^-K^+K^-\mu^+\mu^-\)末态，
+\(\mu^+\mu^-\mu^+\mu^-K^+K^-\)末态，
 并通过三维无分箱扩展最大似然拟合提取三个共振均为真实信号的成分。
-基于当前效率修正和模型依赖性评估，测得的截面量级显著高于典型SPS预期，
+基于当前效率修正和已评定的系统误差分量，测得的截面量级显著高于典型SPS预期，
 因而支持该末态中多重部分子散射贡献占优的物理图景。
 
 本分析同时受到若干尚待完善因素的限制。
-目前系统误差仍以效率修正的模型依赖性为主要来源，
-信号提取、候选选择、样本建模、积分亮度和分支比等其他误差源还需要进一步综合传播。
+当前结果中标记为$\mathrm{syst,\,partial}$的误差仅包含采用不同子过程MC样本构造效率图时得到的18.8\%变化，
+不能解释为完整的实验系统误差，也不能据此判断其为所有系统误差源中的主导项。
+信号与本底拟合模型、固定参数和拟合区间、MC统计与效率分箱、
+缪子和带电径迹效率、触发与顶点选择、事例堆积、
+积分亮度及分支比等误差源仍需完成定量验证和统一传播。
 此外，当前结果主要给出总截面量级和定性机制判断，
 尚未完成有效截面\(\sigma_{\mathrm{eff}}\)提取以及与双夸克偶素、三重夸克偶素相关过程的统一定量比较。
 

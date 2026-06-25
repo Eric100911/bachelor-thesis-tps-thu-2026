@@ -1,7 +1,7 @@
 \chapter{效率评定补充图}
 \label{app:efficiency-plots}
 
-本附录收录第5章效率修正中提及的全部单对象效率映射和事例级效率图，作为正文中汇总图的补充。除特别注明外，效率图均基于 DPS1 全模拟 MC 样本产生，分箱方案与正文一致。
+本附录收录第5章效率修正中提及的全部单对象效率映射和事例级效率图，作为正文中汇总图的补充。除特别注明外，效率图均基于\DPSone 全模拟MC样本产生，分箱方案与正文一致。
 
 \section{单对象条件效率}
 
@@ -9,14 +9,14 @@
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonRECO.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonID.png}
-  \caption{Leading $J/\psi$的条件效率（从上至下：缪子重建、缪子鉴别）。}
+  \caption{较高横动量$J/\psi_1$的条件效率（从上至下：缪子重建、缪子鉴别）。}
   \label{fig:app-eff-jpsi-lead}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_dimuon.png}
-  \caption[]{Leading $J/\psi$的双缪子选择条件效率（续）。}
+  \caption[]{较高横动量$J/\psi_1$的双缪子选择条件效率（续）。}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -24,7 +24,7 @@
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonRECO.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonID.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_dimuon.png}
-  \caption{Subleading $J/\psi$的条件效率（从上至下：缪子重建、缪子鉴别、双缪子选择）。}
+  \caption{较低横动量$J/\psi_2$的条件效率（从上至下：缪子重建、缪子鉴别、双缪子选择）。}
   \label{fig:app-eff-jpsi-sublead}
 \end{figure}
 
@@ -39,47 +39,49 @@
 
 \section{各子过程接受度对比}
 
-正文中接受度修正以 DPS1 子过程为基准。为评估接受度对产生模型的依赖性，图~\ref{fig:app-acc-jpsi-subprocess} 和图~\ref{fig:app-acc-phi-subprocess} 分别给出了五种 MC 子过程的 $J/\psi$ 和 $\phi$ 基准接受度分布图。所有接受度映射均在与正文一致的 $(p_{\mathrm{T}}, |y|)$ 分箱中计算，其中 DPS1（子图(a)）为基准接受度映射。
+正文中接受度修正以\DPSone 子过程为基准。为评估接受度对输入子过程样本的敏感性，图~\ref{fig:app-acc-jpsi-subprocess}和图~\ref{fig:app-acc-phi-subprocess}分别给出了五种MC子过程的$J/\psi$和$\phi$基准接受度分布图。所有接受度映射均在与正文一致的$(p_{\mathrm T}, |y|)$分箱中计算，其中\DPSone（子图(a)）为基准接受度映射。
 
 \begin{figure}[p]
   \centering
-  \subcaptionbox{DPS1（基准）}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_jpsi.png}}\\[4pt]
-  \subcaptionbox{DPS2\_CS}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_jpsi.png}}\\[4pt]
-  \subcaptionbox{DPS2\_G}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_jpsi.png}}
-  \caption{五种 MC 子过程的 $J/\psi$ 基准接受度分布图，作为 $(p_{\mathrm{T}}, |y|)$ 的函数。DPS1（子图(a)）为效率修正的基准接受度映射。}
+  \subcaptionbox{\DPSone（基准）}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_jpsi.png}}\\[4pt]
+  \subcaptionbox{\DPStwoLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_jpsi.png}}\\[4pt]
+  \subcaptionbox{\DPStwoNLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_jpsi.png}}
+  \caption{五种MC子过程的$J/\psi$基准接受度分布图，作为$(p_{\mathrm T}, |y|)$的函数。\DPSone（子图(a)）为效率修正的基准接受度映射。}
   \label{fig:app-acc-jpsi-subprocess}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \subcaptionbox{SPS\_CS}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_jpsi.png}}\\[4pt]
-  \subcaptionbox{SPS\_G}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_jpsi.png}}
+  \subcaptionbox{\SPSLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_jpsi.png}}\\[4pt]
+  \subcaptionbox{\SPSNLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_jpsi.png}}
   \caption[]{$J/\psi$ 基准接受度分布图（续）。}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \subcaptionbox{DPS1（基准）}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_phi.png}}\\[4pt]
-  \subcaptionbox{DPS2\_CS}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_phi.png}}\\[4pt]
-  \subcaptionbox{DPS2\_G}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_phi.png}}
-  \caption{五种 MC 子过程的 $\phi$ 基准接受度分布图，作为 $(p_{\mathrm{T}}, |y|)$ 的函数。DPS1（子图(a)）为效率修正的基准接受度映射。}
+  \subcaptionbox{\DPSone（基准）}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS1_phi.png}}\\[4pt]
+  \subcaptionbox{\DPStwoLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_CS_phi.png}}\\[4pt]
+  \subcaptionbox{\DPStwoNLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_DPS2_G_phi.png}}
+  \caption{五种MC子过程的$\phi$基准接受度分布图，作为$(p_{\mathrm T}, |y|)$的函数。\DPSone（子图(a)）为效率修正的基准接受度映射。}
   \label{fig:app-acc-phi-subprocess}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \subcaptionbox{SPS\_CS}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_phi.png}}\\[4pt]
-  \subcaptionbox{SPS\_G}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_phi.png}}
+  \subcaptionbox{\SPSLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_CS_phi.png}}\\[4pt]
+  \subcaptionbox{\SPSNLO}[0.85\textwidth]{\includegraphics[width=\linewidth]{figures/chap05-efficiency-systematics/acceptance_heatmap_SPS_G_phi.png}}
   \caption[]{$\phi$ 基准接受度分布图（续）。}
 \end{figure}
 
 \section{事例级效率}
 
+本分析最终采用的顶点关联标准为\texttt{Pri\_assocPVPass}，即构成两个$J/\psi$候选的四条缪子径迹和构成$\phi$候选的两条带电$K$介子径迹均关联到同一个重建初级顶点。以下\texttt{Pri\_fitPass}和\texttt{Pri\_fitValid}图保留为数据生产链的中间诊断结果，不应解释为最终事例选择标准。
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_0.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_1.0.png}
-  \caption{HLT触发效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$区间从上至下：\SIrange{4}{6}{\giga\eV}、\SIrange{6}{10}{\giga\eV}。}
+  \caption{HLT触发效率作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间从上至下：\SIrange{4}{6}{\giga\eV}、\SIrange{6}{10}{\giga\eV}。}
   \label{fig:app-eff-hlt}
 \end{figure}
 
@@ -87,14 +89,14 @@
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_3.0.png}
-  \caption[]{HLT触发效率在$p_{\mathrm{T}}(\phi)$高区间的分布图（从上至下：\SIrange{10}{20}{\giga\eV}、\SIrange{20}{50}{\giga\eV}，续）。}
+  \caption[]{HLT触发效率在$p_{\mathrm T}(\phi)$高区间的分布图（从上至下：\SIrange{10}{20}{\giga\eV}、\SIrange{20}{50}{\giga\eV}，续）。}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_0.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_1.0.png}
-  \caption{四缪子顶点效率作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \caption{四缪子顶点效率作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
   \label{fig:app-eff-fourmu-vtx}
 \end{figure}
 
@@ -102,14 +104,14 @@
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_3.0.png}
-  \caption[]{四缪子顶点效率在$p_{\mathrm{T}}(\phi)$高区间的分布图（续）。}
+  \caption[]{四缪子顶点效率在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_0.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_1.0.png}
-  \caption{初级顶点拟合通过效率（$\epsilon_{\mathrm{Pri\_fitPass}}$）作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \caption{数据生产链中\texttt{Pri\_fitPass}中间诊断量的条件效率，作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
   \label{fig:app-eff-pri-fitpass}
 \end{figure}
 
@@ -117,14 +119,14 @@
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_3.0.png}
-  \caption[]{初级顶点拟合通过效率在$p_{\mathrm{T}}(\phi)$高区间的分布图（续）。}
+  \caption[]{\texttt{Pri\_fitPass}中间诊断量在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_0.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_1.0.png}
-  \caption{初级顶点有效性效率（$\epsilon_{\mathrm{Pri\_fitValid}}$）作为$p_{\mathrm{T}}(J/\psi_1)$和$p_{\mathrm{T}}(J/\psi_2)$的函数，按$p_{\mathrm{T}}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \caption{数据生产链中\texttt{Pri\_fitValid}中间诊断量的条件效率，作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
   \label{fig:app-eff-pri-fitvalid}
 \end{figure}
 
@@ -132,5 +134,5 @@
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_3.0.png}
-  \caption[]{初级顶点有效性效率在$p_{\mathrm{T}}(\phi)$高区间的分布图（续）。}
+  \caption[]{\texttt{Pri\_fitValid}中间诊断量在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
 \end{figure}

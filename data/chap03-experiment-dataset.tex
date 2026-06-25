@@ -14,7 +14,7 @@ LHC 的质子束被分为若干束团，标准束团间隔为 \SI{25}{\nano\seco
 \begin{figure}
   \centering
   \includegraphics[width=0.88\textwidth]{figures/chap03-experiment-dataset/CERN-Accelerator Complex.png}
-  \caption{CERN 加速器综合体示意图，展示从注入链到 LHC 环的各级加速器和主要实验装置。图中标注了 LHC（大型强子对撞机）、SPS（超级质子同步加速器）、PS（质子同步加速器）、LEIR（低能离子环）和 LINAC（直线加速器）等加速器系统，以及 ATLAS、CMS、ALICE 和 LHCb 四个主要 LHC 实验。质子、离子、中子、反质子、电子和中微子的束线路径亦在图中标注。}
+  \caption{CERN 加速器综合体示意图，展示从注入链到 LHC 环的各级加速器和主要实验装置。图中标注了 LHC（大型强子对撞机）、SPS（超级质子同步加速器）、PS（质子同步加速器）、LEIR（低能离子环）和 LINAC（直线加速器）等加速器系统，以及 ATLAS、CMS、ALICE 和 LHCb 四个主要 LHC 实验。质子、离子、中子、反质子、电子和中微子的束线路径亦在图中标注~\cite{CERN_LHC_POSTER_2017}。}
   \label{fig:chap03-cern-accelerator-complex}
 \end{figure}
 
@@ -23,7 +23,7 @@ LHC 的质子束被分为若干束团，标准束团间隔为 \SI{25}{\nano\seco
 \begin{figure}
   \centering
   \includegraphics[width=0.82\linewidth]{figures/chap03-experiment-dataset/peak_lumi_pp_run3.png}
-  \caption[LHC Run~3 期间提供给 CMS 的瞬时亮度]{LHC 在 Run~3 期间提供给 CMS 实验的瞬时亮度随时间的变化。图中展示了在稳定束流条件下，质子--质子对撞的瞬时亮度随日期的变化趋势。数据点代表每天提供的峰值亮度，单位为 $\SI{}{\hertz\per\micro\barn}$，即$\SI{e30}{\per\centi\meter\squared\per\second}$。\cite{CMS:LUMI-PUB}。}
+  \caption[LHC Run~3 期间提供给 CMS 的瞬时亮度]{LHC 在 Run~3 期间提供给 CMS 实验的瞬时亮度随时间的变化。图中展示了在稳定束流条件下，质子--质子对撞的瞬时亮度随日期的变化趋势。数据点代表每天提供的峰值亮度，单位为 $\SI{}{\hertz\per\micro\barn}$，即$\SI{e30}{\per\centi\meter\squared\per\second}$~\cite{CMS:LUMI-PUB}。}
   \label{fig:chap03-peak-lumi-run3}
 \end{figure}
 
@@ -53,8 +53,10 @@ CMS 使用如图\ref{fig:chap03-cms-coordinate}所示的右手坐标系。其原
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.72\textwidth]{figures/chap03-experiment-dataset/CMS-coordinate-system.png}
-  \caption[CMS 坐标系及基本运动学变量定义]{CMS 采用的右手直角坐标系及基本运动学变量定义。原点位于探测器中心的基准对撞点，$x$ 轴指向 LHC 环心，$y$ 轴竖直向上，$z$ 轴沿逆时针束流方向。方位角 $\phi$ 在 $x$--$y$ 横平面内从 $x$ 轴量起，极角 $\theta$ 从正 $z$ 轴量起。赝快度定义为 $\eta = -\ln[\tan(\theta/2)]$，横动量 $p_{\mathrm{T}}$ 为动量在横平面内的投影。图中标出了桶部（$|\eta| \lesssim 1.4$）和端盖区域的典型覆盖范围。~\cite{ascioti_2022_6fw3g-xj153}}
+  \resizebox{0.82\textwidth}{!}{%
+    \input{figures/chap03-experiment-dataset/cms-coordinate-system-west.tex}%
+  }
+  \caption[CMS 坐标系及基本运动学变量定义]{CMS 采用的右手直角坐标系及基本运动学变量定义。原点位于探测器中心的基准对撞点，$x$ 轴指向 LHC 环心，$y$ 轴竖直向上，$z$ 轴沿逆时针束流方向。方位角 $\phi$ 在 $x$--$y$ 横平面内从 $x$ 轴量起，极角 $\theta$ 从正 $z$ 轴量起；横动量$p_{\mathrm T}$为动量在横平面内的投影，赝快度$\eta$由极角定义。示意图采用CMS探测器西向视角，并标出LHC环心、ATLAS方向和汝拉山（Jura）方向~\cite{NeutelingsTikZCMSCoordinates}。}
   \label{fig:chap03-cms-coordinate}
 \end{figure}
 
@@ -67,7 +69,7 @@ Run~3 数据采集期间，CMS 内层径迹系统包含 2017 年安装的 Phase-
 
 硅微条探测器由约 15\,400 个硅模块组成，总有效面积约 \SI{200}{\meter\squared}，分为四个子系统：径迹探测器内桶（TIB，4 层）、径迹探测器外桶（TOB，6 层）、径迹探测器内盘（TID，每侧 3 个小盘，填补 TIB 与 TEC 之间的间隙）和径迹探测器端盖（TEC，每侧 9 个盘，延伸至 $|z| \approx \SI{280}{\centi\meter}$）。内部区域（TIB、TID、最内层 TEC 环）的传感器厚度为 \SI{320}{\micro\meter}，而外部区域（TOB、外层 TEC 环）的传感器厚度为 \SI{500}{\micro\meter}。
 
-硅微条模块在部分层中采用立体模块，以同时提供 $r$--$\phi$ 测量和三维空间信息。一个带电粒子穿过整个径迹探测器通常产生约 13--16 个空间点；在内部径迹接收度范围内，对 $p_{\mathrm{T}} > \SI{1}{\giga\eV}$ 的带电粒子径迹重建效率约为 95\%，误重建率低于百分之几~\cite{CMS_TDR_CH6_TRACKING}。
+硅微条模块在部分层中采用立体模块，以同时提供 $r$--$\phi$ 测量和三维空间信息。一个带电粒子穿过整个径迹探测器通常产生约 13--16 个空间点；在内部径迹接受度范围内，对 $p_{\mathrm{T}} > \SI{1}{\giga\eV}$ 的带电粒子径迹重建效率约为 95\%，误重建率低于百分之几~\cite{CMS_TDR_CH6_TRACKING}。
 
 % [PENDING]
 带电粒子的动量通过由这些击中点在 \SI{3.8}{\tesla} 磁场中形成的弯曲轨迹拟合得到。因此，径迹探测器为带电粒子动量测量、相互作用顶点重建和二级顶点定位提供基础输入。
@@ -102,7 +104,7 @@ Run~3 数据采集期间，CMS 内层径迹系统包含 2017 年安装的 Phase-
 \begin{figure}
   \centering
   \includegraphics[width=0.78\textwidth]{figures/chap03-experiment-dataset/CMS-MUO-16-001_Figure_001.png}
-  \caption[CMS 缪子探测器的 $R$--$z$ 截面象限图]{CMS 缪子探测器的 $R$--$z$ 截面象限图，束流轴（$z$）沿水平方向，半径（$R$）向上增加。对撞点位于左下角。深色区域为钢制磁通返回轭，标注了各类缪子站的位置：漂移管站（DT）标记为 MB（``Muon Barrel''），阴极条室（CSC）标记为 ME（``Muon Endcap''）。阻性板室（RPC）安装在 CMS 桶部和端盖中，分别标记为 RB 和 RE。~\cite{CMS_MUON_PERF_13TEV}}
+  \caption[CMS 缪子探测器的 $R$--$z$ 截面象限图]{CMS 缪子探测器的 $R$--$z$ 截面象限图，束流轴（$z$）沿水平方向，半径（$R$）向上增加。对撞点位于左下角。深色区域为钢制磁通返回轭，标注了各类缪子站的位置：漂移管站（DT）标记为 MB（``Muon Barrel''），阴极条室（CSC）标记为 ME（``Muon Endcap''）。阻性板室（RPC）安装在 CMS 桶部和端盖中，分别标记为 RB 和 RE~\cite{CMS_MUON_PERF_13TEV}。}
   \label{fig:chap03-muon-system}
 \end{figure}
 
@@ -231,7 +233,7 @@ LHC 束团交叉频率约为 \SI{40}{\mega\hertz}，对应于每秒约 $4\times1
 \section{模拟样本}
 
 % [PENDING]
-蒙特卡罗（Monte Carlo, MC）模拟样本用于估计几何接收度、触发和重建效率、选择效率以及相关系统误差。模拟链包含以下环节：硬散射事例产生、部分子簇射和强子化、探测器响应模拟、数字化与事例堆积混合、触发模拟，以及基于 CMSSW 的离线重建。粒子流重建在 CMS 事件描述中综合使用径迹、量能器和缪子系统信息~\cite{CMS_PF_RECO_JINST_2017}。各环节的关键配置如下。
+蒙特卡罗（Monte Carlo, MC）模拟样本用于估计几何接受度、触发和重建效率、选择效率以及相关系统误差。模拟链包含以下环节：硬散射事例产生、部分子簇射和强子化、探测器响应模拟、数字化与事例堆积混合、触发模拟，以及基于 CMSSW 的离线重建。粒子流重建在 CMS 事件描述中综合使用径迹、量能器和缪子系统信息~\cite{CMS_PF_RECO_JINST_2017}。各环节的关键配置如下。
 
 \subsection{信号过程与产生子配置}
 
@@ -246,31 +248,31 @@ $pp \to J/\psi + J/\psi + \phi + X$ 的产生机制包括单部分子散射（SP
     \toprule
     机制 & 标签 & \multicolumn{1}{c}{硬散射过程} & $\phi$ 来源 \\
     \midrule
-    \multirow{2}{*}{SPS} & SPS\_CS & $gg \to c\bar{c}(^{3}S_{1}^{[1]}) + c\bar{c}(^{3}S_{1}^{[1]})$（LO，色单态） & 反冲部分子发生簇射 \\
-                         & SPS\_G  & $gg \to c\bar{c}(^{3}S_{1}^{[1]}) + c\bar{c}(^{3}S_{1}^{[1]}) + g$（NLO*） & 末态胶子碎裂\\
+    \multirow{2}{*}{SPS} & \SPSLO  & $gg \to c\bar{c}(^{3}S_{1}^{[1]}) + c\bar{c}(^{3}S_{1}^{[1]})$（LO，色单态） & 反冲部分子发生簇射 \\
+                         & \SPSNLO & $gg \to c\bar{c}(^{3}S_{1}^{[1]}) + c\bar{c}(^{3}S_{1}^{[1]}) + g$（NLO*） & 末态胶子碎裂\\
     \midrule
-    \multirow{3}{*}{DPS} & DPS1    & $gg \to J/\psi+g \;\otimes\; gg \to J/\psi+g$ & 末态胶子碎裂 \\
-                         & DPS2\_CS& $gg \to J/\psi+J/\psi$（LO，色单态）$\;\otimes\; gg \to gg$ & \multirow{2}{*}{独立 $gg\to gg$ 簇射} \\
-                         & DPS2\_G & $gg \to J/\psi+J/\psi+g$（NLO*）$\;\otimes\; gg \to gg$ & \\
+    \multirow{3}{*}{DPS} & \DPSone    & $gg \to J/\psi+g \;\otimes\; gg \to J/\psi+g$ & 末态胶子碎裂 \\
+                         & \DPStwoLO  & $gg \to J/\psi+J/\psi$（LO，色单态）$\;\otimes\; gg \to gg$ & \multirow{2}{*}{独立 $gg\to gg$ 簇射} \\
+                         & \DPStwoNLO & $gg \to J/\psi+J/\psi+g$（NLO*）$\;\otimes\; gg \to gg$ & \\
     \midrule
     TPS & TPS & $gg \to J/\psi+g \;\otimes\; gg \to J/\psi+g \;\otimes\; gg \to gg$ & 独立 $gg\to gg$ 簇射 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-在 SPS 过程中，$\phi$ 介子不一定需要在矩阵元层面显式包含，也可由出台或末态辐射过程中反冲胶子碎裂得到，因此 SPS\_CS 与 SPS\_G 过程均被保留。在 DPS2 和 TPS 拓扑中，$\phi$ 介子由独立的 $gg \to gg$ 硬散射经部分子簇射和强子化产生。NLO* 阶（$\alpha_s^5$）实辐射修正对 $p_{\mathrm{T}}^{J/\psi} \gtrsim \SI{5}{\giga\eV}$ 区域的贡献不可忽略~\cite{Lansberg:2014swa,Likhoded:2016}，这正是本分析增加 SPS\_G 与 DPS2\_G 样本的物理动机。
+在 SPS 过程中，$\phi$ 介子不一定需要在矩阵元层面显式包含，也可由初态或末态辐射过程中反冲胶子碎裂得到，因此 \SPSLO 与 \SPSNLO 过程均被保留。在 DPS2 和 TPS 拓扑中，$\phi$ 介子由独立的 $gg \to gg$ 硬散射经部分子簇射和强子化产生。NLO* 阶（$\alpha_s^5$）实辐射修正对 $p_{\mathrm T}^{J/\psi} \gtrsim \SI{5}{\giga\eV}$ 区域的贡献不可忽略~\cite{Lansberg:2014swa,Likhoded:2016}，这正是本分析增加 \SPSNLO 与 \DPStwoNLO 样本的物理动机。
 
 硬散射事例使用 \texttt{Helac-Onia}~2.7.6~\cite{HS_SHAO_HO} 进行矩阵元计算并输出 \textsc{Les Houches} 事件文件（LHE）。采用 PHEGAS 蒙特卡洛积分器，部分子分布函数选用 CTEQ6M。色八重态长程矩阵元（LDME）取自邵华圣和张玉杰 $J/\psi+\Upsilon$ 联合产生分析的 Set~3~\cite{Shao:2016:JpsiUpsilon}。值得一提的是，尽管\texttt{Helac-Onia}本身能够给出$J/\psi$以及$J/\psi+J/\psi$过程的截面，但是鉴于下一小节将会介绍的$\phi$产生过程的模拟方法问题，以及在尝试生产NLO*样本时遇到的参数敏感性问题，各产生机制的相对贡献还将由后续截面测量以及模板拟合进行确定。
 
 \subsection{部分子簇射、强子化与 \texorpdfstring{\(\phi\)}{phi} 产生}
 
-本研究使用独立编译的 \textsc{Pythia}~8 进行部分子簇射和强子化的模拟~\cite{PYTHIA_8_2}，通过 \textsc{HepMC3} 接口输出事例记录。采用 CMS Run~3 对应的 CP5 微调参数（$\text{Tune:pp} = 14$），PDF 选用 NNPDF3.1 NNLO（$\alpha_{s}(M_{Z}) = 0.118$）。对于色八重态夸克偶素，设置 $\texttt{OniaShower:octetSplit} = 1$（允许色八重态通过辐射软胶子并演化至色单态）和 $\texttt{Onia:massSplit} = 0.2$，后者是色八重态经簇射演化至最终色中性夸克偶素束缚态的必要配置。$J/\psi$ 强制衰变到 $\mu^{+}\mu^{-}$ 对，$\phi$ 强制衰变到 $K^{+}K^{-}$ 对。
+本研究使用独立编译的 \textsc{Pythia}~8 进行部分子簇射和强子化的模拟~\cite{PYTHIA_8_2}，通过 \textsc{HepMC3} 接口输出事例记录。采用 CMS Run~3 对应的 CP5 微调参数（$\text{Tune:pp} = 14$），PDF 选用 NNPDF3.1 NNLO（$\alpha_{s}(M_{Z}) = 0.118$）。对于色八重态夸克偶素，设置 $\texttt{OniaShower:octetSplit} = 1$ 和 $\texttt{Onia:massSplit} = 0.2$：前者允许色八重态通过辐射软胶子演化至色单态，后者是色八重态经簇射演化至最终色中性夸克偶素束缚态的必要配置。$J/\psi$ 强制衰变到 $\mu^{+}\mu^{-}$ 对，$\phi$ 强制衰变到 $K^{+}K^{-}$ 对。
 
-目前尚无专门针对 $\phi$ 介子的矩阵元产生子能够在硬散射层面可靠地产生 $\phi$。因此，本分析中 $\phi$ 介子的产生未在矩阵元层面处理，而是通过 $gg \to gg$ 过程在部分子层次产生胶子对，再由 \textsc{Pythia}~8 的部分子簇射和强子化将末态胶子碎裂为 $\phi$ 介子。$\phi$ 介子通过软 QCD 过程大量产生，而在硬散射中产生率相对较低。为在模拟中获得足够的 $\phi$ 介子统计量，含 $\phi$ 的末态过程采用增强模式：关闭 \textsc{Pythia}~8 的多重部分子相互作用（MPI），在完成部分子层次计算后保存状态，通过循环调用 $\texttt{forceHadronLevel}$ 直至强子化末态中出现满足 $p_{\mathrm{T}} > \SI{3.0}{\giga\eV}$ 的 $\phi$ 介子。对于仅需识别 SPS 中 $\phi$ 产生来源的情形，关闭 MPI 后直接将标准 \textsc{Pythia}~8 簇射输出接至 $\phi$ 寻找，不启用增强循环，可提供无偏差的参照。$\phi$ 的 $p_T$ 谱在数据与 MC 之间存在一定差异（尤其 $p_T > \SI{10}{\giga\eV}$ 区域 MC 偏软），这是胶子碎裂模型固有的局限，将在系统误差中予以考虑。
+目前尚无专门针对 $\phi$ 介子的矩阵元产生子能够在硬散射层面可靠地产生 $\phi$。因此，本分析中 $\phi$ 介子的产生未在矩阵元层面处理，而是通过 $gg \to gg$ 过程在部分子层次产生胶子对，再由 \textsc{Pythia}~8 的部分子簇射和强子化将末态胶子碎裂为 $\phi$ 介子。$\phi$ 介子通过软 QCD 过程大量产生，而在硬散射中产生率相对较低。为在模拟中获得足够的 $\phi$ 介子统计量，含 $\phi$ 的末态过程采用增强模式：关闭 \textsc{Pythia}~8 的多重部分子相互作用（MPI），在完成部分子层次计算后保存状态，通过循环调用 $\texttt{forceHadronLevel}$ 直至强子化末态中出现满足 $p_{\mathrm{T}} > \SI{3.0}{\giga\eV}$ 的 $\phi$ 介子。对于仅需识别 SPS 中 $\phi$ 产生来源的情形，关闭 MPI 后直接将标准 \textsc{Pythia}~8 簇射输出接至 $\phi$ 寻找，不启用增强循环，可提供无偏差的参照。$\phi$ 的 $p_{\mathrm{T}}$ 谱在数据与 MC 之间存在一定差异（尤其 $p_{\mathrm{T}} > \SI{10}{\giga\eV}$ 区域 MC 偏软），这是胶子碎裂模型固有的局限，将在系统误差中予以考虑。
 
 \subsection{事例混合与 TPS 模拟}
 
-\textsc{Pythia}~8 无法原生处理三个独立硬散射过程的同时部分子簇射和强子化。标准的 \textsc{Pythia}~8 框架仅支持单次硬散射的簇射演化，而对于 DPS 或 TPS 中并发的多个硬散射，缺乏描述它们之间量子干涉、色关联和动量共享的完备模型。因此，本分析的 DPS 和 TPS 模拟未在 \textsc{Pythia}~8 中直接生成，而是采用事例混合方案：首先独立产生各个 SPS 事例并分别通过 \textsc{Pythia}~8 进行簇射和强子化，再根据 DPS 或 TPS 拓扑将对应个数的 \textsc{HepMC} 事例合并为一个复合事例。各输入文件按事件数对齐至最少者，合并后的事例再送入 \textsc{CMSSW} 进行探测器模拟和重建。
+\textsc{Pythia}~8 无法原生处理三个独立硬散射过程的同时部分子簇射和强子化：标准的 \textsc{Pythia}~8 框架仅支持至多两个子散射过程出现在同一次质子-质子硬散射中。因此，本分析的 DPS 和 TPS 模拟未在 \textsc{Pythia}~8 中直接生成，而是采用事例混合方案：首先独立产生各个 SPS 事例并分别通过 \textsc{Pythia}~8 进行簇射和强子化，再根据 DPS 或 TPS 拓扑将对应个数的 \textsc{HepMC} 事例合并为一个复合事例。各输入文件按事件数对齐至最少者，合并后的事例再送入 \textsc{CMSSW} 进行探测器模拟和重建。
 
 \subsection{探测器模拟与重建}
 
@@ -278,7 +280,7 @@ $pp \to J/\psi + J/\psi + \phi + X$ 的产生机制包括单部分子散射（SP
 
 \subsection{样本产生状态}
 
-各产生机制对应的 MC 样本（campaign）产生状态如下。已完成且具有足够统计量的样本包括：DPS1（$J/psi+g$ 和 $J/psi+g$，其中一个胶子碎裂产生$phi$）、DPS2\_CS（LO 阶 $J/\psi+J/\psi$ + $gg \to gg$，簇射产生 $\phi$）和 SPS\_CS（LO 阶 $J/\psi+J/\psi$ 色单态产生）。DPS2\_G（NLO* 阶，含额外胶子辐射）和 SPS\_G（NLO* 阶）样本已完成产生但统计量显著偏低：这是预期的，因为高阶硬散射过程涉及更复杂的矩阵元结构和更大的末态相空间，导致 \texttt{Helac-Onia} 积分收敛缓慢，单位计算时间的事例产额远低于对应的 LO 过程。TPS 样本（TPS）尚未完成产生。
+各产生机制对应的 MC 样本（campaign）产生状态如下。已完成且具有足够统计量的样本包括：\DPSone（$J/\psi+g$ 和 $J/\psi+g$，其中一个胶子碎裂产生$\phi$）、\DPStwoLO（LO 阶 $J/\psi+J/\psi$与$gg \to gg$的组合，簇射产生 $\phi$）和 \SPSLO（LO 阶 $J/\psi+J/\psi$ 色单态产生）。\DPStwoNLO 和 \SPSNLO 样本已完成产生但统计量显著偏低，据推测是因为较高阶硬散射过程涉及更复杂的矩阵元结构和更大的末态相空间，导致 \texttt{Helac-Onia} 积分收敛缓慢，单位计算时间的事例产额远低于对应的 LO 过程。TPS 样本尚未完成产生。
 
 \begin{figure}
   \centering
