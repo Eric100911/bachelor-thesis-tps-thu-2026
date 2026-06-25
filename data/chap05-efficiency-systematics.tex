@@ -271,7 +271,7 @@ A_{\phi}(\vec{x})
 \frac{N_{\vec{x}}\!\left(\phi\to K^+K^-;\ K^\pm\in\Omega_K\right)}
      {N_{\vec{x}}\!\left(\phi\to K^+K^-\right)}.
 \end{align}
-其中$\Omega_\mu$和$\Omega_K$分别由式~\eqref{eq:muon-fiducial}和式~\eqref{eq:kaon-fiducial}定义。接受度仅需生成子级别信息，因而使用生成子级别MC样本计算。上述写法沿用$J/\psi+\psi(2S)$分析中逐阶段定义接受度的方式，但运动学范围和衰变末态均采用本分析自身的定义。
+其中$\Omega_\mu$和$\Omega_K$分别由式~\eqref{eq:muon-fiducial}和式~\eqref{eq:kaon-fiducial}定义。接受度仅需生成子级别信息，因而使用生成子级别MC样本计算。
 
 一个$J/\psi J/\psi \phi$事例的总接受度近似为三个单对象接受度的乘积：
 \begin{equation}
@@ -380,27 +380,26 @@ p_{\mathrm T} \in \{6,10,15,20,30,50,100\}\;\SI{}{\giga\eV},
       \multicolumn{4}{c}{\textit{每个 $J/\psi$（对 leading 和 subleading 均适用）}} \\
       1a & $\epsilon_{\mu\mathrm{RECO}}$ & 两个子缪子均被重建并与生成子级缪子匹配 & $(p_{\mathrm T}^{J/\psi}, |y^{J/\psi}|)$ \\
       1b & $\epsilon_{\mu\mathrm{ID}}$   & 两个匹配的缪子均满足soft鉴别条件 & $(p_{\mathrm T}^{J/\psi}, |y^{J/\psi}|)$ \\
-      1c & $\epsilon_{\mu\mu}$          & 双缪子顶点拟合概率 $> 0.5\%$ 且不变质量在 $J/\psi$ 窗口内\tnote{a} & $(p_{\mathrm T}^{J/\psi}, |y^{J/\psi}|)$ \\
+      1c & $\epsilon_{\mu\mu}$          & 双缪子顶点拟合概率 $> 1\%$ 且不变质量在 $J/\psi$ 窗口内\tnote{a} & $(p_{\mathrm T}^{J/\psi}, |y^{J/\psi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{每个 $\phi$}} \\
       2a & $\epsilon_{K\mathrm{RECO}}$  & 两个$K^\pm$介子均被重建并与生成子级$K^\pm$介子匹配 & $(p_{\mathrm T}^{\phi}, |y^{\phi}|)$ \\
       2b & $\epsilon_{K\mathrm{ID}}$    & 两个匹配的径迹均满足径迹质量和$K^\pm$介子选择标准 & $(p_{\mathrm T}^{\phi}, |y^{\phi}|)$ \\
-      2c & $\epsilon_{KK}$              & 双$K^\pm$介子顶点拟合且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm T}^{\phi}, |y^{\phi}|)$ \\
+      2c & $\epsilon_{KK}$              & 双$K^\pm$介子顶点拟合概率 $>1\%$ 且不变质量在 $\phi$ 窗口内\tnote{a} & $(p_{\mathrm T}^{\phi}, |y^{\phi}|)$ \\
       \midrule
       \multicolumn{4}{c}{\textit{事例级别}} \\
-      3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配\tnote{b} & $(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2}, p_{\mathrm T}^{\phi})$ \\
-      4  & $\epsilon_{4\mu\mathrm{vtx}}$& 两个$J/\psi$候选形成有效的四缪子顶点 & $(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2})$ \\
+      3  & $\epsilon_{\mathrm{HLT}}$    & 事例通过HLT触发且触发对象与重建缪子匹配 & $(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2}, p_{\mathrm T}^{\phi})$ \\
+      4  & $\epsilon_{4\mu\mathrm{vtx}}$& 四条缪子的重建顶点索引有效且完全相同 & $(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2})$ \\
       5  & $\epsilon_{\mathrm{assocPV}}$& 四条缪子径迹和两条带电$K$介子径迹均关联到同一个重建初级顶点（\texttt{Pri\_assocPVPass}） & $(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2})$，按 $p_{\mathrm T}^{\phi}$ 分组 \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
-      \item [a] 质量窗口定义为 $J/\psi$：$\SIrange{2.95}{3.25}{\giga\eV}$，$\phi$：$\SIrange{1.01}{1.03}{\giga\eV}$。
-      \item [b] HLT触发效率原则上是事例级别的量，但在三维运动学分箱中进行评估，以考虑触发判决与介子横动量之间的残余关联。
+      \item [a] 质量窗口定义为 $J/\psi$：$\SIrange{2.9}{3.3}{\giga\eV}$，$\phi$：$\SIrange{0.99}{1.07}{\giga\eV}$。
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
-$J/\psi$和$\phi$的\DPSone 效率映射在$(p_{\mathrm T}, |y|)$平面中计算。正文仅展示合并较高横动量和较低横动量$J/\psi$样本的条件效率，如图~\ref{fig:eff-stacked-jpsi}所示；$\phi$的效率映射以及分别对应$J/\psi_1$和$J/\psi_2$的\DPSone 效率图详见附录~\ref{app:efficiency-plots}。缪子重建效率很高，且在大部分$(p_{\mathrm T}, |y|)$平面内近似平坦，在桶部--端盖过渡区略有下降。缪子鉴别效率同样平坦，反映了CMS缪子系统的成熟性能。包含顶点拟合和质量窗口要求的双缪子选择效率在整个基准区域内超过95\%。
+$J/\psi$和$\phi$的\DPSone 效率映射在$(p_{\mathrm T}, |y|)$平面中计算。在计算单个$J/\psi$的效率时，过程中产生的所有的$J/\psi$都被用于评定相关效率，如图~\ref{fig:eff-stacked-jpsi}所示；$\phi$的效率映射以及分别对应leading和subleading $J/\psi$的\DPSone 效率图详见附录~\ref{app:efficiency-plots}。缪子重建效率很高，且在大部分$(p_{\mathrm T}, |y|)$平面内近似平坦，在桶部--端盖过渡区略有下降。缪子鉴别效率同样平坦，反映了CMS缪子系统的成熟性能。包含顶点拟合和质量窗口要求的双缪子选择效率在整个基准区域内超过95\%。
 
 \begin{figure}[htbp]
   \centering
@@ -411,7 +410,7 @@ $J/\psi$和$\phi$的\DPSone 效率映射在$(p_{\mathrm T}, |y|)$平面中计算
   \label{fig:eff-stacked-jpsi}
 \end{figure}
 
-\DPSone 事例级效率如图~\ref{fig:eff-hlt}至~\ref{fig:eff-fourmu-vtx}所示。HLT效率在$(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2}, p_{\mathrm T}^{\phi})$三维空间中评估，并投影到$(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2})$平面上，图~\ref{fig:eff-hlt}展示了$p_{\mathrm T}(\phi) \in \SIrange{6}{10}{\giga\eV}$区间的代表性子图；完整的四个$\phi$横动量区间详见附录~\ref{app:efficiency-plots}。四缪子顶点步骤的中间效率如图~\ref{fig:eff-fourmu-vtx}所示。实际用于数据生产和最终事例选择的顶点关联标准为 \texttt{Pri\_assocPVPass}：构成两个$J/\psi$候选的四条缪子径迹和构成$\phi$候选的两条带电$K$介子径迹必须均关联到同一个重建初级顶点。本文将该条件对应的条件效率统一记为$\epsilon_{\mathrm{assocPV}}$。附录~\ref{app:efficiency-plots}所示的\texttt{Pri\_fitPass}和\texttt{Pri\_fitValid}分布属于数据生产链中的中间诊断量，不作为最终顶点关联标准的名称。
+\DPSone 事例级效率如图~\ref{fig:eff-hlt}至~\ref{fig:eff-fourmu-vtx}所示。HLT效率在$(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2}, p_{\mathrm T}^{\phi})$三维空间中评估，并投影到$(p_{\mathrm T}^{J/\psi_1}, p_{\mathrm T}^{J/\psi_2})$平面上；这里的下标1和2分别表示生成级leading和subleading $J/\psi$。图~\ref{fig:eff-hlt}展示了$p_{\mathrm T}(\phi) \in \SIrange{6}{10}{\giga\eV}$区间的代表性子图；完整的四个$\phi$横动量区间详见附录~\ref{app:efficiency-plots}。四缪子顶点步骤要求四条缪子的\texttt{muVertexId}相同，其条件效率如图~\ref{fig:eff-fourmu-vtx}所示。本文选择\texttt{Pri\_assocPVPass}作为效率修正链的顶点关联端点：构成两个$J/\psi$候选的四条缪子径迹和构成$\phi$候选的两条带电$K$介子径迹均关联到同一个重建初级顶点，并将对应条件效率记为$\epsilon_{\mathrm{assocPV}}$。将效率图应用于数据进行修正时，亦会按重建$p_{\mathrm T}$对两个$J/\psi$排序后使用leading/subleading坐标。
 
 \begin{figure}[htbp]
   \centering
@@ -457,19 +456,19 @@ $J/\psi$和$\phi$的\DPSone 效率映射在$(p_{\mathrm T}, |y|)$平面中计算
     步骤 & 条件效率 (\%) & 绝对效率 (\%) \\
     \midrule
     \multicolumn{3}{c}{\textit{Leading $J/\psi$}} \\
-    $\epsilon_{\mathrm{fiducial}}$（基准接受度）  & $38.3$ & $38.3$ \\
+    $\epsilon_{\mathrm{fiducial}}$（接受度）  & $38.3$ & $38.3$ \\
     $\epsilon_{\mu\mathrm{RECO}}$（缪子重建）       & $18.0$ & $6.91$ \\
     $\epsilon_{\mu\mathrm{ID}}$（缪子鉴别）         & $97.2$ & $6.72$ \\
     $\epsilon_{\mu\mu}$（双缪子选择）               & $96.3$ & $6.47$ \\
     \midrule
     \multicolumn{3}{c}{\textit{Subleading $J/\psi$}} \\
-    $\epsilon_{\mathrm{fiducial}}$（基准接受度）  & $19.7$ & $19.7$ \\
+    $\epsilon_{\mathrm{fiducial}}$（接受度）  & $19.7$ & $19.7$ \\
     $\epsilon_{\mu\mathrm{RECO}}$（缪子重建）       & $35.1$ & $6.93$ \\
     $\epsilon_{\mu\mathrm{ID}}$（缪子鉴别）         & $96.2$ & $6.66$ \\
     $\epsilon_{\mu\mu}$（双缪子选择）               & $95.8$ & $6.39$ \\
     \midrule
     \multicolumn{3}{c}{\textit{$\phi$ 介子}} \\
-    $\epsilon_{\mathrm{fiducial}}$（基准接受度）  & $51.3$ & $51.3$ \\
+    $\epsilon_{\mathrm{fiducial}}$（接受度）  & $51.3$ & $51.3$ \\
     $\epsilon_{K\mathrm{RECO}}$（$K^\pm$介子重建）         & $7.58$ & $3.89$ \\
     $\epsilon_{K\mathrm{ID}}$（$K^\pm$介子鉴别）           & $65.5$ & $2.55$ \\
     $\epsilon_{KK}$（双$K^\pm$介子选择）                   & $97.1$ & $2.47$ \\
@@ -528,7 +527,7 @@ w = \frac{1}{A_{\mathrm{tot}} \cdot \epsilon_{\mathrm{tot}}},
       \midrule
       信号产额 & $(1.563 \pm 0.143)\times10^3$ & $(9.35 \pm 1.94)\times10^4$ \\
       本底产额 & $4.7269\times10^4$ & $2.8598\times10^6$ \\
-      加权总事例数 & $4.8829\times10^4$ & $2.9533\times10^6$ \\
+      加权总事例数 & $4.8829 \times10^4$ & $2.9533\times10^6$ \\
       \bottomrule
     \end{tabular}
   \end{threeparttable}

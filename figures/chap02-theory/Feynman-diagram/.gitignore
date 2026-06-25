@@ -1,5 +1,13 @@
 build/
 __pycache__/
+/DPS-1.pdf
+/DPS-2.pdf
+/SPS.pdf
+/TPS.pdf
+/DPS-1-tikz.pdf
+/DPS-2-tikz.pdf
+/SPS-tikz.pdf
+/TPS-tikz.pdf
 *.aux
 *.ax1
 *.ax2
@@ -8,4 +16,3 @@ __pycache__/
 *.log
 *.synctex.gz
 texput.log
-
