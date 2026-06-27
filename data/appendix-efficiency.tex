@@ -5,7 +5,7 @@
 
 \section{单对象条件效率}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonRECO.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_muonID.png}
@@ -13,13 +13,21 @@
   \label{fig:app-eff-jpsi-lead}
 \end{figure}
 
-\begin{figure}[htbp]
+\clearpage
+
+\begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_lead_dimuon.png}
   \caption[]{较高横动量$J/\psi_1$的双缪子选择条件效率（续）。}
 \end{figure}
 
-\begin{figure}[htbp]
+\section{各子过程接受度对比}
+
+正文中接受度修正以\DPSone 子过程为基准。为评估接受度对输入子过程样本的敏感性，图~\ref{fig:app-acc-jpsi-subprocess}和图~\ref{fig:app-acc-phi-subprocess}分别给出了五种MC子过程的$J/\psi$和$\phi$基准接受度分布图。所有接受度映射均在与正文一致的$(p_{\mathrm T}, |y|)$分箱中计算，其中\DPSone（子图(a)）为基准接受度映射。
+
+\clearpage
+
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonRECO.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_jpsi_sublead_muonID.png}\\[2pt]
@@ -28,7 +36,7 @@
   \label{fig:app-eff-jpsi-sublead}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_phi_kaonRECO.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/object2d_absy_phi_kaonID.png}\\[2pt]
@@ -36,10 +44,6 @@
   \caption{$\phi$介子的条件效率（从上至下：介子重建、介子鉴别、双介子选择）。}
   \label{fig:app-eff-phi}
 \end{figure}
-
-\section{各子过程接受度对比}
-
-正文中接受度修正以\DPSone 子过程为基准。为评估接受度对输入子过程样本的敏感性，图~\ref{fig:app-acc-jpsi-subprocess}和图~\ref{fig:app-acc-phi-subprocess}分别给出了五种MC子过程的$J/\psi$和$\phi$基准接受度分布图。所有接受度映射均在与正文一致的$(p_{\mathrm T}, |y|)$分箱中计算，其中\DPSone（子图(a)）为基准接受度映射。
 
 \begin{figure}[p]
   \centering
@@ -73,66 +77,58 @@
   \caption[]{$\phi$ 基准接受度分布图（续）。}
 \end{figure}
 
+\clearpage
+
 \section{事例级效率}
 
 本分析最终采用的顶点关联标准为\texttt{Pri\_assocPVPass}，即构成两个$J/\psi$候选的四条缪子径迹和构成$\phi$候选的两条带电$K$介子径迹均关联到同一个重建初级顶点。以下\texttt{Pri\_fitPass}和\texttt{Pri\_fitValid}图保留为数据生产链的中间诊断结果，不应解释为最终事例选择标准。
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_0.0.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_1.0.png}
-  \caption{HLT触发效率作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间从上至下：\SIrange{4}{6}{\giga\eV}、\SIrange{6}{10}{\giga\eV}。}
+  \includegraphics[width=0.72\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_0.0.png}\\[1pt]
+  \includegraphics[width=0.72\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_1.0.png}\\[1pt]
+  \includegraphics[width=0.72\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_2.0.png}
+  \caption{HLT触发效率作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间从上至下：\SIrange{4}{6}{\giga\eV}、\SIrange{6}{10}{\giga\eV}、\SIrange{10}{20}{\giga\eV}。}
   \label{fig:app-eff-hlt}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_2.0.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_3.0.png}
-  \caption[]{HLT触发效率在$p_{\mathrm T}(\phi)$高区间的分布图（从上至下：\SIrange{10}{20}{\giga\eV}、\SIrange{20}{50}{\giga\eV}，续）。}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_hlt_event_phiPt_3.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_0.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_1.0.png}
-  \caption{四缪子顶点效率作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \caption{HLT触发效率与四缪子顶点效率的补充分布图。自上而下：HLT触发效率在$\SIrange{20}{50}{\giga\eV}$的$p_{\mathrm T}(\phi)$区间；四缪子顶点效率在$\SIrange{4}{6}{\giga\eV}$和$\SIrange{6}{10}{\giga\eV}$的$p_{\mathrm T}(\phi)$区间。}
   \label{fig:app-eff-fourmu-vtx}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_2.0.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_3.0.png}
-  \caption[]{四缪子顶点效率在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_0.0.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_1.0.png}
-  \caption{数据生产链中\texttt{Pri\_fitPass}中间诊断量的条件效率，作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_four_muon_vtx_phiPt_3.0.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_0.0.png}
+  \caption{四缪子顶点效率和\texttt{Pri\_fitPass}中间诊断量的补充分布图。自上而下：四缪子顶点效率在$\SIrange{10}{20}{\giga\eV}$和$\SIrange{20}{50}{\giga\eV}$的$p_{\mathrm T}(\phi)$区间；\texttt{Pri\_fitPass}在$\SIrange{4}{6}{\giga\eV}$的$p_{\mathrm T}(\phi)$区间。}
   \label{fig:app-eff-pri-fitpass}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_1.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitPass_phiPt_3.0.png}
-  \caption[]{\texttt{Pri\_fitPass}中间诊断量在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
+  \caption[]{\texttt{Pri\_fitPass}中间诊断量在其余$p_{\mathrm T}(\phi)$区间的分布图（从上至下：\SIrange{6}{10}{\giga\eV}、\SIrange{10}{20}{\giga\eV}、\SIrange{20}{50}{\giga\eV}，续）。}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_0.0.png}\\[2pt]
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_1.0.png}
-  \caption{数据生产链中\texttt{Pri\_fitValid}中间诊断量的条件效率，作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间分组，前两个区间同图~\ref{fig:app-eff-hlt}。}
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_1.0.png}\\[2pt]
+  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_2.0.png}
+  \caption{数据生产链中\texttt{Pri\_fitValid}中间诊断量的条件效率，作为$p_{\mathrm T}(J/\psi_1)$和$p_{\mathrm T}(J/\psi_2)$的函数，按$p_{\mathrm T}(\phi)$区间从上至下：\SIrange{4}{6}{\giga\eV}、\SIrange{6}{10}{\giga\eV}、\SIrange{10}{20}{\giga\eV}。}
   \label{fig:app-eff-pri-fitvalid}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_2.0.png}\\[2pt]
   \includegraphics[width=0.85\textwidth]{figures/appendix-efficiency/corr3d_Pri_fitValid_phiPt_3.0.png}
-  \caption[]{\texttt{Pri\_fitValid}中间诊断量在$p_{\mathrm T}(\phi)$高区间的分布图（续）。}
+  \caption[]{\texttt{Pri\_fitValid}中间诊断量在$p_{\mathrm T}(\phi)=\SIrange{20}{50}{\giga\eV}$区间的分布图（续）。}
 \end{figure}
